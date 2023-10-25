@@ -23,6 +23,13 @@ public class OptionsManager : MonoBehaviour
 
     private void Start()
     {
+        // disable video settings if using incompatable platforms
+#if UNITY_IOS || UNITY_ANDROID || UNITY_WEBGL
+        resolutionDropdown.transform.parent.gameObject.SetActive(false);
+        windowModeDropdown.transform.parent.gameObject.SetActive(false);
+
+#else // setup and sync video settings
+
         // figure out allowed resolutions and convert to strings
         resolutions = GetResolutions();
         List<string> resolutionTexts = new List<string>();
@@ -37,6 +44,7 @@ public class OptionsManager : MonoBehaviour
         // set video dropdowns to screen settings
         resolutionDropdown.value = GetCurrentResolutionIndex();
         windowModeDropdown.value = (int)Screen.fullScreenMode - 1;
+#endif
 
         // load sound values from playerprefs
         mixer.SetFloat("Master", PlayerPrefs.GetFloat("MASTER_VOLUME", 0));
