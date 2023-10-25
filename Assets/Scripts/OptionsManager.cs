@@ -23,36 +23,35 @@ public class OptionsManager : MonoBehaviour
 
     private void Start()
     {
-        // fill up allowed resolutions
+        // figure out allowed resolutions and convert to strings
         resolutions = GetResolutions();
         List<string> resolutionTexts = new List<string>();
 
         for (int i = 0; i < resolutions.Length - 1; i++)
             resolutionTexts.Add(resolutions[i].width + "x" + resolutions[i].height);
 
+        // add resolution options to dropbox
         resolutionDropdown.ClearOptions();
         resolutionDropdown.AddOptions(resolutionTexts);
 
-        // set gui to show current settings used
-
-        // general settings
+        // set video dropdowns to screen settings
         resolutionDropdown.value = GetCurrentResolutionIndex();
         windowModeDropdown.value = (int)Screen.fullScreenMode - 1;
 
-        // load sound values
-        mixer.SetFloat("Master", PlayerPrefs.GetFloat("MASTER_VOLUME"));
-        mixer.SetFloat("Music", PlayerPrefs.GetFloat("MUSIC_VOLUME"));
-        mixer.SetFloat("SFX", PlayerPrefs.GetFloat("SFX_VOLUME"));
+        // load sound values from playerprefs
+        mixer.SetFloat("Master", PlayerPrefs.GetFloat("MASTER_VOLUME", 0));
+        mixer.SetFloat("Music", PlayerPrefs.GetFloat("MUSIC_VOLUME", 0));
+        mixer.SetFloat("SFX", PlayerPrefs.GetFloat("SFX_VOLUME", 0));
 
-        // audio settings
+        // set audio sliders to audio values
         mixer.GetFloat("Master", out var volume);
-        generalSlider.value = AudioToSlider(volume);
+        generalSlider.value = volume;
 
         mixer.GetFloat("Music", out volume);
-        musicSlider.value = AudioToSlider(volume);
+        musicSlider.value = volume;
 
         mixer.GetFloat("SFX", out volume);
-        sfxSlider.value = AudioToSlider(volume);
+        sfxSlider.value = volume;
     }
 
     #region General
@@ -70,7 +69,7 @@ public class OptionsManager : MonoBehaviour
         res.Add(Screen.resolutions[0]);
         return res.ToArray();
     }
-    private int GetCurrentResolutionIndex()
+    private int GetCurrentResolutionIndex() // find what resolution were at from playerprefs
     {
         for (int i = 0; i < resolutions.Length; i++)
         {
@@ -100,42 +99,19 @@ public class OptionsManager : MonoBehaviour
     #region Audio
     public void OnChangeMaster(float value)
     {
-        float audio = SliderToAudio(value);
-        PlayerPrefs.SetFloat("MASTER_VOLUME", audio);
-        mixer.SetFloat("Master", audio);
+        PlayerPrefs.SetFloat("MASTER_VOLUME", value);
+        mixer.SetFloat("Master", value);
 
     }
     public void OnChangeMusic(float value)
     {
-        float audio = SliderToAudio(value);
-        PlayerPrefs.SetFloat("MUSIC_VOLUME", audio);
-        mixer.SetFloat("Music", audio);
+        PlayerPrefs.SetFloat("MUSIC_VOLUME", value);
+        mixer.SetFloat("Music", value);
     }
     public void OnChangeSFX(float value)
     {
-        float audio = SliderToAudio(value);
-        PlayerPrefs.SetFloat("SFX_VOLUME", audio);
-        mixer.SetFloat("SFX", audio);
-    }
-
-    private static float SliderToAudio(float value)
-    {
-        if (value == 0)
-        {
-            return -80;
-        }
-        else
-        {
-            return Mathf.Log10(value) * 20;
-        }
-    }
-
-    private static float AudioToSlider(float value)
-    {
-        if (Math.Abs(value - (-80)) < 0.3f)
-            return 0;
-
-        return (float)Math.Pow(10, value / 20f);
+        PlayerPrefs.SetFloat("SFX_VOLUME", value);
+        mixer.SetFloat("SFX", value);
     }
     #endregion
 }
