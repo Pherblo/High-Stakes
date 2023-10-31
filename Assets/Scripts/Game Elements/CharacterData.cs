@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Card Event", menuName = "Cards/Card Event")]
+[CreateAssetMenu(fileName = "New Character", menuName = "Character")]
 public class CharacterData : ScriptableObject
 {
     [SerializeField] private string _name;

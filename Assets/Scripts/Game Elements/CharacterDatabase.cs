@@ -21,6 +21,14 @@ public class CharacterDatabase : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        foreach (var thing in _characterDatabase)
+        {
+            print(thing.Value.Data.name);
+        }
+    }
+
     public void ChangeCharacterState(CharacterData data, bool isAlive)
     {
         CharacterInstance selectedCharacter = _characterDatabase[data];
