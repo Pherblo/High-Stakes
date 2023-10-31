@@ -7,11 +7,13 @@ public class CharacterDatabase : MonoBehaviour
 {
     public Action<CharacterInstance> OnCharacterStateChanged;
 
+    [SerializeField] private string _resourcePath;
+
     private Dictionary<CharacterData, CharacterInstance> _characterDatabase = new();
 
     private void Awake()
     {
-        CharacterData[] characters = Resources.LoadAll<CharacterData>("Characters");
+        CharacterData[] characters = Resources.LoadAll<CharacterData>(_resourcePath);
         foreach (CharacterData character in characters)
         {
             CharacterInstance newInstance = new CharacterInstance(character);

@@ -12,7 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa8740551ebe6184eb914bebb0fafe14, type: 3}
   m_Name: CardEvent Test
   m_EditorClassIdentifier: 
+  _associatedCharacter: {fileID: 0}
   _description: Bob's cat is sick.
-  _dialogues:
-  - _description: Cure Bob's cat.
-  - _description: Kill Bob's cat.
+  _guaranteedCard: 0
+  _dialogueA:
+    _dialogueIsActive: 1
+    _dialogueOption: 
+  _dialogueB:
+    _dialogueIsActive: 0
+    _dialogueOption: 
