@@ -1,18 +1,28 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class CharacterDatabase : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public Action<CharacterInstance> OnCharacterStateChanged;
+
+    private Dictionary<CharacterData, CharacterInstance> _characterDatabase = new();
+
+    private void Awake()
     {
-        
+        CharacterData[] characters = Resources.LoadAll<CharacterData>("Characters");
+        foreach (CharacterData character in characters)
+        {
+            CharacterInstance newInstance = new CharacterInstance(character);
+            _characterDatabase.Add(character, newInstance);
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    public void ChangeCharacterState(CharacterData data, bool isAlive)
     {
-        
+        CharacterInstance selectedCharacter = _characterDatabase[data];
+        selectedCharacter.ChangeState(isAlive);
+        OnCharacterStateChanged?.Invoke(selectedCharacter);
     }
 }

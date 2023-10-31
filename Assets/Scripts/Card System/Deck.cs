@@ -15,7 +15,7 @@ public class Deck : MonoBehaviour
     {
         int randomIndex = Random.Range(0, _availableCards.Count);
         CardEvent selectedCard = _availableCards[randomIndex];
-        selectedCard.OnDialogueSelected.AddListener(ProcessCard);
+        selectedCard.OnDialogueSelected += ProcessCard;
     }
 
     private void ProcessCard(CardEvent card)

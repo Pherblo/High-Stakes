@@ -7,7 +7,7 @@ using UnityEngine.Events;
 [CreateAssetMenu(fileName = "New Card Event", menuName = "Cards/Card Event")]
 public class CardEvent : ScriptableObject
 {
-    public UnityEvent<CardEvent> OnDialogueSelected;
+    public Action<CardEvent> OnDialogueSelected;
 
     [Header("Card Settings")]
     [SerializeField] private CharacterData _associatedCharacter;
@@ -28,7 +28,7 @@ public class CardEvent : ScriptableObject
     {
         if (dialogueChosen == 0) _chosenDialogue = _dialogueA;
         else _chosenDialogue = _dialogueB;
-        OnCardDialogueDeselected?.Invoke(this);
+        OnDialogueSelected?.Invoke(this);
     }
 
     public bool CheckRequirements()
