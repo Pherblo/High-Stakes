@@ -7,6 +7,7 @@ using UnityEngine.UIElements;
 [Serializable]
 public class CardDialogue
 {
+    [SerializeField] private bool _dialogueIsActive = true;
     [SerializeField] private string _dialogueOption;
 
     public string Description => _dialogueOption;
