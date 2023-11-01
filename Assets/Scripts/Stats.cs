@@ -1,27 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Stats : MonoBehaviour
 {
     // Start is called before the first frame update
-    private int _currentValue;
-    private int _maxValue;
-    public GameObject statDisplay;
+    private float _currentValue = 50;
+    private float _maxValue = 100;
+    public Image StatDisplay;
 
     void Start()
     {
-        
+        updateDisplay();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        updateDisplay();
     }
 
     //returns the current value of stat
-    public int getValue()
+    public float getValue()
     {
         return _currentValue;
     }
@@ -32,6 +33,7 @@ public class Stats : MonoBehaviour
         _currentValue += change; 
     }
 
+    //method that returns a bool of true when _currentVaue is greater than/or equal to _maxValue or less than/or equal to 0, otherwise returns false
     public bool triggerDeath()
     {
         if(_currentValue >= _maxValue)
@@ -46,11 +48,9 @@ public class Stats : MonoBehaviour
         }
     }
 
+    //updates image fill amount to match current value.
     private void updateDisplay()
     {
-        if(statDisplay.GetComponent<SpriteRenderer>() != null)
-        {
-            
-        }
+        StatDisplay.fillAmount = _currentValue/100;
     }
 }
