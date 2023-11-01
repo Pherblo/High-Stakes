@@ -4,8 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-[Serializable]
-public class CardDialogue
+public class CardDialogue : MonoBehaviour
 {
     [SerializeField] private bool _dialogueIsActive = true;
     [SerializeField] private string _dialogueOption;

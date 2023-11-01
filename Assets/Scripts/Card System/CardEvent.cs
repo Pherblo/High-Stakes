@@ -4,36 +4,46 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-[CreateAssetMenu(fileName = "New Card Event", menuName = "Cards/Card Event")]
-public class CardEvent : ScriptableObject
+// Is on a card prefab
+public class CardEvent : MonoBehaviour
 {
-    public Action<CardEvent> OnDialogueSelected;
+	public Action<CardEvent> OnDialogueSelected;
 
-    [Header("Card Settings")]
-    [SerializeField] private CharacterData _associatedCharacter;
-    [SerializeField] private string _description;
-    [SerializeField] private bool _guaranteedCard = false;      // If true, this card will be played next once requirements are met.
-    // Card requirements go here.
-    [Header("Dialogues")]
-    [SerializeField] private CardDialogue _dialogueA;
-    [SerializeField] private CardDialogue _dialogueB;
 
-    private CardDialogue _chosenDialogue = null;
+	[Header("Card Settings")]
+	[SerializeField] private CharacterData _associatedCharacter;
+	[SerializeField] private string _description;
+	[SerializeField] private bool _guaranteedCard = false;      // If true, this card will be played next once requirements are met.
+	// Card requirements go here.
+	[Header("Dialogues")]
+	[SerializeField] private CardDialogue _dialogueA;
+	[SerializeField] private CardDialogue _dialogueB;
+	[Header("Deck")]
+	[SerializeField] private Deck _deck;
+	public bool GuaranteedCard => _guaranteedCard;
 
-    public CardDialogue ChosenDialogue => _chosenDialogue;
-    public bool GuaranteedCard => _guaranteedCard;
+	// Called by player input via GUI.
+	public void ChooseDialogue(SelectedDialogue option)
+	{
+		if(option == SelectedDialogue.dialogueA)
+		{
+			_deck.selectedDialogues.Add(_dialogueA);
+        }
+		else if(option == SelectedDialogue.dialogueB)
+		{
+			_deck.selectedDialogues.Add(_dialogueB);
+		}
+	}
 
-    // Called by player input via GUI.
-    public void ChooseDialogue(int dialogueChosen)
-    {
-        if (dialogueChosen == 0) _chosenDialogue = _dialogueA;
-        else _chosenDialogue = _dialogueB;
-        OnDialogueSelected?.Invoke(this);
-    }
+	public bool CheckRequirements()
+	{
+		// TODO: IMPLEMENT FUNCTIONALITY.
+		return true;
+	}
+}
 
-    public bool CheckRequirements()
-    {
-        // TODO: IMPLEMENT FUNCTIONALITY.
-        return true;
-    }
+public enum SelectedDialogue
+{
+    dialogueA,
+	dialogueB
 }
