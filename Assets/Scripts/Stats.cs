@@ -1,24 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class Stats : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [Header("Stat values: ")]
     private float _currentValue = 50;
     private float _maxValue = 100;
+
+    [Header("Display settings: ")]
     public Image StatDisplay;
+    public UnityEvent StatChange;
 
     void Start()
     {
-        updateDisplay();
+        updateDisplay(); //set the display to show current value
     }
 
-    // Update is called once per frame
     void Update()
     {
-        updateDisplay();
+        updateDisplay(); //update every frame to display current value
     }
 
     //returns the current value of stat
@@ -30,7 +33,8 @@ public class Stats : MonoBehaviour
     //takes a change value and adds it to current value, values should be entered as negative or positive.
     public void changeValue(int change)
     {
-        _currentValue += change; 
+        _currentValue += change;
+        StatChange.Invoke();
     }
 
     //method that returns a bool of true when _currentVaue is greater than/or equal to _maxValue or less than/or equal to 0, otherwise returns false
