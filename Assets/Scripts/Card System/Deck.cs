@@ -11,7 +11,8 @@ public class Deck : MonoBehaviour
 
     private List<CardEvent> _availableCards = new();
     private List<CardEvent> _lockedCards = new();
-    private List<CardEvent> _completedCards = new();
+
+    public List<CardDialogue> selectedDialogues = new();
 
     public void InitializeDeck()
     {
@@ -40,7 +41,7 @@ public class Deck : MonoBehaviour
         }
 
         _availableCards.Remove(card);
-        _completedCards.Add(card);
+        //_completedCards.Add(card);
         OnCardSelected?.Invoke(card);
     }
 }
