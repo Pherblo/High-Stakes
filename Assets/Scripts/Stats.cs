@@ -5,8 +5,8 @@ using UnityEngine;
 public class Stats : MonoBehaviour
 {
     // Start is called before the first frame update
-    private int currentValue;
-    private int maxValue;
+    private int _currentValue;
+    private int _maxValue;
     public GameObject statDisplay;
 
     void Start()
@@ -23,21 +23,21 @@ public class Stats : MonoBehaviour
     //returns the current value of stat
     public int getValue()
     {
-        return currentValue;
+        return _currentValue;
     }
 
     //takes a change value and adds it to current value, values should be entered as negative or positive.
     public void changeValue(int change)
     {
-        currentValue += change; 
+        _currentValue += change; 
     }
 
     public bool triggerDeath()
     {
-        if(currentValue >= maxValue)
+        if(_currentValue >= _maxValue)
         {
             return true;
-        } else if (currentValue <= 0)
+        } else if (_currentValue <= 0)
         {
             return true;
         } else
@@ -48,6 +48,9 @@ public class Stats : MonoBehaviour
 
     private void updateDisplay()
     {
-
+        if(statDisplay.GetComponent<SpriteRenderer>() != null)
+        {
+            
+        }
     }
 }
