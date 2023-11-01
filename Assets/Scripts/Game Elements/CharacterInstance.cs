@@ -10,6 +10,11 @@ public class CharacterInstance
     public CharacterData Data => _data;
     public bool IsAlive => _isAlive;
 
+    public bool GetAliveState()
+    {
+        return _isAlive;
+    }
+
     public CharacterInstance(CharacterData newData)
     {
         _data = newData;
