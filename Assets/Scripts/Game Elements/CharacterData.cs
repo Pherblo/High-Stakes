@@ -1,7 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class CharacterData : MonoBehaviour
@@ -11,7 +9,8 @@ public class CharacterData : MonoBehaviour
     [SerializeField] private bool _isAlive = true;
     [Header("Character Cards")]
     [SerializeField] private List<CardEvent> _cardEvents = new();
-    // Probably art assets here too.
+
+    // Probably art asset fields here too.
 
     public string Name => _name;
     public bool IsAlive => _isAlive;
@@ -29,6 +28,7 @@ public class CharacterData : MonoBehaviour
             else return 1;
         });
 
+        // Return the first available card, else return nothing.
         foreach (CardEvent card in newArray)
         {
             if (card.CheckRequirements()) return card;
