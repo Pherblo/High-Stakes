@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [Serializable]
-public class CardRequirement : MonoBehaviour
+public class CardCondition : MonoBehaviour
 {
     [SerializeField] private CardEvent _cardCondition;
     [SerializeField] private SelectedChoice _choiceCondition = 0;
