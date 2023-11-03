@@ -23,6 +23,7 @@ public class Deck : MonoBehaviour
     {
         // Load all the cards.
         _characters = _database.Characters.ToList();
+        // Sort characters
         foreach (CharacterData character in _characters)
         {
             if (character.IsAlive)
@@ -61,5 +62,17 @@ public class Deck : MonoBehaviour
         */
         //_completedCards.Add(card);
         OnCardSelected?.Invoke(card);
+    }
+
+    [ContextMenu("Shuffle Test")]
+    private void ShuffleDeck()
+    {
+        // Shuffle card events.
+        _aliveCharacters.Sort(delegate (CharacterData x, CharacterData y)
+        {
+            int randomInt = Random.Range(0, 2);
+            if (randomInt == 0) return -1;
+            else return 1;
+        });
     }
 }
