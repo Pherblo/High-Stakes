@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4977459945738838285}
   - component: {fileID: 1095002341841383241}
+  - component: {fileID: -3926049554657968182}
   m_Layer: 0
   m_Name: Character Test 0
   m_TagString: Untagged
@@ -47,3 +48,22 @@ MonoBehaviour:
   _name: 
   _isAlive: 1
   _cardEvents: []
+--- !u!114 &-3926049554657968182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1910526153145392603}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa8740551ebe6184eb914bebb0fafe14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _associatedCharacter: {fileID: 0}
+  _description: 
+  _guaranteedCard: 0
+  _dialogueA: {fileID: 0}
+  _dialogueB: {fileID: 0}
+  _deck: {fileID: 0}
+  dialogueRequirements: []

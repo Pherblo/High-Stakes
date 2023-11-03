@@ -61,7 +61,10 @@ public class Deck : MonoBehaviour
 
     private void ProcessCard(CardEvent card)
     {
+        // Modify characters' alive/dead states if needed.
+        // Store chosen dialogue.
         card.OnDialogueSelected = null;
+
         /*
         // Add cards from _lockedCards into _availableCards if requirements are met.
         foreach(CardEvent lockedCard in _lockedCards)
@@ -76,7 +79,6 @@ public class Deck : MonoBehaviour
         _availableCards.Remove(card);
         */
         //_completedCards.Add(card);
-        OnCardPicked?.Invoke(card);
     }
 
     [ContextMenu("Shuffle Test")]
