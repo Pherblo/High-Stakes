@@ -4,10 +4,10 @@ using UnityEngine;
 using UnityEngine.Events;
 
 // Enum list of options for selected dialogues
-public enum SelectedDialogue
+public enum SelectedChoice
 {
-    dialogueA, // 0
-    dialogueB  // 1
+    ChoiceA = 0,
+    ChoiceB = 1
 }
 
 // Is on a card prefab
@@ -34,14 +34,14 @@ public class CardEvent : MonoBehaviour
     public void ChooseDialogue(int optionInt)
 	{
 		// Maps int to a SelectedDialogue
-        SelectedDialogue option = (SelectedDialogue)optionInt;
+        SelectedChoice option = (SelectedChoice)optionInt;
 
 		// Add corresponding selected dialogue to deck selected dialogue list
-		if(option == SelectedDialogue.dialogueA)
+		if(option == SelectedChoice.ChoiceA)
 		{
 			_deck.selectedDialogues.Add(_dialogueA);
         }
-		else if(option == SelectedDialogue.dialogueB)
+		else if(option == SelectedChoice.ChoiceB)
 		{
 			_deck.selectedDialogues.Add(_dialogueB);
 		}
