@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class CharacterData : MonoBehaviour
 {
@@ -21,12 +22,8 @@ public class CharacterData : MonoBehaviour
         var newArray = _cardEvents;
 
         // Shuffle card events.
-        _cardEvents.Sort(delegate (CardEvent x, CardEvent y)
-        {
-            int randomInt = Random.Range(0, 2);
-            if (randomInt == 0) return -1;
-            else return 1;
-        });
+        System.Random rng = new System.Random();
+        _cardEvents = _cardEvents.OrderBy((x) => rng.Next()).ToList();
 
         // Return the first available card, else return nothing.
         foreach (CardEvent card in newArray)
