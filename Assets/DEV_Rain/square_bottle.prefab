@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4083850627360543694}
   - component: {fileID: 1180192451218796579}
   - component: {fileID: 5983042955433458386}
+  - component: {fileID: 8271384058290936782}
   m_Layer: 0
   m_Name: square_bottle
   m_TagString: Untagged
@@ -116,10 +117,34 @@ MonoBehaviour:
   - {x: -0.6656261, y: -2.00592, z: 0}
   m_ShapePathHash: -1643154909
   m_Mesh: {fileID: 0}
-  m_InstanceId: -3722
+  m_InstanceId: -981276
   m_LocalBounds:
     m_Center: {x: -0.027761221, y: -1.5366552, z: 0}
     m_Extent: {x: 1.2922635, y: 0.4692648, z: 0}
+--- !u!114 &8271384058290936782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 898299361306092516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c34539c21f42aac40bd2c0c76232496a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minY: 0.8
+  maxY: 2.8
+  dangerThreshold: 75
+  potionMask: {fileID: 2335875084219173677}
+  bubblePassive: {fileID: 2845510111934485583}
+  bubbleBoil: {fileID: 8885546409693507377}
+  bubbleBurst: {fileID: 6325624698123597895}
+  overflow: {fileID: 9115821708199581036}
+  shatter: {fileID: 3765494616743506871}
+  OnDeath:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1346472377636076926
 GameObject:
   m_ObjectHideFlags: 0
