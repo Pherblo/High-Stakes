@@ -6,7 +6,7 @@ using UnityEngine.Events;
 
 public class Deck : MonoBehaviour
 {
-    public UnityEvent<CardEvent> OnCardSelected;
+    public UnityEvent<CardEvent> OnCardPicked;
 
     [Header("References")]
     [SerializeField] private CharacterDatabase _database;
@@ -39,9 +39,24 @@ public class Deck : MonoBehaviour
 
     public void PickCard()
     {
+        /*
         int randomIndex = Random.Range(0, _aliveCharacters.Count);
         CardEvent selectedCard = _aliveCharacters[randomIndex].GetCard();
-        selectedCard.OnDialogueSelected += ProcessCard;
+        selectedCard.OnDialogueSelected += ProcessCard;*/
+
+        ShuffleDeck();
+        CardEvent selectedCard = null;
+        foreach (CharacterData character in _aliveCharacters)
+        {
+            selectedCard = character.GetCard();
+            if (selectedCard)
+            {
+                OnCardPicked?.Invoke(selectedCard);
+                break;
+            }
+        }
+
+        // Do something if no valid card is returned (ran out of cards).
     }
 
     private void ProcessCard(CardEvent card)
@@ -61,13 +76,12 @@ public class Deck : MonoBehaviour
         _availableCards.Remove(card);
         */
         //_completedCards.Add(card);
-        OnCardSelected?.Invoke(card);
+        OnCardPicked?.Invoke(card);
     }
 
     [ContextMenu("Shuffle Test")]
     private void ShuffleDeck()
     {
-        // Shuffle card events.
         System.Random rng = new System.Random();
         _aliveCharacters = _aliveCharacters.OrderBy((x) => rng.Next()).ToList();
     }
