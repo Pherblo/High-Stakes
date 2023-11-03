@@ -4,15 +4,27 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [Serializable]
-public class CardCondition : MonoBehaviour
+public class CardCondition
 {
     [SerializeField] private CardEvent _cardCondition;
     [SerializeField] private SelectedChoice _choiceCondition = 0;
 
-    public bool CheckCondition(List<CardEvent> cards)
+    public bool CheckCondition(List<CardDialogue> selectedChoices)
     {
-        CardEvent cardRequirement = cards.Find((x) => x == _cardCondition);
-        if (cardRequirement != null && cardRequirement.PickedChoice == _choiceCondition) return true;
+        // Get the required choice.
+        CardDialogue choiceCondition;
+        if (_choiceCondition == SelectedChoice.ChoiceA)
+        {
+            choiceCondition = _cardCondition.DialogueA;
+        }
+        else
+        {
+            choiceCondition = _cardCondition.DialogueB;
+        }
+
+        // Check if the required choice was previously chosen.
+        bool hasSelectedChoice = selectedChoices.Exists((x) => x == choiceCondition);
+        if (hasSelectedChoice) return true;
         return false;
     }
 }
