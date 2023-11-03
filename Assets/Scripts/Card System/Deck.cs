@@ -71,8 +71,16 @@ public class Deck : MonoBehaviour
         _aliveCharacters.Sort(delegate (CharacterData x, CharacterData y)
         {
             int randomInt = Random.Range(0, 2);
-            if (randomInt == 0) return -1;
-            else return 1;
+            if (randomInt == 0)
+            {
+                print("sort -1");
+                return -1;
+            }
+            else
+            {
+                print("sort 1");
+                return 1;
+            }
         });
     }
 }
