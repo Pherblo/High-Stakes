@@ -5,34 +5,23 @@ using UnityEngine;
 
 public class CharacterDatabase : MonoBehaviour
 {
-    public Action<CharacterInstance> OnCharacterStateChanged;
+    public Action<CharacterData> OnCharacterStateChanged;
 
+    [Header("Characters can be manually loaded using ContextMenu or auto loaded on Awake.")]
     [SerializeField] private string _resourcePath;
+    [SerializeField] private bool _loadCharactersOnAwake = true;
+    [SerializeField] private CharacterData[] _characters = new CharacterData[1];
 
-    private Dictionary<CharacterData, CharacterInstance> _characterDatabase = new();
+    public CharacterData[] Characters => _characters;
 
     private void Awake()
     {
-        CharacterData[] characters = Resources.LoadAll<CharacterData>(_resourcePath);
-        foreach (CharacterData character in characters)
-        {
-            CharacterInstance newInstance = new CharacterInstance(character);
-            _characterDatabase.Add(character, newInstance);
-        }
+        if (_loadCharactersOnAwake) LoadCharacters();
     }
 
-    private void Start()
+    [ContextMenu("Load Characters")]
+    private void LoadCharacters()
     {
-        foreach (var thing in _characterDatabase)
-        {
-            print(thing.Value.Data.name);
-        }
-    }
-
-    public void ChangeCharacterState(CharacterData data, bool isAlive)
-    {
-        CharacterInstance selectedCharacter = _characterDatabase[data];
-        selectedCharacter.ChangeState(isAlive);
-        OnCharacterStateChanged?.Invoke(selectedCharacter);
+        _characters = Resources.LoadAll<CharacterData>(_resourcePath);
     }
 }
