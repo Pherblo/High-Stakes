@@ -25,7 +25,11 @@ public class CardEvent : MonoBehaviour
 	[SerializeField] private CardDialogue _dialogueB;
 	[Header("Deck")]
 	[SerializeField] private Deck _deck;
+
+	private SelectedChoice _pickedChoice;
+
 	public bool GuaranteedCard => _guaranteedCard;
+	public SelectedChoice PickedChoice => _pickedChoice;
 
 	// This Event Cards Requirements
 	[SerializeField] private List<CardDialogue> dialogueRequirements = new();
