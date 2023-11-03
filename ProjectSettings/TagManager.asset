@@ -38,6 +38,18 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Outside
+    uniqueID: 3356697407
+    locked: 0
+  - name: Background
+    uniqueID: 9316337
+    locked: 0
+  - name: Desk
+    uniqueID: 2181823927
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Foreground
+    uniqueID: 1569226643
     locked: 0

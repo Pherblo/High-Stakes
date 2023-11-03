@@ -1,39 +1,76 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-[CreateAssetMenu(fileName = "New Card Event", menuName = "Cards/Card Event")]
-public class CardEvent : ScriptableObject
+// Enum list of options for selected dialogues
+public enum SelectedDialogue
 {
-    public Action<CardEvent> OnDialogueSelected;
+    dialogueA, // 0
+    dialogueB  // 1
+}
 
-    [Header("Card Settings")]
-    [SerializeField] private CharacterData _associatedCharacter;
-    [SerializeField] private string _description;
-    [SerializeField] private bool _guaranteedCard = false;      // If true, this card will be played next once requirements are met.
-    // Card requirements go here.
-    [Header("Dialogues")]
-    [SerializeField] private CardDialogue _dialogueA;
-    [SerializeField] private CardDialogue _dialogueB;
+// Is on a card prefab
+public class CardEvent : MonoBehaviour
+{
+	public Action<CardEvent> OnDialogueSelected;
 
-    private CardDialogue _chosenDialogue = null;
+	[Header("Card Settings")]
+	[SerializeField] private CharacterData _associatedCharacter;
+	[SerializeField] private string _description;
+	[SerializeField] private bool _guaranteedCard = false; // If true, this card will be played next once requirements are met.
 
-    public CardDialogue ChosenDialogue => _chosenDialogue;
-    public bool GuaranteedCard => _guaranteedCard;
+	[Header("Dialogues")]
+	[SerializeField] private CardDialogue _dialogueA;
+	[SerializeField] private CardDialogue _dialogueB;
+	[Header("Deck")]
+	[SerializeField] private Deck _deck;
+	public bool GuaranteedCard => _guaranteedCard;
+
+	// This Event Cards Requirements
+	[SerializeField] private List<CardDialogue> dialogueRequirements = new();
 
     // Called by player input via GUI.
-    public void ChooseDialogue(int dialogueChosen)
-    {
-        if (dialogueChosen == 0) _chosenDialogue = _dialogueA;
-        else _chosenDialogue = _dialogueB;
-        OnDialogueSelected?.Invoke(this);
-    }
+    public void ChooseDialogue(int optionInt)
+	{
+		// Maps int to a SelectedDialogue
+        SelectedDialogue option = (SelectedDialogue)optionInt;
 
-    public bool CheckRequirements()
+		// Add corresponding selected dialogue to deck selected dialogue list
+		if(option == SelectedDialogue.dialogueA)
+		{
+			_deck.selectedDialogues.Add(_dialogueA);
+        }
+		else if(option == SelectedDialogue.dialogueB)
+		{
+			_deck.selectedDialogues.Add(_dialogueB);
+		}
+	}
+
+	public bool CheckRequirements()
+	{
+		// For each of this cards dialogues requirements check if it is in selected dialogues
+		for(int i = 0; i < dialogueRequirements.Count; i++)
+		{
+            // Checks if each required dialogue is in the selected dialogues
+            if (_deck.selectedDialogues.Contains(dialogueRequirements[i]))
+			{
+				// Just continue checking
+            }
+			else
+			{
+				// Returns bool right away if any are not included in selected dialogues
+				return false;
+			}
+        }
+
+		// Only returns true if all requirements are in selected dialogues
+		return true;
+	}
+
+	// Just a debug to use in a button to see if this works
+    public void test()
     {
-        // TODO: IMPLEMENT FUNCTIONALITY.
-        return true;
+		Debug.Log("Requirements met for this card: " + CheckRequirements());
     }
 }
