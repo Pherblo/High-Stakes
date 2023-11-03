@@ -68,19 +68,7 @@ public class Deck : MonoBehaviour
     private void ShuffleDeck()
     {
         // Shuffle card events.
-        _aliveCharacters.Sort(delegate (CharacterData x, CharacterData y)
-        {
-            int randomInt = Random.Range(0, 2);
-            if (randomInt == 0)
-            {
-                print("sort -1");
-                return -1;
-            }
-            else
-            {
-                print("sort 1");
-                return 1;
-            }
-        });
+        System.Random rng = new System.Random();
+        _aliveCharacters = _aliveCharacters.OrderBy((x) => rng.Next()).ToList();
     }
 }
