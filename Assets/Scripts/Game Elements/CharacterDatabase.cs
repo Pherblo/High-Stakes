@@ -7,18 +7,21 @@ public class CharacterDatabase : MonoBehaviour
 {
     public Action<CharacterData> OnCharacterStateChanged;
 
+    [Header("Characters can be manually loaded using ContextMenu or auto loaded on Awake.")]
     [SerializeField] private string _resourcePath;
+    [SerializeField] private bool _loadCharactersOnAwake = true;
+    [SerializeField] private CharacterData[] _characters = new CharacterData[1];
 
-    private CharacterData[] _characterDatabase = new CharacterData[1];
+    public CharacterData[] Characters => _characters;
 
     private void Awake()
     {
-        _characterDatabase = Resources.LoadAll<CharacterData>(_resourcePath);
+        if (_loadCharactersOnAwake) LoadCharacters();
     }
 
-    public void ChangeCharacterState(CharacterData character, bool isAlive)
+    [ContextMenu("Load Characters")]
+    private void LoadCharacters()
     {
-        character.SetAliveState(isAlive);
-        OnCharacterStateChanged?.Invoke(character);
+        _characters = Resources.LoadAll<CharacterData>(_resourcePath);
     }
 }
