@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.Events;
-using Unity.VisualScripting;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class CardSwipe : MonoBehaviour
 {
@@ -28,6 +29,10 @@ public class CardSwipe : MonoBehaviour
     [Header("Changing Cards")]
     [SerializeField] private UnityEvent cardIsChosen;
 
+    [Header("Hover Areas")]
+    [SerializeField] private Button dialogueAHover;
+    [SerializeField] private Button dialogueBHover;
+
     private bool isDragging;
 
     public bool IsDragging => isDragging;
@@ -51,14 +56,8 @@ public class CardSwipe : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //if (Input.GetMouseButtonDown(0) && (MousePosition))
-        //{
-
-        //}
-    }
-
-    private void OnMouseDown()
-    {
 
     }
+
+
 }
