@@ -8,54 +8,59 @@ using UnityEngine.UI;
 
 public class CardSwipe : MonoBehaviour
 {
-    [Header("Card Settings")]
-    [SerializeField] private TMP_Text cardName;
-    [SerializeField] private TMP_Text characterDialogue;
-    [SerializeField] private TMP_Text dialogueAText;
-    [SerializeField] private TMP_Text dialogueBText;
+	[Header("Card Settings")]
+	[SerializeField] private TMP_Text cardName;
+	[SerializeField] private TMP_Text characterDialogue;
+	[SerializeField] private TMP_Text dialogueAText;
+	[SerializeField] private TMP_Text dialogueBText;
 
-    private CardDialogue cardDialogueA;
-    private CardDialogue cardDialogueB;
+	private CardDialogue cardDialogueA;
+	private CardDialogue cardDialogueB;
 
-    private CharacterData characterData;
-    private CardEvent cardEvent;
+	private CharacterData characterData;
+	private CardEvent cardEvent;
 
-    [Header("Highlighting Option A")]
-    [SerializeField] private UnityEvent highlightA;
+	[Header("Highlighting Option A")]
+	[SerializeField] private UnityEvent highlightA;
 
-    [Header("Highlighting Option B")]
-    [SerializeField] private UnityEvent highlightB;
+	[Header("Highlighting Option B")]
+	[SerializeField] private UnityEvent highlightB;
 
-    [Header("Changing Cards")]
-    [SerializeField] private UnityEvent cardIsChosen;
+	[Header("Changing Cards")]
+	[SerializeField] private UnityEvent cardIsChosen;
 
-    [Header("Hover Areas")]
-    [SerializeField] private Button dialogueAHover;
-    [SerializeField] private Button dialogueBHover;
+	[SerializeField] private Animator animator;
 
-    private bool isDragging;
+	[Header("Hover Areas")]
+	[SerializeField] private Button dialogueAHover;
+	[SerializeField] private Button dialogueBHover;
 
-    public bool IsDragging => isDragging;
+	private bool isDragging;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        // FOR TESTING
+	public bool IsDragging => isDragging;
 
-        // Referencing
-        cardEvent = gameObject.GetComponent<CardEvent>();
-        characterData = gameObject.GetComponent<CharacterData>();
-        cardDialogueA = cardEvent.DialogueA;
-        cardDialogueB = cardEvent.DialogueB;
+	// Start is called before the first frame update
+	void Start()
+	{
+		// FOR TESTING
 
-        // Setting Text Meshes
-        cardName.text = "<Incr> " + characterData.Name + "</Incr>";
-        characterDialogue.text = cardEvent.Description;
-    }
+		// Referencing
+		cardEvent = gameObject.GetComponent<CardEvent>();
+		characterData = gameObject.GetComponent<CharacterData>();
+		cardDialogueA = cardEvent.DialogueA;
+		cardDialogueB = cardEvent.DialogueB;
 
-    // Update is called once per frame
-    void Update()
-    {
+		// Setting Text Meshes
+		cardName.text = "<Incr> " + characterData.Name + "</Incr>";
+		characterDialogue.text = cardEvent.Description;
+	}
+
+	// Update is called once per frame
+	void Update()
+	{
+		// Updating the animators parameters to current hover states
+		animator.SetBool("hoveringA", dialogueAHover.GetComponent<HoverArea>().AIsHovering);
+        animator.SetBool("hoveringB", dialogueBHover.GetComponent<HoverArea>().BIsHovering);
 
     }
 
