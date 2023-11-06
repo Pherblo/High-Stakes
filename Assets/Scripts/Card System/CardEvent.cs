@@ -16,16 +16,20 @@ public class CardEvent : MonoBehaviour
 	public Action<CardEvent> OnDialogueSelected;
 
 	[Header("Card Settings")]
-	[SerializeField] private CharacterData _associatedCharacter;
-	[SerializeField] private string _description;
-	[SerializeField] private bool _guaranteedCard = false; // If true, this card will be played next once requirements are met.
+	[SerializeField] private CharacterData associatedCharacter;
+	[SerializeField] private string description;
+	[SerializeField] private bool guaranteedCard = false; // If true, this card will be played next once requirements are met.
 
 	[Header("Dialogues")]
-	[SerializeField] private CardDialogue _dialogueA;
-	[SerializeField] private CardDialogue _dialogueB;
+	[SerializeField] private CardDialogue dialogueA;
+	[SerializeField] private CardDialogue dialogueB;
 	[Header("Deck")]
 	[SerializeField] private Deck _deck;
-	public bool GuaranteedCard => _guaranteedCard;
+	public bool GuaranteedCard => guaranteedCard;
+	public string Description => description;
+
+	public CardDialogue DialogueA => dialogueA;
+	public CardDialogue DialogueB => dialogueB;
 
 	// This Event Cards Requirements
 	[SerializeField] private List<CardDialogue> dialogueRequirements = new();
@@ -39,11 +43,11 @@ public class CardEvent : MonoBehaviour
 		// Add corresponding selected dialogue to deck selected dialogue list
 		if(option == SelectedDialogue.dialogueA)
 		{
-			_deck.selectedDialogues.Add(_dialogueA);
+			_deck.selectedDialogues.Add(dialogueA);
         }
 		else if(option == SelectedDialogue.dialogueB)
 		{
-			_deck.selectedDialogues.Add(_dialogueB);
+			_deck.selectedDialogues.Add(dialogueB);
 		}
 	}
 
