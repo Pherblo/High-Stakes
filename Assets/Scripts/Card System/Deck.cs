@@ -43,9 +43,10 @@ public class Deck : MonoBehaviour
         int randomIndex = Random.Range(0, _aliveCharacters.Count);
         CardEvent selectedCard = _aliveCharacters[randomIndex].GetCard();
         selectedCard.OnDialogueSelected += ProcessCard;*/
-
+        // Shuffle deck to iterate through it and get the first available card.
+        // We're shuffling instead of picking a character at random because characters may not return valid cards whose conditions are met.
         ShuffleDeck();
-        CardEvent selectedCard = null;
+        CardEvent selectedCard;
         foreach (CharacterData character in _aliveCharacters)
         {
             selectedCard = character.GetCard();
