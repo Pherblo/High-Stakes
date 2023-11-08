@@ -18,11 +18,14 @@ public class CardEvent : MonoBehaviour
 	[Header("Card Settings")]
 	[SerializeField] private CharacterData _associatedCharacter;
 	[SerializeField] private string _description;
-	[SerializeField] private bool _guaranteedCard = false; // If true, this card will be played next once requirements are met.
+	// [SerializeField] private bool _guaranteedCard = false; // If true, this card will be played next once requirements are met.
 
 	[Header("Dialogues")]
 	[SerializeField] private CardDialogue _dialogueA;
 	[SerializeField] private CardDialogue _dialogueB;
+	[Header("Conditions")]
+	// [SerializeField] private List<CardDialogue> _dialogueRequirements = new();
+	[SerializeField] private List<CardCondition> _conditions = new();
 	[Header("Deck")]
 	[SerializeField] private Deck _deck;
 
@@ -30,11 +33,10 @@ public class CardEvent : MonoBehaviour
 
 	public CardDialogue DialogueA => _dialogueA;
 	public CardDialogue DialogueB => _dialogueB;
-	public bool GuaranteedCard => _guaranteedCard;
+	// public bool GuaranteedCard => _guaranteedCard;
 	public SelectedChoice PickedChoice => _pickedChoice;
 
 	// This Event Cards Requirements
-	[SerializeField] private List<CardDialogue> dialogueRequirements = new();
 
     // Called by player input via GUI.
     public void ChooseDialogue(int optionInt)
@@ -56,10 +58,11 @@ public class CardEvent : MonoBehaviour
 	public bool CheckRequirements()
 	{
 		// For each of this cards dialogues requirements check if it is in selected dialogues
-		for(int i = 0; i < dialogueRequirements.Count; i++)
+		/*
+		for(int i = 0; i < _dialogueRequirements.Count; i++)
 		{
             // Checks if each required dialogue is in the selected dialogues
-            if (_deck.selectedDialogues.Contains(dialogueRequirements[i]))
+            if (_deck.selectedDialogues.Contains(_dialogueRequirements[i]))
 			{
 				// Just continue checking
             }
@@ -69,7 +72,7 @@ public class CardEvent : MonoBehaviour
 				return false;
 			}
         }
-
+		*/
 		// Only returns true if all requirements are in selected dialogues
 		return true;
 	}
