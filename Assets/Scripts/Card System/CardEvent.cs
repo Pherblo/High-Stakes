@@ -18,7 +18,7 @@ public class CardEvent : MonoBehaviour
 
 	[Header("Card Settings")]
 	[SerializeField] private CharacterData associatedCharacter;
-	[SerializeField] private string _description;
+	[SerializeField, TextArea] private string _description;
 	// [SerializeField] private bool _guaranteedCard = false; // If true, this card will be played next once requirements are met.
 
 	[Header("Dialogues")]

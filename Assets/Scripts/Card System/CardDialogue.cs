@@ -9,7 +9,7 @@ public class CardDialogue
 {
     [Header("Dialogue Settings")]
     [SerializeField] private bool _dialogueIsActive = true;
-    [SerializeField] private string _dialogueText;
+    [SerializeField, TextArea] private string _dialogueText;
     // Card Effects pertain to the effects of the cards once this corresponding dialogue is selected.
     [Header("Card Results Settings")]
     [SerializeField] private CharacterData[] _charactersToBeDead = new CharacterData[0];
