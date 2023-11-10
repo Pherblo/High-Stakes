@@ -48,12 +48,11 @@ MonoBehaviour:
   _description: I need to locate the holy sword to slay evil, but I'm not sure where
     to start. Help me find it.
   _dialogueA:
-    dialogueIsActive: 1
-    dialogueOption: Tell the hero the sword's location.
+    _dialogueIsActive: 1
+    _dialogueText: Tell the hero the sword's location.
     _charactersToBeDead: []
   _dialogueB:
-    dialogueIsActive: 1
-    dialogueOption: Lie about the sword's location.
+    _dialogueIsActive: 1
+    _dialogueText: Lie about the sword's location.
     _charactersToBeDead: []
   _conditions: []
-  _deck: {fileID: 0}

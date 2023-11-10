@@ -49,12 +49,11 @@ MonoBehaviour:
     of all our crops. Anything we try to plant dies. We need a blessing or else we
     might starve!
   _dialogueA:
-    dialogueIsActive: 1
-    dialogueOption: Give him a potion that purifies the land.
+    _dialogueIsActive: 1
+    _dialogueText: Give him a potion that purifies the land.
     _charactersToBeDead: []
   _dialogueB:
-    dialogueIsActive: 1
-    dialogueOption: Give him a potion that petrifies the land.
+    _dialogueIsActive: 1
+    _dialogueText: Give him a potion that petrifies the land.
     _charactersToBeDead: []
   _conditions: []
-  _deck: {fileID: 0}

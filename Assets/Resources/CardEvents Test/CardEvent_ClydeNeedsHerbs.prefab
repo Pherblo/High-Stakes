@@ -47,12 +47,11 @@ MonoBehaviour:
   associatedCharacter: {fileID: 1095002341841383241, guid: cb024f176ca5b5344b077ee2d8b12c2e, type: 3}
   _description: Mam the doctor ran out of herbs, any chance you have some to spare?
   _dialogueA:
-    dialogueIsActive: 1
-    dialogueOption: Give him the herbs he wants
+    _dialogueIsActive: 1
+    _dialogueText: Give him the herbs he wants
     _charactersToBeDead: []
   _dialogueB:
-    dialogueIsActive: 1
-    dialogueOption: give him some cursed herbs that will make people forget everything
+    _dialogueIsActive: 1
+    _dialogueText: give him some cursed herbs that will make people forget everything
     _charactersToBeDead: []
   _conditions: []
-  _deck: {fileID: 0}

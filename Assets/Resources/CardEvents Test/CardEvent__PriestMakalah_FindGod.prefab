@@ -48,12 +48,11 @@ MonoBehaviour:
   _description: Greetings. I am on a pilgrimage in search for the traces of god.
     I desperately seek your clairvoyance to show me the path I must take.
   _dialogueA:
-    dialogueIsActive: 1
-    dialogueOption: Lead him towards the God of Light.
+    _dialogueIsActive: 1
+    _dialogueText: Lead him towards the God of Light.
     _charactersToBeDead: []
   _dialogueB:
-    dialogueIsActive: 1
-    dialogueOption: Lead him towards the God of Chaos.
+    _dialogueIsActive: 1
+    _dialogueText: Lead him towards the God of Chaos.
     _charactersToBeDead: []
   _conditions: []
-  _deck: {fileID: 0}

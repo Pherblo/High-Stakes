@@ -48,12 +48,11 @@ MonoBehaviour:
   _description: I'm about to confront my archnemesis, and need your blessing. Please
     grant me the strength to defeat my enemies.
   _dialogueA:
-    dialogueIsActive: 1
-    dialogueOption: Bless the hero.
+    _dialogueIsActive: 1
+    _dialogueText: Bless the hero.
     _charactersToBeDead: []
   _dialogueB:
-    dialogueIsActive: 1
-    dialogueOption: Curse the hero.
+    _dialogueIsActive: 1
+    _dialogueText: Curse the hero.
     _charactersToBeDead: []
   _conditions: []
-  _deck: {fileID: 0}

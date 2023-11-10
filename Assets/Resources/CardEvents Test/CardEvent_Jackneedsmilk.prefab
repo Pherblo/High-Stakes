@@ -48,12 +48,11 @@ MonoBehaviour:
   _description: My 50 kids are starving, our cow Bessie can't produce enough milk.
     Maybe you could give me a cow with infinite milk?
   _dialogueA:
-    dialogueIsActive: 1
-    dialogueOption: Of course dear, here take this
+    _dialogueIsActive: 1
+    _dialogueText: Of course dear, here take this
     _charactersToBeDead: []
   _dialogueB:
-    dialogueIsActive: 1
-    dialogueOption: You greedy man of course not!
+    _dialogueIsActive: 1
+    _dialogueText: You greedy man of course not!
     _charactersToBeDead: []
   _conditions: []
-  _deck: {fileID: 0}

@@ -48,12 +48,11 @@ MonoBehaviour:
   _description: My husband's pumpkin is never going to win the contest. He'll be
     crushed and we could really use the money. Any way you can help Hira?
   _dialogueA:
-    dialogueIsActive: 1
-    dialogueOption: give her poison
+    _dialogueIsActive: 1
+    _dialogueText: give her pumpkin fertilizer
     _charactersToBeDead: []
   _dialogueB:
-    dialogueIsActive: 1
-    dialogueOption: give her pumpkin fertilizer
+    _dialogueIsActive: 1
+    _dialogueText: give her poison
     _charactersToBeDead: []
   _conditions: []
-  _deck: {fileID: 0}

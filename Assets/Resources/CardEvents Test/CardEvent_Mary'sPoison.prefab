@@ -47,12 +47,11 @@ MonoBehaviour:
   associatedCharacter: {fileID: 1095002341841383241, guid: 574ff0f97796e594b85101ac11bc15e2, type: 3}
   _description: Mary comes asking for a poison
   _dialogueA:
-    dialogueIsActive: 1
-    dialogueOption: Here this will take care of your problem
+    _dialogueIsActive: 1
+    _dialogueText: Here this will take care of your problem
     _charactersToBeDead: []
   _dialogueB:
-    dialogueIsActive: 1
-    dialogueOption: Mary I'm sorry I can't help you with this
+    _dialogueIsActive: 1
+    _dialogueText: Mary I'm sorry I can't help you with this
     _charactersToBeDead: []
   _conditions: []
-  _deck: {fileID: 0}

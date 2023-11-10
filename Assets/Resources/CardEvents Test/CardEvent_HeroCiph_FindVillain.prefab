@@ -48,12 +48,11 @@ MonoBehaviour:
   _description: I'm hunting down my nemesis, but I've lost track of his location.
     Where are they now?
   _dialogueA:
-    dialogueIsActive: 1
-    dialogueOption: Reveal his nemesis's location.
+    _dialogueIsActive: 1
+    _dialogueText: Reveal his nemesis's location.
     _charactersToBeDead: []
   _dialogueB:
-    dialogueIsActive: 1
-    dialogueOption: Lie about his nemesis's location.
+    _dialogueIsActive: 1
+    _dialogueText: Lie about his nemesis's location.
     _charactersToBeDead: []
   _conditions: []
-  _deck: {fileID: 0}

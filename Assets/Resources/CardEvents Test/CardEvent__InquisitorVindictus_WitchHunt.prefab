@@ -48,12 +48,11 @@ MonoBehaviour:
   _description: Hark, citizen. Have you witnessed any sign of foul witches around
     these lands?
   _dialogueA:
-    dialogueIsActive: 1
-    dialogueOption: Tell the inquisitor you know nothing.
+    _dialogueIsActive: 1
+    _dialogueText: Tell the inquisitor you know nothing.
     _charactersToBeDead: []
   _dialogueB:
-    dialogueIsActive: 1
-    dialogueOption: Deceive the inquisitor with a false lead.
+    _dialogueIsActive: 1
+    _dialogueText: Deceive the inquisitor with a false lead.
     _charactersToBeDead: []
   _conditions: []
-  _deck: {fileID: 0}

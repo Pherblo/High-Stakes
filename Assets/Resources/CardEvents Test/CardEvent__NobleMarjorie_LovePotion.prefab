@@ -49,12 +49,11 @@ MonoBehaviour:
     He oft spends time with another woman, despite our engagement. I need a potion
     that will let me keep him by my side forever.
   _dialogueA:
-    dialogueIsActive: 1
-    dialogueOption: Give her a love potion.
+    _dialogueIsActive: 1
+    _dialogueText: Give her a love potion.
     _charactersToBeDead: []
   _dialogueB:
-    dialogueIsActive: 1
-    dialogueOption: Give her a cursed potion.
+    _dialogueIsActive: 1
+    _dialogueText: Give her a cursed potion.
     _charactersToBeDead: []
   _conditions: []
-  _deck: {fileID: 0}

@@ -48,12 +48,11 @@ MonoBehaviour:
   _description: my job's getting a little boring, anyway you can help me bring back
     the thrill?
   _dialogueA:
-    dialogueIsActive: 1
-    dialogueOption: Give some nightshade
+    _dialogueIsActive: 1
+    _dialogueText: Give some nightshade
     _charactersToBeDead: []
   _dialogueB:
-    dialogueIsActive: 1
-    dialogueOption: cast a spell on salvador
+    _dialogueIsActive: 1
+    _dialogueText: cast a spell on salvador
     _charactersToBeDead: []
   _conditions: []
-  _deck: {fileID: 0}
