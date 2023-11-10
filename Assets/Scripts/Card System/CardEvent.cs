@@ -61,6 +61,9 @@ public class CardEvent : MonoBehaviour
 
 	public bool CheckRequirements()
 	{
+		// If dialogue has already been picked, this card isn't available anymore.
+		if (_pickedChoice != SelectedChoice.None) return false;
+		// Following comments probably don't work and are disabled for now. Meaning conditions won't work.
 		// For each of this cards dialogues requirements check if it is in selected dialogues
 		/*
 		for(int i = 0; i < _dialogueRequirements.Count; i++)
