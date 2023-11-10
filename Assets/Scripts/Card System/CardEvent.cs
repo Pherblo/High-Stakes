@@ -44,7 +44,7 @@ public class CardEvent : MonoBehaviour
     public void ChooseDialogue(int optionInt)
 	{
 		// Maps int to a SelectedDialogue
-        //SelectedChoice option = (SelectedChoice)optionInt;
+		//SelectedChoice option = (SelectedChoice)optionInt;
 		/*
 		// Add corresponding selected dialogue to deck selected dialogue list
 		if(option == SelectedChoice.ChoiceA)
@@ -55,8 +55,8 @@ public class CardEvent : MonoBehaviour
 		{
 			_deck.SelectedDialogues.Add(_dialogueB);
 		}*/
-
-		OnDialogueSelected?.Invoke(this);
+		_pickedChoice = (SelectedChoice)optionInt;
+        OnDialogueSelected?.Invoke(this);
     }
 
 	public bool CheckRequirements()
