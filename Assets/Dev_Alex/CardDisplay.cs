@@ -5,29 +5,16 @@ using UnityEngine;
 
 public class CardDisplay : MonoBehaviour
 {
-    [Header("Card UI")]
+    [Header("Card UI References")]
+    [SerializeField] private SpriteRenderer _characterArt;
     [SerializeField] private TMP_Text _cardName;
-    [SerializeField] private TMP_Text _characterDialogue;
-    [SerializeField] private TMP_Text _dialogueAText;
-    [SerializeField] private TMP_Text _dialogueBText;
-    [SerializeField] private Sprite _characterArt;
+    [SerializeField] private TMP_Text _cardDescription;
+    [SerializeField] private TMP_Text _choiceAText;
+    [SerializeField] private TMP_Text _choiceBText;
 
-    public SpriteRenderer characterArtSR; //the Sprite renderer in CharacterArt
-
-    [Header("Deck")]
-    [SerializeField] Deck deck;
-
-    // Update is called once per frame
-    void Update()
+    // Called by events.
+    public void UpdateCardDisplay(CardEvent cardToDisplay)
     {
-        UpdateCardDisplay();
-    }
-
-    private void UpdateCardDisplay()
-    {
-        // Grab the current card event
-        CardEvent cardEvent = deck.CurrentCardDisplayed;
-
         // Grab the current cards dialogue A
         //cardDialogueA = cardEvent.DialogueA;
         // Grab the current cards dialogue B
@@ -41,7 +28,7 @@ public class CardDisplay : MonoBehaviour
        
 
         // Setting Text Meshes
-        _cardName.text = cardEvent.AssociatedCharacter.Name;
-        _characterDialogue.text = cardEvent.Description;
+        _cardName.text = cardToDisplay.AssociatedCharacter.Name;
+        _cardDescription.text = cardToDisplay.Description;
     }
 }
