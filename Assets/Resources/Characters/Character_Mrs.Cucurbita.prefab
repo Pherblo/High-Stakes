@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88f96f567526aa749af23d098f8b50a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _name: 
+  _name: Mrs.Cucurbita
   _isAlive: 1
   _cardEvents:
   - {fileID: 4317882935473067645, guid: 4b1bd1bae15fc1146a202cbd85821f24, type: 3}
