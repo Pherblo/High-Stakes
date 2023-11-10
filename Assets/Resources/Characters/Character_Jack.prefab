@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4977459945738838285}
   - component: {fileID: 1095002341841383241}
   m_Layer: 0
-  m_Name: Character Test 8
+  m_Name: Character_Jack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88f96f567526aa749af23d098f8b50a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _name: 
+  _name: Jack
   _isAlive: 1
-  _cardEvents: []
+  _cardEvents:
+  - {fileID: 4317882935473067645, guid: 366256bb853a2ad40a26633800d5223d, type: 3}
