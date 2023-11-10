@@ -438,7 +438,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 1037.875, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &165149208
@@ -557,9 +557,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d8d9766849d0514fb289479b5fa8027, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogue: {fileID: 165149209}
-  fitter: {fileID: 165149208}
-  timePerChar: 0.05
+  _dialogue: {fileID: 165149209}
+  _fitter: {fileID: 165149208}
+  _timePerChar: 0.1
 --- !u!222 &165149211
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1259,7 +1259,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 603.745, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &713135558
@@ -1667,7 +1667,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 1037.875, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1325148703
@@ -1794,9 +1794,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d8d9766849d0514fb289479b5fa8027, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogue: {fileID: 1325148705}
-  fitter: {fileID: 1325148703}
-  timePerChar: 0.1
+  _dialogue: {fileID: 1325148705}
+  _fitter: {fileID: 1325148703}
+  _timePerChar: 0.1
 --- !u!1 &1408988576
 GameObject:
   m_ObjectHideFlags: 0
@@ -1833,7 +1833,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 1037.875, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1408988578
@@ -1952,9 +1952,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d8d9766849d0514fb289479b5fa8027, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogue: {fileID: 1408988579}
-  fitter: {fileID: 1408988578}
-  timePerChar: 0.05
+  _dialogue: {fileID: 1408988579}
+  _fitter: {fileID: 1408988578}
+  _timePerChar: 0.1
 --- !u!222 &1408988581
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2708,7 +2708,7 @@ SceneRoots:
   - {fileID: 302333506}
   - {fileID: 1011151739}
   - {fileID: 2057113973}
-  - {fileID: 74510963}
   - {fileID: 331445222}
+  - {fileID: 74510963}
   - {fileID: 206112634}
   - {fileID: 1545306550}

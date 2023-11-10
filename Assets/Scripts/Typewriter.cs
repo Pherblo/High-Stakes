@@ -6,17 +6,12 @@ using UnityEngine.UI;
 
 public class Typewriter : MonoBehaviour
 {
-    public TMP_Text dialogue;
-    public ContentSizeFitter fitter;
+    [SerializeField] private TMP_Text _dialogue;
+    [SerializeField] private ContentSizeFitter _fitter;
 
-    public float timePerChar = 0.1f;
+    [SerializeField] private float _timePerChar = 0.1f;
 
-    private char[] characters;
-
-    void Start()
-    {
-        //StartCoroutine(TypeAnimation(dialogue.text));
-    }
+    private char[] _characters;
 
     public void RunDialogue(string text)
     {
@@ -27,21 +22,21 @@ public class Typewriter : MonoBehaviour
 
     private IEnumerator TypeAnimation(string text)
     {
-        fitter.enabled = true;
-        dialogue.text = text;
+        _fitter.enabled = true;
+        _dialogue.text = text;
 
-        characters = text.ToCharArray();
+        _characters = text.ToCharArray();
 
         yield return new WaitForSeconds(0);
 
-        fitter.enabled = false;
-        dialogue.text = "";
+        _fitter.enabled = false;
+        _dialogue.text = "";
 
-        for (int i = 0; i < characters.Length; i++)
+        for (int i = 0; i < _characters.Length; i++)
         {
-            dialogue.text += characters[i];
-            if(characters[i] != ' ')
-            yield return new WaitForSeconds(timePerChar);
+            _dialogue.text += _characters[i];
+            if(_characters[i] != ' ')
+            yield return new WaitForSeconds(_timePerChar);
         }
     }
 }
