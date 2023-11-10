@@ -31,6 +31,7 @@ public class CardEvent : MonoBehaviour
 
 	private SelectedChoice _pickedChoice;
 
+	public string Description => _description;
 	public CardDialogue DialogueA => _dialogueA;
 	public CardDialogue DialogueB => _dialogueB;
 	// public bool GuaranteedCard => _guaranteedCard;
