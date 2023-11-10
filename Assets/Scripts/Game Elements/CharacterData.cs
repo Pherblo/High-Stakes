@@ -9,6 +9,7 @@ public class CharacterData : MonoBehaviour
     [Header("Character Settings")]
     [SerializeField] private string _name;
     [SerializeField] private bool _isAlive = true;
+    [SerializeField] private Sprite _characterArt;
     [Header("Character Cards")]
     [SerializeField] private List<CardEvent> _cardEvents = new();
 
@@ -18,6 +19,7 @@ public class CharacterData : MonoBehaviour
 
     public string Name => _name;
     public bool IsAlive => _isAlive;
+    public Sprite CharacterArt => _characterArt;
 
     // Called by Deck to create the prefabs. Returns self prefab.
     public void InitializeCharacter()

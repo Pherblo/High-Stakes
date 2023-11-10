@@ -6,7 +6,7 @@ using UnityEngine;
 public class CardDisplay : MonoBehaviour
 {
     [Header("Card UI References")]
-    [SerializeField] private SpriteRenderer _characterArt;
+    [SerializeField] private SpriteRenderer _characterArtRenderer;
     [SerializeField] private TextMeshProUGUI _cardName;
     [SerializeField] private TextMeshProUGUI _cardDescription;
     [SerializeField] private TextMeshProUGUI _choiceAText;
@@ -30,5 +30,8 @@ public class CardDisplay : MonoBehaviour
         // Set displayed card's texts.
         _cardName.text = cardToDisplay.AssociatedCharacter.Name;
         _cardDescription.text = cardToDisplay.Description;
+        _choiceAText.text = cardToDisplay.DialogueA.DialogueText;
+        _choiceBText.text = cardToDisplay.DialogueB.DialogueText;
+        _characterArtRenderer.sprite = cardToDisplay.AssociatedCharacter.CharacterArt;
     }
 }
