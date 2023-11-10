@@ -17,7 +17,9 @@ public class Deck : MonoBehaviour
     private List<CharacterData> _aliveCharacters = new();
     private List<CharacterData> _deadCharacters = new();
 
-    public List<CardDialogue> selectedDialogues = new();
+    private List<CardDialogue> _selectedDialogues = new();
+
+    public List<CardDialogue> SelectedDialogues => _selectedDialogues;
 
     public void Start()
     {
