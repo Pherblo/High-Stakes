@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using System;
 
 public class CharacterData : MonoBehaviour
 {
@@ -42,8 +43,10 @@ public class CharacterData : MonoBehaviour
         // Return the first available card, else return nothing.
         foreach (CardEvent card in newArray)
         {
+            Debug.Log("Returning a card");
             if (card.CheckRequirements()) return card;
         }
+        Debug.Log("Returning null");
         return null;
     }
 

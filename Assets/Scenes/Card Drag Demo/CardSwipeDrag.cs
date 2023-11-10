@@ -22,6 +22,9 @@ public class CardSwipeDrag : MonoBehaviour, IDragHandler, IBeginDragHandler, IEn
     private void Start()
     {
         thisCardArt = GetComponent<Image>();
+
+		// Picks new card at start
+		discardCard.Invoke();
     }
 
     // When you drag the card. Move its local x position, add the amount moved on x axis.
