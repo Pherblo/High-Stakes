@@ -54,6 +54,8 @@ public class Deck : MonoBehaviour
             selectedCard = character.GetCard();
             if (selectedCard)
             {
+                // TODO: Make deck listen to card's event here.
+
                 OnCardPicked?.Invoke(selectedCard);
                 break;
             }
