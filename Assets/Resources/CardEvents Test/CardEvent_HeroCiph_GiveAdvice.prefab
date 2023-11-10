@@ -45,16 +45,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _associatedCharacter: {fileID: 8879443658972519502, guid: 72c42912b0571644abda7b5c2decbbd5, type: 3}
-  _description: CardEvent 0 Description
+  _description: I'm at a loss. I don't know where to go from here. I know I'm not
+    powerful enough right now, but don't know what to do next. Please let me know
+    what I should do.
   _dialogueA:
     dialogueIsActive: 1
-    dialogueOption: Choice A here. Lorem Ipsum shit. Oratrice Mecanique d'Analyse
-      Cardinale.
+    dialogueOption: Guide the hero.
     _charactersToBeDead: []
   _dialogueB:
     dialogueIsActive: 1
-    dialogueOption: Choice B here. Lorem Ipsum shit. Oratrice Mecanique d'Analyse
-      Cardinale.
+    dialogueOption: Deceive the hero.
     _charactersToBeDead: []
   _conditions: []
   _deck: {fileID: 0}
