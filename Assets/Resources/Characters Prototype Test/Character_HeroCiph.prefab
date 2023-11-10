@@ -47,8 +47,6 @@ MonoBehaviour:
   _name: Hero Ciph
   _isAlive: 1
   _cardEvents:
-  - {fileID: 4317882935473067645, guid: 367826970f1a4824b8cdd3a1b15e6e45, type: 3}
-  - {fileID: 4317882935473067645, guid: 6ed55d5f5c55f3a4d9fd062230a16bdf, type: 3}
   - {fileID: 4317882935473067645, guid: 9edc9af5859a73a449c7a3b1a396a968, type: 3}
   - {fileID: 4317882935473067645, guid: 3978f92ed5fe83045b15c42480ed9faf, type: 3}
   - {fileID: 4317882935473067645, guid: 253e5d14586c2744683a28785e8d1e39, type: 3}

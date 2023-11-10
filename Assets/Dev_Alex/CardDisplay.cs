@@ -23,14 +23,6 @@ public class CardDisplay : MonoBehaviour
     [Header("Deck")]
     [SerializeField] Deck deck;
 
-    [SerializeField] private CardEvent decksPickedCard; 
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        assignData();
-    }
-
     // Update is called once per frame
     void Update()
     {
@@ -42,8 +34,6 @@ public class CardDisplay : MonoBehaviour
         // Grab the current card event
         cardEvent = deck.CurrentCardDisplayed;
 
-        // Grab the current cards associated characterdata
-        //characterData = cardEvent.AssociatedCharacter;
         // Grab the current cards dialogue A
         //cardDialogueA = cardEvent.DialogueA;
         // Grab the current cards dialogue B
@@ -57,7 +47,7 @@ public class CardDisplay : MonoBehaviour
        
 
         // Setting Text Meshes
-        cardName.text = "<Incr> " + cardEvent.AssociatedCharacter.Name + "</Incr>";
+        cardName.text = cardEvent.AssociatedCharacter.Name;
         characterDialogue.text = cardEvent.Description;
     }
 }

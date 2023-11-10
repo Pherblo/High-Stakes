@@ -14,7 +14,7 @@ public class Deck : MonoBehaviour
 	// private List<CardEvent> _availableCards = new();
 	// private List<CardEvent> _lockedCards = new();
 	private List<CharacterData> _characters = new();
-	private List<CharacterData> _aliveCharacters = new();
+	[SerializeField]private List<CharacterData> _aliveCharacters = new();
 	private List<CharacterData> _deadCharacters = new();
 
 	private List<CardDialogue> _selectedDialogues = new();

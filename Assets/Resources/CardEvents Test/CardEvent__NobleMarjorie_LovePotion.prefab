@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa8740551ebe6184eb914bebb0fafe14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _associatedCharacter: {fileID: 8879443658972519502, guid: 86aae91636cdb9440b8f97f98cf39a2f, type: 3}
+  associatedCharacter: {fileID: 8879443658972519502, guid: 86aae91636cdb9440b8f97f98cf39a2f, type: 3}
   _description: My love, my dearest, had been avoiding me despite my best efforts.
     He oft spends time with another woman, despite our engagement. I need a potion
     that will let me keep him by my side forever.

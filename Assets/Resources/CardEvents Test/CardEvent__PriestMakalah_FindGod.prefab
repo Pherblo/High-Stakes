@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa8740551ebe6184eb914bebb0fafe14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _associatedCharacter: {fileID: 8879443658972519502, guid: cdc652e47da07574683e673b21cdfd60, type: 3}
+  associatedCharacter: {fileID: 8879443658972519502, guid: cdc652e47da07574683e673b21cdfd60, type: 3}
   _description: Greetings. I am on a pilgrimage in search for the traces of god.
     I desperately seek your clairvoyance to show me the path I must take.
   _dialogueA:

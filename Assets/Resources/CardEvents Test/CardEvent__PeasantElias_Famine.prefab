@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa8740551ebe6184eb914bebb0fafe14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _associatedCharacter: {fileID: 8879443658972519502, guid: 595d03b085ea1ef4d920301d5913b50f, type: 3}
+  associatedCharacter: {fileID: 8879443658972519502, guid: 595d03b085ea1ef4d920301d5913b50f, type: 3}
   _description: Please help us. The plague ravaged our lands and cursed the life
     of all our crops. Anything we try to plant dies. We need a blessing or else we
     might starve!

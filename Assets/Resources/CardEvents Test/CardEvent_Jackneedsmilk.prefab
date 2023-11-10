@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa8740551ebe6184eb914bebb0fafe14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  associatedCharacter: {fileID: 1095002341841383241, guid: ca4deb891346e6c418d0cd0bb5a599cd, type: 3}
+  associatedCharacter: {fileID: 1095002341841383241, guid: 72747a2b3d9afc34889732b557b22c89, type: 3}
   _description: My 50 kids are starving, our cow Bessie can't produce enough milk.
     Maybe you could give me a cow with infinite milk?
   _dialogueA:
