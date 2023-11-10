@@ -55,7 +55,9 @@ public class CardEvent : MonoBehaviour
 		{
 			_deck.selectedDialogues.Add(_dialogueB);
 		}
-	}
+
+		OnDialogueSelected?.Invoke(this);
+    }
 
 	public bool CheckRequirements()
 	{
