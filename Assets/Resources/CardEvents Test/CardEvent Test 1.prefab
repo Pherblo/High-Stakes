@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6968691294569748046}
   - component: {fileID: 4317882935473067645}
   m_Layer: 0
-  m_Name: CardEvent Test 0
+  m_Name: CardEvent Test 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _associatedCharacter: {fileID: 0}
-  _description: CardEvent 0 Description
+  _description: CardEvent 1 Description
   _dialogueA:
     dialogueIsActive: 1
     dialogueOption: Choice A here. Lorem Ipsum shit. Oratrice Mecanique d'Analyse
