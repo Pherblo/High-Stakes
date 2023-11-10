@@ -6,7 +6,7 @@ using UnityEngine.Events;
 
 public class Deck : MonoBehaviour
 {
-    public UnityEvent<CardEvent> OnCardPicked;
+    public UnityEvent<CardEvent> OnCardPicked;      // When a card has been picked from the deck.
 
     [Header("References")]
     [SerializeField] private CharacterDatabase _database;

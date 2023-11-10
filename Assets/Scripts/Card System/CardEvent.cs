@@ -6,8 +6,9 @@ using UnityEngine.Events;
 // Enum list of options for selected dialogues
 public enum SelectedChoice
 {
-    ChoiceA = 0,
-    ChoiceB = 1
+	None = 0,
+    ChoiceA = 1,
+    ChoiceB = 2
 }
 
 // Is on a card prefab
