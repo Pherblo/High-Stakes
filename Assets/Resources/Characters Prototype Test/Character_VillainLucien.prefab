@@ -47,8 +47,4 @@ MonoBehaviour:
   _name: Character Test 1
   _isAlive: 1
   _cardEvents:
-  - {fileID: 4317882935473067645, guid: 9edc9af5859a73a449c7a3b1a396a968, type: 3}
-  - {fileID: 4317882935473067645, guid: 3978f92ed5fe83045b15c42480ed9faf, type: 3}
-  - {fileID: 4317882935473067645, guid: 253e5d14586c2744683a28785e8d1e39, type: 3}
   - {fileID: 4317882935473067645, guid: 8e11495b38fbe7f409e4c833330de3f3, type: 3}
-  - {fileID: 4317882935473067645, guid: a6243db33d037144596d56bec68dfeb4, type: 3}
