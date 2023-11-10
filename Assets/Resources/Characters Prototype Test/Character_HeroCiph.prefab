@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88f96f567526aa749af23d098f8b50a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _name: Character Test 1
+  _name: Hero Ciph
   _isAlive: 1
   _cardEvents:
   - {fileID: 4317882935473067645, guid: 367826970f1a4824b8cdd3a1b15e6e45, type: 3}
