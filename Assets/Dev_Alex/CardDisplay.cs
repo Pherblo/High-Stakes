@@ -15,19 +15,7 @@ public class CardDisplay : MonoBehaviour
     // Called by events.
     public void UpdateCardDisplay(CardEvent cardToDisplay)
     {
-        // Grab the current cards dialogue A
-        //cardDialogueA = cardEvent.DialogueA;
-        // Grab the current cards dialogue B
-        //cardDialogueB = cardEvent.DialogueB;
-
-        // Setting the UI texts
-
-        //art
-        //characterArt = characterData.art;
-       // characterArtSR.sprite = characterArt;
-       
-
-        // Set displayed card's texts.
+        // Display texts.
         _cardName.text = cardToDisplay.AssociatedCharacter.Name;
         _cardDescription.text = cardToDisplay.Description;
         _choiceAText.text = cardToDisplay.DialogueA.DialogueText;
