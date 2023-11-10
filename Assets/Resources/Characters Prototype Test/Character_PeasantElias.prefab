@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88f96f567526aa749af23d098f8b50a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _name: Character Test 1
+  _name: Peasant Elias
   _isAlive: 1
   _cardEvents:
-  - {fileID: 4317882935473067645, guid: 8e11495b38fbe7f409e4c833330de3f3, type: 3}
+  - {fileID: 4317882935473067645, guid: dfd65cbe6c400574496faf6c9cf13411, type: 3}
