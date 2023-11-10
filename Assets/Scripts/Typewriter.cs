@@ -15,7 +15,7 @@ public class Typewriter : MonoBehaviour
 
     void Start()
     {
-        StartCoroutine(TypeAnimation(dialogue.text));
+        //StartCoroutine(TypeAnimation(dialogue.text));
     }
 
     public void RunDialogue(string text)
