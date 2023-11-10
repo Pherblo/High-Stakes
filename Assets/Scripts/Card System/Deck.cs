@@ -6,7 +6,7 @@ using UnityEngine.Events;
 
 public class Deck : MonoBehaviour
 {
-	//public UnityEvent<CardEvent> OnCardPicked;      // When a card has been picked from the deck.
+	public UnityEvent<CardEvent> OnCardPicked;      // When a card has been picked from the deck.
 
 	[Header("References")]
 	[SerializeField] private CharacterDatabase _database;
@@ -70,9 +70,8 @@ public class Deck : MonoBehaviour
 				// Change the current card displayed to the newly chosen card
 				currentCardDisplayed = selectedCard; 
 				
-				// TODO: Make deck listen to card's event here.
 				selectedCard.OnDialogueSelected += ProcessCard;
-				//OnCardPicked?.Invoke(selectedCard); // Not too clear what the unity event does here.
+				OnCardPicked?.Invoke(selectedCard);
 				break;
 			}
 		}
