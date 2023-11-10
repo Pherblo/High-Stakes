@@ -176,7 +176,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1716066517685044790, guid: 9cb61a94009ed644d858ee5465b72e7c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 35
+      value: -30
       objectReference: {fileID: 0}
     - target: {fileID: 1716066517685044790, guid: 9cb61a94009ed644d858ee5465b72e7c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -192,7 +192,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6881064963353984851, guid: 9cb61a94009ed644d858ee5465b72e7c, type: 3}
       propertyPath: m_Name
-      value: Demo Drag Card
+      value: Card
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
