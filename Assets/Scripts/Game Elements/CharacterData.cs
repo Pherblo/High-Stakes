@@ -21,11 +21,13 @@ public class CharacterData : MonoBehaviour
     // Called by Deck to create the prefabs. Returns self prefab.
     public void InitializeCharacter()
     {
+        List<CardEvent> _cardInstances = new();
         foreach (CardEvent card in _cardEvents)
         {
             CardEvent cardEventInstance = Instantiate(card, transform);
-            _cardEvents.Add(cardEventInstance);
+            _cardInstances.Add(cardEventInstance);
         }
+        _cardEvents = _cardInstances;
     }
 
     public CardEvent GetCard()

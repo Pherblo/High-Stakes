@@ -32,7 +32,6 @@ public class Deck : MonoBehaviour
         // Sort characters
         foreach (CharacterData character in _characters)
         {
-            CharacterData characterInstance = Instantiate(character);
             if (character.IsAlive)
             {
                 _aliveCharacters.Add(character);
