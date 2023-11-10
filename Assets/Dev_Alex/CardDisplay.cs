@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class CardDisplay : MonoBehaviour
 {
-    [Header("Card Settings")]
+    [Header("Card UI")]
     [SerializeField] private TMP_Text cardName;
     [SerializeField] private TMP_Text characterDialogue;
     [SerializeField] private TMP_Text dialogueAText;
@@ -20,6 +20,10 @@ public class CardDisplay : MonoBehaviour
 
     public SpriteRenderer characterArtSR; //the Sprite renderer in CharacterArt
 
+    [Header("Deck")]
+    [SerializeField] Deck deck;
+
+    private CardEvent decksPickedCard; 
 
     // Start is called before the first frame update
     void Start()
@@ -35,11 +39,17 @@ public class CardDisplay : MonoBehaviour
 
     private void assignData()
     {
-        //information
-        cardEvent = gameObject.GetComponent<CardEvent>();
-        characterData = gameObject.GetComponent<CharacterData>();
+        // Grab the current card event
+        cardEvent = deck.CurrentCardDisplayed;
+
+        // Grab the current cards associated characterdata
+        characterData = cardEvent.AssociatedCharacter;
+        // Grab the current cards dialogue A
         cardDialogueA = cardEvent.DialogueA;
+        // Grab the current cards dialogue B
         cardDialogueB = cardEvent.DialogueB;
+
+        // Setting the UI texts
 
         //art
         //characterArt = characterData.art;
@@ -47,7 +57,7 @@ public class CardDisplay : MonoBehaviour
        
 
         // Setting Text Meshes
-        cardName.text = "<Incr> " + characterData.Name + "</Incr>";
+        cardName.text = "<Incr> " + cardEvent.AssociatedCharacter.Name + "</Incr>";
         characterDialogue.text = cardEvent.Description;
     }
 }

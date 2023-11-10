@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
+using Unity.VisualScripting;
 
 public class CardSwipeDrag : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler
 {
@@ -18,13 +19,9 @@ public class CardSwipeDrag : MonoBehaviour, IDragHandler, IBeginDragHandler, IEn
     [SerializeField] private bool debug_Dragging = false;
 	[SerializeField] private bool debug_SwipeDirection = false;
 
-
     private void Start()
     {
-        thisCardArt = GetComponent<Image>();
-
-		// Picks new card at start
-		discardCard.Invoke();
+		thisCardArt = GetComponent<Image>();
     }
 
     // When you drag the card. Move its local x position, add the amount moved on x axis.
@@ -72,6 +69,7 @@ public class CardSwipeDrag : MonoBehaviour, IDragHandler, IBeginDragHandler, IEn
         }
 		else
 		{
+			discardCard.Invoke();
 			// Card Swipe animation
 			// Dont show card anymore
 			// Discard animation

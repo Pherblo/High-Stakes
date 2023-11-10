@@ -21,7 +21,11 @@ public class Deck : MonoBehaviour
 
 	public List<CardDialogue> SelectedDialogues => _selectedDialogues;
 
-	public CardEvent currentCardDisplayed;
+	// SerializedField for now just for debugging
+	[SerializeField] private CardEvent currentCardDisplayed;
+
+	// Accessor
+	public CardEvent CurrentCardDisplayed => currentCardDisplayed;
 
 	public void Start()
 	{
@@ -43,6 +47,9 @@ public class Deck : MonoBehaviour
 				_deadCharacters.Add(character);
 			}
 		}
+
+		// Gets new card on start
+		PickCard();
 	}
 
 	public void PickCard()
@@ -57,7 +64,6 @@ public class Deck : MonoBehaviour
 		CardEvent selectedCard;
 		foreach (CharacterData character in _aliveCharacters)
 		{
-			Debug.Log(("Getting card"));
 			selectedCard = character.GetCard();
 			if (selectedCard)
 			{

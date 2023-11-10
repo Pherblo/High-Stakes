@@ -17,7 +17,7 @@ public class CardEvent : MonoBehaviour
 	public Action<CardEvent> OnDialogueSelected;
 
 	[Header("Card Settings")]
-	[SerializeField] private CharacterData _associatedCharacter;
+	[SerializeField] private CharacterData associatedCharacter;
 	[SerializeField] private string _description;
 	// [SerializeField] private bool _guaranteedCard = false; // If true, this card will be played next once requirements are met.
 
@@ -32,6 +32,7 @@ public class CardEvent : MonoBehaviour
 
 	private SelectedChoice _pickedChoice;
 
+	public CharacterData AssociatedCharacter => associatedCharacter;
 	public string Description => _description;
 	public CardDialogue DialogueA => _dialogueA;
 	public CardDialogue DialogueB => _dialogueB;
