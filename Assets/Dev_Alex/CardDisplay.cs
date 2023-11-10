@@ -16,14 +16,14 @@ public class CardDisplay : MonoBehaviour
     private CardDialogue cardDialogueB;
 
     private CharacterData characterData;
-    private CardEvent cardEvent;
+    [SerializeField]private CardEvent cardEvent;
 
     public SpriteRenderer characterArtSR; //the Sprite renderer in CharacterArt
 
     [Header("Deck")]
     [SerializeField] Deck deck;
 
-    private CardEvent decksPickedCard; 
+    [SerializeField] private CardEvent decksPickedCard; 
 
     // Start is called before the first frame update
     void Start()
@@ -34,7 +34,7 @@ public class CardDisplay : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        assignData();
     }
 
     private void assignData()
@@ -43,11 +43,11 @@ public class CardDisplay : MonoBehaviour
         cardEvent = deck.CurrentCardDisplayed;
 
         // Grab the current cards associated characterdata
-        characterData = cardEvent.AssociatedCharacter;
+        //characterData = cardEvent.AssociatedCharacter;
         // Grab the current cards dialogue A
-        cardDialogueA = cardEvent.DialogueA;
+        //cardDialogueA = cardEvent.DialogueA;
         // Grab the current cards dialogue B
-        cardDialogueB = cardEvent.DialogueB;
+        //cardDialogueB = cardEvent.DialogueB;
 
         // Setting the UI texts
 

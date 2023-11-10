@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa8740551ebe6184eb914bebb0fafe14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _associatedCharacter: {fileID: 8879443658972519502, guid: 72c42912b0571644abda7b5c2decbbd5, type: 3}
+  associatedCharacter: {fileID: 1095002341841383241, guid: ca4deb891346e6c418d0cd0bb5a599cd, type: 3}
   _description: I'm hunting down my nemesis, but I've lost track of his location.
     Where are they now?
   _dialogueA:

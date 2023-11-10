@@ -44,6 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88f96f567526aa749af23d098f8b50a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _name: 
+  _name: Character Test
   _isAlive: 1
   _cardEvents: []
