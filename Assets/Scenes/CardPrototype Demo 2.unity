@@ -438,7 +438,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 1037.875, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &165149208
@@ -1259,7 +1259,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 603.745, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &713135558
@@ -1667,7 +1667,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 1037.875, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1325148703
@@ -1833,7 +1833,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 1037.875, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1408988578
@@ -2015,6 +2015,30 @@ PrefabInstance:
       propertyPath: _database
       value: 
       objectReference: {fileID: 2055613006}
+    - target: {fileID: 1702889146060527414, guid: dc71c9c5a1de30c4b8184cea9d3554c8, type: 3}
+      propertyPath: OnCardPicked.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1702889146060527414, guid: dc71c9c5a1de30c4b8184cea9d3554c8, type: 3}
+      propertyPath: OnCardPicked.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 74510962}
+    - target: {fileID: 1702889146060527414, guid: dc71c9c5a1de30c4b8184cea9d3554c8, type: 3}
+      propertyPath: OnCardPicked.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1702889146060527414, guid: dc71c9c5a1de30c4b8184cea9d3554c8, type: 3}
+      propertyPath: OnCardPicked.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: UpdateCardDisplay
+      objectReference: {fileID: 0}
+    - target: {fileID: 1702889146060527414, guid: dc71c9c5a1de30c4b8184cea9d3554c8, type: 3}
+      propertyPath: OnCardPicked.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: CardDisplay, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1702889146060527414, guid: dc71c9c5a1de30c4b8184cea9d3554c8, type: 3}
+      propertyPath: OnCardPicked.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 7648333600580190044, guid: dc71c9c5a1de30c4b8184cea9d3554c8, type: 3}
       propertyPath: m_Name
       value: Deck
