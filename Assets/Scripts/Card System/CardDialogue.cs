@@ -6,8 +6,14 @@ using UnityEngine.UIElements;
 
 public class CardDialogue : MonoBehaviour
 {
+    [Header("Dialogue Settings")]
     [SerializeField] private bool dialogueIsActive = true;
     [SerializeField] private string dialogueOption;
+    // Card Effects pertain to the effects of the cards once this corresponding dialogue is selected.
+    [Header("Card Results Settings")]
+    [SerializeField] private CharacterData[] _charactersToBeDead = new CharacterData[0];
+
+    public CharacterData[] CharactersToBeDead => _charactersToBeDead;
 
     public string Dialogue => dialogueOption;
 }
