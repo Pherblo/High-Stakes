@@ -27,10 +27,8 @@ public class CardEvent : MonoBehaviour
 	[Header("Conditions")]
 	// [SerializeField] private List<CardDialogue> _dialogueRequirements = new();
 	[SerializeField] private List<CardCondition> _conditions = new();
-	[Header("Deck")]
-	[SerializeField] private Deck _deck;
 
-	private SelectedChoice _pickedChoice;
+	private SelectedChoice _pickedChoice = SelectedChoice.None;
 
 	public CharacterData AssociatedCharacter => associatedCharacter;
 	public string Description => _description;
