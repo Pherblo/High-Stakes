@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class CardDialogue : MonoBehaviour
+public class CardDialogue
 {
     [Header("Dialogue Settings")]
     [SerializeField] private bool dialogueIsActive = true;
@@ -14,6 +14,5 @@ public class CardDialogue : MonoBehaviour
     [SerializeField] private CharacterData[] _charactersToBeDead = new CharacterData[0];
 
     public CharacterData[] CharactersToBeDead => _charactersToBeDead;
-
     public string Dialogue => dialogueOption;
 }
