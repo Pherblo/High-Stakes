@@ -1223,13 +1223,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa8740551ebe6184eb914bebb0fafe14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  associatedCharacter: {fileID: 0}
-  description: Hi, my name is Mary. I am in love. Can you help me please?
-  guaranteedCard: 0
-  dialogueA: {fileID: 0}
-  dialogueB: {fileID: 0}
+  _associatedCharacter: {fileID: 0}
+  _description: 
+  _dialogueA: {fileID: 0}
+  _dialogueB: {fileID: 0}
+  _conditions: []
   _deck: {fileID: 0}
-  dialogueRequirements: []
 --- !u!1 &7301925133677378905
 GameObject:
   m_ObjectHideFlags: 0
