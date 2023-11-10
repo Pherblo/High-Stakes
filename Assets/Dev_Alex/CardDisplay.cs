@@ -7,10 +7,10 @@ public class CardDisplay : MonoBehaviour
 {
     [Header("Card UI References")]
     [SerializeField] private SpriteRenderer _characterArt;
-    [SerializeField] private TMP_Text _cardName;
-    [SerializeField] private TMP_Text _cardDescription;
-    [SerializeField] private TMP_Text _choiceAText;
-    [SerializeField] private TMP_Text _choiceBText;
+    [SerializeField] private TextMeshProUGUI _cardName;
+    [SerializeField] private TextMeshProUGUI _cardDescription;
+    [SerializeField] private TextMeshProUGUI _choiceAText;
+    [SerializeField] private TextMeshProUGUI _choiceBText;
 
     // Called by events.
     public void UpdateCardDisplay(CardEvent cardToDisplay)
@@ -27,7 +27,7 @@ public class CardDisplay : MonoBehaviour
        // characterArtSR.sprite = characterArt;
        
 
-        // Setting Text Meshes
+        // Set displayed card's texts.
         _cardName.text = cardToDisplay.AssociatedCharacter.Name;
         _cardDescription.text = cardToDisplay.Description;
     }
