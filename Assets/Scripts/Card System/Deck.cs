@@ -55,7 +55,7 @@ public class Deck : MonoBehaviour
             if (selectedCard)
             {
                 // TODO: Make deck listen to card's event here.
-
+                selectedCard.OnDialogueSelected += ProcessCard;
                 OnCardPicked?.Invoke(selectedCard);
                 break;
             }
@@ -69,6 +69,15 @@ public class Deck : MonoBehaviour
         // Modify characters' alive/dead states if needed.
         // Store chosen dialogue.
         card.OnDialogueSelected = null;
+
+        if (card.PickedChoice == SelectedChoice.ChoiceA)
+        {
+            _selectedDialogues.Add(card.DialogueA);
+        }
+        else if (card.PickedChoice == SelectedChoice.ChoiceB)
+        {
+            _selectedDialogues.Add(card.DialogueB);
+        }
 
         /*
         // Add cards from _lockedCards into _availableCards if requirements are met.
