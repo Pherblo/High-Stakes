@@ -6,8 +6,8 @@ using UnityEngine.UIElements;
 
 public class CardDialogue : MonoBehaviour
 {
-    [SerializeField] private bool _dialogueIsActive = true;
-    [SerializeField] private string _dialogueOption;
+    [SerializeField] private bool dialogueIsActive = true;
+    [SerializeField] private string dialogueOption;
 
-    public string Description => _dialogueOption;
+    public string Dialogue => dialogueOption;
 }

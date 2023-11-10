@@ -16,6 +16,7 @@ public class CardEvent : MonoBehaviour
 	public Action<CardEvent> OnDialogueSelected;
 
 	[Header("Card Settings")]
+<<<<<<< HEAD
 	[SerializeField] private CharacterData _associatedCharacter;
 	[SerializeField] private string _description;
 	// [SerializeField] private bool _guaranteedCard = false; // If true, this card will be played next once requirements are met.
@@ -35,6 +36,22 @@ public class CardEvent : MonoBehaviour
 	public CardDialogue DialogueB => _dialogueB;
 	// public bool GuaranteedCard => _guaranteedCard;
 	public SelectedChoice PickedChoice => _pickedChoice;
+=======
+	[SerializeField] private CharacterData associatedCharacter;
+	[SerializeField] private string description;
+	[SerializeField] private bool guaranteedCard = false; // If true, this card will be played next once requirements are met.
+
+	[Header("Dialogues")]
+	[SerializeField] private CardDialogue dialogueA;
+	[SerializeField] private CardDialogue dialogueB;
+	[Header("Deck")]
+	[SerializeField] private Deck _deck;
+	public bool GuaranteedCard => guaranteedCard;
+	public string Description => description;
+
+	public CardDialogue DialogueA => dialogueA;
+	public CardDialogue DialogueB => dialogueB;
+>>>>>>> develop
 
 	// This Event Cards Requirements
 

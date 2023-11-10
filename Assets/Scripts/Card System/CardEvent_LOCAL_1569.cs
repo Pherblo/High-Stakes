@@ -47,11 +47,11 @@ public class CardEvent : MonoBehaviour
 		// Add corresponding selected dialogue to deck selected dialogue list
 		if(option == SelectedChoice.ChoiceA)
 		{
-			_deck.selectedDialogues.Add(dialogueA);
+			_deck.selectedDialogues.Add(_dialogueA);
         }
 		else if(option == SelectedChoice.ChoiceB)
 		{
-			_deck.selectedDialogues.Add(dialogueB);
+			_deck.selectedDialogues.Add(_dialogueB);
 		}
 	}
 

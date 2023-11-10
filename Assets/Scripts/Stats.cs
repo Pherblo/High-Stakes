@@ -11,17 +11,24 @@ public class Stats : MonoBehaviour
     private float _maxValue = 100;
 
     [Header("Display settings: ")]
-    public Image StatDisplay;
-    public UnityEvent StatChange;
+    public float minY = 0.8f;
+    public float maxY = 2.8f;
+    public float dangerThreshold = 75;
 
-    void Start()
-    {
-        updateDisplay(); //set the display to show current value
-    }
+    [Header("References")]
+    public GameObject potionMask;
+    public ParticleSystem bubblePassive;
+    public ParticleSystem bubbleBoil;
+    public ParticleSystem bubbleBurst;
+    public ParticleSystem overflow;
+    public ParticleSystem shatter;
 
-    void Update()
+    [Space]
+    public UnityEvent OnDeath;
+
+    private void Start()
     {
-        updateDisplay(); //update every frame to display current value
+        updateDisplay();
     }
 
     //returns the current value of stat
@@ -34,27 +41,45 @@ public class Stats : MonoBehaviour
     public void changeValue(int change)
     {
         _currentValue += change;
-        StatChange.Invoke();
+
+        Mathf.Clamp(_currentValue, 0, _maxValue);
+
+        updateDisplay(); //set the display to show current value
+        bubbleBurst.Play();
     }
 
-    //method that returns a bool of true when _currentVaue is greater than/or equal to _maxValue or less than/or equal to 0, otherwise returns false
-    public bool triggerDeath()
+    //check if player has died, and play corresponding particle animations. if dead, call OnDeath() for other scripts to listen to
+    private void checkForDeath()
     {
         if(_currentValue >= _maxValue)
         {
-            return true;
+            overflow.Play();
         } else if (_currentValue <= 0)
         {
-            return true;
+            shatter.Play();
         } else
         {
-            return false;
+            return;
         }
+
+        OnDeath.Invoke();
     }
 
     //updates image fill amount to match current value.
     private void updateDisplay()
     {
-        StatDisplay.fillAmount = _currentValue/100;
+        if(_currentValue >= dangerThreshold)
+        {
+            bubbleBoil.Play();
+        }
+        else
+            bubbleBoil.Stop();
+
+        Vector3 pos = potionMask.transform.localPosition;
+        pos.y = (_currentValue / _maxValue) * (maxY - minY) + minY;
+
+        potionMask.transform.localPosition = pos;
+
+        checkForDeath();
     }
 }
