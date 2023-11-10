@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class CharacterDatabase : MonoBehaviour
@@ -10,9 +11,11 @@ public class CharacterDatabase : MonoBehaviour
     [Header("Characters can be manually loaded using ContextMenu or auto loaded on Awake.")]
     [SerializeField] private string _resourcePath;
     [SerializeField] private bool _loadCharactersOnAwake = true;
-    [SerializeField] private CharacterData[] _characters = new CharacterData[1];
+    [SerializeField] private CharacterData[] _characterPrefabs = new CharacterData[1];
 
-    public CharacterData[] Characters => _characters;
+    private List<CharacterData> _characterInstances = new();
+
+    public List<CharacterData> CharacterInstances => _characterInstances;
 
     private void Awake()
     {
@@ -22,6 +25,12 @@ public class CharacterDatabase : MonoBehaviour
     [ContextMenu("Load Characters")]
     private void LoadCharacters()
     {
-        _characters = Resources.LoadAll<CharacterData>(_resourcePath);
+        _characterPrefabs = Resources.LoadAll<CharacterData>(_resourcePath);
+
+        foreach (CharacterData character in _characterPrefabs)
+        {
+            CharacterData characterInstance = Instantiate(character);
+            _characterInstances.Add(characterInstance);
+        }
     }
 }

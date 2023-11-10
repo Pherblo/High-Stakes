@@ -23,11 +23,16 @@ public class Deck : MonoBehaviour
 
     public void Start()
     {
-        // Load all the cards.
-        _characters = _database.Characters.ToList();
+        // Load all the cards. Instantiate their cards.
+        foreach (CharacterData character in _database.CharacterInstances)
+        {
+            character.InitializeCharacter();
+            _characters.Add(character);
+        }
         // Sort characters
         foreach (CharacterData character in _characters)
         {
+            CharacterData characterInstance = Instantiate(character);
             if (character.IsAlive)
             {
                 _aliveCharacters.Add(character);

@@ -13,8 +13,20 @@ public class CharacterData : MonoBehaviour
 
     // Probably art asset fields here too.
 
+    private List<CardEvent> _cardEventInstances = new();        // Instantiated cards.
+
     public string Name => _name;
     public bool IsAlive => _isAlive;
+
+    // Called by Deck to create the prefabs. Returns self prefab.
+    public void InitializeCharacter()
+    {
+        foreach (CardEvent card in _cardEvents)
+        {
+            CardEvent cardEventInstance = Instantiate(card, transform);
+            _cardEvents.Add(cardEventInstance);
+        }
+    }
 
     public CardEvent GetCard()
     {
