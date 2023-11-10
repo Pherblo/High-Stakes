@@ -395,7 +395,7 @@ GameObject:
   - component: {fileID: 1951940930}
   - component: {fileID: 1951940931}
   m_Layer: 0
-  m_Name: CardEvent Test
+  m_Name: CharacterDatabase Test DEPRECATED
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -429,6 +429,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _resourcePath: Characters
+  _loadCharactersOnAwake: 1
+  _characters:
+  - {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
