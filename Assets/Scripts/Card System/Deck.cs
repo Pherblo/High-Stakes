@@ -6,7 +6,7 @@ using UnityEngine.Events;
 
 public class Deck : MonoBehaviour
 {
-    public UnityEvent<CardEvent> OnCardPicked;
+    public UnityEvent<CardEvent> OnCardPicked;      // When a card has been picked from the deck.
 
     [Header("References")]
     [SerializeField] private CharacterDatabase _database;
@@ -17,12 +17,18 @@ public class Deck : MonoBehaviour
     private List<CharacterData> _aliveCharacters = new();
     private List<CharacterData> _deadCharacters = new();
 
-    public List<CardDialogue> selectedDialogues = new();
+    private List<CardDialogue> _selectedDialogues = new();
+
+    public List<CardDialogue> SelectedDialogues => _selectedDialogues;
 
     public void Start()
     {
-        // Load all the cards.
-        _characters = _database.Characters.ToList();
+        // Load all the cards. Instantiate their cards.
+        foreach (CharacterData character in _database.CharacterInstances)
+        {
+            character.InitializeCharacter();
+            _characters.Add(character);
+        }
         // Sort characters
         foreach (CharacterData character in _characters)
         {
@@ -43,14 +49,17 @@ public class Deck : MonoBehaviour
         int randomIndex = Random.Range(0, _aliveCharacters.Count);
         CardEvent selectedCard = _aliveCharacters[randomIndex].GetCard();
         selectedCard.OnDialogueSelected += ProcessCard;*/
-
+        // Shuffle deck to iterate through it and get the first available card.
+        // We're shuffling instead of picking a character at random because characters may not return valid cards whose conditions are met.
         ShuffleDeck();
-        CardEvent selectedCard = null;
+        CardEvent selectedCard;
         foreach (CharacterData character in _aliveCharacters)
         {
             selectedCard = character.GetCard();
             if (selectedCard)
             {
+                // TODO: Make deck listen to card's event here.
+                selectedCard.OnDialogueSelected += ProcessCard;
                 OnCardPicked?.Invoke(selectedCard);
                 break;
             }
@@ -64,6 +73,15 @@ public class Deck : MonoBehaviour
         // Modify characters' alive/dead states if needed.
         // Store chosen dialogue.
         card.OnDialogueSelected = null;
+
+        if (card.PickedChoice == SelectedChoice.ChoiceA)
+        {
+            _selectedDialogues.Add(card.DialogueA);
+        }
+        else if (card.PickedChoice == SelectedChoice.ChoiceB)
+        {
+            _selectedDialogues.Add(card.DialogueB);
+        }
 
         /*
         // Add cards from _lockedCards into _availableCards if requirements are met.

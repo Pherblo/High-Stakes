@@ -4,10 +4,11 @@ using UnityEngine;
 using UnityEngine.Events;
 
 // Enum list of options for selected dialogues
-public enum SelectedDialogue
+public enum SelectedChoice
 {
-    dialogueA, // 0
-    dialogueB  // 1
+	None = 0,
+    ChoiceA = 1,
+    ChoiceB = 2
 }
 
 // Is on a card prefab
@@ -16,48 +17,59 @@ public class CardEvent : MonoBehaviour
 	public Action<CardEvent> OnDialogueSelected;
 
 	[Header("Card Settings")]
-	[SerializeField] private CharacterData associatedCharacter;
-	[SerializeField] private string description;
-	[SerializeField] private bool guaranteedCard = false; // If true, this card will be played next once requirements are met.
+	[SerializeField] private CharacterData _associatedCharacter;
+	[SerializeField] private string _description;
+	// [SerializeField] private bool _guaranteedCard = false; // If true, this card will be played next once requirements are met.
 
 	[Header("Dialogues")]
-	[SerializeField] private CardDialogue dialogueA;
-	[SerializeField] private CardDialogue dialogueB;
+	[SerializeField] private CardDialogue _dialogueA;
+	[SerializeField] private CardDialogue _dialogueB;
+	[Header("Conditions")]
+	// [SerializeField] private List<CardDialogue> _dialogueRequirements = new();
+	[SerializeField] private List<CardCondition> _conditions = new();
 	[Header("Deck")]
 	[SerializeField] private Deck _deck;
-	public bool GuaranteedCard => guaranteedCard;
-	public string Description => description;
 
-	public CardDialogue DialogueA => dialogueA;
-	public CardDialogue DialogueB => dialogueB;
+	private SelectedChoice _pickedChoice;
+
+	public string Description => _description;
+	public CardDialogue DialogueA => _dialogueA;
+	public CardDialogue DialogueB => _dialogueB;
+	// public bool GuaranteedCard => _guaranteedCard;
+	public SelectedChoice PickedChoice => _pickedChoice;
 
 	// This Event Cards Requirements
-	[SerializeField] private List<CardDialogue> dialogueRequirements = new();
 
     // Called by player input via GUI.
     public void ChooseDialogue(int optionInt)
 	{
 		// Maps int to a SelectedDialogue
-        SelectedDialogue option = (SelectedDialogue)optionInt;
-
+		//SelectedChoice option = (SelectedChoice)optionInt;
+		/*
 		// Add corresponding selected dialogue to deck selected dialogue list
-		if(option == SelectedDialogue.dialogueA)
+		if(option == SelectedChoice.ChoiceA)
 		{
-			_deck.selectedDialogues.Add(dialogueA);
+			_deck.SelectedDialogues.Add(_dialogueA);
         }
-		else if(option == SelectedDialogue.dialogueB)
+		else if(option == SelectedChoice.ChoiceB)
 		{
-			_deck.selectedDialogues.Add(dialogueB);
-		}
-	}
+			_deck.SelectedDialogues.Add(_dialogueB);
+		}*/
+		_pickedChoice = (SelectedChoice)optionInt;
+        OnDialogueSelected?.Invoke(this);
+    }
 
 	public bool CheckRequirements()
 	{
+		// If dialogue has already been picked, this card isn't available anymore.
+		if (_pickedChoice != SelectedChoice.None) return false;
+		// Following comments probably don't work and are disabled for now. Meaning conditions won't work.
 		// For each of this cards dialogues requirements check if it is in selected dialogues
-		for(int i = 0; i < dialogueRequirements.Count; i++)
+		/*
+		for(int i = 0; i < _dialogueRequirements.Count; i++)
 		{
             // Checks if each required dialogue is in the selected dialogues
-            if (_deck.selectedDialogues.Contains(dialogueRequirements[i]))
+            if (_deck.selectedDialogues.Contains(_dialogueRequirements[i]))
 			{
 				// Just continue checking
             }
@@ -67,7 +79,7 @@ public class CardEvent : MonoBehaviour
 				return false;
 			}
         }
-
+		*/
 		// Only returns true if all requirements are in selected dialogues
 		return true;
 	}
