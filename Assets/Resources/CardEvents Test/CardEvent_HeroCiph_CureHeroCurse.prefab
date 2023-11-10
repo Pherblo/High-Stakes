@@ -44,17 +44,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa8740551ebe6184eb914bebb0fafe14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _associatedCharacter: {fileID: 0}
-  _description: CardEvent 0 Description
+  _associatedCharacter: {fileID: 8879443658972519502, guid: 72c42912b0571644abda7b5c2decbbd5, type: 3}
+  _description: I plead for your help. A foul demon cursed me just before its death.
+    Please banish this curse from me.
   _dialogueA:
     dialogueIsActive: 1
-    dialogueOption: Choice A here. Lorem Ipsum shit. Oratrice Mecanique d'Analyse
-      Cardinale.
+    dialogueOption: Lift the hero's curse.
     _charactersToBeDead: []
   _dialogueB:
     dialogueIsActive: 1
-    dialogueOption: Choice B here. Lorem Ipsum shit. Oratrice Mecanique d'Analyse
-      Cardinale.
+    dialogueOption: Ignore the hero's request.
     _charactersToBeDead: []
   _conditions: []
   _deck: {fileID: 0}
