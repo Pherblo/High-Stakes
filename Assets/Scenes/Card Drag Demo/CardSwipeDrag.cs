@@ -76,8 +76,9 @@ public class CardSwipeDrag : MonoBehaviour, IDragHandler, IBeginDragHandler, IEn
 			// Change Card
 			// Draw new card
 			thisCardArt.color = Color.clear;
-			Invoke("DrawNewCard", 5);
-		}
+			//Invoke("DrawNewCard", 5);
+			DrawNewCard();
+        }
 
 		// ** Debugs **
         if (debug_Dragging) { Debug.Log("Finished drag"); }
