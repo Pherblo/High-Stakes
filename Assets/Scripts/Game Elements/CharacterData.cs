@@ -19,6 +19,7 @@ public class CharacterData : MonoBehaviour
     private List<CardEvent> _cardEventInstances = new();        // Instantiated cards.
 
     public string Name => _name;
+    public string Title => _title;
     public bool IsAlive => _isAlive;
     public Sprite CharacterArt => _characterArt;
 

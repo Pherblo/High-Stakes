@@ -19,6 +19,7 @@ public class CardDisplay : MonoBehaviour
     {
         // Display texts.
         _cardName.text = cardToDisplay.AssociatedCharacter.Name;
+        _cardTitle.text = cardToDisplay.AssociatedCharacter.Title;
         //_cardDescription.text = cardToDisplay.Description;
         //_choiceAText.text = cardToDisplay.DialogueA.DialogueText;
         //_choiceBText.text = cardToDisplay.DialogueB.DialogueText;
