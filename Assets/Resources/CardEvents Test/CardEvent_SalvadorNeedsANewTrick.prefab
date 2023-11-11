@@ -47,9 +47,18 @@ MonoBehaviour:
   associatedCharacter: {fileID: 1095002341841383241, guid: fd4a9a357ca293741bfde4ca586a1d4b, type: 3}
   _description: My job's getting a little boring. Anyway you can help me bring back
     the thrill?
+  suspicionValue: 0
+  faithValue: 10
+  popularityValue: 0
+  suspicionValueA: 0
+  faithValueA: 0
+  popularityValueA: 0
+  suspicionValueB: 0
+  faithValueB: 0
+  popularityValueB: 0
   _dialogueA:
     _dialogueIsActive: 1
-    _dialogueText: Give nightshades.
+    _dialogueText: Give nightshade.
     _charactersToBeDead: []
   _dialogueB:
     _dialogueIsActive: 1

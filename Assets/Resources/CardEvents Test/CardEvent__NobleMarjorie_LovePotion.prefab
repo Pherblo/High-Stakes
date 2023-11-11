@@ -48,6 +48,15 @@ MonoBehaviour:
   _description: "My fianc\xE9 had been avoiding me despite my best efforts, and oft
     spends time with another woman. I need a potion that lets me keep him by my side.
     Forever."
+  suspicionValue: 0
+  faithValue: 0
+  popularityValue: 0
+  suspicionValueA: 0
+  faithValueA: -10
+  popularityValueA: 5
+  suspicionValueB: 10
+  faithValueB: 10
+  popularityValueB: -5
   _dialogueA:
     _dialogueIsActive: 1
     _dialogueText: Give her a love potion.

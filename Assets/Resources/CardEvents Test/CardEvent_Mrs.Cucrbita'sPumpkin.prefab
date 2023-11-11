@@ -47,6 +47,15 @@ MonoBehaviour:
   associatedCharacter: {fileID: 1095002341841383241, guid: 227ccc505faaac9498af86fab4d6dc3f, type: 3}
   _description: My husband's pumpkin is never going to win the contest. He'll be
     crushed and we could really use the money. Any way you can help Hira?
+  suspicionValue: 15
+  faithValue: 0
+  popularityValue: 10
+  suspicionValueA: 0
+  faithValueA: 0
+  popularityValueA: 0
+  suspicionValueB: 0
+  faithValueB: 10
+  popularityValueB: -20
   _dialogueA:
     _dialogueIsActive: 1
     _dialogueText: Give her magical fertilizer.

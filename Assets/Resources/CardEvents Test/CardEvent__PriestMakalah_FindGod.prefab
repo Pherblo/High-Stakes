@@ -47,6 +47,15 @@ MonoBehaviour:
   associatedCharacter: {fileID: 8879443658972519502, guid: cdc652e47da07574683e673b21cdfd60, type: 3}
   _description: Greetings. I am on a pilgrimage in search for the traces of god.
     I desperately seek your clairvoyance to show me the path I must take.
+  suspicionValue: 0
+  faithValue: -20
+  popularityValue: 0
+  suspicionValueA: 0
+  faithValueA: 0
+  popularityValueA: 0
+  suspicionValueB: 0
+  faithValueB: 20
+  popularityValueB: 0
   _dialogueA:
     _dialogueIsActive: 1
     _dialogueText: Lead him towards the God of Light.

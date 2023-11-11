@@ -46,6 +46,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   associatedCharacter: {fileID: 1095002341841383241, guid: 574ff0f97796e594b85101ac11bc15e2, type: 3}
   _description: Mary comes asking for a poison.
+  suspicionValue: 10
+  faithValue: 15
+  popularityValue: 0
+  suspicionValueA: 0
+  faithValueA: 0
+  popularityValueA: 0
+  suspicionValueB: 0
+  faithValueB: -10
+  popularityValueB: 0
   _dialogueA:
     _dialogueIsActive: 1
     _dialogueText: '"Here. this will take care of your problem."'

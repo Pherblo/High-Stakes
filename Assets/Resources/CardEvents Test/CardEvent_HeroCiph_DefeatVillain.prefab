@@ -47,6 +47,15 @@ MonoBehaviour:
   associatedCharacter: {fileID: 8879443658972519502, guid: 72c42912b0571644abda7b5c2decbbd5, type: 3}
   _description: I'm about to confront my archnemesis, and need your blessing. Please
     grant me the strength to defeat my enemies.
+  suspicionValue: 0
+  faithValue: 0
+  popularityValue: 10
+  suspicionValueA: 0
+  faithValueA: 0
+  popularityValueA: 0
+  suspicionValueB: 0
+  faithValueB: 0
+  popularityValueB: -10
   _dialogueA:
     _dialogueIsActive: 1
     _dialogueText: Bless the hero.

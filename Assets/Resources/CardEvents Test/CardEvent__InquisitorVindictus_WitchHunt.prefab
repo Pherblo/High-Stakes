@@ -47,6 +47,15 @@ MonoBehaviour:
   associatedCharacter: {fileID: 8879443658972519502, guid: d4bcada70562d234d8de01cf9fc20a3d, type: 3}
   _description: Hark, citizen. Have you witnessed any sign of foul witches around
     these lands?
+  suspicionValue: 0
+  faithValue: 0
+  popularityValue: 0
+  suspicionValueA: 10
+  faithValueA: 0
+  popularityValueA: 0
+  suspicionValueB: -10
+  faithValueB: 0
+  popularityValueB: 0
   _dialogueA:
     _dialogueIsActive: 1
     _dialogueText: Tell the inquisitor you know nothing.

@@ -14,6 +14,12 @@ public class CardDisplay : MonoBehaviour
     [SerializeField] private Typewriter _choiceAText;
     [SerializeField] private Typewriter _choiceBText;
 
+    [Header("stats  to be changed")]
+    public Stats suspicion;
+    public Stats faith;
+    public Stats popularity;
+
+
     // Called by events.
     public void UpdateCardDisplay(CardEvent cardToDisplay)
     {
@@ -27,5 +33,9 @@ public class CardDisplay : MonoBehaviour
         _choiceAText.RunDialogue(cardToDisplay.DialogueA.DialogueText);
         _choiceBText.RunDialogue(cardToDisplay.DialogueB.DialogueText);
         _characterArt.sprite = cardToDisplay.AssociatedCharacter.CharacterArt;
+        suspicion.changeValue(cardToDisplay.suspicionValue);
+        faith.changeValue(cardToDisplay.faithValue);
+        popularity.changeValue(cardToDisplay.popularityValue);
+
     }
 }

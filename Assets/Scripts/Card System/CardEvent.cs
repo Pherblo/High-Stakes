@@ -21,7 +21,22 @@ public class CardEvent : MonoBehaviour
 	[SerializeField, TextArea] private string _description;
 	// [SerializeField] private bool _guaranteedCard = false; // If true, this card will be played next once requirements are met.
 
-	[Header("Dialogues")]
+	[Header("stat change values")]
+
+
+	public float suspicionValue =0;
+    public float faithValue = 0;
+    public float popularityValue = 0;  //this is a quick fix can be changed later
+
+    public float suspicionValueA = 0;
+    public float faithValueA = 0;
+    public float popularityValueA = 0;  //this is a quick fix can be changed later
+
+    public float suspicionValueB = 0;
+    public float faithValueB = 0;
+    public float popularityValueB = 0;  //this is a quick fix can be changed later
+
+    [Header("Dialogues")]
 	[SerializeField] private CardDialogue _dialogueA;
 	[SerializeField] private CardDialogue _dialogueB;
 	[Header("Conditions")]
@@ -56,6 +71,14 @@ public class CardEvent : MonoBehaviour
 		}*/
 		_pickedChoice = (SelectedChoice)optionInt;
         OnDialogueSelected?.Invoke(this);
+
+        if (_pickedChoice == SelectedChoice.ChoiceA)
+		{
+			suspicionValue = suspicionValueA;
+		} else if (_pickedChoice == SelectedChoice.ChoiceB)
+		{
+			suspicionValue = suspicionValueB;
+		}
     }
 
 	public bool CheckRequirements()
@@ -88,4 +111,6 @@ public class CardEvent : MonoBehaviour
     {
 		Debug.Log("Requirements met for this card: " + CheckRequirements());
     }
+
+
 }

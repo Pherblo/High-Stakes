@@ -47,6 +47,15 @@ MonoBehaviour:
   associatedCharacter: {fileID: 8879443658972519502, guid: 72c42912b0571644abda7b5c2decbbd5, type: 3}
   _description: I plead for your help. A foul demon cursed me just before its death.
     Please banish this curse from me.
+  suspicionValue: 0
+  faithValue: -10
+  popularityValue: 0
+  suspicionValueA: 0
+  faithValueA: 0
+  popularityValueA: 0
+  suspicionValueB: 0
+  faithValueB: 10
+  popularityValueB: 0
   _dialogueA:
     _dialogueIsActive: 1
     _dialogueText: Lift the hero's curse.

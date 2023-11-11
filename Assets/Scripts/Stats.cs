@@ -38,7 +38,7 @@ public class Stats : MonoBehaviour
     }
 
     //takes a change value and adds it to current value, values should be entered as negative or positive.
-    public void changeValue(int change)
+    public void changeValue(float change)
     {
         _currentValue += change;
 
