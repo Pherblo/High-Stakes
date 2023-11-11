@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _name: Priest Makalah
+  _title: Follower of Light
   _isAlive: 1
   _characterArt: {fileID: 21300000, guid: 1e6b79271c895e3409fdc090697cf9e7, type: 3}
   _cardEvents:

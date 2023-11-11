@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _name: Clyde
+  _title: Peasant
   _isAlive: 1
   _characterArt: {fileID: 21300000, guid: cddd2e7c92049404fb625e5f90067120, type: 3}
   _cardEvents:

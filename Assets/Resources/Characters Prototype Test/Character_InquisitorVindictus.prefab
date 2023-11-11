@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _name: Inquisitor Vindictus
+  _title: Templar
   _isAlive: 1
   _characterArt: {fileID: 21300000, guid: c6c08981b3caa4a42a54ebe44a78db26, type: 3}
   _cardEvents:
