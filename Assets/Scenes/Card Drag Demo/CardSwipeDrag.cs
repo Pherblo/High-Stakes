@@ -22,6 +22,7 @@ public class CardSwipeDrag : MonoBehaviour, IDragHandler, IBeginDragHandler, IEn
     private void Start()
     {
 		thisCardArt = GetComponent<Image>();
+		cardOriginPosition = thisCardArt.transform.localPosition;
     }
 
     // When you drag the card. Move its local x position, add the amount moved on x axis.
