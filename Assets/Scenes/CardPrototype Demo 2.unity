@@ -283,9 +283,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _characterArtRenderer: {fileID: 74510964}
   _cardName: {fileID: 713135559}
-  _cardDescription: {fileID: 1325148705}
-  _choiceAText: {fileID: 1408988579}
-  _choiceBText: {fileID: 165149209}
+  _cardDescription: {fileID: 1325148706}
+  _choiceAText: {fileID: 1408988580}
+  _choiceBText: {fileID: 165149210}
 --- !u!4 &74510963
 Transform:
   m_ObjectHideFlags: 0
@@ -438,7 +438,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 1037.875, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &165149208
@@ -559,7 +559,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _dialogue: {fileID: 165149209}
   _fitter: {fileID: 165149208}
-  _timePerChar: 0.1
+  _timePerChar: 0.01
 --- !u!222 &165149211
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1259,7 +1259,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 603.745, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &713135558
@@ -1667,7 +1667,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 1037.875, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1325148703
@@ -1796,7 +1796,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _dialogue: {fileID: 1325148705}
   _fitter: {fileID: 1325148703}
-  _timePerChar: 0.1
+  _timePerChar: 0.01
 --- !u!1 &1408988576
 GameObject:
   m_ObjectHideFlags: 0
@@ -1833,7 +1833,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 1037.875, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1408988578
@@ -1954,7 +1954,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _dialogue: {fileID: 1408988579}
   _fitter: {fileID: 1408988578}
-  _timePerChar: 0.1
+  _timePerChar: 0.01
 --- !u!222 &1408988581
 CanvasRenderer:
   m_ObjectHideFlags: 0
