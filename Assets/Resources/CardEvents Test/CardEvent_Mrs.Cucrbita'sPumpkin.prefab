@@ -49,10 +49,10 @@ MonoBehaviour:
     crushed and we could really use the money. Any way you can help Hira?
   _dialogueA:
     _dialogueIsActive: 1
-    _dialogueText: give her pumpkin fertilizer
+    _dialogueText: Give her magical fertilizer.
     _charactersToBeDead: []
   _dialogueB:
     _dialogueIsActive: 1
-    _dialogueText: give her poison
+    _dialogueText: Give her poisonous fertilizer.
     _charactersToBeDead: []
   _conditions: []

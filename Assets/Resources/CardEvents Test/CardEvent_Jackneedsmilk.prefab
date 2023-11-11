@@ -45,14 +45,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   associatedCharacter: {fileID: 1095002341841383241, guid: 72747a2b3d9afc34889732b557b22c89, type: 3}
-  _description: My 50 kids are starving, our cow Bessie can't produce enough milk.
-    Maybe you could give me a cow with infinite milk?
+  _description: My 50 kids are starving, and our cow Bessie can't produce enough
+    milk. Maybe you could give me a cow with infinite milk?
   _dialogueA:
     _dialogueIsActive: 1
-    _dialogueText: Of course dear, here take this
+    _dialogueText: '"Of course dear, here take this."'
     _charactersToBeDead: []
   _dialogueB:
     _dialogueIsActive: 1
-    _dialogueText: You greedy man of course not!
+    _dialogueText: '"You greedy man! of course not!"'
     _charactersToBeDead: []
   _conditions: []

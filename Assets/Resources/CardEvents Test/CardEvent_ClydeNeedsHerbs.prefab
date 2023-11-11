@@ -45,13 +45,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   associatedCharacter: {fileID: 1095002341841383241, guid: cb024f176ca5b5344b077ee2d8b12c2e, type: 3}
-  _description: Mam the doctor ran out of herbs, any chance you have some to spare?
+  _description: Madam, the doctor had ran out of medicinal herbs. Perchance you have
+    some to spare for us?
   _dialogueA:
     _dialogueIsActive: 1
-    _dialogueText: Give him the herbs he wants
+    _dialogueText: Donate medicinal herbs.
     _charactersToBeDead: []
   _dialogueB:
     _dialogueIsActive: 1
-    _dialogueText: give him some cursed herbs that will make people forget everything
+    _dialogueText: Give poisonous herbs that erases memories.
     _charactersToBeDead: []
   _conditions: []

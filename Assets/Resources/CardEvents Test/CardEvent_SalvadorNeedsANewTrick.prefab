@@ -45,14 +45,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   associatedCharacter: {fileID: 1095002341841383241, guid: fd4a9a357ca293741bfde4ca586a1d4b, type: 3}
-  _description: my job's getting a little boring, anyway you can help me bring back
+  _description: My job's getting a little boring. Anyway you can help me bring back
     the thrill?
   _dialogueA:
     _dialogueIsActive: 1
-    _dialogueText: Give some nightshade
+    _dialogueText: Give nightshades.
     _charactersToBeDead: []
   _dialogueB:
     _dialogueIsActive: 1
-    _dialogueText: cast a spell on salvador
+    _dialogueText: Curse Salvador.
     _charactersToBeDead: []
   _conditions: []
