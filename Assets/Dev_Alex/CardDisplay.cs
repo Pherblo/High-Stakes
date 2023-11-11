@@ -9,6 +9,7 @@ public class CardDisplay : MonoBehaviour
     [Header("Card UI References")]
     [SerializeField] private Image _characterArt;
     [SerializeField] private TextMeshProUGUI _cardName;
+    [SerializeField] private TextMeshProUGUI _cardTitle;
     [SerializeField] private Typewriter _cardDescription;
     [SerializeField] private Typewriter _choiceAText;
     [SerializeField] private Typewriter _choiceBText;

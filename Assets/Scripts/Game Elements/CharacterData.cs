@@ -8,6 +8,7 @@ public class CharacterData : MonoBehaviour
 {
     [Header("Character Settings")]
     [SerializeField] private string _name;
+    [SerializeField] private string _title;
     [SerializeField] private bool _isAlive = true;
     [SerializeField] private Sprite _characterArt;
     [Header("Character Cards")]
