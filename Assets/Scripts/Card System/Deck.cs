@@ -80,13 +80,11 @@ public class Deck : MonoBehaviour
 
 	public void PickCard()
 	{
-		/*
-		int randomIndex = Random.Range(0, _aliveCharacters.Count);
-		CardEvent selectedCard = _aliveCharacters[randomIndex].GetCard();
-		selectedCard.OnDialogueSelected += ProcessCard;*/
 		// Shuffle deck to iterate through it and get the first available card.
+		// Pick a random character, then pick a random card associated with them.
 		// We're shuffling instead of picking a character at random because characters may not return valid cards whose conditions are met.
-		ShuffleDeck();
+		ShuffleList(_availableCards);
+		/*
 		CardEvent selectedCard;
 		foreach (CharacterData character in _aliveCharacters)
 		{
@@ -101,7 +99,7 @@ public class Deck : MonoBehaviour
 				break;
 			}
 		}
-
+		*/
 		// Do something if no valid card is returned (ran out of cards).
 	}
 
@@ -137,9 +135,9 @@ public class Deck : MonoBehaviour
 	}
 
 	[ContextMenu("Shuffle Test")]
-	private void ShuffleDeck()
+	private void ShuffleList<T>(List<T> listObject)
 	{
 		System.Random rng = new System.Random();
-		_aliveCharacters = _aliveCharacters.OrderBy((x) => rng.Next()).ToList();
+        listObject = listObject.OrderBy((x) => rng.Next()).ToList();
 	}
 }
