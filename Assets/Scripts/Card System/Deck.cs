@@ -29,14 +29,6 @@ public class Deck : MonoBehaviour
 
 	public void Start()
 	{
-		// Load and instantiate all characters.
-		CharacterData[] _loadedCharacters = Resources.LoadAll<CharacterData>(_characterDataResourcesPath);
-		foreach (CharacterData character in _loadedCharacters)
-		{
-			CharacterData characterInstance = Instantiate(character, transform);
-			_characters.Add(characterInstance);
-		}
-
         // Load and instantiate all cards and put them all into _lockedCards to sort further.
         CardEvent[] cardPrefabs = Resources.LoadAll<CardEvent>(_cardEventsResourcesPath);
 		foreach (CardEvent cardPrefab in cardPrefabs)
@@ -44,16 +36,31 @@ public class Deck : MonoBehaviour
 			CardEvent cardInstance = Instantiate(cardPrefab, transform);
 			_lockedCards.Add(cardInstance);
 		}
-		// Sort all cards and get the first available ones.
-		foreach (CardEvent card in _availableCards)
-		{
-			if (card.CheckRequirements())
+
+        // Load and instantiate all characters.
+        CharacterData[] _loadedCharacters = Resources.LoadAll<CharacterData>(_characterDataResourcesPath);
+        foreach (CharacterData character in _loadedCharacters)
+        {
+            CharacterData characterInstance = Instantiate(character, transform);
+            _characters.Add(characterInstance);
+			// Assign character instance to cards with matching associated character.
+			List<CardEvent> matchingCards = _lockedCards.FindAll((x) => x.AssociatedCharacter == character);
+			foreach (CardEvent card in matchingCards)
 			{
-				_lockedCards.Remove(card);
-				_availableCards.Add(card);
+				card.AssignCharacter(characterInstance);
 			}
-		}
-		/*
+        }
+
+        // Sort all cards and get the first available ones.
+        foreach (CardEvent card in _availableCards)
+        {
+            if (card.CheckRequirements())
+            {
+                _lockedCards.Remove(card);
+                _availableCards.Add(card);
+            }
+        }
+        /*
 		// Load all the cards. Instantiate their cards.
 		foreach (CharacterData character in _database.CharacterInstances)
 		{
@@ -76,7 +83,7 @@ public class Deck : MonoBehaviour
 		// Gets new card on start
 		PickCard();
 		*/
-	}
+    }
 
 	public void PickCard()
 	{
