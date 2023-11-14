@@ -11,8 +11,8 @@ public class CardDisplay : MonoBehaviour
 	[SerializeField] private TextMeshProUGUI cardName;
 	[SerializeField] private TextMeshProUGUI cardTitle;
 	[SerializeField] private Typewriter cardDescription;
-	[SerializeField] private TextMeshProUGUI choiceAText;
-	[SerializeField] private TextMeshProUGUI choiceBText;
+	[SerializeField] private Typewriter choiceAText;
+	[SerializeField] private Typewriter choiceBText;
 
 	[Header("Stats To Be Changed")]
 	public Stats suspicion;
@@ -51,10 +51,10 @@ public class CardDisplay : MonoBehaviour
 
         // Updating Dialogue canvas UI texts to card events information
         cardDescription.RunDialogue(cardToDisplay.Description);
-		//choiceAText.RunDialogue(cardToDisplay.DialogueA.DialogueText);
-		//choiceBText.RunDialogue(cardToDisplay.DialogueB.DialogueText);
-		choiceAText.text = cardToDisplay.DialogueA.DialogueText;
-        choiceBText.text = cardToDisplay.DialogueB.DialogueText;
+		choiceAText.RunDialogue(cardToDisplay.DialogueA.DialogueText);
+		choiceBText.RunDialogue(cardToDisplay.DialogueB.DialogueText);
+		//choiceAText.text = cardToDisplay.DialogueA.DialogueText;
+        //choiceBText.text = cardToDisplay.DialogueB.DialogueText;
 
         // Updating Card Canvas UI image to card events sprites
         characterArt.sprite = cardToDisplay.AssociatedCharacter.CharacterArt;
