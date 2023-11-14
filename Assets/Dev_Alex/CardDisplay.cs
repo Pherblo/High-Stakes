@@ -11,8 +11,9 @@ public class CardDisplay : MonoBehaviour
 	[SerializeField] private TextMeshProUGUI cardName;
 	[SerializeField] private TextMeshProUGUI cardTitle;
 	[SerializeField] private Typewriter cardDescription;
-	[SerializeField] private Typewriter choiceAText;
-	[SerializeField] private Typewriter choiceBText;
+	[SerializeField] private TextMeshProUGUI dialogueText;
+
+	private CardEvent currentCardEvent;
 
 	[Header("Stats To Be Changed")]
 	public Stats suspicion;
@@ -25,25 +26,22 @@ public class CardDisplay : MonoBehaviour
 	{
 		if(!thisCardSwipe.SwipeIsRight)
 		{
-			choiceAText.transform.parent.gameObject.SetActive(true);
-            choiceBText.transform.parent.gameObject.SetActive(false);
+			dialogueText.text = currentCardEvent.DialogueA.DialogueText;
 		}
 		else if (thisCardSwipe.SwipeIsRight)
 		{
-            choiceBText.transform.parent.gameObject.SetActive(true);
-            choiceAText.transform.parent.gameObject.SetActive(false);
+            dialogueText.text = currentCardEvent.DialogueB.DialogueText;
         }
     }
 
 	public void ClearDialogues()
 	{
-        choiceAText.transform.parent.gameObject.SetActive(false);
-        choiceBText.transform.parent.gameObject.SetActive(false);
+		dialogueText.text = "";
     }
 
-	// Called from Deck OnCardPicked
-	// Updating UI elements on Card Canvas & Dialogue Canvas
-	public void UpdateCardDisplay(CardEvent cardToDisplay)
+    // Called from Deck OnCardPicked
+    // Updating UI elements on Card Canvas & Dialogue Canvas
+    public void UpdateCardDisplay(CardEvent cardToDisplay)
 	{
 		// Updating Card Canvas UI texts to card events information
 		cardName.text = cardToDisplay.AssociatedCharacter.Name;
@@ -51,8 +49,9 @@ public class CardDisplay : MonoBehaviour
 
         // Updating Dialogue canvas UI texts to card events information
         cardDescription.RunDialogue(cardToDisplay.Description);
-		choiceAText.RunDialogue(cardToDisplay.DialogueA.DialogueText);
-		choiceBText.RunDialogue(cardToDisplay.DialogueB.DialogueText);
+
+		//choiceAText.RunDialogue(cardToDisplay.DialogueA.DialogueText);
+		//choiceBText.RunDialogue(cardToDisplay.DialogueB.DialogueText);
 		//choiceAText.text = cardToDisplay.DialogueA.DialogueText;
         //choiceBText.text = cardToDisplay.DialogueB.DialogueText;
 
@@ -63,6 +62,8 @@ public class CardDisplay : MonoBehaviour
 		suspicion.changeValue(cardToDisplay.suspicionValue);
 		faith.changeValue(cardToDisplay.faithValue);
 		popularity.changeValue(cardToDisplay.popularityValue);
+
+		currentCardEvent = cardToDisplay;
 
 	}
 }
