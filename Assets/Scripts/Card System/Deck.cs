@@ -83,7 +83,11 @@ public class Deck : MonoBehaviour
 		// Shuffle deck to iterate through it and get the first available card.
 		// Pick a random character, then pick a random card associated with them.
 		// We're shuffling instead of picking a character at random because characters may not return valid cards whose conditions are met.
-		ShuffleList(_availableCards);
+		ShuffleList(_characters);
+		foreach (CharacterData character in _characters)
+		{
+			List<CardEvent> associatedCards = _availableCards.FindAll((x) => x.AssociatedCharacter == character);
+		}
 		/*
 		CardEvent selectedCard;
 		foreach (CharacterData character in _aliveCharacters)

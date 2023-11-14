@@ -139,7 +139,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1866791
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -155,7 +155,10 @@ MonoBehaviour:
   OnCardPicked:
     m_PersistentCalls:
       m_Calls: []
+  _cardEventsResourcesPath: 
+  _characterDataResourcesPath: 
   _database: {fileID: 1951940931}
+  currentCardDisplayed: {fileID: 0}
 --- !u!4 &1866792
 Transform:
   m_ObjectHideFlags: 0
@@ -432,6 +435,66 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &1903964823
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1903964824}
+  - component: {fileID: 1903964825}
+  - component: {fileID: 1903964826}
+  m_Layer: 0
+  m_Name: PrefabRefTester
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1903964824
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1903964823}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 220.70697, y: 271.90527, z: -1.5501629}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1903964825
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1903964823}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9eedc6a576d395469413adfab263021, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 7764639694508830955, guid: 259f7e18087e65c49991f5c8aa29aabb, type: 3}
+  checker: {fileID: 1903964826}
+--- !u!114 &1903964826
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1903964823}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b01bb53f2ebd1e8448cb33965c29514b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabReference: {fileID: 7764639694508830955, guid: 259f7e18087e65c49991f5c8aa29aabb, type: 3}
 --- !u!1 &1951940929
 GameObject:
   m_ObjectHideFlags: 0
@@ -448,7 +511,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1951940930
 Transform:
   m_ObjectHideFlags: 0
@@ -478,7 +541,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _resourcePath: Characters Prototype Test
   _loadCharactersOnAwake: 1
-  _characters:
+  _characterPrefabs:
   - {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
@@ -489,3 +552,4 @@ SceneRoots:
   - {fileID: 537822268}
   - {fileID: 1951940930}
   - {fileID: 1866792}
+  - {fileID: 1903964824}
