@@ -9,7 +9,7 @@ public class CardSwipeDrag : MonoBehaviour, IDragHandler, IBeginDragHandler, IEn
 	private Vector3 cardOriginPosition = new Vector3(0, 35, 0);
 	private float swipeDistance;
 	private float cardSwipeThreshold = 200;
-	private bool swipeIsRight;
+	[SerializeField]private bool swipeIsRight;
 	private Image thisCardArt;
 
 	[Header("Settings")]
@@ -18,6 +18,10 @@ public class CardSwipeDrag : MonoBehaviour, IDragHandler, IBeginDragHandler, IEn
 
     [Header("When card is swiped run")]
     [SerializeField] private UnityEvent discardCard; // Play discard animation while card is transparent
+
+	[Header("When card is being dragged")]
+	[SerializeField] private UnityEvent updateDialogueOptionsUI;
+	public bool SwipeIsRight => swipeIsRight;
 
 	[Header("** Console Debug Logs **")]
 	[SerializeField] private bool debug_CurrentSwipeDistnace = false;
@@ -47,6 +51,9 @@ public class CardSwipeDrag : MonoBehaviour, IDragHandler, IBeginDragHandler, IEn
 		{
 			swipeIsRight = false;
 		}
+
+		// Change the dialogue options UI from card display while dragging
+        updateDialogueOptionsUI.Invoke();
 
         // ** Debugs **
         if (debug_CurrentSwipeDistnace) { Debug.Log("Current Swipe Distance" + Mathf.Abs(transform.localPosition.x - cardOriginPosition.x)); }
