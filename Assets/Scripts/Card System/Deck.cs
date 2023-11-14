@@ -8,15 +8,14 @@ public class Deck : MonoBehaviour
 {
 	public UnityEvent<CardEvent> OnCardPicked;      // When a card has been picked from the deck.
 
-	[SerializeField] private string _cardEventsResourcesPath;
 	[Header("References")]
-	[SerializeField] private CharacterDatabase _database;
+	[SerializeField] private string _cardEventsResourcesPath;
+    [SerializeField] private string _characterDataResourcesPath;
+    [SerializeField] private CharacterDatabase _database;
 
+	private List<CharacterData> _characters = new();
 	private List<CardEvent> _availableCards = new();
 	private List<CardEvent> _lockedCards = new();
-	//private List<CharacterData> _characters = new();
-	[SerializeField]private List<CharacterData> _aliveCharacters = new();
-	//private List<CharacterData> _deadCharacters = new();
 
 	private List<CardDialogue> _selectedDialogues = new();
 
@@ -30,8 +29,16 @@ public class Deck : MonoBehaviour
 
 	public void Start()
 	{
-		// Instantiate all cards and put them all into _lockedCards to sort further.
-		CardEvent[] cardPrefabs = Resources.LoadAll<CardEvent>(_cardEventsResourcesPath);
+		// Load and instantiate all characters.
+		CharacterData[] _loadedCharacters = Resources.LoadAll<CharacterData>(_characterDataResourcesPath);
+		foreach (CharacterData character in _loadedCharacters)
+		{
+			CharacterData characterInstance = Instantiate(character, transform);
+			_characters.Add(characterInstance);
+		}
+
+        // Load and instantiate all cards and put them all into _lockedCards to sort further.
+        CardEvent[] cardPrefabs = Resources.LoadAll<CardEvent>(_cardEventsResourcesPath);
 		foreach (CardEvent cardPrefab in cardPrefabs)
 		{
 			CardEvent cardInstance = Instantiate(cardPrefab, transform);
