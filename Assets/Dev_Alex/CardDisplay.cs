@@ -6,36 +6,40 @@ using UnityEngine.UI;
 
 public class CardDisplay : MonoBehaviour
 {
-    [Header("Card UI References")]
-    [SerializeField] private Image _characterArt;
-    [SerializeField] private TextMeshProUGUI _cardName;
-    [SerializeField] private TextMeshProUGUI _cardTitle;
-    [SerializeField] private Typewriter _cardDescription;
-    [SerializeField] private Typewriter _choiceAText;
-    [SerializeField] private Typewriter _choiceBText;
+	[Header("Card UI References")]
+	[SerializeField] private Image characterArt;
+	[SerializeField] private TextMeshProUGUI cardName;
+	[SerializeField] private TextMeshProUGUI cardTitle;
+	[SerializeField] private Typewriter cardDescription;
+	[SerializeField] private Typewriter choiceAText;
+	[SerializeField] private Typewriter choiceBText;
 
-    [Header("stats  to be changed")]
-    public Stats suspicion;
-    public Stats faith;
-    public Stats popularity;
+	[Header("Stats To Be Changed")]
+	public Stats suspicion;
+	public Stats faith;
+	public Stats popularity;
 
 
-    // Called by events.
-    public void UpdateCardDisplay(CardEvent cardToDisplay)
-    {
-        // Display texts.
-        _cardName.text = cardToDisplay.AssociatedCharacter.Name;
-        _cardTitle.text = cardToDisplay.AssociatedCharacter.Title;
-        //_cardDescription.text = cardToDisplay.Description;
-        //_choiceAText.text = cardToDisplay.DialogueA.DialogueText;
-        //_choiceBText.text = cardToDisplay.DialogueB.DialogueText;
-        _cardDescription.RunDialogue(cardToDisplay.Description);
-        _choiceAText.RunDialogue(cardToDisplay.DialogueA.DialogueText);
-        _choiceBText.RunDialogue(cardToDisplay.DialogueB.DialogueText);
-        _characterArt.sprite = cardToDisplay.AssociatedCharacter.CharacterArt;
-        suspicion.changeValue(cardToDisplay.suspicionValue);
-        faith.changeValue(cardToDisplay.faithValue);
-        popularity.changeValue(cardToDisplay.popularityValue);
+	// Called from Deck OnCardPicked
+	// Updating UI elements on Card Canvas & Dialogue Canvas
+	public void UpdateCardDisplay(CardEvent cardToDisplay)
+	{
+		// Updating Card Canvas UI texts to card events information
+		cardName.text = cardToDisplay.AssociatedCharacter.Name;
+		cardTitle.text = cardToDisplay.AssociatedCharacter.Title;
 
-    }
+        // Updating Dialogue canvas UI texts to card events information
+        cardDescription.RunDialogue(cardToDisplay.Description);
+		choiceAText.RunDialogue(cardToDisplay.DialogueA.DialogueText);
+		choiceBText.RunDialogue(cardToDisplay.DialogueB.DialogueText);
+
+        // Updating Card Canvas UI image to card events sprites
+        characterArt.sprite = cardToDisplay.AssociatedCharacter.CharacterArt;
+
+		// Updating Stat bottles from last card
+		suspicion.changeValue(cardToDisplay.suspicionValue);
+		faith.changeValue(cardToDisplay.faithValue);
+		popularity.changeValue(cardToDisplay.popularityValue);
+
+	}
 }
