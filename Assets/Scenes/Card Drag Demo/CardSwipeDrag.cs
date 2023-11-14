@@ -12,6 +12,11 @@ public class CardSwipeDrag : MonoBehaviour, IDragHandler, IBeginDragHandler, IEn
 	private bool swipeIsRight;
 	private Image thisCardArt;
 
+	[Header("Settings")]
+	[SerializeField, Range(0.001f, 1)] private float rotateAmount;
+    [SerializeField, Range(1, 10)] private float swipeAmount;
+
+    [Header("When card is swiped run")]
     [SerializeField] private UnityEvent discardCard; // Play discard animation while card is transparent
 
 	[Header("** Console Debug Logs **")]
@@ -28,7 +33,10 @@ public class CardSwipeDrag : MonoBehaviour, IDragHandler, IBeginDragHandler, IEn
     // When you drag the card. Move its local x position, add the amount moved on x axis.
     public void OnDrag(PointerEventData eventData)
 	{
-		transform.localPosition = new Vector2(transform.localPosition.x + eventData.delta.x, transform.localPosition.y);
+		transform.localPosition = new Vector2(transform.localPosition.x + (eventData.delta.x * swipeAmount), transform.localPosition.y);
+
+		// Rotate by a rotateAmount when dragging 
+		transform.Rotate(0, eventData.delta.x * rotateAmount, 0);
 
 		// If the x of moved card is more than the origin of the card then you are swiping right.
         if (transform.localPosition.x > cardOriginPosition.x)
@@ -67,16 +75,17 @@ public class CardSwipeDrag : MonoBehaviour, IDragHandler, IBeginDragHandler, IEn
 		if (swipeDistance < cardSwipeThreshold)
 		{
             transform.localPosition = cardOriginPosition;
+			transform.localRotation = Quaternion.identity; // Reset rotation
         }
 		else
 		{
-			discardCard.Invoke();
-			// Card Swipe animation
-			// Dont show card anymore
-			// Discard animation
-			// Change Card
-			// Draw new card
-			thisCardArt.color = Color.clear;
+            // Dont show card anymore
+            // Discard animation
+            // Discard card and change card information
+            // When doing so, pick a new card from deck class
+            discardCard.Invoke();
+            // Draw new card
+            thisCardArt.color = Color.clear;
 			//Invoke("DrawNewCard", 5);
 			DrawNewCard();
         }
@@ -92,6 +101,7 @@ public class CardSwipeDrag : MonoBehaviour, IDragHandler, IBeginDragHandler, IEn
 
 		// For now demo logic
 		transform.localPosition = cardOriginPosition;
-		thisCardArt.color = Color.white;
+        transform.localRotation = Quaternion.identity; // Reset rotation
+        thisCardArt.color = Color.white;
 	}
 }
