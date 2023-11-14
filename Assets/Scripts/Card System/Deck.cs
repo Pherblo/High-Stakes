@@ -8,14 +8,15 @@ public class Deck : MonoBehaviour
 {
 	public UnityEvent<CardEvent> OnCardPicked;      // When a card has been picked from the deck.
 
+	[SerializeField] private string _cardEventsResourcesPath;
 	[Header("References")]
 	[SerializeField] private CharacterDatabase _database;
 
-	// private List<CardEvent> _availableCards = new();
-	// private List<CardEvent> _lockedCards = new();
-	private List<CharacterData> _characters = new();
+	private List<CardEvent> _availableCards = new();
+	private List<CardEvent> _lockedCards = new();
+	//private List<CharacterData> _characters = new();
 	[SerializeField]private List<CharacterData> _aliveCharacters = new();
-	private List<CharacterData> _deadCharacters = new();
+	//private List<CharacterData> _deadCharacters = new();
 
 	private List<CardDialogue> _selectedDialogues = new();
 
@@ -29,6 +30,23 @@ public class Deck : MonoBehaviour
 
 	public void Start()
 	{
+		// Instantiate all cards and put them all into _lockedCards to sort further.
+		CardEvent[] cardPrefabs = Resources.LoadAll<CardEvent>(_cardEventsResourcesPath);
+		foreach (CardEvent cardPrefab in cardPrefabs)
+		{
+			CardEvent cardInstance = Instantiate(cardPrefab, transform);
+			_lockedCards.Add(cardInstance);
+		}
+		// Sort all cards and get the first available ones.
+		foreach (CardEvent card in _availableCards)
+		{
+			if (card.CheckRequirements())
+			{
+				_lockedCards.Remove(card);
+				_availableCards.Add(card);
+			}
+		}
+		/*
 		// Load all the cards. Instantiate their cards.
 		foreach (CharacterData character in _database.CharacterInstances)
 		{
@@ -50,6 +68,7 @@ public class Deck : MonoBehaviour
 
 		// Gets new card on start
 		PickCard();
+		*/
 	}
 
 	public void PickCard()
