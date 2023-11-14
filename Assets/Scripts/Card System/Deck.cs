@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -94,7 +95,16 @@ public class Deck : MonoBehaviour
 		foreach (CharacterData character in _characters)
 		{
 			List<CardEvent> associatedCards = _availableCards.FindAll((x) => x.AssociatedCharacter == character);
-		}
+            foreach (CardEvent card in associatedCards)
+            {
+                if (card.CheckRequirements())
+				{
+                    card.OnDialogueSelected += ProcessCard;
+                    OnCardPicked?.Invoke(card);
+                    return;
+                }
+            }
+        }
 		/*
 		CardEvent selectedCard;
 		foreach (CharacterData character in _aliveCharacters)
