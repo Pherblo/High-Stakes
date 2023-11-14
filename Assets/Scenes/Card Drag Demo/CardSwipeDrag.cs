@@ -19,6 +19,8 @@ public class CardSwipeDrag : MonoBehaviour, IDragHandler, IBeginDragHandler, IEn
     [Header("When card is swiped run")]
     [SerializeField] private UnityEvent discardCard; // Play discard animation while card is transparent
 
+	[SerializeField] private UnityEvent dragIsFinished; // Clear highlighted objects when not dragging
+
 	[Header("When card is being dragged")]
 	[SerializeField] private UnityEvent updateDialogueOptionsUI;
 	public bool SwipeIsRight => swipeIsRight;
@@ -97,7 +99,9 @@ public class CardSwipeDrag : MonoBehaviour, IDragHandler, IBeginDragHandler, IEn
 			DrawNewCard();
         }
 
-		// ** Debugs **
+        dragIsFinished.Invoke();
+
+        // ** Debugs **
         if (debug_Dragging) { Debug.Log("Finished drag"); }
     }
 

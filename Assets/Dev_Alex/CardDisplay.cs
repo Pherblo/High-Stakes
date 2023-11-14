@@ -11,28 +11,34 @@ public class CardDisplay : MonoBehaviour
 	[SerializeField] private TextMeshProUGUI cardName;
 	[SerializeField] private TextMeshProUGUI cardTitle;
 	[SerializeField] private Typewriter cardDescription;
-	[SerializeField] private Typewriter choiceAText;
-	[SerializeField] private Typewriter choiceBText;
+	[SerializeField] private TextMeshProUGUI choiceAText;
+	[SerializeField] private TextMeshProUGUI choiceBText;
 
 	[Header("Stats To Be Changed")]
 	public Stats suspicion;
 	public Stats faith;
 	public Stats popularity;
 
+	// Turns dialogue panels off and on
+	// Can be changed later to have a fade effect
 	public void ToggleDialogues(CardSwipeDrag thisCardSwipe)
 	{
 		if(!thisCardSwipe.SwipeIsRight)
 		{
-			choiceAText.gameObject.SetActive(true);
-            choiceBText.gameObject.SetActive(false);
-            Debug.Log("Swipe is not right");
+			choiceAText.transform.parent.gameObject.SetActive(true);
+            choiceBText.transform.parent.gameObject.SetActive(false);
 		}
 		else if (thisCardSwipe.SwipeIsRight)
 		{
-            choiceBText.gameObject.SetActive(true);
-            choiceAText.gameObject.SetActive(false);
-            Debug.Log("Swipe is Right");
+            choiceBText.transform.parent.gameObject.SetActive(true);
+            choiceAText.transform.parent.gameObject.SetActive(false);
         }
+    }
+
+	public void ClearDialogues()
+	{
+        choiceAText.transform.parent.gameObject.SetActive(false);
+        choiceBText.transform.parent.gameObject.SetActive(false);
     }
 
 	// Called from Deck OnCardPicked
@@ -47,6 +53,8 @@ public class CardDisplay : MonoBehaviour
         cardDescription.RunDialogue(cardToDisplay.Description);
 		//choiceAText.RunDialogue(cardToDisplay.DialogueA.DialogueText);
 		//choiceBText.RunDialogue(cardToDisplay.DialogueB.DialogueText);
+		choiceAText.text = cardToDisplay.DialogueA.DialogueText;
+        choiceBText.text = cardToDisplay.DialogueB.DialogueText;
 
         // Updating Card Canvas UI image to card events sprites
         characterArt.sprite = cardToDisplay.AssociatedCharacter.CharacterArt;
