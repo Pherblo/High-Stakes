@@ -483,7 +483,7 @@ RectTransform:
   m_AnchorMin: {x: 0.15110683, y: 0.15337189}
   m_AnchorMax: {x: 0.8341651, y: 0.8955076}
   m_AnchoredPosition: {x: 9.212801, y: -54.433628}
-  m_SizeDelta: {x: 627.928, y: 574.332}
+  m_SizeDelta: {x: 795.313, y: 605.914}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3827631033321440061
 CanvasRenderer:
@@ -790,13 +790,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9205904594220676385}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
