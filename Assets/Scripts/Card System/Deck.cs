@@ -92,10 +92,10 @@ public class Deck : MonoBehaviour
 		// Shuffle deck to iterate through it and get the first available card.
 		// Pick a random character, then pick a random card associated with them.
 		// We're shuffling instead of picking a character at random because characters may not return valid cards whose conditions are met.
-		ShuffleList(_characters);
-		foreach (CharacterData character in _characters)
+		ShuffleDeck();
+        foreach (CharacterData character in _characters)
 		{
-			List<CardEvent> associatedCards = _availableCards.FindAll((x) => x.AssociatedCharacter == character);
+            List<CardEvent> associatedCards = _availableCards.FindAll((x) => x.AssociatedCharacter == character);
             foreach (CardEvent card in associatedCards)
             {
                 if (card.CheckRequirements())
@@ -157,9 +157,10 @@ public class Deck : MonoBehaviour
 	}
 
 	[ContextMenu("Shuffle Test")]
-	private void ShuffleList<T>(List<T> listObject)
+	private void ShuffleDeck()
 	{
-		System.Random rng = new System.Random();
-        listObject = listObject.OrderBy((x) => rng.Next()).ToList();
-	}
+        System.Random rng = new System.Random();
+        _characters = _characters.OrderBy((x) => rng.Next()).ToList();
+        _availableCards = _availableCards.OrderBy((x) => rng.Next()).ToList();
+    }
 }
