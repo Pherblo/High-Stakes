@@ -11,7 +11,7 @@ public class CardDisplay : MonoBehaviour
 	[SerializeField] private TextMeshProUGUI cardName;
 	[SerializeField] private TextMeshProUGUI cardTitle;
 	[SerializeField] private Typewriter cardDescription;
-	[SerializeField] private TextMeshProUGUI dialogueText;
+	[SerializeField] private Typewriter dialogueText;
 
 	private CardEvent currentCardEvent;
 
@@ -20,23 +20,30 @@ public class CardDisplay : MonoBehaviour
 	public Stats faith;
 	public Stats popularity;
 
-	// Turns dialogue panels off and on
+	// Changes dialogue depending on the swipe
 	// Can be changed later to have a fade effect
 	public void ToggleDialogues(CardSwipeDrag thisCardSwipe)
 	{
+		// Turning dialogue background back on
+        dialogueText.gameObject.GetComponentInParent<Image>().enabled = true;
+
+		// Check swipe condition and change to the corresponding dialogue
 		if(!thisCardSwipe.SwipeIsRight)
 		{
-			dialogueText.text = currentCardEvent.DialogueA.DialogueText;
+			dialogueText.RunDialogue(currentCardEvent.DialogueA.DialogueText);
 		}
 		else if (thisCardSwipe.SwipeIsRight)
 		{
-            dialogueText.text = currentCardEvent.DialogueB.DialogueText;
+            dialogueText.RunDialogue(currentCardEvent.DialogueB.DialogueText);
         }
     }
 
 	public void ClearDialogues()
 	{
-		dialogueText.text = "";
+		// Clearing the text box
+        dialogueText.RunDialogue("");
+        // Turning off dialogue background when not in use
+        dialogueText.gameObject.GetComponentInParent<Image>().enabled = false;
     }
 
     // Called from Deck OnCardPicked
@@ -50,11 +57,6 @@ public class CardDisplay : MonoBehaviour
         // Updating Dialogue canvas UI texts to card events information
         cardDescription.RunDialogue(cardToDisplay.Description);
 
-		//choiceAText.RunDialogue(cardToDisplay.DialogueA.DialogueText);
-		//choiceBText.RunDialogue(cardToDisplay.DialogueB.DialogueText);
-		//choiceAText.text = cardToDisplay.DialogueA.DialogueText;
-        //choiceBText.text = cardToDisplay.DialogueB.DialogueText;
-
         // Updating Card Canvas UI image to card events sprites
         characterArt.sprite = cardToDisplay.AssociatedCharacter.CharacterArt;
 
@@ -63,7 +65,7 @@ public class CardDisplay : MonoBehaviour
 		faith.changeValue(cardToDisplay.faithValue);
 		popularity.changeValue(cardToDisplay.popularityValue);
 
+		// Caching the cardToDisplay
 		currentCardEvent = cardToDisplay;
-
 	}
 }

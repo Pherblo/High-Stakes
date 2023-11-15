@@ -9,7 +9,8 @@ public class CardSwipeDrag : MonoBehaviour, IDragHandler, IBeginDragHandler, IEn
 	private Vector3 cardOriginPosition = new Vector3(0, 35, 0);
 	private float swipeDistance;
 	private float cardSwipeThreshold = 200;
-	[SerializeField]private bool swipeIsRight;
+	[SerializeField] private bool swipeIsRight = false;
+	private bool cachedSwipe = false;
 	private Image thisCardArt;
 
 	[Header("Settings")]
@@ -55,7 +56,11 @@ public class CardSwipeDrag : MonoBehaviour, IDragHandler, IBeginDragHandler, IEn
 		}
 
 		// Change the dialogue options UI from card display while dragging
-        updateDialogueOptionsUI.Invoke();
+		if(cachedSwipe != swipeIsRight)
+		{
+            updateDialogueOptionsUI.Invoke();
+			cachedSwipe = swipeIsRight;
+        }
 
         // ** Debugs **
         if (debug_CurrentSwipeDistnace) { Debug.Log("Current Swipe Distance" + Mathf.Abs(transform.localPosition.x - cardOriginPosition.x)); }
