@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -9,13 +10,13 @@ public class Deck : MonoBehaviour
 	public UnityEvent<CardEvent> OnCardPicked;      // When a card has been picked from the deck.
 
 	[Header("References")]
-	[SerializeField] private CharacterDatabase _database;
+	[SerializeField] private string _cardEventsResourcesPath;
+    [SerializeField] private string _characterDataResourcesPath;
+    [SerializeField] private CharacterDatabase _database;
 
-	// private List<CardEvent> _availableCards = new();
-	// private List<CardEvent> _lockedCards = new();
 	private List<CharacterData> _characters = new();
-	[SerializeField]private List<CharacterData> _aliveCharacters = new();
-	private List<CharacterData> _deadCharacters = new();
+	private List<CardEvent> _availableCards = new();
+	private List<CardEvent> _lockedCards = new();
 
 	private List<CardDialogue> _selectedDialogues = new();
 
@@ -29,6 +30,39 @@ public class Deck : MonoBehaviour
 
 	public void Start()
 	{
+        // Load and instantiate all cards and put them all into _lockedCards to sort further.
+        CardEvent[] cardPrefabs = Resources.LoadAll<CardEvent>(_cardEventsResourcesPath);
+		foreach (CardEvent cardPrefab in cardPrefabs)
+		{
+			CardEvent cardInstance = Instantiate(cardPrefab, transform);
+			_lockedCards.Add(cardInstance);
+		}
+
+        // Load and instantiate all characters.
+        CharacterData[] _loadedCharacters = Resources.LoadAll<CharacterData>(_characterDataResourcesPath);
+        foreach (CharacterData character in _loadedCharacters)
+        {
+            CharacterData characterInstance = Instantiate(character, transform);
+            _characters.Add(characterInstance);
+			// Assign character instance to cards with matching associated character.
+			List<CardEvent> matchingCards = _lockedCards.FindAll((x) => x.AssociatedCharacter == character);
+			foreach (CardEvent card in matchingCards)
+			{
+				card.AssignCharacter(characterInstance);
+			}
+        }
+
+		// Sort all cards and get the first available ones.
+		CardEvent[] cardsToSort = _lockedCards.ToArray();
+        foreach (CardEvent card in cardsToSort)
+        {
+            if (card.CheckRequirements())
+            {
+                _lockedCards.Remove(card);
+                _availableCards.Add(card);
+            }
+        }
+        /*
 		// Load all the cards. Instantiate their cards.
 		foreach (CharacterData character in _database.CharacterInstances)
 		{
@@ -50,17 +84,29 @@ public class Deck : MonoBehaviour
 
 		// Gets new card on start
 		PickCard();
-	}
+		*/
+    }
 
 	public void PickCard()
 	{
-		/*
-		int randomIndex = Random.Range(0, _aliveCharacters.Count);
-		CardEvent selectedCard = _aliveCharacters[randomIndex].GetCard();
-		selectedCard.OnDialogueSelected += ProcessCard;*/
 		// Shuffle deck to iterate through it and get the first available card.
+		// Pick a random character, then pick a random card associated with them.
 		// We're shuffling instead of picking a character at random because characters may not return valid cards whose conditions are met.
 		ShuffleDeck();
+        foreach (CharacterData character in _characters)
+		{
+            List<CardEvent> associatedCards = _availableCards.FindAll((x) => x.AssociatedCharacter == character);
+            foreach (CardEvent card in associatedCards)
+            {
+                if (card.CheckRequirements())
+				{
+                    card.OnDialogueSelected += ProcessCard;
+                    OnCardPicked?.Invoke(card);
+                    return;
+                }
+            }
+        }
+		/*
 		CardEvent selectedCard;
 		foreach (CharacterData character in _aliveCharacters)
 		{
@@ -75,7 +121,7 @@ public class Deck : MonoBehaviour
 				break;
 			}
 		}
-
+		*/
 		// Do something if no valid card is returned (ran out of cards).
 	}
 
@@ -113,7 +159,8 @@ public class Deck : MonoBehaviour
 	[ContextMenu("Shuffle Test")]
 	private void ShuffleDeck()
 	{
-		System.Random rng = new System.Random();
-		_aliveCharacters = _aliveCharacters.OrderBy((x) => rng.Next()).ToList();
-	}
+        System.Random rng = new System.Random();
+        _characters = _characters.OrderBy((x) => rng.Next()).ToList();
+        _availableCards = _availableCards.OrderBy((x) => rng.Next()).ToList();
+    }
 }
