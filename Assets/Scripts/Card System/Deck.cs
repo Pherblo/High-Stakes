@@ -52,8 +52,9 @@ public class Deck : MonoBehaviour
 			}
         }
 
-        // Sort all cards and get the first available ones.
-        foreach (CardEvent card in _availableCards)
+		// Sort all cards and get the first available ones.
+		CardEvent[] cardsToSort = _lockedCards.ToArray();
+        foreach (CardEvent card in cardsToSort)
         {
             if (card.CheckRequirements())
             {
