@@ -62,6 +62,10 @@ public class Deck : MonoBehaviour
                 _availableCards.Add(card);
             }
         }
+
+		// Pick a card at the start.
+		PickCard();
+
         /*
 		// Load all the cards. Instantiate their cards.
 		foreach (CharacterData character in _database.CharacterInstances)
