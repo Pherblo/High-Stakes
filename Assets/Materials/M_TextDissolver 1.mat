@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: M_TextDissolver
+  m_Name: M_TextDissolver 1
   m_Shader: {fileID: -6465566751694194690, guid: 65ab0d8d48372e445bebb6a6e1193b4d, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -41,7 +41,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _FontTexture:
-        m_Texture: {fileID: -7468194264628001521, guid: 25036ebd659ead642a87fac53bbc6219, type: 2}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
@@ -78,6 +78,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _ContractTest: 3.41
     - _DissolveEdgeSize: 0.1
     - _EnableExternalAlpha: 0
     - _FontThickness: 0.45
@@ -85,10 +86,11 @@ Material:
     - _NoiseScale: 30
     - _QueueControl: 0
     - _QueueOffset: 0
+    - _Test2: 0.7
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _DissolveEdgeColor: {r: 0, g: 1, b: 0.07280898, a: 0}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
-    - _VertexColor: {r: 1, g: 1, b: 1, a: 1}
+    - _VertexColor: {r: 0.2735849, g: 0.2735849, b: 0.2735849, a: 1}
   m_BuildTextureStacks: []
