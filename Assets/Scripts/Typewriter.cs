@@ -92,12 +92,22 @@ public class Typewriter : MonoBehaviour
         _textboxFillerText.text = text;
         _dialogueText.text = text;
         _dialogueText.ForceMeshUpdate();
+        _dialogueText.text = text;
         TMP_TextInfo textInfo = _dialogueText.textInfo;
         int charIndex;
-        _dialogueText.ForceMeshUpdate();
-        
-        // Zero out all verts.
+        yield return null;
         /*
+        for (charIndex = 0; charIndex < textInfo.characterCount; charIndex++)
+        {
+            TMP_CharacterInfo charInfo = textInfo.characterInfo[charIndex];
+
+            if (!charInfo.isVisible) continue;
+        }*/
+        List<Vector3> originalPositions = new();
+        List<Vector3> centerPositions = new();
+
+        // Zero out all verts.
+
         for (charIndex = 0; charIndex < textInfo.characterCount; charIndex++)
         {
             TMP_CharacterInfo charInfo = textInfo.characterInfo[charIndex];
@@ -108,8 +118,7 @@ public class Typewriter : MonoBehaviour
             // Start pop-in animation for current text.
             TMP_MeshInfo meshInfo = textInfo.meshInfo[0];
             Vector3[] vertices = textInfo.meshInfo[charInfo.materialReferenceIndex].vertices;
-            //Vector3[] originalPositions = (Vector3[])vertices.Clone();
-            List<Vector3> originalPositions = new();
+
             for (int i = 0; i < 4; i++)
             {
                 originalPositions.Add(vertices[charInfo.vertexIndex + i]);
@@ -139,10 +148,10 @@ public class Typewriter : MonoBehaviour
                 var meshInfo2 = textInfo.meshInfo[i];
                 meshInfo2.mesh.vertices = meshInfo2.vertices;
                 _dialogueText.UpdateGeometry(meshInfo2.mesh, i);
-                yield return null;
+                //yield return null;
             }
         }
-        */
+        
         /*for (int i = 0; i < textInfo.meshInfo.Length; i++)
         {
             var meshInfo2 = textInfo.meshInfo[i];
@@ -153,9 +162,8 @@ public class Typewriter : MonoBehaviour
         _dialogueText.ForceMeshUpdate();*/
 
         // Animation
-        /*for (charIndex = 0; charIndex < textInfo.characterCount; charIndex++)
+        for (charIndex = 0; charIndex < textInfo.characterCount; charIndex++)
         {
-            break;
             TMP_CharacterInfo charInfo = textInfo.characterInfo[charIndex];
 
             // Skip space/empty characters.
@@ -165,11 +173,11 @@ public class Typewriter : MonoBehaviour
             TMP_MeshInfo meshInfo = textInfo.meshInfo[0];
             Vector3[] vertices = textInfo.meshInfo[charInfo.materialReferenceIndex].vertices;
             //Vector3[] originalPositions = (Vector3[])vertices.Clone();
-            List<Vector3> originalPositions = new();
-            for (int i = 0; i < 4; i++)
+            //List<Vector3> originalPositions = new();
+            /*for (int i = 0; i < 4; i++)
             {
                 originalPositions.Add(vertices[charInfo.vertexIndex + i]);
-            }
+            }*/
 
             // Add all vertices and divide by their total count.
             Vector3 centerPosition = Vector3.zero;// = vertices.Aggregate((aggregateVector, nextVector) => aggregateVector + nextVector) / vertices.Length;
@@ -206,7 +214,7 @@ public class Typewriter : MonoBehaviour
                 yield return null;
             }
             yield return null;
-        }*/
+        }
         yield return null;
     }
 }
