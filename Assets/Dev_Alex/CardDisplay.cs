@@ -12,12 +12,6 @@ public class CardDisplay : MonoBehaviour
 	[SerializeField] private TextMeshProUGUI cardTitle;
 	[SerializeField] private Typewriter cardDescription;
 	[SerializeField] private Typewriter dialogueText;
-    [Header("Card UI Text Fill References")]		// These text components have 0 alpha, and are used to scale an image based on the text box's size.
-    /*[SerializeField] private Image characterArt;
-    [SerializeField] private TextMeshProUGUI cardName;
-    [SerializeField] private TextMeshProUGUI cardTitle;
-    [SerializeField] private Typewriter cardDescription;
-    [SerializeField] private Typewriter dialogueText;*/
 
     private CardEvent currentCardEvent;
 
