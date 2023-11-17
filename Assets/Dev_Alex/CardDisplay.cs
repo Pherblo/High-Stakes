@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class CardDisplay : MonoBehaviour
 {
 	[Header("Card UI Text References")]
-	[SerializeField] private Image _characterArt;
+	[SerializeField] private Image _cardArt;
 	[SerializeField] private TextMeshProUGUI _cardName;
 	[SerializeField] private TextMeshProUGUI _cardTitle;
 	[SerializeField] private Typewriter _cardDescription;
@@ -55,7 +55,7 @@ public class CardDisplay : MonoBehaviour
 		// Updating UI texts and art.
 		_cardName.text = cardToDisplay.AssociatedCharacter.Name;
 		_cardTitle.text = cardToDisplay.AssociatedCharacter.Title;
-        _characterArt.sprite = cardToDisplay.AssociatedCharacter.CharacterArt;
+        _cardArt.sprite = cardToDisplay.AssociatedCharacter.CharacterArt;
 
         // Update typewriters.
         _cardDescription.RunDialogue(cardToDisplay.Description);
