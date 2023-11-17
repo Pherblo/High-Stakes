@@ -7,11 +7,12 @@ using UnityEngine.UI;
 public class CardDisplay : MonoBehaviour
 {
 	[Header("Card UI Text References")]
-	[SerializeField] private Image characterArt;
-	[SerializeField] private TextMeshProUGUI cardName;
-	[SerializeField] private TextMeshProUGUI cardTitle;
-	[SerializeField] private Typewriter cardDescription;
-	[SerializeField] private Typewriter dialogueText;
+	[SerializeField] private Image _characterArt;
+	[SerializeField] private TextMeshProUGUI _cardName;
+	[SerializeField] private TextMeshProUGUI _cardTitle;
+	[SerializeField] private Typewriter _cardDescription;
+	[SerializeField] private Typewriter _dialogueTextA;
+    [SerializeField] private Typewriter _dialogueTextB;
 
     private CardEvent currentCardEvent;
 
@@ -24,41 +25,42 @@ public class CardDisplay : MonoBehaviour
 	// Can be changed later to have a fade effect
 	public void ToggleDialogues(CardSwipeDrag thisCardSwipe)
 	{
+		/*
 		// Turning dialogue background back on
-        dialogueText.gameObject.GetComponentInParent<Image>().enabled = true;
+        _dialogueTextA.gameObject.GetComponentInParent<Image>().enabled = true;
 
 		// Check swipe condition and change to the corresponding dialogue
 		if(!thisCardSwipe.SwipeIsRight)
 		{
-			dialogueText.RunDialogue(currentCardEvent.DialogueA.DialogueText);
+			_dialogueTextA.RunDialogue(currentCardEvent.DialogueA.DialogueText);
 		}
 		else if (thisCardSwipe.SwipeIsRight)
 		{
-            dialogueText.RunDialogue(currentCardEvent.DialogueB.DialogueText);
+            _dialogueTextA.RunDialogue(currentCardEvent.DialogueB.DialogueText);
         }
+		*/
     }
 
 	public void ClearDialogues()
 	{
 		// Clearing the text box
-        dialogueText.RunDialogue("");
+        _dialogueTextA.RunDialogue("");
         // Turning off dialogue background when not in use
-        dialogueText.gameObject.GetComponentInParent<Image>().enabled = false;
+        _dialogueTextA.gameObject.GetComponentInParent<Image>().enabled = false;
     }
 
-    // Called from Deck OnCardPicked
-    // Updating UI elements on Card Canvas & Dialogue Canvas
+    // Subscribed to Deck's OnCardPicked event.
     public void UpdateCardDisplay(CardEvent cardToDisplay)
 	{
-		// Updating Card Canvas UI texts to card events information
-		cardName.text = cardToDisplay.AssociatedCharacter.Name;
-		cardTitle.text = cardToDisplay.AssociatedCharacter.Title;
+		// Updating UI texts and art.
+		_cardName.text = cardToDisplay.AssociatedCharacter.Name;
+		_cardTitle.text = cardToDisplay.AssociatedCharacter.Title;
+        _characterArt.sprite = cardToDisplay.AssociatedCharacter.CharacterArt;
 
-        // Updating Dialogue canvas UI texts to card events information
-        cardDescription.RunDialogue(cardToDisplay.Description);
-
-        // Updating Card Canvas UI image to card events sprites
-        characterArt.sprite = cardToDisplay.AssociatedCharacter.CharacterArt;
+        // Update typewriters.
+        _cardDescription.RunDialogue(cardToDisplay.Description);
+		_dialogueTextA.RunDialogue(cardToDisplay.DialogueA.DialogueText);
+        _dialogueTextB.RunDialogue(cardToDisplay.DialogueB.DialogueText);
 
 		// Updating Stat bottles from last card
 		suspicion.changeValue(cardToDisplay.suspicionValue);
