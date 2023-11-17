@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7816692500256772188}
   - component: {fileID: 8290733829596739890}
   m_Layer: 5
-  m_Name: Decorative Text Hider TEMPORARY (1)
+  m_Name: Decorative Text Hider Top TEMPORARY (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32,9 +32,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 8169202095861016712}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0}
-  m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -13.487976, y: 2780}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: -13.487976, y: -221}
   m_SizeDelta: {x: 869.538, y: 107.658936}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7816692500256772188
@@ -87,7 +87,7 @@ GameObject:
   - component: {fileID: 3352920006358173200}
   - component: {fileID: 4390233255204972367}
   m_Layer: 5
-  m_Name: Decorative Text Hider TEMPORARY
+  m_Name: Decorative Text Hider Bottom TEMPORARY
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -107,9 +107,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 8169202095861016712}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 1}
-  m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -13.4869995, y: -2731}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: -13.4869995, y: 270}
   m_SizeDelta: {x: 1332.375, y: 148.8999}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3352920006358173200
@@ -183,10 +183,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 8169202095861016712}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 915.77, y: -221.16}
-  m_SizeDelta: {x: 470.23, y: 78.683}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: -0.22998047, y: -221.16016}
+  m_SizeDelta: {x: 470.22998, y: 78.683105}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6145911213757766912
 CanvasRenderer:
@@ -332,10 +332,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 8169202095861016712}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 915.77, y: -2697.2}
-  m_SizeDelta: {x: 470.23, y: 81.215}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: -0.22998047, y: 303.80005}
+  m_SizeDelta: {x: 470.22998, y: 81.21509}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3204161084048935943
 CanvasRenderer:
@@ -480,10 +480,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 140205520663551440}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.15110683, y: 0.15337189}
-  m_AnchorMax: {x: 0.8341651, y: 0.8955076}
-  m_AnchoredPosition: {x: 9.212801, y: -54.433628}
-  m_SizeDelta: {x: 795.313, y: 605.914}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0.21282959, y: 0.06640625}
+  m_SizeDelta: {x: 399.313, y: 30.914001}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3827631033321440061
 CanvasRenderer:
@@ -597,12 +597,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 1
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -718,6 +718,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd5ac2d6d1cbe704fb81cac8a5467543, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  swipeIsRight: 0
+  rotateAmount: 0
+  swipeAmount: 0
   discardCard:
     m_PersistentCalls:
       m_Calls:
@@ -733,6 +736,12 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  dragIsFinished:
+    m_PersistentCalls:
+      m_Calls: []
+  updateDialogueOptionsUI:
+    m_PersistentCalls:
+      m_Calls: []
   debug_CurrentSwipeDistnace: 0
   debug_Dragging: 0
   debug_SwipeDirection: 0
