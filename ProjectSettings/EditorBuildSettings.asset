@@ -15,6 +15,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Game.unity
     guid: d0246752aee33a642b6eb25931f2a3f5
   - enabled: 1
-    path: Assets/Scenes/Card Demo 3.unity
-    guid: a4c3b0e8493b8c849963aa0d213150ba
+    path: Assets/Scenes/CardPrototype Demo 2.unity
+    guid: 04873525bbfcbfb4abdc9c6093524966
   m_configObjects: {}
