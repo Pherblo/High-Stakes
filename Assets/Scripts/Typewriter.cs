@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class Typewriter : MonoBehaviour
 {
     [SerializeField] private TMP_Text _dialogue;
+    [SerializeField] private TMP_Text _visualFillerText;        // Used to set text box sizes beforehand. This text component is usually invisible/transparent.
     [SerializeField] private ContentSizeFitter _fitter;
 
     [SerializeField] private float _timePerChar = 0.1f;
@@ -24,6 +25,7 @@ public class Typewriter : MonoBehaviour
     {
         _fitter.enabled = true;
         _dialogue.text = text;
+        _visualFillerText.text = text;
 
         _characters = text.ToCharArray();
 
