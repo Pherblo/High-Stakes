@@ -6,14 +6,20 @@ using UnityEngine.UI;
 
 public class CardDisplay : MonoBehaviour
 {
-	[Header("Card UI References")]
+	[Header("Card UI Text References")]
 	[SerializeField] private Image characterArt;
 	[SerializeField] private TextMeshProUGUI cardName;
 	[SerializeField] private TextMeshProUGUI cardTitle;
 	[SerializeField] private Typewriter cardDescription;
 	[SerializeField] private Typewriter dialogueText;
+    [Header("Card UI Text Fill References")]		// These text components have 0 alpha, and are used to scale an image based on the text box's size.
+    /*[SerializeField] private Image characterArt;
+    [SerializeField] private TextMeshProUGUI cardName;
+    [SerializeField] private TextMeshProUGUI cardTitle;
+    [SerializeField] private Typewriter cardDescription;
+    [SerializeField] private Typewriter dialogueText;*/
 
-	private CardEvent currentCardEvent;
+    private CardEvent currentCardEvent;
 
 	[Header("Stats To Be Changed")]
 	public Stats suspicion;
