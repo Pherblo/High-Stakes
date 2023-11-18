@@ -80,8 +80,6 @@ public class Typewriter : MonoBehaviour
         StopAllCoroutines();
         //_textboxFillerText.text = text;
         //_dialogueText.text = text;
-        _textboxFillerText.SetText(text);
-        _dialogueText.SetText(text);
         StartCoroutine(AnimateTextPop(text));
     }
 
@@ -105,10 +103,14 @@ public class Typewriter : MonoBehaviour
         // Initial set up.
         //_textboxFillerText.SetText(text);
         //_dialogueText.SetText(text);
-        Color cachedColor = _dialogueText.color;
+        Color32 cachedColor = _dialogueText.color;
         //_dialogueText.color *= new Vector4(1, 1, 1, 0);
         //_dialogueText.color = Color.red;
         _dialogueText.color = new Color(0, 0, 0, 0);
+        _textboxFillerText.SetText(text);
+        _dialogueText.SetText(text);
+        yield return null;
+        _dialogueText.ForceMeshUpdate(true);
         /*
         yield return null;
         _dialogueText.ForceMeshUpdate(true, true);
@@ -159,7 +161,7 @@ public class Typewriter : MonoBehaviour
             cachedMeshInfo = meshInfo;
             cachedCharInfo = charInfo;
             cachedVertices = vertices;
-            SetVertexColor(_dialogueText, textInfo, charIndex, new Color32(0, 0, 0, 0));
+            SetVertexColor(_dialogueText, textInfo, charIndex, cachedColor);
             UpdateTextMesh(meshInfo, charInfo, vertices);
         }
         Debug.Log("zeroed verts");
