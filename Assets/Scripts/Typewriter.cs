@@ -99,7 +99,7 @@ public class Typewriter : MonoBehaviour
     private IEnumerator AnimateTextPop(string text)
     {
         // Initial set up.
-        _dialogueText.ForceMeshUpdate();
+        _dialogueText.ForceMeshUpdate(true, true);
         _textboxFillerText.SetText(text);
         _dialogueText.SetText(text);
         yield return null;
@@ -132,6 +132,7 @@ public class Typewriter : MonoBehaviour
             // Update vertices.
             for (int j = 0; j < 4; j++)
             {
+                if (!charInfo.isVisible) break;
                 vertices[charInfo.vertexIndex + j] = centerPositions[charIndex];
             }
         }
@@ -162,6 +163,8 @@ public class Typewriter : MonoBehaviour
                     }
                     else
                     {
+                        timer = _timePerChar;
+                        break;
                         vertices[charInfo.vertexIndex + j] = originalPositions[(charIndex * 4) + j];
                         timer = _timePerChar;
                     }
@@ -175,7 +178,6 @@ public class Typewriter : MonoBehaviour
                 }*/
                 meshInfo.mesh.vertices = vertices;
                 _dialogueText.UpdateGeometry(meshInfo.mesh, charInfo.materialReferenceIndex);
-                print("timer: " + timer);
                 yield return null;
             } while (timer < _timePerChar);
         }

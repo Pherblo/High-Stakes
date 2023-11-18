@@ -511,6 +511,9 @@ MonoBehaviour:
   _dialogueText: {fileID: 0}
   _textboxFillerText: {fileID: 0}
   _timePerChar: 0.01
+  animationDuration: 1
+  moveTime: 0.5
+  returnTime: 1
 --- !u!222 &165149211
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1398,6 +1401,9 @@ MonoBehaviour:
   _dialogueText: {fileID: 822704251}
   _textboxFillerText: {fileID: 356636580}
   _timePerChar: 0.04
+  animationDuration: 1
+  moveTime: 0.5
+  returnTime: 1
 --- !u!222 &364074458
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1721,6 +1727,9 @@ MonoBehaviour:
   _dialogueText: {fileID: 0}
   _textboxFillerText: {fileID: 0}
   _timePerChar: 0.01
+  animationDuration: 1
+  moveTime: 0.5
+  returnTime: 1
 --- !u!222 &377407785
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1898,6 +1907,9 @@ MonoBehaviour:
   _dialogueText: {fileID: 0}
   _textboxFillerText: {fileID: 0}
   _timePerChar: 0.01
+  animationDuration: 1
+  moveTime: 0.5
+  returnTime: 1
 --- !u!222 &396546612
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2414,6 +2426,9 @@ MonoBehaviour:
   _dialogueText: {fileID: 0}
   _textboxFillerText: {fileID: 0}
   _timePerChar: 0.01
+  animationDuration: 1
+  moveTime: 0.5
+  returnTime: 1
 --- !u!222 &513938256
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2979,6 +2994,9 @@ MonoBehaviour:
   _dialogueText: {fileID: 0}
   _textboxFillerText: {fileID: 0}
   _timePerChar: 0.01
+  animationDuration: 1
+  moveTime: 0.5
+  returnTime: 1
 --- !u!222 &672485282
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3422,6 +3440,9 @@ MonoBehaviour:
   _dialogueText: {fileID: 0}
   _textboxFillerText: {fileID: 0}
   _timePerChar: 0.01
+  animationDuration: 1
+  moveTime: 0.5
+  returnTime: 1
 --- !u!222 &758522741
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4147,6 +4168,9 @@ MonoBehaviour:
   _dialogueText: {fileID: 0}
   _textboxFillerText: {fileID: 0}
   _timePerChar: 0.01
+  animationDuration: 1
+  moveTime: 0.5
+  returnTime: 1
 --- !u!222 &913577472
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5060,6 +5084,9 @@ MonoBehaviour:
   _dialogueText: {fileID: 1415043521}
   _textboxFillerText: {fileID: 1053454063}
   _timePerChar: 0.04
+  animationDuration: 1
+  moveTime: 0.5
+  returnTime: 1
 --- !u!222 &1032564288
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5382,6 +5409,9 @@ MonoBehaviour:
   _dialogueText: {fileID: 872871787}
   _textboxFillerText: {fileID: 1114321207}
   _timePerChar: 0.01
+  animationDuration: 1
+  moveTime: 0.5
+  returnTime: 1
 --- !u!222 &1062437486
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6373,6 +6403,9 @@ MonoBehaviour:
   _dialogueText: {fileID: 0}
   _textboxFillerText: {fileID: 0}
   _timePerChar: 0.01
+  animationDuration: 1
+  moveTime: 0.5
+  returnTime: 1
 --- !u!222 &1408988581
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -8285,7 +8318,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _dialogueText: {fileID: 1421195678}
   _textboxFillerText: {fileID: 714548088}
-  _timePerChar: 0.1
+  _timePerChar: 0.05
+  animationDuration: 1
+  moveTime: 0.5
+  returnTime: 1
 --- !u!222 &1977375909
 CanvasRenderer:
   m_ObjectHideFlags: 0
