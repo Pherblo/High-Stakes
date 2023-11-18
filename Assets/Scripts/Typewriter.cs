@@ -5,6 +5,8 @@ using TMPro;
 using UnityEngine.UI;
 using System.Linq;
 using UnityEngine.XR;
+using System.Globalization;
+using static UnityEditor.Searcher.SearcherWindow.Alignment;
 
 public class Typewriter : MonoBehaviour
 {
@@ -99,9 +101,9 @@ public class Typewriter : MonoBehaviour
     private IEnumerator AnimateTextPop(string text)
     {
         // Initial set up.
-        _dialogueText.ForceMeshUpdate(true, true);
         _textboxFillerText.SetText(text);
         _dialogueText.SetText(text);
+        _dialogueText.ForceMeshUpdate(true);
         yield return null;
         //_dialogueText.ForceMeshUpdate();
 
@@ -112,6 +114,9 @@ public class Typewriter : MonoBehaviour
         List<Vector3> centerPositions = new();
 
         // Move vertices to their local centers.
+        TMP_MeshInfo cachedMeshInfo = textInfo.meshInfo[0];
+        TMP_CharacterInfo cachedCharInfo = textInfo.characterInfo[0];
+        Vector3[] cachedVertices = new Vector3[0];
         for (int charIndex = 0; charIndex < textInfo.characterCount; charIndex++)
         {
             // Get original positions.
@@ -135,14 +140,20 @@ public class Typewriter : MonoBehaviour
                 if (!charInfo.isVisible) break;
                 vertices[charInfo.vertexIndex + j] = centerPositions[charIndex];
             }
+            cachedMeshInfo = meshInfo;
+            cachedCharInfo = charInfo;
+            cachedVertices = vertices;
+            UpdateTextMesh(meshInfo, charInfo, vertices);
         }
+        UpdateTextMesh(cachedMeshInfo, cachedCharInfo, cachedVertices);
+        yield return null;
         // Update mesh.
-        for (int i = 0; i < textInfo.meshInfo.Length; i++)
+        /*for (int i = 0; i < textInfo.meshInfo.Length; i++)
         {
             textInfo.meshInfo[i].mesh.vertices = textInfo.meshInfo[i].vertices;
             _dialogueText.UpdateGeometry(textInfo.meshInfo[i].mesh, i);
             yield return null;
-        }
+        }*/
         // Start pop animation.
         for (int charIndex = 0; charIndex < textInfo.characterCount; charIndex++)
         {
@@ -176,19 +187,31 @@ public class Typewriter : MonoBehaviour
                     _dialogueText.UpdateGeometry(textInfo.meshInfo[i].mesh, i);
                     yield return null;
                 }*/
+                /*
                 meshInfo.mesh.vertices = vertices;
-                _dialogueText.UpdateGeometry(meshInfo.mesh, charInfo.materialReferenceIndex);
+                _dialogueText.UpdateGeometry(meshInfo.mesh, charInfo.materialReferenceIndex);*/
+                UpdateTextMesh(meshInfo, charInfo, vertices);
                 yield return null;
             } while (timer < _timePerChar);
         }
         // Update mesh.
-        for (int i = 0; i < textInfo.meshInfo.Length; i++)
+        //UpdateTextMesh(meshInfo, charInfo, vertices);
+        yield return null;
+        /*for (int i = 0; i < textInfo.meshInfo.Length; i++)
         {
             textInfo.meshInfo[i].mesh.vertices = textInfo.meshInfo[i].vertices;
             _dialogueText.UpdateGeometry(textInfo.meshInfo[i].mesh, i);
             yield return null;
-        }
+        }*/
     }
+
+    private void UpdateTextMesh(TMP_MeshInfo meshInfo, TMP_CharacterInfo charInfo, Vector3[] vertices)
+    {
+        meshInfo.mesh.vertices = vertices;
+        _dialogueText.UpdateGeometry(meshInfo.mesh, charInfo.materialReferenceIndex);
+    }
+
+
 
     private IEnumerator NewTypeAnimation(string text)
     {

@@ -512,8 +512,6 @@ MonoBehaviour:
   _textboxFillerText: {fileID: 0}
   _timePerChar: 0.01
   animationDuration: 1
-  moveTime: 0.5
-  returnTime: 1
 --- !u!222 &165149211
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1343,7 +1341,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 1249.229, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 750, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &364074455
@@ -1402,8 +1400,6 @@ MonoBehaviour:
   _textboxFillerText: {fileID: 356636580}
   _timePerChar: 0.04
   animationDuration: 1
-  moveTime: 0.5
-  returnTime: 1
 --- !u!222 &364074458
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1728,8 +1724,6 @@ MonoBehaviour:
   _textboxFillerText: {fileID: 0}
   _timePerChar: 0.01
   animationDuration: 1
-  moveTime: 0.5
-  returnTime: 1
 --- !u!222 &377407785
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1908,8 +1902,6 @@ MonoBehaviour:
   _textboxFillerText: {fileID: 0}
   _timePerChar: 0.01
   animationDuration: 1
-  moveTime: 0.5
-  returnTime: 1
 --- !u!222 &396546612
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2427,8 +2419,6 @@ MonoBehaviour:
   _textboxFillerText: {fileID: 0}
   _timePerChar: 0.01
   animationDuration: 1
-  moveTime: 0.5
-  returnTime: 1
 --- !u!222 &513938256
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2995,8 +2985,6 @@ MonoBehaviour:
   _textboxFillerText: {fileID: 0}
   _timePerChar: 0.01
   animationDuration: 1
-  moveTime: 0.5
-  returnTime: 1
 --- !u!222 &672485282
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3160,8 +3148,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 747.202, y: 0}
-  m_SizeDelta: {x: 1494.404, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &714548088
 MonoBehaviour:
@@ -3441,8 +3429,6 @@ MonoBehaviour:
   _textboxFillerText: {fileID: 0}
   _timePerChar: 0.01
   animationDuration: 1
-  moveTime: 0.5
-  returnTime: 1
 --- !u!222 &758522741
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4169,8 +4155,6 @@ MonoBehaviour:
   _textboxFillerText: {fileID: 0}
   _timePerChar: 0.01
   animationDuration: 1
-  moveTime: 0.5
-  returnTime: 1
 --- !u!222 &913577472
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5026,7 +5010,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 419.229, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 750, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1032564285
@@ -5085,8 +5069,6 @@ MonoBehaviour:
   _textboxFillerText: {fileID: 1053454063}
   _timePerChar: 0.04
   animationDuration: 1
-  moveTime: 0.5
-  returnTime: 1
 --- !u!222 &1032564288
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5410,8 +5392,6 @@ MonoBehaviour:
   _textboxFillerText: {fileID: 1114321207}
   _timePerChar: 0.01
   animationDuration: 1
-  moveTime: 0.5
-  returnTime: 1
 --- !u!222 &1062437486
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6404,8 +6384,6 @@ MonoBehaviour:
   _textboxFillerText: {fileID: 0}
   _timePerChar: 0.01
   animationDuration: 1
-  moveTime: 0.5
-  returnTime: 1
 --- !u!222 &1408988581
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -8318,10 +8296,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _dialogueText: {fileID: 1421195678}
   _textboxFillerText: {fileID: 714548088}
-  _timePerChar: 0.05
+  _timePerChar: 0.02
   animationDuration: 1
-  moveTime: 0.5
-  returnTime: 1
 --- !u!222 &1977375909
 CanvasRenderer:
   m_ObjectHideFlags: 0
