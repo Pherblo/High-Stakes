@@ -2,21 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using UnityEngine.UI;
-using System.Linq;
-using UnityEngine.XR;
-using System.Globalization;
-using static UnityEditor.Searcher.SearcherWindow.Alignment;
 
 public class Typewriter : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI _dialogueText;
     [SerializeField] private TextMeshProUGUI _textboxFillerText;        // Used to set text box sizes beforehand. This text component is usually invisible/transparent.
     //[SerializeField] private CanvasRenderer _canvasRenderer;
+    [Header("Text Animation Settings")]
+    [SerializeField] private float _timePerChar = 0.015f;
+    [SerializeField] private float _animationTimePerChar = 0.1f;
 
-    [SerializeField] private float _timePerChar = 0.1f;
-
-    public float animationDuration = 1.0f;
+    // Unused. for example only.
+    private float animationDuration = 1.0f;
 
     private void Start()
     {
@@ -24,6 +21,7 @@ public class Typewriter : MonoBehaviour
         //StartCoroutine(MoveVerticesToCenter());
     }
 
+    // For reference only. Unused.
     private IEnumerator MoveVerticesToCenter()
     {
         _dialogueText.ForceMeshUpdate();
@@ -148,7 +146,7 @@ public class Typewriter : MonoBehaviour
             //cachedMeshInfo = meshInfo;
             //cachedCharInfo = charInfo;
             //cachedVertices = vertices;
-            SetVertexColor(_dialogueText, textInfo, charIndex, cachedColor);
+            SetVertexColors(_dialogueText, textInfo, charIndex, cachedColor);
             UpdateTextMesh(meshInfo, charInfo, vertices);
         }
 
@@ -157,6 +155,12 @@ public class Typewriter : MonoBehaviour
         //yield return null;
 
         // Start pop animation.
+        for (int charIndex = 0; charIndex < textInfo.characterCount; charIndex++)
+        {
+            StartCoroutine(AnimateCharacterVertices(textInfo, charIndex, centerPositions, originalPositions));
+            yield return new WaitForSeconds(_timePerChar);
+        }
+        /*
         for (int charIndex = 0; charIndex < textInfo.characterCount; charIndex++)
         {
             TMP_CharacterInfo charInfo = textInfo.characterInfo[charIndex];
@@ -182,13 +186,46 @@ public class Typewriter : MonoBehaviour
                         timer = _timePerChar;
                     }
                 }
-                SetVertexColor(_dialogueText, textInfo, charIndex, new Color32(255, 255, 255, 255));
+                SetVertexColors(_dialogueText, textInfo, charIndex, new Color32(255, 255, 255, 255));
                 UpdateTextMesh(meshInfo, charInfo, vertices);
                 yield return null;
             } while (timer < _timePerChar);
-        }
+        }*/
         // Update mesh.
         //UpdateTextMesh(meshInfo, charInfo, vertices);
+        yield return null;
+    }
+
+    private IEnumerator AnimateCharacterVertices(TMP_TextInfo textInfo, int charIndex, List<Vector3> originalPositions, List<Vector3> targetPositions)
+    {
+        // Start pop animation.
+        TMP_CharacterInfo charInfo = textInfo.characterInfo[charIndex];
+        TMP_MeshInfo meshInfo = textInfo.meshInfo[charInfo.materialReferenceIndex];
+        Vector3[] vertices = textInfo.meshInfo[charInfo.materialReferenceIndex].vertices;
+        float timer = 0f;
+        do
+        {
+            timer += Time.deltaTime;
+            float lerpValue = timer / _animationTimePerChar;
+            // Update vertices.
+            for (int j = 0; j < 4; j++)
+            {
+                if (charInfo.isVisible)
+                {
+                    vertices[charInfo.vertexIndex + j] = Vector3.Lerp(originalPositions[charIndex], targetPositions[(charIndex * 4) + j], lerpValue);
+                }
+                else
+                {
+                    timer = _animationTimePerChar;
+                    break;
+                    vertices[charInfo.vertexIndex + j] = originalPositions[(charIndex * 4) + j];
+                    timer = _timePerChar;
+                }
+            }
+            SetVertexColors(_dialogueText, textInfo, charIndex, new Color32(255, 255, 255, 255));
+            UpdateTextMesh(meshInfo, charInfo, vertices);
+            yield return null;
+        } while (timer < _animationTimePerChar);
         yield return null;
     }
 
@@ -198,7 +235,7 @@ public class Typewriter : MonoBehaviour
         _dialogueText.UpdateGeometry(meshInfo.mesh, charInfo.materialReferenceIndex);
     }
 
-    private void SetVertexColor(TextMeshProUGUI textComponent, TMP_TextInfo textInfo, int charIndex, Color32 newColor)
+    private void SetVertexColors(TextMeshProUGUI textComponent, TMP_TextInfo textInfo, int charIndex, Color32 newColor)
     {
         int materialIndex = textInfo.characterInfo[charIndex].materialReferenceIndex;
         Color32[] vertexColors = textInfo.meshInfo[materialIndex].colors32;
