@@ -510,7 +510,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _dialogueText: {fileID: 0}
   _textboxFillerText: {fileID: 0}
-  _canvasRenderer: {fileID: 0}
   _timePerChar: 0.01
 --- !u!222 &165149211
 CanvasRenderer:
@@ -1398,7 +1397,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _dialogueText: {fileID: 822704251}
   _textboxFillerText: {fileID: 356636580}
-  _canvasRenderer: {fileID: 2005340283}
   _timePerChar: 0.04
 --- !u!222 &364074458
 CanvasRenderer:
@@ -1722,7 +1720,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _dialogueText: {fileID: 0}
   _textboxFillerText: {fileID: 0}
-  _canvasRenderer: {fileID: 0}
   _timePerChar: 0.01
 --- !u!222 &377407785
 CanvasRenderer:
@@ -1900,7 +1897,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _dialogueText: {fileID: 0}
   _textboxFillerText: {fileID: 0}
-  _canvasRenderer: {fileID: 0}
   _timePerChar: 0.01
 --- !u!222 &396546612
 CanvasRenderer:
@@ -2417,7 +2413,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _dialogueText: {fileID: 0}
   _textboxFillerText: {fileID: 0}
-  _canvasRenderer: {fileID: 0}
   _timePerChar: 0.01
 --- !u!222 &513938256
 CanvasRenderer:
@@ -2983,7 +2978,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _dialogueText: {fileID: 0}
   _textboxFillerText: {fileID: 0}
-  _canvasRenderer: {fileID: 0}
   _timePerChar: 0.01
 --- !u!222 &672485282
 CanvasRenderer:
@@ -3427,7 +3421,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _dialogueText: {fileID: 0}
   _textboxFillerText: {fileID: 0}
-  _canvasRenderer: {fileID: 0}
   _timePerChar: 0.01
 --- !u!222 &758522741
 CanvasRenderer:
@@ -4153,7 +4146,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _dialogueText: {fileID: 0}
   _textboxFillerText: {fileID: 0}
-  _canvasRenderer: {fileID: 0}
   _timePerChar: 0.01
 --- !u!222 &913577472
 CanvasRenderer:
@@ -5067,7 +5059,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _dialogueText: {fileID: 1415043521}
   _textboxFillerText: {fileID: 1053454063}
-  _canvasRenderer: {fileID: 2005340283}
   _timePerChar: 0.04
 --- !u!222 &1032564288
 CanvasRenderer:
@@ -5390,7 +5381,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _dialogueText: {fileID: 872871787}
   _textboxFillerText: {fileID: 1114321207}
-  _canvasRenderer: {fileID: 0}
   _timePerChar: 0.01
 --- !u!222 &1062437486
 CanvasRenderer:
@@ -6382,7 +6372,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _dialogueText: {fileID: 0}
   _textboxFillerText: {fileID: 0}
-  _canvasRenderer: {fileID: 0}
   _timePerChar: 0.01
 --- !u!222 &1408988581
 CanvasRenderer:
@@ -8296,8 +8285,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _dialogueText: {fileID: 1421195678}
   _textboxFillerText: {fileID: 714548088}
-  _canvasRenderer: {fileID: 2005340283}
-  _timePerChar: 0.2
+  _timePerChar: 0.1
 --- !u!222 &1977375909
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -8344,7 +8332,6 @@ GameObject:
   - component: {fileID: 2005340281}
   - component: {fileID: 2005340280}
   - component: {fileID: 2005340279}
-  - component: {fileID: 2005340283}
   m_Layer: 5
   m_Name: Dialogue Canvas
   m_TagString: Untagged
@@ -8441,14 +8428,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!222 &2005340283
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2005340278}
-  m_CullTransparentMesh: 1
 --- !u!43 &2041394370
 Mesh:
   m_ObjectHideFlags: 0
