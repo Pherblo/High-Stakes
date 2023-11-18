@@ -100,30 +100,16 @@ public class Typewriter : MonoBehaviour
 
     private IEnumerator AnimateTextPop(string text)
     {
-        // Initial set up.
-        //_textboxFillerText.SetText(text);
-        //_dialogueText.SetText(text);
+        // Update text and cache color.
         Color32 cachedColor = _dialogueText.color;
-        //_dialogueText.color *= new Vector4(1, 1, 1, 0);
-        //_dialogueText.color = Color.red;
         _dialogueText.color = new Color(0, 0, 0, 0);
         _textboxFillerText.SetText(text);
         _dialogueText.SetText(text);
         yield return null;
+
+        // Update geometry.
         _dialogueText.ForceMeshUpdate(true);
-        /*
         yield return null;
-        _dialogueText.ForceMeshUpdate(true, true);
-        //_dialogueText.color = new Color(0, 0, 0, 255);
-        _textboxFillerText.SetText(text);
-        _dialogueText.SetText(text);
-        _dialogueText.color = Color.white;
-        _dialogueText.ForceMeshUpdate(true, true);
-        _dialogueText.UpdateVertexData();
-        */
-        yield return null;
-        //_dialogueText.color = cachedColor;
-        //_dialogueText.ForceMeshUpdate();
 
         // Initialize local variables.
         TMP_TextInfo textInfo = _dialogueText.textInfo;
@@ -132,14 +118,16 @@ public class Typewriter : MonoBehaviour
         List<Vector3> centerPositions = new();
 
         // Move vertices to their local centers.
-        TMP_MeshInfo cachedMeshInfo = textInfo.meshInfo[0];
-        TMP_CharacterInfo cachedCharInfo = textInfo.characterInfo[0];
-        Vector3[] cachedVertices = new Vector3[0];
+        // Cache data to update geometry after movements.
+        // TMP_MeshInfo cachedMeshInfo = textInfo.meshInfo[0];
+        // TMP_CharacterInfo cachedCharInfo = textInfo.characterInfo[0];
+        // Vector3[] cachedVertices = new Vector3[0];
+
+        // Modify vertices' positions.
         for (int charIndex = 0; charIndex < textInfo.characterCount; charIndex++)
         {
-            // Get original positions.
-            // Get center positions.
-            // Assign center positions to each character-corresponding vertices.
+            // Get original positions and center positions.
+            // Initialize references.
             TMP_CharacterInfo charInfo = textInfo.characterInfo[charIndex];
             TMP_MeshInfo meshInfo = textInfo.meshInfo[charInfo.materialReferenceIndex];
             Vector3[] vertices = meshInfo.vertices;
@@ -149,32 +137,25 @@ public class Typewriter : MonoBehaviour
                 originalPositions.Add(vertices[charInfo.vertexIndex + i]);
                 centerPosition += vertices[charInfo.vertexIndex + i];
             }
-            //Vector3 centerPosition = vertices.Aggregate((aggregateVector, nextVector) => aggregateVector + nextVector) / 4;
             centerPositions.Add(centerPosition / 4f);
 
-            // Update vertices.
+            // Assign center positions to each character-corresponding vertices.
             for (int j = 0; j < 4; j++)
             {
                 if (!charInfo.isVisible) break;
                 vertices[charInfo.vertexIndex + j] = centerPositions[charIndex];
             }
-            cachedMeshInfo = meshInfo;
-            cachedCharInfo = charInfo;
-            cachedVertices = vertices;
+            //cachedMeshInfo = meshInfo;
+            //cachedCharInfo = charInfo;
+            //cachedVertices = vertices;
             SetVertexColor(_dialogueText, textInfo, charIndex, cachedColor);
             UpdateTextMesh(meshInfo, charInfo, vertices);
         }
-        Debug.Log("zeroed verts");
-        //_dialogueText.color = Color.white;
-        UpdateTextMesh(cachedMeshInfo, cachedCharInfo, cachedVertices);
-        yield return null;
+
         // Update mesh.
-        /*for (int i = 0; i < textInfo.meshInfo.Length; i++)
-        {
-            textInfo.meshInfo[i].mesh.vertices = textInfo.meshInfo[i].vertices;
-            _dialogueText.UpdateGeometry(textInfo.meshInfo[i].mesh, i);
-            yield return null;
-        }*/
+        //UpdateTextMesh(cachedMeshInfo, cachedCharInfo, cachedVertices);
+        //yield return null;
+
         // Start pop animation.
         for (int charIndex = 0; charIndex < textInfo.characterCount; charIndex++)
         {
@@ -201,16 +182,6 @@ public class Typewriter : MonoBehaviour
                         timer = _timePerChar;
                     }
                 }
-                // Update mesh.
-                /*for (int i = 0; i < textInfo.meshInfo.Length; i++)
-                {
-                    textInfo.meshInfo[i].mesh.vertices = vertices;
-                    _dialogueText.UpdateGeometry(textInfo.meshInfo[i].mesh, i);
-                    yield return null;
-                }*/
-                /*
-                meshInfo.mesh.vertices = vertices;
-                _dialogueText.UpdateGeometry(meshInfo.mesh, charInfo.materialReferenceIndex);*/
                 SetVertexColor(_dialogueText, textInfo, charIndex, new Color32(255, 255, 255, 255));
                 UpdateTextMesh(meshInfo, charInfo, vertices);
                 yield return null;
@@ -219,12 +190,6 @@ public class Typewriter : MonoBehaviour
         // Update mesh.
         //UpdateTextMesh(meshInfo, charInfo, vertices);
         yield return null;
-        /*for (int i = 0; i < textInfo.meshInfo.Length; i++)
-        {
-            textInfo.meshInfo[i].mesh.vertices = textInfo.meshInfo[i].vertices;
-            _dialogueText.UpdateGeometry(textInfo.meshInfo[i].mesh, i);
-            yield return null;
-        }*/
     }
 
     private void UpdateTextMesh(TMP_MeshInfo meshInfo, TMP_CharacterInfo charInfo, Vector3[] vertices)
