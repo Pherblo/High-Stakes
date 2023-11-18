@@ -78,6 +78,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _ContractTest: 0
     - _DissolveEdgeSize: 0.1
     - _EnableExternalAlpha: 0
     - _FontThickness: 0.45
@@ -85,9 +86,10 @@ Material:
     - _NoiseScale: 30
     - _QueueControl: 0
     - _QueueOffset: 0
+    - _Test2: 0
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _DissolveEdgeColor: {r: 0, g: 1, b: 0.07280898, a: 0}
+    - _DissolveEdgeColor: {r: 0, g: 1, b: 0.07280898, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
     - _VertexColor: {r: 1, g: 1, b: 1, a: 1}

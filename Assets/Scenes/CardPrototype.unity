@@ -336,9 +336,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d8d9766849d0514fb289479b5fa8027, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _dialogue: {fileID: 143939010}
-  _fitter: {fileID: 143939009}
+  _dialogueText: {fileID: 0}
+  _textboxFillerText: {fileID: 0}
   _timePerChar: 0.01
+  _animationTimePerChar: 0.1
 --- !u!222 &143939012
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -569,7 +570,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 1037.875, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &687880536
@@ -688,9 +689,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d8d9766849d0514fb289479b5fa8027, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _dialogue: {fileID: 687880537}
-  _fitter: {fileID: 687880536}
+  _dialogueText: {fileID: 0}
+  _textboxFillerText: {fileID: 0}
   _timePerChar: 0.01
+  _animationTimePerChar: 0.1
 --- !u!222 &687880539
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -735,7 +737,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 1037.875, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &924735045
@@ -854,9 +856,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d8d9766849d0514fb289479b5fa8027, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _dialogue: {fileID: 924735046}
-  _fitter: {fileID: 924735045}
+  _dialogueText: {fileID: 0}
+  _textboxFillerText: {fileID: 0}
   _timePerChar: 0.01
+  _animationTimePerChar: 0.1
 --- !u!222 &924735048
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1501,9 +1504,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d8d9766849d0514fb289479b5fa8027, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _dialogue: {fileID: 1714843599}
-  _fitter: {fileID: 1714843598}
+  _dialogueText: {fileID: 0}
+  _textboxFillerText: {fileID: 0}
   _timePerChar: 0.01
+  _animationTimePerChar: 0.1
 --- !u!222 &1714843601
 CanvasRenderer:
   m_ObjectHideFlags: 0

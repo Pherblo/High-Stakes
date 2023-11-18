@@ -103,7 +103,7 @@ public class Typewriter : MonoBehaviour
         _dialogueText.color = new Color(0, 0, 0, 0);
         _textboxFillerText.SetText(text);
         _dialogueText.SetText(text);
-        yield return null;
+        yield return null;      // Wait for mesh to update.
 
         // Update geometry.
         _dialogueText.ForceMeshUpdate(true);
@@ -111,20 +111,12 @@ public class Typewriter : MonoBehaviour
 
         // Initialize local variables.
         TMP_TextInfo textInfo = _dialogueText.textInfo;
-        //TMP_MeshInfo[] meshInfos = textInfo.CopyMeshInfoVertexData();
         List<Vector3> originalPositions = new();
         List<Vector3> centerPositions = new();
-
-        // Move vertices to their local centers.
-        // Cache data to update geometry after movements.
-        // TMP_MeshInfo cachedMeshInfo = textInfo.meshInfo[0];
-        // TMP_CharacterInfo cachedCharInfo = textInfo.characterInfo[0];
-        // Vector3[] cachedVertices = new Vector3[0];
 
         // Modify vertices' positions.
         for (int charIndex = 0; charIndex < textInfo.characterCount; charIndex++)
         {
-            // Get original positions and center positions.
             // Initialize references.
             TMP_CharacterInfo charInfo = textInfo.characterInfo[charIndex];
             TMP_MeshInfo meshInfo = textInfo.meshInfo[charInfo.materialReferenceIndex];
@@ -196,7 +188,7 @@ public class Typewriter : MonoBehaviour
         yield return null;
     }
 
-    private IEnumerator AnimateCharacterVertices(TMP_TextInfo textInfo, int charIndex, List<Vector3> originalPositions, List<Vector3> targetPositions)
+    private IEnumerator AnimateCharacterVertices(TMP_TextInfo textInfo, int charIndex, List<Vector3> startPositions, List<Vector3> endPositions)
     {
         // Start pop animation.
         TMP_CharacterInfo charInfo = textInfo.characterInfo[charIndex];
@@ -212,13 +204,13 @@ public class Typewriter : MonoBehaviour
             {
                 if (charInfo.isVisible)
                 {
-                    vertices[charInfo.vertexIndex + j] = Vector3.Lerp(originalPositions[charIndex], targetPositions[(charIndex * 4) + j], lerpValue);
+                    vertices[charInfo.vertexIndex + j] = Vector3.Lerp(startPositions[charIndex], endPositions[(charIndex * 4) + j], lerpValue);
                 }
                 else
                 {
                     timer = _animationTimePerChar;
                     break;
-                    vertices[charInfo.vertexIndex + j] = originalPositions[(charIndex * 4) + j];
+                    vertices[charInfo.vertexIndex + j] = startPositions[(charIndex * 4) + j];
                     timer = _timePerChar;
                 }
             }
