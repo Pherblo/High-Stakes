@@ -80,6 +80,8 @@ public class Typewriter : MonoBehaviour
         StopAllCoroutines();
         //_textboxFillerText.text = text;
         //_dialogueText.text = text;
+        _textboxFillerText.SetText(text);
+        _dialogueText.SetText(text);
         StartCoroutine(AnimateTextPop(text));
     }
 
@@ -101,10 +103,24 @@ public class Typewriter : MonoBehaviour
     private IEnumerator AnimateTextPop(string text)
     {
         // Initial set up.
+        //_textboxFillerText.SetText(text);
+        //_dialogueText.SetText(text);
+        Color cachedColor = _dialogueText.color;
+        //_dialogueText.color *= new Vector4(1, 1, 1, 0);
+        //_dialogueText.color = Color.red;
+        _dialogueText.color = new Color(0, 0, 0, 0);
+        /*
+        yield return null;
+        _dialogueText.ForceMeshUpdate(true, true);
+        //_dialogueText.color = new Color(0, 0, 0, 255);
         _textboxFillerText.SetText(text);
         _dialogueText.SetText(text);
-        _dialogueText.ForceMeshUpdate(true);
+        _dialogueText.color = Color.white;
+        _dialogueText.ForceMeshUpdate(true, true);
+        _dialogueText.UpdateVertexData();
+        */
         yield return null;
+        //_dialogueText.color = cachedColor;
         //_dialogueText.ForceMeshUpdate();
 
         // Initialize local variables.
@@ -143,8 +159,11 @@ public class Typewriter : MonoBehaviour
             cachedMeshInfo = meshInfo;
             cachedCharInfo = charInfo;
             cachedVertices = vertices;
+            SetVertexColor(_dialogueText, textInfo, charIndex, new Color32(0, 0, 0, 0));
             UpdateTextMesh(meshInfo, charInfo, vertices);
         }
+        Debug.Log("zeroed verts");
+        //_dialogueText.color = Color.white;
         UpdateTextMesh(cachedMeshInfo, cachedCharInfo, cachedVertices);
         yield return null;
         // Update mesh.
@@ -190,6 +209,7 @@ public class Typewriter : MonoBehaviour
                 /*
                 meshInfo.mesh.vertices = vertices;
                 _dialogueText.UpdateGeometry(meshInfo.mesh, charInfo.materialReferenceIndex);*/
+                SetVertexColor(_dialogueText, textInfo, charIndex, new Color32(255, 255, 255, 255));
                 UpdateTextMesh(meshInfo, charInfo, vertices);
                 yield return null;
             } while (timer < _timePerChar);
@@ -209,6 +229,17 @@ public class Typewriter : MonoBehaviour
     {
         meshInfo.mesh.vertices = vertices;
         _dialogueText.UpdateGeometry(meshInfo.mesh, charInfo.materialReferenceIndex);
+    }
+
+    private void SetVertexColor(TextMeshProUGUI textComponent, TMP_TextInfo textInfo, int charIndex, Color32 newColor)
+    {
+        int materialIndex = textInfo.characterInfo[charIndex].materialReferenceIndex;
+        Color32[] vertexColors = textInfo.meshInfo[materialIndex].colors32;
+        for (int i = 0; i < vertexColors.Length; i++)
+        {
+            vertexColors[i] = newColor;
+        }
+        textComponent.UpdateVertexData(TMP_VertexDataUpdateFlags.Colors32);
     }
 
 
