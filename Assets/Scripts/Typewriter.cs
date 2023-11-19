@@ -11,6 +11,7 @@ public enum TextPopMode
 
 public class Typewriter : MonoBehaviour
 {
+    [Header("Component References")]
     [SerializeField] private TextMeshProUGUI _dialogueText;
     // TODO: Probably unnecessary now, due to updating Typewriter's way of presenting texts to the pop animation.
     [SerializeField] private TextMeshProUGUI _textboxFillerText;        // Used to set text box sizes beforehand. This text component is usually invisible/transparent.
@@ -19,6 +20,11 @@ public class Typewriter : MonoBehaviour
     [SerializeField] private float _animationTimePerChar = 0.1f;
     [SerializeField] private Vector2 _startingPositionOffset = Vector2.zero;        // Due to how coordinates work in the TMP's space, this vector's x and y values would be pretty big.
     [SerializeField, Min(-1f)] private float _startingSizeMultiplier = -1f;        // -1f = all vertices are in the center. 0f = verts stay the same. 1f makes the verts move away from center.
+    [SerializeField] private Color32 _startColor;       // Not to be confused with the resulting color at the end of the text's animation.
+    [Header("Pop Animation Lerp Curves")]
+    [SerializeField] private AnimationCurve _xAxisLerpCurve;
+    [SerializeField] private AnimationCurve _yAxisLerpCurve;
+    [SerializeField] private AnimationCurve _startColorLerpCurve;
 
     // private char[] _characters;      // Used by old type animation.
 
