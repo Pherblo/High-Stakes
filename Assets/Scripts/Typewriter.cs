@@ -17,8 +17,8 @@ public class Typewriter : MonoBehaviour
     [Header("Text Animation Settings")]
     [SerializeField] private float _timePerChar = 0.015f;
     [SerializeField] private float _animationTimePerChar = 0.1f;
-    [SerializeField] private TextPopMode _popMode = TextPopMode.FromCharacterCenter;
-    [SerializeField] private Vector3 _customTextPopStartPosition = Vector3.zero;
+    [SerializeField] private Vector2 _startingPositionOffset = Vector2.zero;        // Due to how coordinates work in the TMP's space, this vector's x and y values would be pretty big.
+    [SerializeField, Min(-1f)] private float _startingSizeMultiplier = -1f;        // -1f = all vertices are in the center. 0f = verts stay the same. 1f makes the verts move away from center.
 
     // private char[] _characters;      // Used by old type animation.
 
@@ -62,7 +62,7 @@ public class Typewriter : MonoBehaviour
         // Initialize local variables.
         TMP_TextInfo textInfo = _dialogueText.textInfo;
         List<Vector3> originalPositions = new();
-        List<Vector3> centerPositions = new();
+        List<Vector3> startPositions = new();
 
         // Modify vertices' positions.
         for (int charIndex = 0; charIndex < textInfo.characterCount; charIndex++)
@@ -72,18 +72,28 @@ public class Typewriter : MonoBehaviour
             TMP_MeshInfo meshInfo = textInfo.meshInfo[charInfo.materialReferenceIndex];
             Vector3[] vertices = meshInfo.vertices;
             Vector3 centerPosition = Vector3.zero;
+            Vector3 newStartPosition = Vector3.zero;
             for (int i = 0; i < 4; i++)
             {
                 originalPositions.Add(vertices[charInfo.vertexIndex + i]);
                 centerPosition += vertices[charInfo.vertexIndex + i];
             }
-            centerPositions.Add(centerPosition / 4f);
+
+            // Apply offsets to start position then add to list.
+            centerPosition /= 4f;
+            for (int i = 0; i < 4; i++)
+            {
+                int vertexIndex = (charIndex * 4) + i;
+                newStartPosition = Vector3.LerpUnclamped(originalPositions[vertexIndex], centerPosition, -_startingSizeMultiplier);
+                newStartPosition += (Vector3)_startingPositionOffset;
+                startPositions.Add(newStartPosition);
+            }
 
             // Assign center positions to each character-corresponding vertices.
             for (int j = 0; j < 4; j++)
             {
                 if (!charInfo.isVisible) break;
-                vertices[charInfo.vertexIndex + j] = centerPositions[charIndex];
+                vertices[charInfo.vertexIndex + j] = startPositions[charIndex];
             }
 
             SetVertexColors(_dialogueText, textInfo, charIndex, cachedColor);
@@ -93,7 +103,7 @@ public class Typewriter : MonoBehaviour
         // Start pop animation.
         for (int charIndex = 0; charIndex < textInfo.characterCount; charIndex++)
         {
-            StartCoroutine(AnimateCharacterVertices(textInfo, charIndex, centerPositions, originalPositions));
+            StartCoroutine(AnimateCharacterVertices(textInfo, charIndex, startPositions, originalPositions));
             yield return new WaitForSeconds(_timePerChar);
         }
         yield return null;
@@ -115,7 +125,7 @@ public class Typewriter : MonoBehaviour
             {
                 if (charInfo.isVisible)
                 {
-                    vertices[charInfo.vertexIndex + j] = Vector3.Lerp(startPositions[charIndex], endPositions[(charIndex * 4) + j], lerpValue);
+                    vertices[charInfo.vertexIndex + j] = Vector3.Lerp(startPositions[(charIndex * 4) + j], endPositions[(charIndex * 4) + j], lerpValue);
                 }
                 else
                 {
