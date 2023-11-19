@@ -23,12 +23,6 @@
         },
         {
             "m_Id": "1600bcbe1cc2417a83c07aab99b6ce97"
-        },
-        {
-            "m_Id": "21cf33124f9b40efa501b3f90fe4e1f2"
-        },
-        {
-            "m_Id": "b4a105a2f2b8417ca4794b2e9432cf87"
         }
     ],
     "m_Keywords": [],
@@ -920,34 +914,6 @@
     },
     "m_Property": {
         "m_Id": "54d30f03e61c4441ba91313657203296"
-    }
-}
-
-{
-    "m_SGVersion": 1,
-    "m_Type": "UnityEditor.ShaderGraph.Internal.Vector1ShaderProperty",
-    "m_ObjectId": "21cf33124f9b40efa501b3f90fe4e1f2",
-    "m_Guid": {
-        "m_GuidSerialized": "9f89e815-e4d7-4d9e-ba9a-84368829a5e4"
-    },
-    "m_Name": "ContractTest",
-    "m_DefaultRefNameVersion": 1,
-    "m_RefNameGeneratedByDisplayName": "ContractTest",
-    "m_DefaultReferenceName": "_ContractTest",
-    "m_OverrideReferenceName": "",
-    "m_GeneratePropertyBlock": true,
-    "m_UseCustomSlotLabel": false,
-    "m_CustomSlotLabel": "",
-    "m_DismissedVersion": 0,
-    "m_Precision": 0,
-    "overrideHLSLDeclaration": false,
-    "hlslDeclarationOverride": 0,
-    "m_Hidden": false,
-    "m_Value": 0.0,
-    "m_FloatType": 0,
-    "m_RangeValues": {
-        "x": 0.0,
-        "y": 1.0
     }
 }
 
@@ -2455,12 +2421,6 @@
         },
         {
             "m_Id": "e346d9489d70402d8743e675bd377682"
-        },
-        {
-            "m_Id": "21cf33124f9b40efa501b3f90fe4e1f2"
-        },
-        {
-            "m_Id": "b4a105a2f2b8417ca4794b2e9432cf87"
         }
     ]
 }
@@ -2913,34 +2873,6 @@
         "y": 0.0,
         "z": 0.0,
         "w": 0.0
-    }
-}
-
-{
-    "m_SGVersion": 1,
-    "m_Type": "UnityEditor.ShaderGraph.Internal.Vector1ShaderProperty",
-    "m_ObjectId": "b4a105a2f2b8417ca4794b2e9432cf87",
-    "m_Guid": {
-        "m_GuidSerialized": "db7115fb-2d4e-4877-b898-9c742da42c55"
-    },
-    "m_Name": "Test2",
-    "m_DefaultRefNameVersion": 1,
-    "m_RefNameGeneratedByDisplayName": "Test2",
-    "m_DefaultReferenceName": "_Test2",
-    "m_OverrideReferenceName": "",
-    "m_GeneratePropertyBlock": true,
-    "m_UseCustomSlotLabel": false,
-    "m_CustomSlotLabel": "",
-    "m_DismissedVersion": 0,
-    "m_Precision": 0,
-    "overrideHLSLDeclaration": false,
-    "hlslDeclarationOverride": 0,
-    "m_Hidden": false,
-    "m_Value": 0.0,
-    "m_FloatType": 0,
-    "m_RangeValues": {
-        "x": 0.0,
-        "y": 1.0
     }
 }
 

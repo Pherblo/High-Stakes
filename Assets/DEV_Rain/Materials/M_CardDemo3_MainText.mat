@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Brasilia SDF 1
+  m_Name: M_CardDemo3_MainText
   m_Shader: {fileID: -6465566751694194690, guid: 65ab0d8d48372e445bebb6a6e1193b4d, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
