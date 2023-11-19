@@ -3,14 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
+public enum TextPopMode
+{
+    FromCharacterCenter = 0,
+    FromCustomPosition = 1
+}
+
 public class Typewriter : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI _dialogueText;
+    // TODO: Probably unnecessary now, due to updating Typewriter's way of presenting texts to the pop animation.
     [SerializeField] private TextMeshProUGUI _textboxFillerText;        // Used to set text box sizes beforehand. This text component is usually invisible/transparent.
-    //[SerializeField] private CanvasRenderer _canvasRenderer;
     [Header("Text Animation Settings")]
     [SerializeField] private float _timePerChar = 0.015f;
     [SerializeField] private float _animationTimePerChar = 0.1f;
+    [SerializeField] private TextPopMode _popMode = TextPopMode.FromCharacterCenter;
+    [SerializeField] private Vector3 _customTextPopStartPosition = Vector3.zero;
 
     // private char[] _characters;      // Used by old type animation.
 
@@ -21,7 +29,8 @@ public class Typewriter : MonoBehaviour
     }
 
     // Old type animation.
-    /*private IEnumerator TypeAnimation(string text)
+    /*
+    private IEnumerator TypeAnimation(string text)
     {
         _textboxFillerText.text = text;
         _characters = text.ToCharArray();
@@ -34,7 +43,8 @@ public class Typewriter : MonoBehaviour
             if (_characters[i] != ' ')
                 yield return new WaitForSeconds(_timePerChar);
         }
-    }*/
+    }
+    */
 
     private IEnumerator AnimateTextPop(string text)
     {
@@ -111,8 +121,6 @@ public class Typewriter : MonoBehaviour
                 {
                     timer = _animationTimePerChar;
                     break;
-                    vertices[charInfo.vertexIndex + j] = startPositions[(charIndex * 4) + j];
-                    timer = _timePerChar;
                 }
             }
             SetVertexColors(_dialogueText, textInfo, charIndex, new Color32(255, 255, 255, 255));
