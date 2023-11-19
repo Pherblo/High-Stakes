@@ -160,8 +160,7 @@ public class Typewriter : MonoBehaviour
         Color32[] vertexColors = textInfo.meshInfo[materialIndex].colors32;
         for (int i = 0; i < vertexColors.Length; i++)
         {
-            //vertexColors[i] = newColor;
-            vertexColors[i] = new Color32(255, 0, 0, 255);
+            vertexColors[i] = newColor;
         }
         textComponent.UpdateVertexData(TMP_VertexDataUpdateFlags.Colors32);
     }
