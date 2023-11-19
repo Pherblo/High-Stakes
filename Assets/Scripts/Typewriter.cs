@@ -56,10 +56,12 @@ public class Typewriter : MonoBehaviour
     {
         // Update text and cache color.
         Color32 cachedColor = _dialogueText.color;
-        _dialogueText.color = new Color(0, 0, 0, 0);
+        _dialogueText.color = new Color32(0, 0, 0, 0);
+
+        // Set texts and wait for mesh to update. Yes this is separate from the geometry update. I have no fucking clue as to why but that is how it is.
         _textboxFillerText.SetText(text);
         _dialogueText.SetText(text);
-        yield return null;      // Wait for mesh to update.
+        yield return null;
 
         // Update geometry.
         _dialogueText.ForceMeshUpdate(true);
@@ -158,7 +160,8 @@ public class Typewriter : MonoBehaviour
         Color32[] vertexColors = textInfo.meshInfo[materialIndex].colors32;
         for (int i = 0; i < vertexColors.Length; i++)
         {
-            vertexColors[i] = newColor;
+            //vertexColors[i] = newColor;
+            vertexColors[i] = new Color32(255, 0, 0, 255);
         }
         textComponent.UpdateVertexData(TMP_VertexDataUpdateFlags.Colors32);
     }

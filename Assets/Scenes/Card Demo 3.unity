@@ -514,6 +514,27 @@ MonoBehaviour:
   _animationTimePerChar: 0.1
   _startingPositionOffset: {x: 0, y: 0}
   _startingSizeMultiplier: 1
+  _startColor:
+    serializedVersion: 2
+    rgba: 0
+  _xAxisLerpCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  _yAxisLerpCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  _startColorLerpCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!222 &165149211
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1404,6 +1425,27 @@ MonoBehaviour:
   _animationTimePerChar: 0.15
   _startingPositionOffset: {x: 15, y: 5}
   _startingSizeMultiplier: -0.3
+  _startColor:
+    serializedVersion: 2
+    rgba: 0
+  _xAxisLerpCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  _yAxisLerpCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  _startColorLerpCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!222 &364074458
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1730,6 +1772,27 @@ MonoBehaviour:
   _animationTimePerChar: 0.1
   _startingPositionOffset: {x: 0, y: 0}
   _startingSizeMultiplier: 1
+  _startColor:
+    serializedVersion: 2
+    rgba: 0
+  _xAxisLerpCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  _yAxisLerpCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  _startColorLerpCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!222 &377407785
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1910,6 +1973,27 @@ MonoBehaviour:
   _animationTimePerChar: 0.1
   _startingPositionOffset: {x: 0, y: 0}
   _startingSizeMultiplier: 1
+  _startColor:
+    serializedVersion: 2
+    rgba: 0
+  _xAxisLerpCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  _yAxisLerpCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  _startColorLerpCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!222 &396546612
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2429,6 +2513,27 @@ MonoBehaviour:
   _animationTimePerChar: 0.1
   _startingPositionOffset: {x: 0, y: 0}
   _startingSizeMultiplier: 1
+  _startColor:
+    serializedVersion: 2
+    rgba: 0
+  _xAxisLerpCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  _yAxisLerpCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  _startColorLerpCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!222 &513938256
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2997,6 +3102,27 @@ MonoBehaviour:
   _animationTimePerChar: 0.1
   _startingPositionOffset: {x: 0, y: 0}
   _startingSizeMultiplier: 1
+  _startColor:
+    serializedVersion: 2
+    rgba: 0
+  _xAxisLerpCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  _yAxisLerpCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  _startColorLerpCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!222 &672485282
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3443,6 +3569,27 @@ MonoBehaviour:
   _animationTimePerChar: 0.1
   _startingPositionOffset: {x: 0, y: 0}
   _startingSizeMultiplier: 1
+  _startColor:
+    serializedVersion: 2
+    rgba: 0
+  _xAxisLerpCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  _yAxisLerpCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  _startColorLerpCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!222 &758522741
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4246,6 +4393,27 @@ MonoBehaviour:
   _animationTimePerChar: 0.1
   _startingPositionOffset: {x: 0, y: 0}
   _startingSizeMultiplier: 1
+  _startColor:
+    serializedVersion: 2
+    rgba: 0
+  _xAxisLerpCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  _yAxisLerpCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  _startColorLerpCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!222 &913577472
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5162,6 +5330,27 @@ MonoBehaviour:
   _animationTimePerChar: 0.15
   _startingPositionOffset: {x: 15, y: 5}
   _startingSizeMultiplier: -0.3
+  _startColor:
+    serializedVersion: 2
+    rgba: 0
+  _xAxisLerpCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  _yAxisLerpCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  _startColorLerpCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!222 &1032564288
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5487,6 +5676,27 @@ MonoBehaviour:
   _animationTimePerChar: 0.1
   _startingPositionOffset: {x: 0, y: 0}
   _startingSizeMultiplier: 1
+  _startColor:
+    serializedVersion: 2
+    rgba: 0
+  _xAxisLerpCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  _yAxisLerpCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  _startColorLerpCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!222 &1062437486
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6481,6 +6691,27 @@ MonoBehaviour:
   _animationTimePerChar: 0.1
   _startingPositionOffset: {x: 0, y: 0}
   _startingSizeMultiplier: 1
+  _startColor:
+    serializedVersion: 2
+    rgba: 0
+  _xAxisLerpCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  _yAxisLerpCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  _startColorLerpCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!222 &1408988581
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6780,8 +7011,8 @@ MonoBehaviour:
   m_text: Hira how are you doing? <bounce>I- Uh well i need some poisonous poison...</bounce>
     <swing>Please?</swing>
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 25036ebd659ead642a87fac53bbc6219, type: 2}
-  m_sharedMaterial: {fileID: 2100000, guid: a0444e0a6afb6c44d97d59eab62cbfae, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 6d2162d21446d094dba52c033d2aad7c, type: 2}
+  m_sharedMaterial: {fileID: 1330387754388480215, guid: 6d2162d21446d094dba52c033d2aad7c, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -7664,6 +7895,27 @@ MonoBehaviour:
   _animationTimePerChar: 0.1
   _startingPositionOffset: {x: 0, y: 0}
   _startingSizeMultiplier: 1
+  _startColor:
+    serializedVersion: 2
+    rgba: 0
+  _xAxisLerpCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  _yAxisLerpCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  _startColorLerpCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!222 &1588878340
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -8573,6 +8825,27 @@ MonoBehaviour:
   _animationTimePerChar: 0.15
   _startingPositionOffset: {x: 15, y: 5}
   _startingSizeMultiplier: -0.3
+  _startColor:
+    serializedVersion: 2
+    rgba: 0
+  _xAxisLerpCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  _yAxisLerpCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  _startColorLerpCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!222 &1977375909
 CanvasRenderer:
   m_ObjectHideFlags: 0
