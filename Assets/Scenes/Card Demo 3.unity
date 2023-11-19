@@ -1400,10 +1400,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _dialogueText: {fileID: 822704251}
   _textboxFillerText: {fileID: 356636580}
-  _timePerChar: 0.04
-  _animationTimePerChar: 0.1
-  _startingPositionOffset: {x: 0, y: 0}
-  _startingSizeMultiplier: -1
+  _timePerChar: 0.03
+  _animationTimePerChar: 0.15
+  _startingPositionOffset: {x: 15, y: 5}
+  _startingSizeMultiplier: -0.3
 --- !u!222 &364074458
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5158,10 +5158,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _dialogueText: {fileID: 1415043521}
   _textboxFillerText: {fileID: 1053454063}
-  _timePerChar: 0.04
-  _animationTimePerChar: 0.1
-  _startingPositionOffset: {x: 0, y: 0}
-  _startingSizeMultiplier: -1
+  _timePerChar: 0.03
+  _animationTimePerChar: 0.15
+  _startingPositionOffset: {x: 15, y: 5}
+  _startingSizeMultiplier: -0.3
 --- !u!222 &1032564288
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -8570,9 +8570,9 @@ MonoBehaviour:
   _dialogueText: {fileID: 1421195678}
   _textboxFillerText: {fileID: 714548088}
   _timePerChar: 0.015
-  _animationTimePerChar: 0.1
-  _startingPositionOffset: {x: 0, y: 0}
-  _startingSizeMultiplier: -1
+  _animationTimePerChar: 0.15
+  _startingPositionOffset: {x: 15, y: 5}
+  _startingSizeMultiplier: -0.3
 --- !u!222 &1977375909
 CanvasRenderer:
   m_ObjectHideFlags: 0
