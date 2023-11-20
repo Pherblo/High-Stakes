@@ -107,9 +107,12 @@ public class Timeline : MonoBehaviour
          Debug.Log("time: " + currentTime.ToString());
         // Debug.Log(cardsPassedToday.ToString());
          Debug.Log("moon cycle: " + currentMoonCycle.ToString());
+
+        //will change the display
     }
 
  
+    //to be called by onCardPicked event in deck
     public void updateCardsPassed()
     {
         cardsPassedToday++;
