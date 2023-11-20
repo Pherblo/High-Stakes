@@ -1421,10 +1421,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _dialogueText: {fileID: 822704251}
   _textboxFillerText: {fileID: 356636580}
-  _timePerChar: 0.03
-  _animationTimePerChar: 0.15
-  _startingPositionOffset: {x: 15, y: 5}
-  _startingSizeMultiplier: -0.3
+  _timePerChar: 0.02
+  _animationTimePerChar: 0.4
+  _startingPositionOffset: {x: 30, y: 0}
+  _startingSizeMultiplier: 0.7
   _startColor:
     serializedVersion: 2
     rgba: 0
@@ -1434,18 +1434,18 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 1
-      outSlope: 1
-      tangentMode: 34
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
       weightedMode: 0
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
       time: 1
       value: 1
-      inSlope: 1
-      outSlope: 1
-      tangentMode: 34
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
       weightedMode: 0
       inWeight: 0
       outWeight: 0
@@ -1458,18 +1458,18 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 1
-      outSlope: 1
-      tangentMode: 34
+      inSlope: 2.375262
+      outSlope: 2.375262
+      tangentMode: 0
       weightedMode: 0
       inWeight: 0
-      outWeight: 0
+      outWeight: 0.03177405
     - serializedVersion: 3
       time: 1
       value: 1
-      inSlope: 1
-      outSlope: 1
-      tangentMode: 34
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
       weightedMode: 0
       inWeight: 0
       outWeight: 0
@@ -1482,18 +1482,18 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 1
-      outSlope: 1
-      tangentMode: 34
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
       weightedMode: 0
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
       time: 1
       value: 1
-      inSlope: 1
-      outSlope: 1
-      tangentMode: 34
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
       weightedMode: 0
       inWeight: 0
       outWeight: 0
@@ -5380,10 +5380,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _dialogueText: {fileID: 1415043521}
   _textboxFillerText: {fileID: 1053454063}
-  _timePerChar: 0.03
-  _animationTimePerChar: 0.15
-  _startingPositionOffset: {x: 15, y: 5}
-  _startingSizeMultiplier: -0.3
+  _timePerChar: 0.02
+  _animationTimePerChar: 0.4
+  _startingPositionOffset: {x: 30, y: 0}
+  _startingSizeMultiplier: 0.7
   _startColor:
     serializedVersion: 2
     rgba: 0
@@ -5393,18 +5393,18 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 1
-      outSlope: 1
-      tangentMode: 34
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
       weightedMode: 0
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
       time: 1
       value: 1
-      inSlope: 1
-      outSlope: 1
-      tangentMode: 34
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
       weightedMode: 0
       inWeight: 0
       outWeight: 0
@@ -5417,18 +5417,18 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 1
-      outSlope: 1
-      tangentMode: 34
+      inSlope: 2.375262
+      outSlope: 2.375262
+      tangentMode: 0
       weightedMode: 0
       inWeight: 0
-      outWeight: 0
+      outWeight: 0.03177405
     - serializedVersion: 3
       time: 1
       value: 1
-      inSlope: 1
-      outSlope: 1
-      tangentMode: 34
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
       weightedMode: 0
       inWeight: 0
       outWeight: 0
@@ -5441,18 +5441,18 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 1
-      outSlope: 1
-      tangentMode: 34
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
       weightedMode: 0
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
       time: 1
       value: 1
-      inSlope: 1
-      outSlope: 1
-      tangentMode: 34
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
       weightedMode: 0
       inWeight: 0
       outWeight: 0
@@ -8931,8 +8931,8 @@ MonoBehaviour:
   _textboxFillerText: {fileID: 714548088}
   _timePerChar: 0.015
   _animationTimePerChar: 0.3
-  _startingPositionOffset: {x: 20, y: 10}
-  _startingSizeMultiplier: 0.3
+  _startingPositionOffset: {x: 30, y: 10}
+  _startingSizeMultiplier: 0.5
   _startColor:
     serializedVersion: 2
     rgba: 0
@@ -8948,15 +8948,6 @@ MonoBehaviour:
       weightedMode: 0
       inWeight: 0
       outWeight: 0
-    - serializedVersion: 3
-      time: 0.59944123
-      value: 0.19006786
-      inSlope: 0.7288852
-      outSlope: 0.7288852
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.1237793
     - serializedVersion: 3
       time: 1
       value: 1
@@ -8975,17 +8966,17 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 2.375262
-      outSlope: 2.375262
+      inSlope: 0
+      outSlope: 0
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
-      outWeight: 0.03177405
+      outWeight: 0
     - serializedVersion: 3
       time: 1
       value: 1
-      inSlope: 0
-      outSlope: 0
+      inSlope: 2
+      outSlope: 2
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
