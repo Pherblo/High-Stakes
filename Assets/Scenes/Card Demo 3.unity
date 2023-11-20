@@ -3340,8 +3340,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 747.202, y: 0}
-  m_SizeDelta: {x: 1494.404, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &714548088
 MonoBehaviour:
@@ -4221,7 +4221,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &908067424
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8929,13 +8929,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _dialogueText: {fileID: 1421195678}
   _textboxFillerText: {fileID: 714548088}
-  _timePerChar: 0.015
-  _animationTimePerChar: 0.3
+  _timePerChar: 0.0125
+  _animationTimePerChar: 0.4
   _startingPositionOffset: {x: 30, y: 10}
-  _startingSizeMultiplier: 0.5
+  _startingSizeMultiplier: 0.35
   _startColor:
     serializedVersion: 2
-    rgba: 0
+    rgba: 16777215
   _xAxisLerpCurve:
     serializedVersion: 2
     m_Curve:
@@ -8997,14 +8997,23 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
+      time: 0.75
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
       time: 1
       value: 1
       inSlope: 0
       outSlope: 0
-      tangentMode: 0
+      tangentMode: 136
       weightedMode: 0
-      inWeight: 0
-      outWeight: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4

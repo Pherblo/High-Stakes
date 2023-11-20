@@ -14,16 +14,21 @@ public class CardDisplay : MonoBehaviour
 	[SerializeField] private Typewriter _dialogueTextA;
     [SerializeField] private Typewriter _dialogueTextB;
 
-    private CardEvent currentCardEvent;
+    private CardEvent _currentCardEvent;
 
 	[Header("Stats To Be Changed")]
 	public Stats suspicion;
 	public Stats faith;
 	public Stats popularity;
 
-	// Changes dialogue depending on the swipe
-	// Can be changed later to have a fade effect
-	public void ToggleDialogues(CardSwipeDrag thisCardSwipe)
+    private void Awake()
+    {
+        _cardDescription.OnTextGenerationFinished += SetChoices;
+    }
+
+    // Changes dialogue depending on the swipe
+    // Can be changed later to have a fade effect
+    public void ToggleDialogues(CardSwipeDrag thisCardSwipe)
 	{
 		/*
 		// Turning dialogue background back on
@@ -52,22 +57,36 @@ public class CardDisplay : MonoBehaviour
     // Subscribed to Deck's OnCardPicked event.
     public void UpdateCardDisplay(CardEvent cardToDisplay)
 	{
-		// Updating UI texts and art.
-		_cardName.text = cardToDisplay.AssociatedCharacter.Name;
+        // Cache the card.
+        _currentCardEvent = cardToDisplay;
+
+        // Updating UI texts and art on the card.
+        _cardName.text = cardToDisplay.AssociatedCharacter.Name;
 		_cardTitle.text = cardToDisplay.AssociatedCharacter.Title;
         _cardArt.sprite = cardToDisplay.AssociatedCharacter.CharacterArt;
 
-        // Update typewriters.
-        _cardDescription.RunDialogue(cardToDisplay.Description);
-		_dialogueTextA.RunDialogue(cardToDisplay.DialogueA.DialogueText);
-        _dialogueTextB.RunDialogue(cardToDisplay.DialogueB.DialogueText);
+		// Update typewriters.
+		_dialogueTextA.ClearText();
+        _dialogueTextB.ClearText();
+        SetDescriptionText(cardToDisplay.Description);
+        //_cardDescription.RunDialogue(cardToDisplay.Description);
+		//_dialogueTextA.RunDialogue(cardToDisplay.DialogueA.DialogueText);
+        //_dialogueTextB.RunDialogue(cardToDisplay.DialogueB.DialogueText);
 
 		// Updating Stat bottles from last card
 		suspicion.changeValue(cardToDisplay.suspicionValue);
 		faith.changeValue(cardToDisplay.faithValue);
 		popularity.changeValue(cardToDisplay.popularityValue);
-
-		// Caching the cardToDisplay
-		currentCardEvent = cardToDisplay;
 	}
+
+	private void SetDescriptionText(string text)
+	{
+        _cardDescription.RunDialogue(text);
+    }
+
+	private void SetChoices()
+	{
+        _dialogueTextA.RunDialogue(_currentCardEvent.DialogueA.DialogueText);
+        _dialogueTextB.RunDialogue(_currentCardEvent.DialogueB.DialogueText);
+    }
 }

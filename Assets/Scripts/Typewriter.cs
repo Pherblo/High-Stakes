@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System;
 
 public enum TextPopMode
 {
@@ -11,6 +12,9 @@ public enum TextPopMode
 
 public class Typewriter : MonoBehaviour
 {
+    // IMPORTANT: THIS SCRIPT ASSUMES THE TMPUGUI USES A MATERIAL THAT USES TEXTDISSOLVE SHADER.
+    public Action OnTextGenerationFinished;
+
     [Header("Component References")]
     [SerializeField] private TextMeshProUGUI _dialogueText;
     // TODO: Probably unnecessary now, due to updating Typewriter's way of presenting texts to the pop animation.
@@ -41,6 +45,18 @@ public class Typewriter : MonoBehaviour
         StartCoroutine(AnimateTextPop(text));
     }
 
+    public void SetFillerText(string text)
+    {
+        _textboxFillerText.SetText(text);
+    }
+
+    public void ClearText()
+    {
+        StopAllCoroutines();
+        _dialogueText.SetText("");
+        //_textboxFillerText.SetText("");
+    }
+
     // Old type animation.
     /*
     private IEnumerator TypeAnimation(string text)
@@ -59,6 +75,7 @@ public class Typewriter : MonoBehaviour
     }
     */
 
+    // IMPORTANT: THIS ASSUMES THE TMPUGUI USES A MATERIAL THAT USES TEXTDISSOLVE SHADER.
     private IEnumerator AnimateTextPop(string text)
     {
         // Update text and cache color.
@@ -119,6 +136,7 @@ public class Typewriter : MonoBehaviour
             StartCoroutine(AnimateCharacterVertices(textInfo, charIndex, startPositions, originalPositions, _originalColor));
             yield return new WaitForSeconds(_timePerChar);
         }
+        OnTextGenerationFinished?.Invoke();
         yield return null;
     }
 
