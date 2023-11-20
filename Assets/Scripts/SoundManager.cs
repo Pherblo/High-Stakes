@@ -7,6 +7,7 @@ public class SoundManager : MonoBehaviour
 {
     public GameObject settings;
     public GameObject backgroundMusic;
+    public GameObject CardSFX;
     public GameObject soundEffects;
 
     private float musicVolume;
@@ -43,6 +44,9 @@ public class SoundManager : MonoBehaviour
 
     public void CardEffect()
     {
-        Debug.Log("picked");
+        if(CardSFX.GetComponent<AudioSource>() != null)
+        {
+            CardSFX.GetComponent<AudioSource>().Play();
+        }
     }
 }
