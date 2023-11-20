@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class SoundManager : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class SoundManager : MonoBehaviour
 
     private float musicVolume;
     private float effectsVolume;
+
+    public UnityEvent<CardEvent> OnCardPicked;      // When a card has been picked from the deck.
     void Start()
     {
         
@@ -18,10 +21,11 @@ public class SoundManager : MonoBehaviour
     
     void Update()
     {
-        setVolume();
+        SetVolume();
+        CardEffect();
     }
 
-    private void setVolume()
+    private void SetVolume()
     {
         musicVolume = settings.GetComponent<OptionsManager>().musicSlider.value;
         effectsVolume = settings.GetComponent<OptionsManager>().sfxSlider.value;
@@ -35,5 +39,10 @@ public class SoundManager : MonoBehaviour
         {
             soundEffects.GetComponent<AudioSource>().volume = effectsVolume;
         }
+    }
+
+    public void CardEffect()
+    {
+        Debug.Log("picked");
     }
 }
