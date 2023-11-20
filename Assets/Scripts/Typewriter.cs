@@ -26,7 +26,14 @@ public class Typewriter : MonoBehaviour
     [SerializeField] private AnimationCurve _yAxisLerpCurve;
     [SerializeField] private AnimationCurve _startColorLerpCurve;
 
+    private Color32 _originalColor = Color.white;
+
     // private char[] _characters;      // Used by old type animation.
+
+    private void Awake()
+    {
+        _originalColor = _dialogueText.color;
+    }
 
     public void RunDialogue(string text)
     {
@@ -55,7 +62,6 @@ public class Typewriter : MonoBehaviour
     private IEnumerator AnimateTextPop(string text)
     {
         // Update text and cache color.
-        Color32 cachedColor = _dialogueText.color;
         _dialogueText.color = new Color32(0, 0, 0, 0);
 
         // Set texts and wait for mesh to update. Yes this is separate from the geometry update. I have no fucking clue as to why but that is how it is.
@@ -80,7 +86,6 @@ public class Typewriter : MonoBehaviour
             TMP_MeshInfo meshInfo = textInfo.meshInfo[charInfo.materialReferenceIndex];
             Vector3[] vertices = meshInfo.vertices;
             Vector3 centerPosition = Vector3.zero;
-            Vector3 newStartPosition = Vector3.zero;
             for (int i = 0; i < 4; i++)
             {
                 originalPositions.Add(vertices[charInfo.vertexIndex + i]);
@@ -92,7 +97,7 @@ public class Typewriter : MonoBehaviour
             for (int i = 0; i < 4; i++)
             {
                 int vertexIndex = (charIndex * 4) + i;
-                newStartPosition = Vector3.LerpUnclamped(originalPositions[vertexIndex], centerPosition, -_startingSizeMultiplier);
+                Vector3 newStartPosition = Vector3.LerpUnclamped(originalPositions[vertexIndex], centerPosition, -_startingSizeMultiplier);
                 newStartPosition += (Vector3)_startingPositionOffset;
                 startPositions.Add(newStartPosition);
             }
@@ -104,20 +109,20 @@ public class Typewriter : MonoBehaviour
                 vertices[charInfo.vertexIndex + j] = startPositions[charIndex];
             }
 
-            SetVertexColors(_dialogueText, textInfo, charIndex, cachedColor);
+            SetVertexColors(_dialogueText, textInfo, charInfo, charIndex, new Color32(0, 0, 0, 0));
             UpdateTextMesh(meshInfo, charInfo, vertices);
         }
 
         // Start pop animation.
         for (int charIndex = 0; charIndex < textInfo.characterCount; charIndex++)
         {
-            StartCoroutine(AnimateCharacterVertices(textInfo, charIndex, startPositions, originalPositions));
+            StartCoroutine(AnimateCharacterVertices(textInfo, charIndex, startPositions, originalPositions, _originalColor));
             yield return new WaitForSeconds(_timePerChar);
         }
         yield return null;
     }
 
-    private IEnumerator AnimateCharacterVertices(TMP_TextInfo textInfo, int charIndex, List<Vector3> startPositions, List<Vector3> endPositions)
+    private IEnumerator AnimateCharacterVertices(TMP_TextInfo textInfo, int charIndex, List<Vector3> startPositions, List<Vector3> endPositions, Color32 targetColor)
     {
         // Start pop animation.
         TMP_CharacterInfo charInfo = textInfo.characterInfo[charIndex];
@@ -127,7 +132,7 @@ public class Typewriter : MonoBehaviour
         do
         {
             timer += Time.deltaTime;
-            float lerpValue = timer / _animationTimePerChar;
+            float lerpValue = Mathf.Min(timer / _animationTimePerChar);
             // Update vertices.
             for (int j = 0; j < 4; j++)
             {
@@ -141,7 +146,10 @@ public class Typewriter : MonoBehaviour
                     break;
                 }
             }
-            SetVertexColors(_dialogueText, textInfo, charIndex, new Color32(255, 255, 255, 255));
+            // Apply colors.
+            float colorCurveValue = _startColorLerpCurve.Evaluate(lerpValue);
+            Color32 lerpedColor = Color32.Lerp(_startColor, targetColor, colorCurveValue);
+            SetVertexColors(_dialogueText, textInfo, charInfo, charIndex, lerpedColor);
             UpdateTextMesh(meshInfo, charInfo, vertices);
             yield return null;
         } while (timer < _animationTimePerChar);
@@ -154,13 +162,17 @@ public class Typewriter : MonoBehaviour
         _dialogueText.UpdateGeometry(meshInfo.mesh, charInfo.materialReferenceIndex);
     }
 
-    private void SetVertexColors(TextMeshProUGUI textComponent, TMP_TextInfo textInfo, int charIndex, Color32 newColor)
+    private void SetVertexColors(TextMeshProUGUI textComponent, TMP_TextInfo textInfo, TMP_CharacterInfo charInfo, int charIndex, Color32 newColor)
     {
-        int materialIndex = textInfo.characterInfo[charIndex].materialReferenceIndex;
+        int materialIndex = charInfo.materialReferenceIndex;
         Color32[] vertexColors = textInfo.meshInfo[materialIndex].colors32;
-        for (int i = 0; i < vertexColors.Length; i++)
+        int vertexIndex = charInfo.vertexIndex;
+        if (charInfo.isVisible)
         {
-            vertexColors[i] = newColor;
+            for (int i = 0; i < 4; i++)
+            {
+                if (charInfo.isVisible) vertexColors[vertexIndex + i] = newColor;
+            }
         }
         textComponent.UpdateVertexData(TMP_VertexDataUpdateFlags.Colors32);
     }
