@@ -1,76 +1,57 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 
 public class SoundManager : MonoBehaviour
 {
-    public GameObject settings;
+    [Header("Sound effect objects: ")]
     public GameObject backgroundMusic;
     public GameObject CardSFX;
     public GameObject soundEffects;
     public GameObject shatterSFX;
     public GameObject overflowSFX;
 
+    [Header("Reference to menu settings: ")]
+    public GameObject settings;
+
+    [Header("Volume variables: ")]
     private float musicVolume;
-    private float effectsVolume;
+    private float sfxVolume;
 
     void Start()
     {
-        
     }
 
-    
     void Update()
     {
         SetVolume();
-
-        
     }
 
+    //function to set volume based off the menu settings
     private void SetVolume()
     {
-        musicVolume = settings.GetComponent<OptionsManager>().musicSlider.value;
-        effectsVolume = settings.GetComponent<OptionsManager>().sfxSlider.value;
+        musicVolume = settings.GetComponent<OptionsManager>().musicSlider.value; //set music volume to musicSlider value
+        sfxVolume = settings.GetComponent<OptionsManager>().sfxSlider.value; //set sfx volume to sfxSlider value
 
         if (backgroundMusic.GetComponent<AudioSource>() != null)
         {
-            backgroundMusic.GetComponent<AudioSource>().volume = musicVolume;
+            backgroundMusic.GetComponent<AudioSource>().volume = musicVolume; //change the background music volume to the set value by slider
         }
 
         if (soundEffects.GetComponentInChildren<AudioSource>() != null)
         {
-            foreach (AudioSource source in soundEffects.GetComponentsInChildren<AudioSource>())
+            foreach (AudioSource source in soundEffects.GetComponentsInChildren<AudioSource>())  //for each audio source in soundEffects children change the volume to the set value by slider
             {
-                source.volume = effectsVolume;
+                source.volume = sfxVolume;
             }
-           
         }
     }
 
-    //to be called by OnCardPicked event 
-    public void CardEffect()
+    //to be called by OnCardPicked event or one of stats events
+    public void PlayEffect(GameObject effect)
     {
-        if(CardSFX.GetComponent<AudioSource>() != null)
+        if (effect.GetComponent<AudioSource>() != null)
         {
-            CardSFX.GetComponent<AudioSource>().Play();
+            effect.GetComponent<AudioSource>().Play(); //play sound
         }
     }
 
-    //to be called by OnShatter event
-    public void ShatterEffect()
-    {
-        if (shatterSFX.GetComponent<AudioSource>() != null)
-        {
-            shatterSFX.GetComponent<AudioSource>().Play();
-        }
-    }
-
-    public void OverflowEffect()
-    {
-        if (overflowSFX.GetComponent<AudioSource>() != null)
-        {
-            overflowSFX.GetComponent<AudioSource>().Play();
-        }
-    }
 }
