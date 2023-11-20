@@ -138,7 +138,14 @@ public class Typewriter : MonoBehaviour
             {
                 if (charInfo.isVisible)
                 {
-                    vertices[charInfo.vertexIndex + j] = Vector3.Lerp(startPositions[(charIndex * 4) + j], endPositions[(charIndex * 4) + j], lerpValue);
+                    int vertIndex = (charIndex * 4) + j;
+                    //vertices[charInfo.vertexIndex + j] = Vector3.Lerp(startPositions[(charIndex * 4) + j], endPositions[(charIndex * 4) + j], lerpValue);
+
+                    float xLerpValue = _xAxisLerpCurve.Evaluate(lerpValue);
+                    float yLerpValue = _yAxisLerpCurve.Evaluate(lerpValue);
+                    float newXPosition = Mathf.Lerp(startPositions[vertIndex].x, endPositions[vertIndex].x, xLerpValue);
+                    float newYPosition = Mathf.Lerp(startPositions[vertIndex].y, endPositions[vertIndex].y, yLerpValue);
+                    vertices[charInfo.vertexIndex + j] = new Vector3(newXPosition, newYPosition, endPositions[vertIndex].z);
                 }
                 else
                 {
