@@ -40,7 +40,11 @@ public class SoundManager : MonoBehaviour
 
         if (soundEffects.GetComponentInChildren<AudioSource>() != null)
         {
-            soundEffects.GetComponentInChildren<AudioSource>().volume = effectsVolume;
+            foreach (AudioSource source in soundEffects.GetComponentsInChildren<AudioSource>())
+            {
+                source.volume = effectsVolume;
+            }
+           
         }
     }
 
