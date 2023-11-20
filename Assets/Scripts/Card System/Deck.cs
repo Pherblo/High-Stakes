@@ -85,6 +85,7 @@ public class Deck : MonoBehaviour
 		// Gets new card on start
 		PickCard();
 		*/
+        PickCard();
     }
 
 	public void PickCard()
