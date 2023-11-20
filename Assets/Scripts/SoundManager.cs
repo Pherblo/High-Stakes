@@ -9,11 +9,12 @@ public class SoundManager : MonoBehaviour
     public GameObject backgroundMusic;
     public GameObject CardSFX;
     public GameObject soundEffects;
+    public GameObject shatterSFX;
+    public GameObject overflowSFX;
 
     private float musicVolume;
     private float effectsVolume;
 
-    public UnityEvent<CardEvent> OnCardPicked;      // When a card has been picked from the deck.
     void Start()
     {
         
@@ -23,7 +24,8 @@ public class SoundManager : MonoBehaviour
     void Update()
     {
         SetVolume();
-        CardEffect();
+
+        
     }
 
     private void SetVolume()
@@ -36,17 +38,35 @@ public class SoundManager : MonoBehaviour
             backgroundMusic.GetComponent<AudioSource>().volume = musicVolume;
         }
 
-        if (soundEffects.GetComponent<AudioSource>() != null)
+        if (soundEffects.GetComponentInChildren<AudioSource>() != null)
         {
-            soundEffects.GetComponent<AudioSource>().volume = effectsVolume;
+            soundEffects.GetComponentInChildren<AudioSource>().volume = effectsVolume;
         }
     }
 
+    //to be called by OnCardPicked event 
     public void CardEffect()
     {
         if(CardSFX.GetComponent<AudioSource>() != null)
         {
             CardSFX.GetComponent<AudioSource>().Play();
+        }
+    }
+
+    //to be called by OnShatter event
+    public void ShatterEffect()
+    {
+        if (shatterSFX.GetComponent<AudioSource>() != null)
+        {
+            shatterSFX.GetComponent<AudioSource>().Play();
+        }
+    }
+
+    public void OverflowEffect()
+    {
+        if (overflowSFX.GetComponent<AudioSource>() != null)
+        {
+            overflowSFX.GetComponent<AudioSource>().Play();
         }
     }
 }
