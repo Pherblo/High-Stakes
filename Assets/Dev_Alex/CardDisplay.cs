@@ -68,6 +68,8 @@ public class CardDisplay : MonoBehaviour
 		// Update typewriters.
 		_dialogueTextA.ClearText();
         _dialogueTextB.ClearText();
+        _dialogueTextA.SetFillerText(cardToDisplay.DialogueA.DialogueText);
+        _dialogueTextB.SetFillerText(cardToDisplay.DialogueB.DialogueText);
         SetDescriptionText(cardToDisplay.Description);
         //_cardDescription.RunDialogue(cardToDisplay.Description);
 		//_dialogueTextA.RunDialogue(cardToDisplay.DialogueA.DialogueText);
