@@ -256,7 +256,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &8832522170667595813
 Transform:
@@ -456,12 +456,14 @@ GameObject:
   m_Component:
   - component: {fileID: 9104934522058301783}
   - component: {fileID: 7551470294336591993}
+  - component: {fileID: 724661102968604244}
+  - component: {fileID: 2135939004517066394}
   m_Layer: 3
   m_Name: Card Physical Object
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &9104934522058301783
 Transform:
@@ -494,6 +496,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _animator: {fileID: 0}
   _uiAnimator: {fileID: 8526956958393817025}
+--- !u!114 &724661102968604244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2657060143080066799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 257620fa418662c44a43cb40e5d03a56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!225 &2135939004517066394
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2657060143080066799}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1 &3192742060000580949
 GameObject:
   m_ObjectHideFlags: 0

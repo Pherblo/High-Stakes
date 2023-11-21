@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 43148852}
   - component: {fileID: 43148851}
   - component: {fileID: 43148849}
+  - component: {fileID: 43148853}
   m_Layer: 0
   m_Name: Perspective Camera
   m_TagString: MainCamera
@@ -251,6 +252,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2096940029}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &43148853
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 43148848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c49b4cc203aa6414fae5c798d1d0e7d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EventMask:
+    serializedVersion: 2
+    m_Bits: 8
+  m_MaxRayIntersections: 0
 --- !u!1 &74510961
 GameObject:
   m_ObjectHideFlags: 0
@@ -5156,6 +5173,7 @@ GameObject:
   - component: {fileID: 884561217}
   - component: {fileID: 884561216}
   - component: {fileID: 884561215}
+  - component: {fileID: 884561218}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -5213,6 +5231,35 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &884561218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 884561214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 13
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1074255437}
+          m_TargetAssemblyTypeName: CardSwipeAnimator, Assembly-CSharp
+          m_MethodName: TestEvents
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &913577467
 GameObject:
   m_ObjectHideFlags: 0
@@ -6760,6 +6807,17 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1074255437 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 724661102968604244, guid: 7799755b8c1ef5845b5eb1a0db745d85, type: 3}
+  m_PrefabInstance: {fileID: 5511479691214989568}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1074255428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 257620fa418662c44a43cb40e5d03a56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1114321204
 GameObject:
   m_ObjectHideFlags: 0
@@ -10935,7 +10993,7 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 2657060143080066799, guid: 7799755b8c1ef5845b5eb1a0db745d85, type: 3}
-      insertIndex: -1
+      insertIndex: 2
       addedObject: {fileID: 1074255434}
   m_SourcePrefab: {fileID: 100100000, guid: 7799755b8c1ef5845b5eb1a0db745d85, type: 3}
 --- !u!114 &5511479691214989569 stripped
