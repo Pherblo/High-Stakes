@@ -59,12 +59,16 @@ Material:
     m_Floats:
     - _EnableExternalAlpha: 0
     - _FadOIffset: 0.6
-    - _FadeAlphaClip: 0.5
+    - _FadeAlphaClip: 0
     - _FadeClip: 0
     - _FadeColorSizeMax: 0.005
     - _FadeColorSizeMin: 0.005
     - _FadeDirection: 0
     - _FadeDirectionRotation: 0
+    - _FadeEdgeBodySize: 0.1
+    - _FadeEdgeColorSizeMax: 0.05
+    - _FadeEdgeColorSizeMin: 0.05
+    - _FadeEdgeStrength: 1
     - _FadeMax: 1
     - _FadeMin: -3.45
     - _FadeOffset: 0
@@ -75,6 +79,8 @@ Material:
     - _QueueOffset: 0
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _FadeBodyColor: {r: 1, g: 0.21052632, b: 0, a: 1}
+    - _FadeEdgeColor: {r: 0, g: 1, b: 0.23097992, a: 0}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
