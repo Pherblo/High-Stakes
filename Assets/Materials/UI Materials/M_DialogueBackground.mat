@@ -73,8 +73,8 @@ Material:
     - _FadeMin: -3.45
     - _FadeOffset: 0
     - _FadeSize: 0.2
-    - _FadeSizeMax: 0.1
-    - _FadeSizeMin: 0.1
+    - _FadeSizeMax: 0.15
+    - _FadeSizeMin: 0.15
     - _QueueControl: 0
     - _QueueOffset: 0
     m_Colors:

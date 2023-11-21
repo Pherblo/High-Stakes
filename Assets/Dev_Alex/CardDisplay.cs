@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -6,7 +7,10 @@ using UnityEngine.UI;
 
 public class CardDisplay : MonoBehaviour
 {
-	[Header("Card UI Text References")]
+	public Action OnDescriptionDisplayStart;
+    public Action OnDescriptionDisplayEnd;
+
+    [Header("Card UI Text References")]
 	[SerializeField] private Image _cardArt;
 	[SerializeField] private TextMeshProUGUI _cardName;
 	[SerializeField] private TextMeshProUGUI _cardTitle;
