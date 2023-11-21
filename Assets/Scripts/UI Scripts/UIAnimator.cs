@@ -17,6 +17,8 @@ public class UIAnimator : MonoBehaviour
     [SerializeField] private float _fadeInRotation = 0f;
     [SerializeField] private float _fadeOutRotation = 180f;
 
+    private bool _firstFadeOut = true;      // Do not fade out the first time.
+
     private void Awake()
     {
         _imageComponent.material = new Material(_materialInstance);
@@ -31,8 +33,15 @@ public class UIAnimator : MonoBehaviour
 
     public void StartExitFade()
     {
-        StopAllCoroutines();
-        StartCoroutine(StartFading(1f, 0f, _fadeOutRotation));
+        if (_firstFadeOut)
+        {
+            _firstFadeOut = false;
+        }
+        else
+        {
+            StopAllCoroutines();
+            StartCoroutine(StartFading(1f, 0f, _fadeOutRotation));
+        }
     }
 
     private IEnumerator StartFading(float startValue, float endValue, float newRotation)
