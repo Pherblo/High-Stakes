@@ -15,17 +15,22 @@ public class CardSwipeAnimator : MonoBehaviour, IDragHandler, IBeginDragHandler,
     [SerializeField] private float _swipeXBoundsSize = 10f;
 
     private Vector3 _originalPosition;
-    private Vector3 _cachedDragStartPosition = Vector3.zero;
+    private Quaternion _originalRotation;
+    private Vector3 _cachedDragStartPosition;
+    //private Vector3 _cachedDragDirection;
+    private Vector3 _cachedNewPosition;
 
     private void Awake()
     {
         _originalPosition = transform.position;
+        _originalRotation = transform.rotation;
     }
 
     public void OnBeginDrag(PointerEventData eventData)
     {
         // Cache mouse's starting world position.
         _cachedDragStartPosition = GetMousePosition(eventData.position);
+        _cachedDragStartPosition.Scale(Vector3.right);
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -33,6 +38,7 @@ public class CardSwipeAnimator : MonoBehaviour, IDragHandler, IBeginDragHandler,
         //
         print("ON DRAG HAPPENED");
         MoveCard(eventData.position);
+        RotateCard(eventData.position);
     }
 
     public void OnEndDrag(PointerEventData eventData)
@@ -49,22 +55,46 @@ public class CardSwipeAnimator : MonoBehaviour, IDragHandler, IBeginDragHandler,
     {
         // Calculate mouse's world position.
         Vector3 pointerPosition = GetMousePosition(eventDataPosition);
-
-        // Constrain card movement.
         Vector3 dragDirection = pointerPosition - _cachedDragStartPosition;
-        var newPosition = _originalPosition + Vector3.ClampMagnitude(dragDirection, _maxXOffset);
-        transform.position = newPosition;
+        dragDirection.Scale(Vector3.right);
+
+        Vector3 targetPosition = _originalPosition + dragDirection.normalized * _maxXOffset;
+
+        _cachedNewPosition = _originalPosition + (dragDirection);
+        //_cachedDragDirection = dragDirection;
+
+        float lerpValue = GetLerpValue();
+        transform.position = Vector3.Lerp(_originalPosition, targetPosition, lerpValue);
     }
 
-    private void RotateCard()
+    private void RotateCard(Vector3 eventDataPosition)
     {
-        //
+        // Calculate mouse's world position.
+        Vector3 pointerPosition = GetMousePosition(eventDataPosition);
+
+        // Create rotation.
+        //Vector3 maxPosition = _originalPosition + (dragDirection.normalized * _maxXOffset);
+        float currentMagnitude = (_cachedNewPosition - _originalPosition).magnitude;
+        float lerpValue = currentMagnitude / _maxXOffset;
+
+        float direction = Mathf.Sign(pointerPosition.x - _cachedDragStartPosition.x) * -1f;
+        Quaternion targetRotation = Quaternion.AngleAxis(_maxRotationOffset * direction, _normalizedRotationAxis);
+        Quaternion newRotation = Quaternion.Lerp(_originalRotation, targetRotation, lerpValue);
+        transform.rotation = newRotation;
     }
 
     private IEnumerator SnapbackCard()
     {
         transform.position = _originalPosition;
+        transform.rotation = _originalRotation;
         yield return null;
+    }
+
+    private float GetLerpValue()
+    {
+        float currentMagnitude = (_cachedNewPosition - _originalPosition).magnitude;
+        float lerpValue = currentMagnitude / _maxXOffset;
+        return lerpValue;
     }
 
     private Vector3 GetMousePosition(Vector3 eventDataPosition)
