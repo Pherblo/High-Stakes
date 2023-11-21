@@ -174,11 +174,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 701476375411457945, guid: abb234ffb17ff714aa18ab8ae66b310c, type: 3}
       propertyPath: m_Name
-      value: Card Choice Group Variant
+      value: Card Choice Group (Variant)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4233276744874062410, guid: abb234ffb17ff714aa18ab8ae66b310c, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 91.141
+      objectReference: {fileID: 0}
+    - target: {fileID: 4233276744874062410, guid: abb234ffb17ff714aa18ab8ae66b310c, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4317089523571901849, guid: abb234ffb17ff714aa18ab8ae66b310c, type: 3}
       propertyPath: m_text
       value: Choice dialogue for card event goes here.
+      objectReference: {fileID: 0}
+    - target: {fileID: 4317089523571901849, guid: abb234ffb17ff714aa18ab8ae66b310c, type: 3}
+      propertyPath: m_fontSize
+      value: 28
+      objectReference: {fileID: 0}
+    - target: {fileID: 4317089523571901849, guid: abb234ffb17ff714aa18ab8ae66b310c, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 28
       objectReference: {fileID: 0}
     - target: {fileID: 5508310633030025128, guid: abb234ffb17ff714aa18ab8ae66b310c, type: 3}
       propertyPath: m_AnchorMax.y

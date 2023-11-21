@@ -299,7 +299,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28dc605ab7967f44abd2b514ee46e661, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _animator: {fileID: 0}
+  _imageComponent: {fileID: 7733098482838889115}
+  _fadeDuration: 0.2
+  _fadeInRotation: 0
+  _fadeOutRotation: 180
 --- !u!1 &6820112893080830605
 GameObject:
   m_ObjectHideFlags: 0
