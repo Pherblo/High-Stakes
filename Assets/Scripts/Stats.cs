@@ -25,6 +25,8 @@ public class Stats : MonoBehaviour
 
     [Space]
     public UnityEvent OnDeath;
+    public UnityEvent OnShatter;
+    public UnityEvent OnOverflow;
 
     private void Start()
     {
@@ -53,9 +55,11 @@ public class Stats : MonoBehaviour
     {
         if(_currentValue >= _maxValue)
         {
+            OnOverflow.Invoke();
             overflow.Play();
         } else if (_currentValue <= 0)
         {
+            OnShatter.Invoke();
             shatter.Play();
         } else
         {
