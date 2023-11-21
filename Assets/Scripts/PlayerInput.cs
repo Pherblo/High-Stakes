@@ -8,6 +8,7 @@ public class PlayerInput : MonoBehaviour, IDragHandler
 	private CardPositions cardState;
 	public CardPositions CardState => cardState;
 	private float currentMousePosition;
+	private float keyboardInput;
 	private float cardSwipeThreshold = 200;
 
 	[Header("** Console Debug Logs **")]
@@ -33,7 +34,13 @@ public class PlayerInput : MonoBehaviour, IDragHandler
 	// Update is called once per frame
 	void Update()
 	{
-		if(currentMousePosition == 0)
+		// Getting keyboard input
+		keyboardInput = Input.GetAxisRaw("Horizontal");
+
+        CheckCardStates();
+
+        // Updating card states from currentMousePositions
+        if (currentMousePosition == 0)
 		{
 			cardState = CardPositions.Middle;
 		}
@@ -61,7 +68,8 @@ public class PlayerInput : MonoBehaviour, IDragHandler
 		}
 
 		if(Debug_CardState) { Debug.Log("Cards State: " + cardState); }
-	}
+        if (Debug_CurrentMousePosition) { Debug.Log("Current Mouse Position: " + currentMousePosition); }
+    }
 
 	// When the players mouse click is moving
 	public void OnDrag(PointerEventData eventData)
@@ -71,6 +79,61 @@ public class PlayerInput : MonoBehaviour, IDragHandler
 
 		if (Debug_CurrentMousePosition) { Debug.Log("Current Mouse Position: " + currentMousePosition); }
 	}
+
+	// Check card states with keyboard inputs
+	private void CheckCardStates()
+	{
+        // When card is in middle check if buttons are pressed and change to next position
+        if (cardState == CardPositions.Middle)
+        {
+            if (keyboardInput == -1)
+            {
+                cardState = CardPositions.Left;
+
+                currentMousePosition -= 1; // temp
+            }
+            else if (keyboardInput == 1)
+            {
+                cardState = CardPositions.Right;
+
+                currentMousePosition += 1; // temp
+            }
+        }
+
+        // When card is in left position check if buttons are pressed and change to next position
+        if (cardState == CardPositions.Left)
+        {
+            if (keyboardInput == -1)
+            {
+                cardState = CardPositions.LeftSwiped;
+
+                currentMousePosition = -cardSwipeThreshold; // temp
+            }
+            else if (keyboardInput == 1)
+            {
+                cardState = CardPositions.Middle;
+
+                currentMousePosition = 0; // temp
+            }
+        }
+
+        // When card is in right position check if buttons are pressed and change to next position
+        if (cardState == CardPositions.Right)
+        {
+            if (keyboardInput == -1)
+            {
+                cardState = CardPositions.Middle;
+
+                currentMousePosition = 0; // temp
+            }
+            else if (keyboardInput == 1)
+            {
+                cardState = CardPositions.RightSwiped;
+
+                currentMousePosition = cardSwipeThreshold; // temp
+            }
+        }
+    }
 
 	public void ResetMousePosition()
 	{
