@@ -24,10 +24,8 @@ public class CardSwipeAnimator : MonoBehaviour, IDragHandler, IBeginDragHandler,
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        // Calculate mouse's world position.
-        float distanceFromCamera = (_originalPosition - _cardCamera.transform.position).magnitude;
-        Vector3 pointerPosition = _cardCamera.ScreenToWorldPoint(new Vector3(eventData.position.x, eventData.position.y, distanceFromCamera));
-        _cachedDragStartPosition = pointerPosition;
+        // Cache mouse's starting world position.
+        _cachedDragStartPosition = GetMousePosition(eventData.position);
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -50,8 +48,7 @@ public class CardSwipeAnimator : MonoBehaviour, IDragHandler, IBeginDragHandler,
     private void MoveCard(Vector3 eventDataPosition)
     {
         // Calculate mouse's world position.
-        float distanceFromCamera = (_originalPosition - _cardCamera.transform.position).magnitude;
-        Vector3 pointerPosition = _cardCamera.ScreenToWorldPoint(new Vector3(eventDataPosition.x, eventDataPosition.y, distanceFromCamera));
+        Vector3 pointerPosition = GetMousePosition(eventDataPosition);
 
         // Constrain card movement.
         Vector3 dragDirection = pointerPosition - _cachedDragStartPosition;
@@ -68,5 +65,12 @@ public class CardSwipeAnimator : MonoBehaviour, IDragHandler, IBeginDragHandler,
     {
         transform.position = _originalPosition;
         yield return null;
+    }
+
+    private Vector3 GetMousePosition(Vector3 eventDataPosition)
+    {
+        float distanceFromCamera = (_originalPosition - _cardCamera.transform.position).magnitude;
+        Vector3 pointerPosition = _cardCamera.ScreenToWorldPoint(new Vector3(eventDataPosition.x, eventDataPosition.y, distanceFromCamera));
+        return pointerPosition;
     }
 }
