@@ -300,7 +300,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _imageComponent: {fileID: 7733098482838889115}
-  _fadeDuration: 0.2
+  _startingFadeValue: 0
+  _fadeDuration: 1
   _fadeInRotation: 0
   _fadeOutRotation: 180
 --- !u!1 &6820112893080830605

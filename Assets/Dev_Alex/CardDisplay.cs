@@ -3,12 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class CardDisplay : MonoBehaviour
 {
-	public Action OnDescriptionDisplayStart;
-    public Action OnDescriptionDisplayEnd;
+	public UnityEvent OnDescriptionDisplayStart;
+    public UnityEvent OnDescriptionDisplayEnd;
 
     [Header("Card UI Text References")]
 	[SerializeField] private Image _cardArt;
@@ -75,6 +76,9 @@ public class CardDisplay : MonoBehaviour
         _dialogueTextA.SetFillerText(cardToDisplay.DialogueA.DialogueText);
         _dialogueTextB.SetFillerText(cardToDisplay.DialogueB.DialogueText);
         SetDescriptionText(cardToDisplay.Description);
+
+		OnDescriptionDisplayStart?.Invoke();
+
         //_cardDescription.RunDialogue(cardToDisplay.Description);
 		//_dialogueTextA.RunDialogue(cardToDisplay.DialogueA.DialogueText);
         //_dialogueTextB.RunDialogue(cardToDisplay.DialogueB.DialogueText);
@@ -92,6 +96,7 @@ public class CardDisplay : MonoBehaviour
 
 	private void SetChoices()
 	{
+		OnDescriptionDisplayEnd?.Invoke();
         _dialogueTextA.RunDialogue(_currentCardEvent.DialogueA.DialogueText);
         _dialogueTextB.RunDialogue(_currentCardEvent.DialogueB.DialogueText);
     }

@@ -18,7 +18,7 @@ public class UIAnimator : MonoBehaviour
 
     private void Awake()
     {
-        _imageComponent.material.SetFloat("_FadeAlphaClip", _startingFadeValue);
+        _imageComponent.materialForRendering.SetFloat("_FadeAlphaClip", _startingFadeValue);
     }
 
     public void StartEnterFade()
@@ -36,14 +36,14 @@ public class UIAnimator : MonoBehaviour
     private IEnumerator StartFading(float startValue, float endValue, float newRotation)
     {
         // Set fade direction.
-        _imageComponent.material.SetFloat("_FadeDirectionRotation", newRotation);
+        _imageComponent.materialForRendering.SetFloat("_FadeDirectionRotation", newRotation);
         // Start fading.
         float timer = 0;
         do
         {
             float lerpProgress = timer / _fadeDuration;
             float lerpValue = Mathf.Lerp(startValue, endValue, lerpProgress);
-            _imageComponent.material.SetFloat("_FadeAlphaClip", lerpValue);
+            _imageComponent.materialForRendering.SetFloat("_FadeAlphaClip", lerpValue);
             timer += Time.deltaTime;
             yield return null;
         } while (timer < _fadeDuration);

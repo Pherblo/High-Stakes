@@ -280,6 +280,48 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eec70fa8ff42587499c2034ba0d2aab4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnDescriptionDisplayStart:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 215772614}
+        m_TargetAssemblyTypeName: UIAnimator, Assembly-CSharp
+        m_MethodName: StartEnterFade
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnDescriptionDisplayEnd:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 930716908}
+        m_TargetAssemblyTypeName: UIAnimator, Assembly-CSharp
+        m_MethodName: StartEnterFade
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1770967259}
+        m_TargetAssemblyTypeName: UIAnimator, Assembly-CSharp
+        m_MethodName: StartEnterFade
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _cardArt: {fileID: 1842236632872282804}
   _cardName: {fileID: 563198559565708089}
   _cardTitle: {fileID: 6938877588970488011}
@@ -700,6 +742,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1bffc50f4de8f3f41b4679f53fc52ec6, type: 3}
+--- !u!114 &215772614 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3090797623852489909, guid: abb234ffb17ff714aa18ab8ae66b310c, type: 3}
+  m_PrefabInstance: {fileID: 270057600855969885}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28dc605ab7967f44abd2b514ee46e661, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &219541350 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5143514328726519136, guid: 6d76815c738f3f941b51d2c2ac6529ed, type: 3}
@@ -4125,6 +4178,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 913577467}
   m_CullTransparentMesh: 1
+--- !u!114 &930716908 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7748355658453649100, guid: 6d76815c738f3f941b51d2c2ac6529ed, type: 3}
+  m_PrefabInstance: {fileID: 1408491960120034253}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28dc605ab7967f44abd2b514ee46e661, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &942977792
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7138,6 +7202,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c34539c21f42aac40bd2c0c76232496a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1770967259 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7748355658453649100, guid: 6d76815c738f3f941b51d2c2ac6529ed, type: 3}
+  m_PrefabInstance: {fileID: 271724872}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28dc605ab7967f44abd2b514ee46e661, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1791900645
