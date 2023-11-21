@@ -6757,7 +6757,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1074255428}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: d22b2ab4834e1354bbfa3a7a6fb86528, type: 2}
   m_CullingMode: 0
@@ -10856,6 +10856,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 43148851}
+    - target: {fileID: 7565438478359031556, guid: 7799755b8c1ef5845b5eb1a0db745d85, type: 3}
+      propertyPath: swipeAmount
+      value: 0.01
+      objectReference: {fileID: 0}
     - target: {fileID: 7565438478359031556, guid: 7799755b8c1ef5845b5eb1a0db745d85, type: 3}
       propertyPath: discardCard.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
