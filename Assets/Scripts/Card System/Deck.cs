@@ -36,39 +36,7 @@ public class Deck : MonoBehaviour
     public void Start()
 	{
 
-        
-        // Load and instantiate all cards and put them all into _lockedCards to sort further.
-        CardEvent[] cardPrefabs = Resources.LoadAll<CardEvent>(_database.GetComponent<CharacterDatabase>()._eventsResourcePath);
-		foreach (CardEvent cardPrefab in cardPrefabs)
-		{
-			CardEvent cardInstance = Instantiate(cardPrefab, transform);
-			_lockedCards.Add(cardInstance);
-		}
-
-		// Load and instantiate all characters.
-		CharacterData[] _loadedCharacters = _database.GetComponent<CharacterDatabase>()._characterPrefabs;
-        foreach (CharacterData character in _loadedCharacters)
-        {
-            CharacterData characterInstance = Instantiate(character, transform);
-            _characters.Add(characterInstance);
-			// Assign character instance to cards with matching associated character.
-			List<CardEvent> matchingCards = _lockedCards.FindAll((x) => x.AssociatedCharacter == character);
-			foreach (CardEvent card in matchingCards)
-			{
-				card.AssignCharacter(characterInstance);
-			}
-        }
-
-		// Sort all cards and get the first available ones.
-		CardEvent[] cardsToSort = _lockedCards.ToArray();
-        foreach (CardEvent card in cardsToSort)
-        {
-            if (card.CheckRequirements())
-            {
-                _lockedCards.Remove(card);
-                _availableCards.Add(card);
-            }
-        }
+		AssignData();
 
 		// Pick a card at the start.
 		PickCard();
@@ -124,6 +92,7 @@ public class Deck : MonoBehaviour
 						if(cardNum == associatedCards.Count )
 						{
                             GetComponentInParent<GameManager>().runningTutorial = false;
+							cardNum = 0;
                         }
 					}
 			
@@ -141,7 +110,11 @@ public class Deck : MonoBehaviour
 		}
 		else
 		{
-			print("new");
+			print("card num" + cardNum);
+			if(cardNum == 0)
+			{
+				AssignData();
+			}
 			ShuffleDeck();
             foreach (CharacterData character in _characters)
             {
@@ -160,6 +133,7 @@ public class Deck : MonoBehaviour
                     }
                 }
             }
+			
         }
 		/*
 		CardEvent selectedCard;
@@ -218,6 +192,7 @@ public class Deck : MonoBehaviour
         _characters = _characters.OrderBy((x) => rng.Next()).ToList();
         _availableCards = _availableCards.OrderBy((x) => rng.Next()).ToList();
 		print("Shuffled");
+        cardNum++;
     }
 
 	private CardEvent nextCard(CardEvent card, List<CardEvent> associatedCards)
@@ -229,5 +204,41 @@ public class Deck : MonoBehaviour
 		print("num: " + cardNum);
 		cardNum++;
 		return newCard;
+    }
+
+	private void AssignData()
+	{
+        // Load and instantiate all cards and put them all into _lockedCards to sort further.
+        CardEvent[] cardPrefabs = Resources.LoadAll<CardEvent>(_database.GetComponent<CharacterDatabase>()._eventsResourcePath);
+        foreach (CardEvent cardPrefab in cardPrefabs)
+        {
+            CardEvent cardInstance = Instantiate(cardPrefab, transform);
+            _lockedCards.Add(cardInstance);
+        }
+
+        // Load and instantiate all characters.
+        CharacterData[] _loadedCharacters = _database.GetComponent<CharacterDatabase>()._characterPrefabs;
+        foreach (CharacterData character in _loadedCharacters)
+        {
+            CharacterData characterInstance = Instantiate(character, transform);
+            _characters.Add(characterInstance);
+            // Assign character instance to cards with matching associated character.
+            List<CardEvent> matchingCards = _lockedCards.FindAll((x) => x.AssociatedCharacter == character);
+            foreach (CardEvent card in matchingCards)
+            {
+                card.AssignCharacter(characterInstance);
+            }
+        }
+
+        // Sort all cards and get the first available ones.
+        CardEvent[] cardsToSort = _lockedCards.ToArray();
+        foreach (CardEvent card in cardsToSort)
+        {
+            if (card.CheckRequirements())
+            {
+                _lockedCards.Remove(card);
+                _availableCards.Add(card);
+            }
+        }
     }
 }
