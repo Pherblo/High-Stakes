@@ -17,6 +17,7 @@ public class Typewriter : MonoBehaviour
 
     [Header("Component References")]
     [SerializeField] private TextMeshProUGUI _dialogueText;
+    [SerializeField] private UIAnimator _uiAnimator;
     // TODO: Probably unnecessary now, due to updating Typewriter's way of presenting texts to the pop animation.
     [SerializeField] private TextMeshProUGUI _textboxFillerText;        // Used to set text box sizes beforehand. This text component is usually invisible/transparent.
     [Header("Text Animation Settings")]
@@ -31,6 +32,7 @@ public class Typewriter : MonoBehaviour
     [SerializeField] private AnimationCurve _yAxisLerpCurve;
     [SerializeField] private AnimationCurve _startColorLerpCurve;
 
+    private bool _firstFadeOut = true;
     private Color32 _originalColor = Color.white;
 
     // private char[] _characters;      // Used by old type animation.
@@ -82,6 +84,19 @@ public class Typewriter : MonoBehaviour
         // Update text and cache color.
         _dialogueText.color = new Color32(0, 0, 0, 0);
 
+        /*if (_uiAnimator)
+        {
+            if (_firstFadeOut)
+            {
+                _firstFadeOut = false;
+            }
+            else
+            {
+                _uiAnimator.StartExitFade();
+                yield return new WaitForSeconds(_uiAnimator.FadeDuration + 0.2f);
+            }
+        }*/
+
         // Set texts and wait for mesh to update. Yes this is separate from the geometry update. I have no fucking clue as to why but that is how it is.
         _textboxFillerText.SetText(text);
         _dialogueText.SetText(text);
@@ -129,6 +144,11 @@ public class Typewriter : MonoBehaviour
 
             SetVertexColors(_dialogueText, textInfo, charInfo, charIndex, new Color32(0, 0, 0, 0));
             UpdateTextMesh(meshInfo, charInfo, vertices);
+        }
+
+        if (_uiAnimator)
+        {
+            _uiAnimator.StartEnterFade();
         }
 
         // Process delay before animating.

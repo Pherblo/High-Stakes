@@ -297,31 +297,7 @@ MonoBehaviour:
         m_CallState: 2
   OnDescriptionDisplayEnd:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 930716908}
-        m_TargetAssemblyTypeName: UIAnimator, Assembly-CSharp
-        m_MethodName: StartEnterFade
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1770967259}
-        m_TargetAssemblyTypeName: UIAnimator, Assembly-CSharp
-        m_MethodName: StartEnterFade
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   _cardArt: {fileID: 1842236632872282804}
   _cardName: {fileID: 909896315467256442}
   _cardTitle: {fileID: 909896315467256441}
@@ -1129,6 +1105,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _dialogueText: {fileID: 0}
+  _uiAnimator: {fileID: 0}
   _textboxFillerText: {fileID: 0}
   _delayBeforeAnimation: 0
   _timePerChar: 0.01
@@ -1489,6 +1466,10 @@ PrefabInstance:
       propertyPath: m_Material
       value: 
       objectReference: {fileID: 2100000, guid: e10730b97b6d8b341955010186af05ea, type: 2}
+    - target: {fileID: 4640209871782850143, guid: 6d76815c738f3f941b51d2c2ac6529ed, type: 3}
+      propertyPath: _uiAnimator
+      value: 
+      objectReference: {fileID: 1770967259}
     - target: {fileID: 5143514328726519136, guid: 6d76815c738f3f941b51d2c2ac6529ed, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -2260,6 +2241,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _dialogueText: {fileID: 822704251}
+  _uiAnimator: {fileID: 0}
   _textboxFillerText: {fileID: 356636580}
   _delayBeforeAnimation: 0
   _timePerChar: 0.02
@@ -2505,6 +2487,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _dialogueText: {fileID: 0}
+  _uiAnimator: {fileID: 0}
   _textboxFillerText: {fileID: 0}
   _delayBeforeAnimation: 0
   _timePerChar: 0.01
@@ -2707,6 +2690,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _dialogueText: {fileID: 0}
+  _uiAnimator: {fileID: 0}
   _textboxFillerText: {fileID: 0}
   _delayBeforeAnimation: 0
   _timePerChar: 0.01
@@ -3353,6 +3337,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _dialogueText: {fileID: 0}
+  _uiAnimator: {fileID: 0}
   _textboxFillerText: {fileID: 0}
   _delayBeforeAnimation: 0
   _timePerChar: 0.01
@@ -3954,6 +3939,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _dialogueText: {fileID: 0}
+  _uiAnimator: {fileID: 0}
   _textboxFillerText: {fileID: 0}
   _delayBeforeAnimation: 0
   _timePerChar: 0.01
@@ -4669,6 +4655,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _dialogueText: {fileID: 0}
+  _uiAnimator: {fileID: 0}
   _textboxFillerText: {fileID: 0}
   _delayBeforeAnimation: 0
   _timePerChar: 0.01
@@ -5389,6 +5376,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _dialogueText: {fileID: 0}
+  _uiAnimator: {fileID: 0}
   _textboxFillerText: {fileID: 0}
   _delayBeforeAnimation: 0
   _timePerChar: 0.01
@@ -6180,6 +6168,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _dialogueText: {fileID: 1415043521}
+  _uiAnimator: {fileID: 0}
   _textboxFillerText: {fileID: 1053454063}
   _delayBeforeAnimation: 0
   _timePerChar: 0.02
@@ -6709,6 +6698,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _dialogueText: {fileID: 872871787}
+  _uiAnimator: {fileID: 0}
   _textboxFillerText: {fileID: 1114321207}
   _delayBeforeAnimation: 0
   _timePerChar: 0.01
@@ -7616,6 +7606,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _dialogueText: {fileID: 0}
+  _uiAnimator: {fileID: 0}
   _textboxFillerText: {fileID: 0}
   _delayBeforeAnimation: 0
   _timePerChar: 0.01
@@ -8599,6 +8590,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _dialogueText: {fileID: 0}
+  _uiAnimator: {fileID: 0}
   _textboxFillerText: {fileID: 0}
   _delayBeforeAnimation: 0
   _timePerChar: 0.01
@@ -10776,6 +10768,10 @@ PrefabInstance:
       propertyPath: m_Material
       value: 
       objectReference: {fileID: 2100000, guid: 1d49ea2325079cf42b4a1eff00588f53, type: 2}
+    - target: {fileID: 4640209871782850143, guid: 6d76815c738f3f941b51d2c2ac6529ed, type: 3}
+      propertyPath: _uiAnimator
+      value: 
+      objectReference: {fileID: 930716908}
     - target: {fileID: 5143514328726519136, guid: 6d76815c738f3f941b51d2c2ac6529ed, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,6 +18,8 @@ public class UIAnimator : MonoBehaviour
     [SerializeField] private float _fadeInRotation = 0f;
     [SerializeField] private float _fadeOutRotation = 180f;
 
+    public float FadeDuration => _fadeDuration;
+
     private bool _firstFadeOut = true;      // Do not fade out the first time.
 
     private void Awake()
@@ -28,7 +31,7 @@ public class UIAnimator : MonoBehaviour
     public void StartEnterFade()
     {
         StopAllCoroutines();
-        StartCoroutine(StartFading(1f, 0f, _fadeInRotation));
+        StartCoroutine(StartFading(1f, 0f, _fadeInRotation, true));
     }
 
     public void StartExitFade()
@@ -40,11 +43,11 @@ public class UIAnimator : MonoBehaviour
         else
         {
             StopAllCoroutines();
-            StartCoroutine(StartFading(0f, 1f, _fadeOutRotation));
+            StartCoroutine(StartFading(0f, 1f, _fadeOutRotation, false));
         }
     }
 
-    private IEnumerator StartFading(float startValue, float endValue, float newRotation)
+    private IEnumerator StartFading(float startValue, float endValue, float newRotation, bool isFadeStart)
     {
         // Set fade direction.
         _imageComponent.materialForRendering.SetFloat("_FadeDirectionRotation", newRotation);
