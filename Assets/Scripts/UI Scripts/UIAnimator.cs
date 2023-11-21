@@ -40,7 +40,7 @@ public class UIAnimator : MonoBehaviour
         else
         {
             StopAllCoroutines();
-            StartCoroutine(StartFading(1f, 0f, _fadeOutRotation));
+            StartCoroutine(StartFading(0f, 1f, _fadeOutRotation));
         }
     }
 
