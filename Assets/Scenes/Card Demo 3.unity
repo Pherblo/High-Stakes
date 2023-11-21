@@ -8646,6 +8646,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8454447894131765411, guid: f51092700f73d4244aff504446b3f631, type: 3}
+      propertyPath: rotateAmount
+      value: 0.31
+      objectReference: {fileID: 0}
+    - target: {fileID: 8454447894131765411, guid: f51092700f73d4244aff504446b3f631, type: 3}
       propertyPath: discardCard.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 386861288}
