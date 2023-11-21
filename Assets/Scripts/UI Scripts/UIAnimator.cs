@@ -10,6 +10,7 @@ public class UIAnimator : MonoBehaviour
     [Header("Component References")]
     [SerializeField] private Image _imageComponent;
     [Header("General Settings")]
+    [SerializeField] private Material _materialInstance;
     [SerializeField] private float _startingFadeValue = 0f;
     [Header("Fading Animation Settings")]
     [SerializeField] private float _fadeDuration = 0.5f;
@@ -18,19 +19,20 @@ public class UIAnimator : MonoBehaviour
 
     private void Awake()
     {
+        _imageComponent.material = new Material(_materialInstance);
         _imageComponent.materialForRendering.SetFloat("_FadeAlphaClip", _startingFadeValue);
     }
 
     public void StartEnterFade()
     {
         StopAllCoroutines();
-        StartCoroutine(StartFading(1f, 0f, 0f));
+        StartCoroutine(StartFading(1f, 0f, _fadeInRotation));
     }
 
     public void StartExitFade()
     {
         StopAllCoroutines();
-        StartCoroutine(StartFading(1f, 0f, 180f));
+        StartCoroutine(StartFading(1f, 0f, _fadeOutRotation));
     }
 
     private IEnumerator StartFading(float startValue, float endValue, float newRotation)

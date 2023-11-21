@@ -300,6 +300,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _imageComponent: {fileID: 7733098482838889115}
+  _materialInstance: {fileID: 2100000, guid: afd533f6d2ec2fe4a82f0cf58fa8a21a, type: 2}
   _startingFadeValue: 1
   _fadeDuration: 2
   _fadeInRotation: 0
