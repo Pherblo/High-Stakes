@@ -20,6 +20,7 @@ public class Typewriter : MonoBehaviour
     // TODO: Probably unnecessary now, due to updating Typewriter's way of presenting texts to the pop animation.
     [SerializeField] private TextMeshProUGUI _textboxFillerText;        // Used to set text box sizes beforehand. This text component is usually invisible/transparent.
     [Header("Text Animation Settings")]
+    [SerializeField, Min(0f)] private float _delayBeforeAnimation = 0f;
     [SerializeField] private float _timePerChar = 0.015f;
     [SerializeField] private float _animationTimePerChar = 0.1f;
     [SerializeField] private Vector2 _startingPositionOffset = Vector2.zero;        // Due to how coordinates work in the TMP's space, this vector's x and y values would be pretty big.
@@ -128,6 +129,12 @@ public class Typewriter : MonoBehaviour
 
             SetVertexColors(_dialogueText, textInfo, charInfo, charIndex, new Color32(0, 0, 0, 0));
             UpdateTextMesh(meshInfo, charInfo, vertices);
+        }
+
+        // Process delay before animating.
+        if (_delayBeforeAnimation > 0f)
+        {
+            yield return new WaitForSeconds(_delayBeforeAnimation);
         }
 
         // Start pop animation.

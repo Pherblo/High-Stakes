@@ -648,6 +648,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _dialogueText: {fileID: 0}
   _textboxFillerText: {fileID: 0}
+  _delayBeforeAnimation: 0
   _timePerChar: 0.01
   _animationTimePerChar: 0.1
   _startingPositionOffset: {x: 0, y: 0}
@@ -1089,6 +1090,10 @@ PrefabInstance:
     - target: {fileID: 5250965653412095456, guid: 6d76815c738f3f941b51d2c2ac6529ed, type: 3}
       propertyPath: m_Name
       value: Card Choice Group Right
+      objectReference: {fileID: 0}
+    - target: {fileID: 7748355658453649100, guid: 6d76815c738f3f941b51d2c2ac6529ed, type: 3}
+      propertyPath: _fadeDuration
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1635,6 +1640,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _dialogueText: {fileID: 822704251}
   _textboxFillerText: {fileID: 356636580}
+  _delayBeforeAnimation: 0
   _timePerChar: 0.02
   _animationTimePerChar: 0.6
   _startingPositionOffset: {x: -30, y: 8}
@@ -1879,6 +1885,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _dialogueText: {fileID: 0}
   _textboxFillerText: {fileID: 0}
+  _delayBeforeAnimation: 0
   _timePerChar: 0.01
   _animationTimePerChar: 0.1
   _startingPositionOffset: {x: 0, y: 0}
@@ -2080,6 +2087,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _dialogueText: {fileID: 0}
   _textboxFillerText: {fileID: 0}
+  _delayBeforeAnimation: 0
   _timePerChar: 0.01
   _animationTimePerChar: 0.1
   _startingPositionOffset: {x: 0, y: 0}
@@ -2620,6 +2628,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _dialogueText: {fileID: 0}
   _textboxFillerText: {fileID: 0}
+  _delayBeforeAnimation: 0
   _timePerChar: 0.01
   _animationTimePerChar: 0.1
   _startingPositionOffset: {x: 0, y: 0}
@@ -3220,6 +3229,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _dialogueText: {fileID: 0}
   _textboxFillerText: {fileID: 0}
+  _delayBeforeAnimation: 0
   _timePerChar: 0.01
   _animationTimePerChar: 0.1
   _startingPositionOffset: {x: 0, y: 0}
@@ -3535,6 +3545,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _dialogueText: {fileID: 0}
   _textboxFillerText: {fileID: 0}
+  _delayBeforeAnimation: 0
   _timePerChar: 0.01
   _animationTimePerChar: 0.1
   _startingPositionOffset: {x: 0, y: 0}
@@ -4149,6 +4160,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _dialogueText: {fileID: 0}
   _textboxFillerText: {fileID: 0}
+  _delayBeforeAnimation: 0
   _timePerChar: 0.01
   _animationTimePerChar: 0.1
   _startingPositionOffset: {x: 0, y: 0}
@@ -4939,6 +4951,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _dialogueText: {fileID: 1415043521}
   _textboxFillerText: {fileID: 1053454063}
+  _delayBeforeAnimation: 0
   _timePerChar: 0.02
   _animationTimePerChar: 0.6
   _startingPositionOffset: {x: -30, y: 8}
@@ -5339,6 +5352,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _dialogueText: {fileID: 872871787}
   _textboxFillerText: {fileID: 1114321207}
+  _delayBeforeAnimation: 0
   _timePerChar: 0.01
   _animationTimePerChar: 0.1
   _startingPositionOffset: {x: 0, y: 0}
@@ -6219,6 +6233,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _dialogueText: {fileID: 0}
   _textboxFillerText: {fileID: 0}
+  _delayBeforeAnimation: 0
   _timePerChar: 0.01
   _animationTimePerChar: 0.1
   _startingPositionOffset: {x: 0, y: 0}
@@ -7153,6 +7168,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _dialogueText: {fileID: 0}
   _textboxFillerText: {fileID: 0}
+  _delayBeforeAnimation: 0
   _timePerChar: 0.01
   _animationTimePerChar: 0.1
   _startingPositionOffset: {x: 0, y: 0}
@@ -8773,6 +8789,18 @@ PrefabInstance:
     - target: {fileID: 5250965653412095456, guid: 6d76815c738f3f941b51d2c2ac6529ed, type: 3}
       propertyPath: m_Name
       value: Card Choice Group Left
+      objectReference: {fileID: 0}
+    - target: {fileID: 7748355658453649100, guid: 6d76815c738f3f941b51d2c2ac6529ed, type: 3}
+      propertyPath: _fadeDuration
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7748355658453649100, guid: 6d76815c738f3f941b51d2c2ac6529ed, type: 3}
+      propertyPath: _fadeInRotation
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 7748355658453649100, guid: 6d76815c738f3f941b51d2c2ac6529ed, type: 3}
+      propertyPath: _fadeOutRotation
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

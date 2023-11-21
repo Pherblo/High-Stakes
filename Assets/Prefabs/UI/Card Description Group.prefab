@@ -62,6 +62,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _dialogueText: {fileID: 7135433583958694871}
   _textboxFillerText: {fileID: 4317089523571901849}
+  _delayBeforeAnimation: 0.7
   _timePerChar: 0.0125
   _animationTimePerChar: 0.4
   _startingPositionOffset: {x: 25, y: 10}
@@ -302,7 +303,7 @@ MonoBehaviour:
   _imageComponent: {fileID: 7733098482838889115}
   _materialInstance: {fileID: 2100000, guid: afd533f6d2ec2fe4a82f0cf58fa8a21a, type: 2}
   _startingFadeValue: 1
-  _fadeDuration: 2
+  _fadeDuration: 1.5
   _fadeInRotation: 0
   _fadeOutRotation: 180
 --- !u!1 &6820112893080830605
