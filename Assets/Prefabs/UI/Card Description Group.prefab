@@ -202,6 +202,7 @@ GameObject:
   - component: {fileID: 395483550765192913}
   - component: {fileID: 7733098482838889115}
   - component: {fileID: 6915499874750936911}
+  - component: {fileID: 3090797623852489909}
   m_Layer: 5
   m_Name: Text Background Image
   m_TagString: Untagged
@@ -248,7 +249,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 2100000, guid: afd533f6d2ec2fe4a82f0cf58fa8a21a, type: 2}
   m_Color: {r: 0, g: 0, b: 0, a: 0.6392157}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -286,6 +287,19 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
+--- !u!114 &3090797623852489909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6661947354925582152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28dc605ab7967f44abd2b514ee46e661, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animator: {fileID: 0}
 --- !u!1 &6820112893080830605
 GameObject:
   m_ObjectHideFlags: 0
