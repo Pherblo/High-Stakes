@@ -10929,12 +10929,36 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 724661102968604244, guid: 7799755b8c1ef5845b5eb1a0db745d85, type: 3}
+      propertyPath: _exitSpeed
+      value: 22.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 724661102968604244, guid: 7799755b8c1ef5845b5eb1a0db745d85, type: 3}
       propertyPath: _cardCamera
       value: 
       objectReference: {fileID: 43148851}
     - target: {fileID: 724661102968604244, guid: 7799755b8c1ef5845b5eb1a0db745d85, type: 3}
       propertyPath: _maxXOffset
       value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 724661102968604244, guid: 7799755b8c1ef5845b5eb1a0db745d85, type: 3}
+      propertyPath: _exitDuration
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 724661102968604244, guid: 7799755b8c1ef5845b5eb1a0db745d85, type: 3}
+      propertyPath: _snapbackDuration
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 724661102968604244, guid: 7799755b8c1ef5845b5eb1a0db745d85, type: 3}
+      propertyPath: _exitRotationSpeed
+      value: 450
+      objectReference: {fileID: 0}
+    - target: {fileID: 724661102968604244, guid: 7799755b8c1ef5845b5eb1a0db745d85, type: 3}
+      propertyPath: _rotationResetDuration
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 724661102968604244, guid: 7799755b8c1ef5845b5eb1a0db745d85, type: 3}
+      propertyPath: _normalizedRotationAxis.z
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2657060143080066799, guid: 7799755b8c1ef5845b5eb1a0db745d85, type: 3}
       propertyPath: m_Name
