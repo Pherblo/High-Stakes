@@ -9,7 +9,12 @@ public class GameManager : MonoBehaviour
     public GameObject Deck;
     public GameObject TutorialDatabase;
     public GameObject CharacterDatabase;
-    
+    public bool runningTutorial;
+
+    public void Awake()
+    {
+        runningTutorial = true;
+    }
     void Start()
     {
         Deck.GetComponent<Deck>()._database = TutorialDatabase;
@@ -21,6 +26,10 @@ public class GameManager : MonoBehaviour
         if(numOfDeaths > 0)
         {
             Deck.GetComponent<Deck>()._database = CharacterDatabase;
+           // runningTutorial = false;
+        } else
+        {
+            runningTutorial = true;
         }
     }
 

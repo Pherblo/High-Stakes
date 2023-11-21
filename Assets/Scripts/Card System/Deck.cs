@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices.WindowsRuntime;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
@@ -24,12 +25,18 @@ public class Deck : MonoBehaviour
 
 	// SerializedField for now just for debugging
 	[SerializeField] private CardEvent currentCardDisplayed;
+	private bool runningTutorial;
 
-	// Accessor
-	public CardEvent CurrentCardDisplayed => currentCardDisplayed;
+    // Accessor
+    public CardEvent CurrentCardDisplayed => currentCardDisplayed;
 
-	public void Start()
+	private int cardNum = 0 ; //for keeping track of cards when drawing in order
+
+  
+    public void Start()
 	{
+		runningTutorial =  GetComponentInParent<GameManager>().runningTutorial;
+        
         // Load and instantiate all cards and put them all into _lockedCards to sort further.
         CardEvent[] cardPrefabs = Resources.LoadAll<CardEvent>(_database.GetComponent<CharacterDatabase>()._eventsResourcePath);
 		foreach (CardEvent cardPrefab in cardPrefabs)
@@ -97,16 +104,34 @@ public class Deck : MonoBehaviour
 		// Shuffle deck to iterate through it and get the first available card.
 		// Pick a random character, then pick a random card associated with them.
 		// We're shuffling instead of picking a character at random because characters may not return valid cards whose conditions are met.
-		ShuffleDeck();
+
+		CardEvent newCard;
+		print(runningTutorial);
+
+
         foreach (CharacterData character in _characters)
 		{
             List<CardEvent> associatedCards = _availableCards.FindAll((x) => x.AssociatedCharacter == character);
             foreach (CardEvent card in associatedCards)
             {
+
+                newCard = card;
+                if (runningTutorial)
+                {
+
+                        newCard = nextCard(card , associatedCards); //draw the next card in order
+				
+   
+                }
+                else
+                {
+                    ShuffleDeck();
+                }
                 if (card.CheckRequirements())
 				{
                     card.OnDialogueSelected += ProcessCard;
-                    OnCardPicked?.Invoke(card);
+                    OnCardPicked?.Invoke(newCard);
+
                     return;
                 }
             }
@@ -167,5 +192,17 @@ public class Deck : MonoBehaviour
         System.Random rng = new System.Random();
         _characters = _characters.OrderBy((x) => rng.Next()).ToList();
         _availableCards = _availableCards.OrderBy((x) => rng.Next()).ToList();
+		print("Shuffled");
+    }
+
+	private CardEvent nextCard(CardEvent card, List<CardEvent> associatedCards)
+	{
+		//int cardPos = associatedCards.FindIndex(0, associatedCards.Count, (x) => card);
+		
+		CardEvent newCard = associatedCards[cardNum];
+		print(associatedCards.FindIndex(0, associatedCards.Count, (x) => newCard));
+		print("num: " + cardNum);
+		cardNum++;
+		return newCard;
     }
 }
