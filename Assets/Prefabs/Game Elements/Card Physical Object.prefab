@@ -508,6 +508,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 257620fa418662c44a43cb40e5d03a56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _cardCamera: {fileID: 0}
+  _maxXOffset: 2.5
+  _maxRotationOffset: 20
+  _normalizedRotationAxis: {x: 0, y: 0, z: 0}
+  _snapbackDuration: 0.2
+  _exitSpeed: 22.5
+  _exitDuration: 1.5
+  _rotationResetDuration: 0.3
+  _exitRotationSpeed: 450
 --- !u!225 &2135939004517066394
 CanvasGroup:
   m_ObjectHideFlags: 0
