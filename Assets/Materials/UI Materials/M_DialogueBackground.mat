@@ -19,7 +19,7 @@ Material:
   m_CustomRenderQueue: -1
   stringTagMap: {}
   disabledShaderPasses: []
-  m_LockedProperties: _FadeSizeMax
+  m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -59,7 +59,7 @@ Material:
     m_Floats:
     - _EnableExternalAlpha: 0
     - _FadOIffset: 0.6
-    - _FadeAlphaClip: 0.004210055
+    - _FadeAlphaClip: 0
     - _FadeClip: 0
     - _FadeColorSizeMax: 0.005
     - _FadeColorSizeMin: 0.005
