@@ -9,10 +9,17 @@ public class UIAnimator : MonoBehaviour
     // All methods in this script is called via events.
     [Header("Component References")]
     [SerializeField] private Image _imageComponent;
+    [Header("General Settings")]
+    [SerializeField] private float _startingFadeValue = 0f;
     [Header("Fading Animation Settings")]
     [SerializeField] private float _fadeDuration = 0.5f;
     [SerializeField] private float _fadeInRotation = 0f;
     [SerializeField] private float _fadeOutRotation = 180f;
+
+    private void Awake()
+    {
+        _imageComponent.material.SetFloat("_FadeAlphaClip", _startingFadeValue);
+    }
 
     public void StartEnterFade()
     {
