@@ -10928,6 +10928,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 724661102968604244, guid: 7799755b8c1ef5845b5eb1a0db745d85, type: 3}
+      propertyPath: _cardCamera
+      value: 
+      objectReference: {fileID: 43148851}
+    - target: {fileID: 724661102968604244, guid: 7799755b8c1ef5845b5eb1a0db745d85, type: 3}
+      propertyPath: _maxXOffset
+      value: 2.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2657060143080066799, guid: 7799755b8c1ef5845b5eb1a0db745d85, type: 3}
       propertyPath: m_Name
       value: Card Physical Object
