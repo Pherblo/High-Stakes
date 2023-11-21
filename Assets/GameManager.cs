@@ -9,28 +9,36 @@ public class GameManager : MonoBehaviour
     public GameObject Deck;
     public GameObject TutorialDatabase;
     public GameObject CharacterDatabase;
-    public bool runningTutorial;
+    public bool runningTutorial = true;
 
     public void Awake()
     {
-        runningTutorial = true;
-    }
-    void Start()
-    {
-        Deck.GetComponent<Deck>()._database = TutorialDatabase;
+       
+        if (runningTutorial)
+        {
+            Deck.GetComponent<Deck>()._database = TutorialDatabase;
+
+        }
+        else
+        {
+            Deck.GetComponent<Deck>()._database = CharacterDatabase;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(numOfDeaths > 0)
+        if (runningTutorial)
+        {
+            Deck.GetComponent<Deck>()._database = TutorialDatabase;
+
+        }
+        else
         {
             Deck.GetComponent<Deck>()._database = CharacterDatabase;
-           // runningTutorial = false;
-        } else
-        {
-            runningTutorial = true;
         }
+
+
     }
 
 

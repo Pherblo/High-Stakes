@@ -18,13 +18,17 @@ public class CharacterDatabase : MonoBehaviour
 
     public List<CharacterData> CharacterInstances => _characterInstances;
 
-    private void Awake()
+    private void Start()
     {
+        
+   
         if (_loadCharactersOnAwake) LoadCharacters();
+
+        LoadCharacters();
     }
 
     [ContextMenu("Load Characters")]
-    private void LoadCharacters()
+    public void LoadCharacters()
     {
         _characterPrefabs = Resources.LoadAll<CharacterData>(_characterResourcePath);
 

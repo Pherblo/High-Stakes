@@ -13,7 +13,7 @@ public class Deck : MonoBehaviour
 	[Header("References")]
 	//[SerializeField] private string _cardEventsResourcesPath;
    // [SerializeField] private string _characterDataResourcesPath;
-    [SerializeField] public GameObject _database;
+    public GameObject _database;
 
 	private List<CharacterData> _characters = new();
 	private List<CardEvent> _availableCards = new();
@@ -35,7 +35,7 @@ public class Deck : MonoBehaviour
   
     public void Start()
 	{
-		runningTutorial =  GetComponentInParent<GameManager>().runningTutorial;
+
         
         // Load and instantiate all cards and put them all into _lockedCards to sort further.
         CardEvent[] cardPrefabs = Resources.LoadAll<CardEvent>(_database.GetComponent<CharacterDatabase>()._eventsResourcePath);
@@ -101,38 +101,63 @@ public class Deck : MonoBehaviour
 
 	public void PickCard()
 	{
-		// Shuffle deck to iterate through it and get the first available card.
-		// Pick a random character, then pick a random card associated with them.
-		// We're shuffling instead of picking a character at random because characters may not return valid cards whose conditions are met.
-
-		CardEvent newCard;
+        // Shuffle deck to iterate through it and get the first available card.
+        // Pick a random character, then pick a random card associated with them.
+        // We're shuffling instead of picking a character at random because characters may not return valid cards whose conditions are met.
+        runningTutorial = GetComponentInParent<GameManager>().runningTutorial;
+        CardEvent newCard;
 		print(runningTutorial);
 
-
-        foreach (CharacterData character in _characters)
+		if (runningTutorial)
 		{
-            List<CardEvent> associatedCards = _availableCards.FindAll((x) => x.AssociatedCharacter == character);
-            foreach (CardEvent card in associatedCards)
-            {
-
-                newCard = card;
-                if (runningTutorial)
-                {
-
-                        newCard = nextCard(card , associatedCards); //draw the next card in order
-				
-   
-                }
-                else
-                {
-                    ShuffleDeck();
-                }
-                if (card.CheckRequirements())
+			foreach (CharacterData character in _characters)
+			{
+				List<CardEvent> associatedCards = _availableCards.FindAll((x) => x.AssociatedCharacter == character);
+				foreach (CardEvent card in associatedCards)
 				{
-                    card.OnDialogueSelected += ProcessCard;
-                    OnCardPicked?.Invoke(newCard);
 
-                    return;
+					newCard = card;
+
+					if (cardNum < associatedCards.Count)
+					{
+						newCard = nextCard(card, associatedCards); //draw the next card in order
+						if(cardNum == associatedCards.Count )
+						{
+                            GetComponentInParent<GameManager>().runningTutorial = false;
+                        }
+					}
+			
+
+
+					if (card.CheckRequirements())
+					{
+						card.OnDialogueSelected += ProcessCard;
+						OnCardPicked?.Invoke(newCard);
+
+						return;
+					}
+				}
+			}
+		}
+		else
+		{
+			print("new");
+			ShuffleDeck();
+            foreach (CharacterData character in _characters)
+            {
+                List<CardEvent> associatedCards = _availableCards.FindAll((x) => x.AssociatedCharacter == character);
+                foreach (CardEvent card in associatedCards)
+                {
+
+                    newCard = card;
+
+                    if (card.CheckRequirements())
+                    {
+                        card.OnDialogueSelected += ProcessCard;
+                        OnCardPicked?.Invoke(newCard);
+
+                        return;
+                    }
                 }
             }
         }
