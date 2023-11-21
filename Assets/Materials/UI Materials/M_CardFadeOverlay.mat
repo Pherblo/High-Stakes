@@ -40,7 +40,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _UITexture:
-        m_Texture: {fileID: 2800000, guid: 221c294f9a01f1548b5e6e4efb7445fc, type: 3}
+        m_Texture: {fileID: 2800000, guid: 67e457df2639b154a995786f0833d6d2, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -59,12 +59,12 @@ Material:
     m_Floats:
     - _EnableExternalAlpha: 0
     - _FadOIffset: 0.6
-    - _FadeAlphaClip: -0.24
+    - _FadeAlphaClip: 1
     - _FadeClip: 0
     - _FadeColorSizeMax: 0.005
     - _FadeColorSizeMin: 0.005
     - _FadeDirection: 0
-    - _FadeDirectionRotation: 90
+    - _FadeDirectionRotation: 135
     - _FadeEdgeBodySize: 0.1
     - _FadeEdgeColorSizeMax: 0.05
     - _FadeEdgeColorSizeMin: 0.05
@@ -73,8 +73,8 @@ Material:
     - _FadeMin: -3.45
     - _FadeOffset: 0
     - _FadeSize: 0.2
-    - _FadeSizeMax: 0.1
-    - _FadeSizeMin: 0.1
+    - _FadeSizeMax: 0.07
+    - _FadeSizeMin: 0.07
     - _QueueControl: 0
     - _QueueOffset: 0
     m_Colors:

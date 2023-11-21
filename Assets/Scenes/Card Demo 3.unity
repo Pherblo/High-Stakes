@@ -453,6 +453,7 @@ GameObject:
   - component: {fileID: 107690964}
   - component: {fileID: 107690966}
   - component: {fileID: 107690965}
+  - component: {fileID: 107690967}
   m_Layer: 3
   m_Name: Fade Overlay
   m_TagString: Untagged
@@ -517,6 +518,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 107690963}
   m_CullTransparentMesh: 1
+--- !u!114 &107690967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 107690963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28dc605ab7967f44abd2b514ee46e661, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _imageComponent: {fileID: 107690965}
+  _materialInstance: {fileID: 2100000, guid: ac5801131d9086e4690feac37c05d025, type: 2}
+  _startingFadeValue: 0
+  _fadeDuration: 0.5
+  _fadeInRotation: 135
+  _fadeOutRotation: 135
 --- !u!1 &151002510
 GameObject:
   m_ObjectHideFlags: 0
@@ -9878,11 +9897,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3302552768818355217, guid: f51092700f73d4244aff504446b3f631, type: 3}
       propertyPath: m_fontSize
-      value: 0.28
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 3302552768818355217, guid: f51092700f73d4244aff504446b3f631, type: 3}
       propertyPath: m_fontSizeMax
-      value: 0.28
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 3302552768818355217, guid: f51092700f73d4244aff504446b3f631, type: 3}
       propertyPath: m_fontSizeMin
@@ -9960,6 +9979,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 4954650979914312872, guid: f51092700f73d4244aff504446b3f631, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 67e457df2639b154a995786f0833d6d2, type: 3}
     - target: {fileID: 4954650979914312872, guid: f51092700f73d4244aff504446b3f631, type: 3}
       propertyPath: m_Enabled
       value: 1
