@@ -100,6 +100,9 @@ public class CardDisplay : MonoBehaviour
     public void ExitDisplay()
     {
         // Update typewriters materials.
+        _cardDescription.SetAllTexts(_currentCardEvent.Description);
+        _dialogueTextA.SetAllTexts(_currentCardEvent.DialogueA.DialogueText);
+        _dialogueTextB.SetAllTexts(_currentCardEvent.DialogueB.DialogueText);
 
         _cardDescription.CloseDialogue();
         _dialogueTextA.CloseDialogue();

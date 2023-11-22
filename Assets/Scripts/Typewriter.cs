@@ -64,11 +64,17 @@ public class Typewriter : MonoBehaviour
         _textboxFillerText.SetText(text);
     }
 
+    public void SetAllTexts(string text)
+    {
+        _dialogueText.SetText(text);
+        _textboxFillerText.SetText(text);
+    }
+
     public void ClearText()
     {
         StopAllCoroutines();
-        _dialogueText.SetText("");
-        //_dialogueText.color = new Color32(_originalColor.r, _originalColor.g, _originalColor.b, 0);
+        //_dialogueText.SetText("");
+        _dialogueText.color = new Color32(_originalColor.r, _originalColor.g, _originalColor.b, 0);
         //_textboxFillerText.SetText("");
     }
 
