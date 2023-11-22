@@ -12,6 +12,7 @@ public class CardAnimator : MonoBehaviour, IDragHandler, IBeginDragHandler, IEnd
     // In order for drag events to work on this 3D game object, the camera its assigned to must have a Graphic Raycaster component.
 
     public Action OnCardDrawFinished;
+    public Action OnCardDiscard;
 
     [Header("Scene References")]
     [SerializeField] private Camera _cardCamera;
@@ -38,6 +39,7 @@ public class CardAnimator : MonoBehaviour, IDragHandler, IBeginDragHandler, IEnd
     public TextMeshProUGUI CharacterName => _characterName;
     public TextMeshProUGUI CharacterTitle => _characterTitle;
 
+    private bool _isInteractable = true;
     private Vector3 _originalPosition;
     private Quaternion _originalRotation;
     private Vector3 _cachedDragStartPosition;
@@ -49,32 +51,42 @@ public class CardAnimator : MonoBehaviour, IDragHandler, IBeginDragHandler, IEnd
     {
         _originalPosition = transform.position;
         _originalRotation = transform.rotation;
+        _isInteractable = false;
     }
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        StopAllCoroutines();
-        // Cache mouse's starting world position.
-        _cachedDragStartPosition = GetMousePosition(eventData.position);
-        _cachedDragStartPosition.Scale(Vector3.right);
+        if (_isInteractable)
+        {
+            StopAllCoroutines();
+            // Cache mouse's starting world position.
+            _cachedDragStartPosition = GetMousePosition(eventData.position);
+            _cachedDragStartPosition.Scale(Vector3.right);
+        }
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-        MoveCard(eventData.position);
-        RotateCard(eventData.position);
+        if (_isInteractable)
+        {
+            MoveCard(eventData.position);
+            RotateCard(eventData.position);
+        }
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        //StartCoroutine(SnapbackCard());
-        float dragLength = (GetMousePosition(eventData.position) - _cachedDragStartPosition).magnitude;
-        print(dragLength);
-        if (dragLength >= _maxXOffset)
+        if (_isInteractable)
         {
-            StartCoroutine(StartExitAnimation());
+            //StartCoroutine(SnapbackCard());
+            float dragLength = (GetMousePosition(eventData.position) - _cachedDragStartPosition).magnitude;
+            print(dragLength);
+            if (dragLength >= _maxXOffset)
+            {
+                StartCoroutine(StartExitAnimation());
+            }
+            else StartCoroutine(SnapbackCard());
         }
-        else StartCoroutine(SnapbackCard());
     }
 
     private void MoveCard(Vector3 eventDataPosition)
@@ -132,8 +144,9 @@ public class CardAnimator : MonoBehaviour, IDragHandler, IBeginDragHandler, IEnd
 
     private IEnumerator StartExitAnimation()
     {
+        OnCardDiscard?.Invoke();
         float signedDirection = Mathf.Sign(_cachedNewPosition.x - _originalPosition.x);
-
+        //_isInteractable = false;
         StartCoroutine(StartExitRotationZ());
 
         float timer = 0f;
@@ -192,7 +205,10 @@ public class CardAnimator : MonoBehaviour, IDragHandler, IBeginDragHandler, IEnd
 
     public void AnimateCardDraw()
     {
+        StopAllCoroutines();
+        _animator.enabled = true;
         _animator.SetTrigger("DrawCard");
+        _isInteractable = false;
     }
 
     public void AnimateCardDiscard()
@@ -203,6 +219,8 @@ public class CardAnimator : MonoBehaviour, IDragHandler, IBeginDragHandler, IEnd
     // Called via animation events.
     public void SendDrawFinishedEvent()
     {
+        _animator.enabled = false;
+        _isInteractable = true;
         OnCardDrawFinished?.Invoke();
     }
 

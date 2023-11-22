@@ -456,6 +456,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9104934522058301783}
   - component: {fileID: 7551470294336591993}
+  - component: {fileID: 3035904770362267747}
   - component: {fileID: 724661102968604244}
   - component: {fileID: 2135939004517066394}
   m_Layer: 3
@@ -494,8 +495,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98f4dda9cc2e75e4e9ee5ef3b3800371, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _animator: {fileID: 0}
+  _cardCamera: {fileID: 0}
+  _animator: {fileID: 3035904770362267747}
   _uiAnimator: {fileID: 8526956958393817025}
+  _cardArt: {fileID: 7226126786969696727}
+  _characterName: {fileID: 8115734188201667601}
+  _characterTitle: {fileID: 7055942255804897467}
+  _maxXOffset: 2.5
+  _maxRotationOffset: 25
+  _normalizedRotationAxis: {x: 0, y: 0, z: 0}
+  _snapbackDuration: 0.2
+  _exitSpeed: 25
+  _exitDuration: 1.5
+  _rotationResetDuration: 0.3
+  _exitRotationSpeed: 450
+--- !u!95 &3035904770362267747
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2657060143080066799}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d22b2ab4834e1354bbfa3a7a6fb86528, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &724661102968604244
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -509,6 +543,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _cardCamera: {fileID: 0}
+  _animator: {fileID: 0}
   _maxXOffset: 2.5
   _maxRotationOffset: 20
   _normalizedRotationAxis: {x: 0, y: 0, z: 0}

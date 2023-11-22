@@ -59,8 +59,9 @@ public class CardDisplay : MonoBehaviour
         _dialogueTextA.gameObject.GetComponentInParent<Image>().enabled = false;
     }
 
-	public void UpdateReferences(TextMeshProUGUI newCardName, TextMeshProUGUI newCardTitle, Image newCardArt)
+	public void UpdateReferences(CardEvent newCardEvent, TextMeshProUGUI newCardName, TextMeshProUGUI newCardTitle, Image newCardArt)
 	{
+		_currentCardEvent = newCardEvent;
 		_cardName = newCardName;
 		_cardTitle = newCardTitle;
 		_cardArt = newCardArt;

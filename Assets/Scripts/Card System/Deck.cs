@@ -28,7 +28,7 @@ public class Deck : MonoBehaviour
 	// Accessor
 	public CardEvent CurrentCardDisplayed => currentCardDisplayed;
 
-	public void Start()
+	public void Awake()
 	{
         // Load and instantiate all cards and put them all into _lockedCards to sort further.
         CardEvent[] cardPrefabs = Resources.LoadAll<CardEvent>(_cardEventsResourcesPath);
