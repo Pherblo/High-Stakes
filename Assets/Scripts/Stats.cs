@@ -15,8 +15,12 @@ public class Stats : MonoBehaviour
     public float maxY = 2.8f;
     public float dangerThreshold = 75;
 
+    public AnimationCurve potionTopSize;
+    public float potionTopSizeMultiplier;
+
     [Header("References")]
     public GameObject potionMask;
+    public Transform potionTop;
     public ParticleSystem bubblePassive;
     public ParticleSystem bubbleBoil;
     public ParticleSystem bubbleBurst;
@@ -81,6 +85,9 @@ public class Stats : MonoBehaviour
 
         Vector3 pos = potionMask.transform.localPosition;
         pos.y = (_currentValue / _maxValue) * (maxY - minY) + minY;
+
+        var scale = potionTopSize.Evaluate(_currentValue / _maxValue) * potionTopSizeMultiplier;
+        potionTop.localScale = new Vector2(scale, scale);
 
         potionMask.transform.localPosition = pos;
 
