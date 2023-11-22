@@ -7,8 +7,12 @@ using UnityEngine.EventSystems;
 
 public class CardSwipeAnimator : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler
 {
+    // In order for drag events to work on this 3D game object, the camera its assigned to must have a Graphic Raycaster component.
+
     [Header("Scene References")]
     [SerializeField] private Camera _cardCamera;
+    [Header("Component References")]
+    [SerializeField] private Animator _animator;
     [Header("Swipe Settings")]
     [SerializeField] private float _maxXOffset = 5f;
     [SerializeField] private float _maxRotationOffset = 20f;
