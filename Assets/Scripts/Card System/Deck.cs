@@ -92,7 +92,7 @@ public class Deck : MonoBehaviour
         //PickCard();
     }
 
-	public void PickCard()
+	public CardEvent PickCard()
 	{
 		// Shuffle deck to iterate through it and get the first available card.
 		// Pick a random character, then pick a random card associated with them.
@@ -107,10 +107,11 @@ public class Deck : MonoBehaviour
 				{
                     card.OnDialogueSelected += ProcessCard;
                     OnCardPicked?.Invoke(card);
-                    return;
+                    return card;
                 }
             }
         }
+		return null;
 		/*
 		CardEvent selectedCard;
 		foreach (CharacterData character in _aliveCharacters)

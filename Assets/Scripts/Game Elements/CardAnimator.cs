@@ -1,9 +1,11 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class CardAnimator : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler
 {
@@ -16,7 +18,10 @@ public class CardAnimator : MonoBehaviour, IDragHandler, IBeginDragHandler, IEnd
     [Header("Component References")]
     [SerializeField] private Animator _animator;
     [SerializeField] private UIAnimator _uiAnimator;
-    [Header("Swipe Settings")]
+    [SerializeField] private Image _cardArt;
+    [SerializeField] private TextMeshProUGUI _characterName;
+    [SerializeField] private TextMeshProUGUI _characterTitle;
+    [Header("Swipe Animation Settings")]
     [SerializeField] private float _maxXOffset = 5f;
     [SerializeField] private float _maxRotationOffset = 20f;
     [SerializeField] private Vector3 _normalizedRotationAxis;     // Must be normalized.
@@ -28,10 +33,14 @@ public class CardAnimator : MonoBehaviour, IDragHandler, IBeginDragHandler, IEnd
     [SerializeField] private float _rotationResetDuration = 0.25f;
     [SerializeField] private float _exitRotationSpeed = 180f;
 
+    // References to be passed onto the CardDisplay, done by CardManager.
+    public Image CardArt => _cardArt;
+    public TextMeshProUGUI CharacterName => _characterName;
+    public TextMeshProUGUI CharacterTitle => _characterTitle;
+
     private Vector3 _originalPosition;
     private Quaternion _originalRotation;
     private Vector3 _cachedDragStartPosition;
-    private Vector3 _cachedDragDirection;
     private Vector3 _cachedNewPosition;
 
     private float _lerpValue = 0f;      // -1 = card is on the left. 1 = card is on the right. 0 = card is on the center.
@@ -40,7 +49,6 @@ public class CardAnimator : MonoBehaviour, IDragHandler, IBeginDragHandler, IEnd
     {
         _originalPosition = transform.position;
         _originalRotation = transform.rotation;
-        OnCardDrawFinished += RevealCard;
     }
 
     public void OnBeginDrag(PointerEventData eventData)
@@ -79,7 +87,6 @@ public class CardAnimator : MonoBehaviour, IDragHandler, IBeginDragHandler, IEnd
         Vector3 targetPosition = _originalPosition + dragDirection.normalized * _maxXOffset;
 
         _cachedNewPosition = _originalPosition + (dragDirection);
-        _cachedDragDirection = dragDirection;
 
         float lerpValue = GetLerpValue();
         transform.position = Vector3.Lerp(_originalPosition, targetPosition, lerpValue);
@@ -199,7 +206,7 @@ public class CardAnimator : MonoBehaviour, IDragHandler, IBeginDragHandler, IEnd
         OnCardDrawFinished?.Invoke();
     }
 
-    private void RevealCard()
+    public void RevealCard()
     {
         _uiAnimator.StartEnterFade();
     }

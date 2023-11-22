@@ -59,6 +59,13 @@ public class CardDisplay : MonoBehaviour
         _dialogueTextA.gameObject.GetComponentInParent<Image>().enabled = false;
     }
 
+	public void UpdateReferences(TextMeshProUGUI newCardName, TextMeshProUGUI newCardTitle, Image newCardArt)
+	{
+		_cardName = newCardName;
+		_cardTitle = newCardTitle;
+		_cardArt = newCardArt;
+	}
+
     // Subscribed to Deck's OnCardPicked event.
     public void UpdateCardDisplay(CardEvent cardToDisplay)
 	{
