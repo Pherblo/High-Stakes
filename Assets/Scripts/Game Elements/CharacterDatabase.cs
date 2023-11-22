@@ -8,10 +8,10 @@ public class CharacterDatabase : MonoBehaviour
 {
     public Action<CharacterData> OnCharacterStateChanged;
 
-    [Header("Characters can be manually loaded using ContextMenu or auto loaded on Awake.")]
+    [Header("Resource paths: ")]
     [SerializeField] public string _characterResourcePath;
     [SerializeField] public string _eventsResourcePath;
-    [SerializeField] public bool _loadCharactersOnAwake = false;
+
     [SerializeField] public CharacterData[] _characterPrefabs = new CharacterData[1];
 
     private List<CharacterData> _characterInstances = new();
@@ -20,11 +20,7 @@ public class CharacterDatabase : MonoBehaviour
 
     private void Start()
     {
-        
-   
-        if (_loadCharactersOnAwake) LoadCharacters();
-
-        LoadCharacters();
+        LoadCharacters(); //load first characters
     }
 
     [ContextMenu("Load Characters")]

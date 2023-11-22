@@ -1,45 +1,36 @@
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 
 public class Deck : MonoBehaviour
 {
-	public UnityEvent<CardEvent> OnCardPicked;      // When a card has been picked from the deck.
+    public UnityEvent<CardEvent> OnCardPicked;      // When a card has been picked from the deck.
 
-	[Header("References")]
-	//[SerializeField] private string _cardEventsResourcesPath;
-   // [SerializeField] private string _characterDataResourcesPath;
+    [Header("References")]
+
     public GameObject _database;
 
-	private List<CharacterData> _characters = new();
-	private List<CardEvent> _availableCards = new();
-	private List<CardEvent> _lockedCards = new();
+    private List<CharacterData> _characters = new();
+    private List<CardEvent> _availableCards = new();
+    private List<CardEvent> _lockedCards = new();
 
-	private List<CardDialogue> _selectedDialogues = new();
+    private List<CardDialogue> _selectedDialogues = new();
 
-	public List<CardDialogue> SelectedDialogues => _selectedDialogues;
+    public List<CardDialogue> SelectedDialogues => _selectedDialogues;
 
-	// SerializedField for now just for debugging
-	[SerializeField] private CardEvent currentCardDisplayed;
-	private bool runningTutorial;
+    [Header("Variables to keep track of game")]
+    private bool runningTutorial;
+    private int cardNum = 0; //for keeping track of cards when drawing in order
 
-    // Accessor
-    public CardEvent CurrentCardDisplayed => currentCardDisplayed;
 
-	private int cardNum = 0 ; //for keeping track of cards when drawing in order
-
-  
     public void Start()
-	{
+    {
 
-		AssignData();
+        AssignData(); //assign data to card
 
-		// Pick a card at the start.
-		PickCard();
+        // Pick a card at the start.
+        PickCard();
 
         /*
 		// Load all the cards. Instantiate their cards.
@@ -67,62 +58,32 @@ public class Deck : MonoBehaviour
         //PickCard();
     }
 
-	public void PickCard()
-	{
+    public void PickCard()
+    {
         // Shuffle deck to iterate through it and get the first available card.
         // Pick a random character, then pick a random card associated with them.
         // We're shuffling instead of picking a character at random because characters may not return valid cards whose conditions are met.
-        runningTutorial = GetComponentInParent<GameManager>().runningTutorial;
+        runningTutorial = GetComponentInParent<GameManager>().getTutorialStatus(); //set running tutorial variable to the one in game manager class
         CardEvent newCard;
-		print(runningTutorial);
 
-		if (runningTutorial)
-		{
-			foreach (CharacterData character in _characters)
-			{
-				List<CardEvent> associatedCards = _availableCards.FindAll((x) => x.AssociatedCharacter == character);
-				foreach (CardEvent card in associatedCards)
-				{
-
-					newCard = card;
-
-					if (cardNum < associatedCards.Count)
-					{
-						newCard = nextCard(card, associatedCards); //draw the next card in order
-						if(cardNum == associatedCards.Count )
-						{
-                            GetComponentInParent<GameManager>().runningTutorial = false;
-							cardNum = 0;
-                        }
-					}
-			
-
-
-					if (card.CheckRequirements())
-					{
-						card.OnDialogueSelected += ProcessCard;
-						OnCardPicked?.Invoke(newCard);
-
-						return;
-					}
-				}
-			}
-		}
-		else
-		{
-			print("card num" + cardNum);
-			if(cardNum == 0)
-			{
-				AssignData();
-			}
-			ShuffleDeck();
+        if (runningTutorial) //when tutorial is running
+        {
             foreach (CharacterData character in _characters)
             {
                 List<CardEvent> associatedCards = _availableCards.FindAll((x) => x.AssociatedCharacter == character);
                 foreach (CardEvent card in associatedCards)
                 {
-
                     newCard = card;
+
+                    if (cardNum < associatedCards.Count)
+                    {
+                        newCard = nextCard(card, associatedCards); //draw the next card in order
+                        if (cardNum == associatedCards.Count)
+                        {
+                            GetComponentInParent<GameManager>().ToggleTutorial(false);
+                            cardNum = 0;
+                        }
+                    }
 
                     if (card.CheckRequirements())
                     {
@@ -133,9 +94,33 @@ public class Deck : MonoBehaviour
                     }
                 }
             }
-			
         }
-		/*
+        else //if not in tutorial
+        {
+            if (cardNum == 0) //if first card after tutorial
+            {
+                AssignData(); //assign new data
+            }
+
+            ShuffleDeck(); //shuffle deck
+
+            foreach (CharacterData character in _characters)
+            {
+                List<CardEvent> associatedCards = _availableCards.FindAll((x) => x.AssociatedCharacter == character);
+                foreach (CardEvent card in associatedCards)
+                {
+                    newCard = card;
+                    if (card.CheckRequirements())
+                    {
+                        card.OnDialogueSelected += ProcessCard;
+                        OnCardPicked?.Invoke(newCard);
+
+                        return;
+                    }
+                }
+            }
+        }
+        /*
 		CardEvent selectedCard;
 		foreach (CharacterData character in _aliveCharacters)
 		{
@@ -151,25 +136,25 @@ public class Deck : MonoBehaviour
 			}
 		}
 		*/
-		// Do something if no valid card is returned (ran out of cards).
-	}
+        // Do something if no valid card is returned (ran out of cards).
+    }
 
-	private void ProcessCard(CardEvent card)
-	{
-		// Modify characters' alive/dead states if needed.
-		// Store chosen dialogue.
-		card.OnDialogueSelected = null;
+    private void ProcessCard(CardEvent card)
+    {
+        // Modify characters' alive/dead states if needed.
+        // Store chosen dialogue.
+        card.OnDialogueSelected = null;
 
-		if (card.PickedChoice == SelectedChoice.ChoiceA)
-		{
-			_selectedDialogues.Add(card.DialogueA);
-		}
-		else if (card.PickedChoice == SelectedChoice.ChoiceB)
-		{
-			_selectedDialogues.Add(card.DialogueB);
-		}
+        if (card.PickedChoice == SelectedChoice.ChoiceA)
+        {
+            _selectedDialogues.Add(card.DialogueA);
+        }
+        else if (card.PickedChoice == SelectedChoice.ChoiceB)
+        {
+            _selectedDialogues.Add(card.DialogueB);
+        }
 
-		/*
+        /*
 		// Add cards from _lockedCards into _availableCards if requirements are met.
 		foreach(CardEvent lockedCard in _lockedCards)
 		{
@@ -182,32 +167,33 @@ public class Deck : MonoBehaviour
 
 		_availableCards.Remove(card);
 		*/
-		//_completedCards.Add(card);
-	}
+        //_completedCards.Add(card);
+    }
 
-	[ContextMenu("Shuffle Test")]
-	private void ShuffleDeck()
-	{
+    [ContextMenu("Shuffle Test")]
+    private void ShuffleDeck()
+    {
         System.Random rng = new System.Random();
         _characters = _characters.OrderBy((x) => rng.Next()).ToList();
         _availableCards = _availableCards.OrderBy((x) => rng.Next()).ToList();
-		print("Shuffled");
+        cardNum++;  //add a new card to cardNum
+    }
+
+    private CardEvent nextCard(CardEvent card, List<CardEvent> associatedCards)
+    {
+        //int cardPos = associatedCards.FindIndex(0, associatedCards.Count, (x) => card);
+
+        CardEvent newCard = associatedCards[cardNum];
+        print(associatedCards.FindIndex(0, associatedCards.Count, (x) => newCard));
+        print("num: " + cardNum);
         cardNum++;
+        return newCard;
     }
 
-	private CardEvent nextCard(CardEvent card, List<CardEvent> associatedCards)
-	{
-		//int cardPos = associatedCards.FindIndex(0, associatedCards.Count, (x) => card);
-		
-		CardEvent newCard = associatedCards[cardNum];
-		print(associatedCards.FindIndex(0, associatedCards.Count, (x) => newCard));
-		print("num: " + cardNum);
-		cardNum++;
-		return newCard;
-    }
+    private void AssignData()
+    {
+        //moved this from start so it can be called in different places
 
-	private void AssignData()
-	{
         // Load and instantiate all cards and put them all into _lockedCards to sort further.
         CardEvent[] cardPrefabs = Resources.LoadAll<CardEvent>(_database.GetComponent<CharacterDatabase>()._eventsResourcePath);
         foreach (CardEvent cardPrefab in cardPrefabs)

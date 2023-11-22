@@ -4,20 +4,20 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    private int numOfDeaths = 0;
+    [Header("References: ")]
     public GameObject Deck;
     public GameObject TutorialDatabase;
     public GameObject CharacterDatabase;
-    public bool runningTutorial = true;
 
-    public void Awake()
+    [Header("Variables for game state: ")]
+    private int numOfDeaths = 0;
+    private bool runningTutorial = true;
+
+    void Awake()
     {
-       
         if (runningTutorial)
         {
             Deck.GetComponent<Deck>()._database = TutorialDatabase;
-
         }
         else
         {
@@ -46,6 +46,16 @@ public class GameManager : MonoBehaviour
     public void addDeath()
     {
         numOfDeaths++;
+    }
+
+    public void ToggleTutorial(bool status)
+    {
+        runningTutorial = status;
+    }
+
+    public bool getTutorialStatus()
+    {
+        return runningTutorial;
     }
 
 }
