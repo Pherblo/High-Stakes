@@ -55,7 +55,7 @@ public class Deck : MonoBehaviour
 		// Gets new card on start
 		PickCard();
 		*/
-        //PickCard();
+        PickCard();
     }
 
     public CardEvent PickCard()
@@ -64,6 +64,7 @@ public class Deck : MonoBehaviour
         // Pick a random character, then pick a random card associated with them.
         // We're shuffling instead of picking a character at random because characters may not return valid cards whose conditions are met.
         runningTutorial = GetComponentInParent<GameManager>().getTutorialStatus(); //set running tutorial variable to the one in game manager class
+        print("status: " + runningTutorial);
         CardEvent newCard;
 
         if (runningTutorial) //when tutorial is running
