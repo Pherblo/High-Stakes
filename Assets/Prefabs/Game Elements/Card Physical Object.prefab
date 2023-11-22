@@ -501,6 +501,7 @@ MonoBehaviour:
   _cardArt: {fileID: 7226126786969696727}
   _characterName: {fileID: 8115734188201667601}
   _characterTitle: {fileID: 7055942255804897467}
+  _swipeAnimationDuration: 1.5
   _maxXOffset: 2.5
   _maxRotationOffset: 25
   _normalizedRotationAxis: {x: 0, y: 0, z: 0}
@@ -954,6 +955,8 @@ MonoBehaviour:
   _imageComponent: {fileID: 7568755934957664150}
   _materialInstance: {fileID: 2100000, guid: ac5801131d9086e4690feac37c05d025, type: 2}
   _startingFadeValue: 0
+  _lerpStartValue: 0
+  _lerpEndValue: 1
   _fadeDuration: 0.5
   _fadeInRotation: 135
   _fadeOutRotation: 135

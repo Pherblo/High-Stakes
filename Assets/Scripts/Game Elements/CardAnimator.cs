@@ -18,10 +18,12 @@ public class CardAnimator : MonoBehaviour, IDragHandler, IBeginDragHandler, IEnd
     [SerializeField] private Camera _cardCamera;
     [Header("Component References")]
     [SerializeField] private Animator _animator;
-    [SerializeField] private UIAnimator _uiAnimator;
+    [SerializeField] private UIAnimator _uiAnimator;        // UI Animator that masks the card.
     [SerializeField] private Image _cardArt;
     [SerializeField] private TextMeshProUGUI _characterName;
     [SerializeField] private TextMeshProUGUI _characterTitle;
+    [Header("Draw Animation Settings (Swipe animation must have a duration of 1)")]
+    [SerializeField] private float _swipeAnimationDuration = 1f;        // Assumes that the swipe animation has a duration of 1.
     [Header("Swipe Animation Settings")]
     [SerializeField] private float _maxXOffset = 5f;
     [SerializeField] private float _maxRotationOffset = 20f;
@@ -52,6 +54,7 @@ public class CardAnimator : MonoBehaviour, IDragHandler, IBeginDragHandler, IEnd
         _originalPosition = transform.position;
         _originalRotation = transform.rotation;
         _isInteractable = false;
+        _animator.speed = 1f / _swipeAnimationDuration;
     }
 
     public void OnBeginDrag(PointerEventData eventData)
@@ -209,6 +212,7 @@ public class CardAnimator : MonoBehaviour, IDragHandler, IBeginDragHandler, IEnd
         _animator.enabled = true;
         _animator.SetTrigger("DrawCard");
         _isInteractable = false;
+        _uiAnimator.SetStartingFadeClip();
     }
 
     public void AnimateCardDiscard()

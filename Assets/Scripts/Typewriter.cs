@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using System;
+using System.Globalization;
 
 public enum TextPopMode
 {
@@ -31,9 +32,14 @@ public class Typewriter : MonoBehaviour
     [SerializeField] private AnimationCurve _xAxisLerpCurve;
     [SerializeField] private AnimationCurve _yAxisLerpCurve;
     [SerializeField] private AnimationCurve _startColorLerpCurve;
+    [Header("Closing Dialogue Animation Settings")]
+    [SerializeField] private Color32 _closingColor;
+    [SerializeField] private float _closeDialogueDuration = 1f;
+    [SerializeField] private bool _modifyMaterialNoiseClip = false;
 
     private bool _firstFadeOut = true;
     private Color32 _originalColor = Color.white;
+    private Coroutine _textPopCoroutine;
 
     // private char[] _characters;      // Used by old type animation.
 
@@ -44,8 +50,13 @@ public class Typewriter : MonoBehaviour
 
     public void RunDialogue(string text)
     {
-        StopAllCoroutines();
-        StartCoroutine(AnimateTextPop(text));
+        //StopAllCoroutines();
+        _textPopCoroutine = StartCoroutine(AnimateTextPop(text));
+    }
+
+    public void CloseDialogue()
+    {
+        StartCoroutine(AnimateCloseDialogue());
     }
 
     public void SetFillerText(string text)
@@ -57,6 +68,7 @@ public class Typewriter : MonoBehaviour
     {
         StopAllCoroutines();
         _dialogueText.SetText("");
+        //_dialogueText.color = new Color32(_originalColor.r, _originalColor.g, _originalColor.b, 0);
         //_textboxFillerText.SetText("");
     }
 
@@ -83,6 +95,7 @@ public class Typewriter : MonoBehaviour
     {
         // Update text and cache color.
         _dialogueText.color = new Color32(0, 0, 0, 0);
+        _dialogueText.fontMaterial.SetFloat("_NoiseClip", 1);
 
         /*if (_uiAnimator)
         {
@@ -164,6 +177,27 @@ public class Typewriter : MonoBehaviour
             yield return new WaitForSeconds(_timePerChar);
         }
         OnTextGenerationFinished?.Invoke();
+        yield return null;
+    }
+
+    private IEnumerator AnimateCloseDialogue()
+    {
+        if (_uiAnimator) _uiAnimator.StartExitFade();
+        if (_textPopCoroutine != null) StopCoroutine(_textPopCoroutine);
+        float timer = 0f;
+        do
+        {
+            timer += Time.deltaTime;
+            float lerpValue = timer / _closeDialogueDuration;
+            
+            if (_modifyMaterialNoiseClip)
+            {
+                _dialogueText.fontMaterial.SetFloat("_NoiseClip", 1 - lerpValue);
+            }
+            _dialogueText.color = Color32.Lerp(_originalColor, _closingColor, lerpValue);
+
+            yield return null;
+        } while (timer < _closeDialogueDuration);
         yield return null;
     }
 

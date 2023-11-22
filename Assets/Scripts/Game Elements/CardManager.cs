@@ -37,7 +37,7 @@ public class CardManager : MonoBehaviour
             card.OnCardDrawFinished += StartDisplayingCard;
             card.OnCardDiscard += StartDiscardingCard;
         }
-
+        _cardDisplay.ClearDisplay();
         StartPickCard();
     }
 
@@ -48,7 +48,6 @@ public class CardManager : MonoBehaviour
         // Update cached card.
         _currentCardAnimatorIndex = (_currentCardAnimatorIndex + 1) % _cardAnimators.Length;
         _currentCardAnimator = _cardAnimators[_currentCardAnimatorIndex];
-        print(_cardAnimators[_currentCardAnimatorIndex].transform.name);
 
         // Assign new references to CardDisplay.
         _cardDisplay.UpdateReferences(_currentCardEvent, _currentCardAnimator.CharacterName, _currentCardAnimator.CharacterTitle, _currentCardAnimator.CardArt);
@@ -58,6 +57,7 @@ public class CardManager : MonoBehaviour
         OnCardPickStart?.Invoke();
     }
 
+    // Called after card has been drawn and card gameobject is in position.
     public void StartDisplayingCard()
     {
         _currentCardAnimator.RevealCard();
@@ -69,6 +69,7 @@ public class CardManager : MonoBehaviour
 
     public void StartDiscardingCard()
     {
+        _cardDisplay.ExitDisplay();
         StartPickCard();
     }
 }
