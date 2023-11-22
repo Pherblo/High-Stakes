@@ -95,7 +95,7 @@ public class Typewriter : MonoBehaviour
     {
         // Update text and cache color.
         _dialogueText.color = new Color32(0, 0, 0, 0);
-        _dialogueText.fontMaterial.SetFloat("_NoiseClip", 1);
+        _dialogueText.fontMaterial.SetFloat("_NoiseClip", 1f);
 
         /*if (_uiAnimator)
         {

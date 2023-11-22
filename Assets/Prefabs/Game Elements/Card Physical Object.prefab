@@ -501,7 +501,7 @@ MonoBehaviour:
   _cardArt: {fileID: 7226126786969696727}
   _characterName: {fileID: 8115734188201667601}
   _characterTitle: {fileID: 7055942255804897467}
-  _swipeAnimationDuration: 1.5
+  _swipeAnimationDuration: 1.75
   _maxXOffset: 2.5
   _maxRotationOffset: 25
   _normalizedRotationAxis: {x: 0, y: 0, z: 0}
@@ -509,7 +509,7 @@ MonoBehaviour:
   _exitSpeed: 25
   _exitDuration: 1.5
   _rotationResetDuration: 0.3
-  _exitRotationSpeed: 450
+  _exitRotationSpeed: 540
 --- !u!95 &3035904770362267747
 Animator:
   serializedVersion: 5
