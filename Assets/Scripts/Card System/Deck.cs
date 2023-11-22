@@ -30,7 +30,7 @@ public class Deck : MonoBehaviour
         AssignData(); //assign data to card
 
         // Pick a card at the start.
-        PickCard();
+        //PickCard();
 
         /*
 		// Load all the cards. Instantiate their cards.
@@ -58,7 +58,7 @@ public class Deck : MonoBehaviour
         //PickCard();
     }
 
-    public void PickCard()
+    public CardEvent PickCard()
     {
         // Shuffle deck to iterate through it and get the first available card.
         // Pick a random character, then pick a random card associated with them.
@@ -90,7 +90,7 @@ public class Deck : MonoBehaviour
                         card.OnDialogueSelected += ProcessCard;
                         OnCardPicked?.Invoke(newCard);
 
-                        return;
+                        return card;
                     }
                 }
             }
@@ -115,11 +115,12 @@ public class Deck : MonoBehaviour
                         card.OnDialogueSelected += ProcessCard;
                         OnCardPicked?.Invoke(newCard);
 
-                        return;
+                        return card;
                     }
                 }
             }
         }
+        return null;
         /*
 		CardEvent selectedCard;
 		foreach (CharacterData character in _aliveCharacters)
