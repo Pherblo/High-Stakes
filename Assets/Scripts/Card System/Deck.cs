@@ -24,7 +24,7 @@ public class Deck : MonoBehaviour
     private int cardNum = 0; //for keeping track of cards when drawing in order
 
 
-    public void Start()
+    public void Awake()
     {
 
         AssignData(); //assign data to card

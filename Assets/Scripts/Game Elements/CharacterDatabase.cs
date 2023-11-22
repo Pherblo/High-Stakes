@@ -18,7 +18,7 @@ public class CharacterDatabase : MonoBehaviour
 
     public List<CharacterData> CharacterInstances => _characterInstances;
 
-    private void Start()
+    private void Awake()
     {
         LoadCharacters(); //load first characters
     }

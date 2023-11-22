@@ -37,8 +37,8 @@ public class CardManager : MonoBehaviour
             card.OnCardDrawFinished += StartDisplayingCard;
             card.OnCardDiscard += StartDiscardingCard;
         }
-        _cardDisplay.ClearDisplay();
         StartPickCard();
+        _cardDisplay.ClearDisplay();
     }
 
     public void StartPickCard()
@@ -61,7 +61,6 @@ public class CardManager : MonoBehaviour
     public void StartDisplayingCard()
     {
         _currentCardAnimator.RevealCard();
-
         _cardDisplay.UpdateCardDisplay(_currentCardEvent);
 
         OnCardDisplayStart?.Invoke();
