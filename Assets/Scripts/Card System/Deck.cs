@@ -55,7 +55,7 @@ public class Deck : MonoBehaviour
 		// Gets new card on start
 		PickCard();
 		*/
-        PickCard();
+        
     }
 
     public CardEvent PickCard()
@@ -90,8 +90,8 @@ public class Deck : MonoBehaviour
                     {
                         card.OnDialogueSelected += ProcessCard;
                         OnCardPicked?.Invoke(newCard);
-
-                        return card;
+  
+                        return newCard;
                     }
                 }
             }
@@ -115,7 +115,7 @@ public class Deck : MonoBehaviour
                     {
                         card.OnDialogueSelected += ProcessCard;
                         OnCardPicked?.Invoke(newCard);
-
+                        print(newCard);
                         return card;
                     }
                 }
