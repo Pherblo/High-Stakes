@@ -91,7 +91,7 @@ public class CardEvent : CardBase
 		}
     }
 
-	public bool CheckRequirements()
+	public override bool CheckRequirements()
 	{
 		// If dialogue has already been picked, this card isn't available anymore.
 		if (_pickedChoice != SelectedChoice.None) return false;
