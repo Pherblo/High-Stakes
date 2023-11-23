@@ -26,36 +26,7 @@ public class Deck : MonoBehaviour
 
     public void Awake()
     {
-
-        //AssignData(); //assign data to card
-
-        // Pick a card at the start.
-        //PickCard();
-
-        /*
-		// Load all the cards. Instantiate their cards.
-		foreach (CharacterData character in _database.CharacterInstances)
-		{
-			character.InitializeCharacter();
-			_characters.Add(character);
-		}
-		// Sort characters
-		foreach (CharacterData character in _characters)
-		{
-			if (character.IsAlive)
-			{
-				_aliveCharacters.Add(character);
-			}
-			else
-			{
-				_deadCharacters.Add(character);
-			}
-		}
-
-		// Gets new card on start
-		PickCard();
-		*/
-        
+        //
     }
 
     public CardEvent PickCard()
