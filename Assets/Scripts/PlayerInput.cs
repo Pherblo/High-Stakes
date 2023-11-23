@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UIElements;
 
-public class PlayerInput : MonoBehaviour, IDragHandler
+public class PlayerInput : MonoBehaviour//, IDragHandler
 {
 	private CardPositions cardState;
 	public CardPositions CardState => cardState;
@@ -12,11 +12,10 @@ public class PlayerInput : MonoBehaviour, IDragHandler
 	private float cardSwipeThreshold = 200;
 
 	[Header("** Console Debug Logs **")]
-	[SerializeField] private bool Debug_CurrentMousePosition;
-    [SerializeField] private bool Debug_CardState;
+	[SerializeField] private bool Debug_CardState;
+	//[SerializeField] private bool Debug_CurrentMousePosition;
 
-
-    public enum CardPositions
+	public enum CardPositions
 	{
 		LeftSwiped,
 		Left,
@@ -68,17 +67,17 @@ public class PlayerInput : MonoBehaviour, IDragHandler
 		}
 
 		if(Debug_CardState) { Debug.Log("Cards State: " + cardState); }
-        if (Debug_CurrentMousePosition) { Debug.Log("Current Mouse Position: " + currentMousePosition); }
+        //if (Debug_CurrentMousePosition) { Debug.Log("Current Mouse Position: " + currentMousePosition); }
     }
 
 	// When the players mouse click is moving
-	public void OnDrag(PointerEventData eventData)
-	{
-		// Update current mouse position to reflect the amount dragged
-		currentMousePosition += eventData.delta.x;
+	//public void OnDrag(PointerEventData eventData)
+	//{
+	//	// Update current mouse position to reflect the amount dragged
+	//	currentMousePosition += eventData.delta.x;
 
-		if (Debug_CurrentMousePosition) { Debug.Log("Current Mouse Position: " + currentMousePosition); }
-	}
+	//	if (Debug_CurrentMousePosition) { Debug.Log("Current Mouse Position: " + currentMousePosition); }
+	//}
 
 	// Check card states with keyboard inputs
 	private void CheckCardStates()
