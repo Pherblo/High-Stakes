@@ -51,13 +51,21 @@ public class CardDisplay : MonoBehaviour
 		*/
     }
 
-	public void ClearDialogues()
+	/*public void ClearDialogues()
 	{
 		// Clearing the text box
         _dialogueTextA.RunDialogue("");
         // Turning off dialogue background when not in use
         _dialogueTextA.gameObject.GetComponentInParent<Image>().enabled = false;
-    }
+    }*/
+
+	public void UpdateReferences(CardEvent newCardEvent, TextMeshProUGUI newCardName, TextMeshProUGUI newCardTitle, Image newCardArt)
+	{
+		_currentCardEvent = newCardEvent;
+		_cardName = newCardName;
+		_cardTitle = newCardTitle;
+		_cardArt = newCardArt;
+	}
 
     // Subscribed to Deck's OnCardPicked event.
     public void UpdateCardDisplay(CardEvent cardToDisplay)
@@ -71,8 +79,8 @@ public class CardDisplay : MonoBehaviour
         _cardArt.sprite = cardToDisplay.AssociatedCharacter.CharacterArt;
 
 		// Update typewriters.
-		_dialogueTextA.ClearText();
-        _dialogueTextB.ClearText();
+		//_dialogueTextA.ClearText();
+        //_dialogueTextB.ClearText();
         _dialogueTextA.SetFillerText(cardToDisplay.DialogueA.DialogueText);
         _dialogueTextB.SetFillerText(cardToDisplay.DialogueB.DialogueText);
         SetDescriptionText(cardToDisplay.Description);
@@ -89,11 +97,32 @@ public class CardDisplay : MonoBehaviour
 		popularity.changeValue(cardToDisplay.popularityValue);
 	}
 
-	private void SetDescriptionText(string text)
+    public void ExitDisplay()
+    {
+        // Update typewriters materials.
+        _cardDescription.SetAllTexts(_currentCardEvent.Description);
+        _dialogueTextA.SetAllTexts(_currentCardEvent.DialogueA.DialogueText);
+        _dialogueTextB.SetAllTexts(_currentCardEvent.DialogueB.DialogueText);
+
+        _cardDescription.CloseDialogue();
+        _dialogueTextA.CloseDialogue();
+        _dialogueTextB.CloseDialogue();
+    }
+
+	public void ClearDisplay()
 	{
+        _cardDescription.ClearText();
+        _dialogueTextA.ClearText();
+        _dialogueTextB.ClearText();
+    }
+
+    private void SetDescriptionText(string text)
+	{
+		_cardDescription.SetFillerText(text);
         _cardDescription.RunDialogue(text);
     }
 
+	// Called by card description event after it finishes generating its text.
 	private void SetChoices()
 	{
 		OnDescriptionDisplayEnd?.Invoke();

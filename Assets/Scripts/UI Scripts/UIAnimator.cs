@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,9 +11,11 @@ public class UIAnimator : MonoBehaviour
     // All methods in this script is called via events.
     [Header("Component References")]
     [SerializeField] private Image _imageComponent;
-    [Header("General Settings")]
+    [Header("General Fade Settings")]
     [SerializeField] private Material _materialInstance;
     [SerializeField] private float _startingFadeValue = 0f;
+    [SerializeField, Range(0f, 1f)] private float _lerpStartValue = 0f;
+    [SerializeField, Range(0f, 1f)] private float _lerpEndValue = 1f;
     [Header("Fading Animation Settings")]
     [SerializeField] private float _fadeDuration = 0.5f;
     [SerializeField] private float _fadeInRotation = 0f;
@@ -25,17 +28,20 @@ public class UIAnimator : MonoBehaviour
     private void Awake()
     {
         _imageComponent.material = new Material(_materialInstance);
-        _imageComponent.materialForRendering.SetFloat("_FadeAlphaClip", _startingFadeValue);
+        SetStartingFadeClip();
     }
 
     public void StartEnterFade()
     {
         StopAllCoroutines();
-        StartCoroutine(StartFading(1f, 0f, _fadeInRotation, true));
+        StartCoroutine(StartFading(_lerpStartValue, _lerpEndValue, _fadeInRotation, true));
     }
 
     public void StartExitFade()
     {
+        StopAllCoroutines();
+        StartCoroutine(StartFading(0f, 1f, _fadeOutRotation, false));
+        /*
         if (_firstFadeOut)
         {
             _firstFadeOut = false;
@@ -44,7 +50,12 @@ public class UIAnimator : MonoBehaviour
         {
             StopAllCoroutines();
             StartCoroutine(StartFading(0f, 1f, _fadeOutRotation, false));
-        }
+        }*/
+    }
+
+    public void SetStartingFadeClip()
+    {
+        _imageComponent.materialForRendering.SetFloat("_FadeAlphaClip", _startingFadeValue);
     }
 
     private IEnumerator StartFading(float startValue, float endValue, float newRotation, bool isFadeStart)

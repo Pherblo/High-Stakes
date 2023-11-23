@@ -271,7 +271,6 @@ GameObject:
   m_Component:
   - component: {fileID: 454617805}
   - component: {fileID: 454617804}
-  - component: {fileID: 454617803}
   - component: {fileID: 454617802}
   m_Layer: 0
   m_Name: Card Camera
@@ -324,14 +323,6 @@ MonoBehaviour:
     mipBias: 0
     varianceClampScale: 0.9
     contrastAdaptiveSharpening: 0
---- !u!81 &454617803
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 454617801}
-  m_Enabled: 1
 --- !u!20 &454617804
 Camera:
   m_ObjectHideFlags: 0
