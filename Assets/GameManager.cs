@@ -38,7 +38,10 @@ public class GameManager : MonoBehaviour
             Deck.GetComponent<Deck>()._database = CharacterDatabase;
         }
 
-
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            QuitGame();
+        }
     }
 
 
@@ -58,4 +61,10 @@ public class GameManager : MonoBehaviour
         return runningTutorial;
     }
 
+    public void QuitGame()
+    {
+        Application.Quit();
+
+
+    }
 }

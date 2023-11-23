@@ -27,7 +27,7 @@ public class Deck : MonoBehaviour
     public void Awake()
     {
 
-        AssignData(); //assign data to card
+        //AssignData(); //assign data to card
 
         // Pick a card at the start.
         //PickCard();
@@ -60,6 +60,7 @@ public class Deck : MonoBehaviour
 
     public CardEvent PickCard()
     {
+        AssignData(); //assign data to card
         // Shuffle deck to iterate through it and get the first available card.
         // Pick a random character, then pick a random card associated with them.
         // We're shuffling instead of picking a character at random because characters may not return valid cards whose conditions are met.
