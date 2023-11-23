@@ -14,6 +14,9 @@ public class Deck : MonoBehaviour
     [SerializeField] private string _cardsPath;
     [SerializeField] private string _charactersPath;
 
+    [Header("Tutorial Settings")]
+    [SerializeField] private CardSeries _tutorialCardSeries;
+
     private List<CharacterData> _characters = new();
     private List<CardEvent> _availableCards = new();
     private List<CardEvent> _lockedCards = new();
@@ -62,6 +65,8 @@ public class Deck : MonoBehaviour
                 _availableCards.Add(card);
             }
         }
+
+        // Find the tutorial series.
     }
 
     public CardEvent PickCard()

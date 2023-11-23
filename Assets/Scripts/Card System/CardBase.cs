@@ -5,4 +5,6 @@ using UnityEngine;
 public abstract class CardBase : MonoBehaviour
 {
     public abstract CardEvent GetCard();
+
+    public abstract bool CheckRequirements();
 }
