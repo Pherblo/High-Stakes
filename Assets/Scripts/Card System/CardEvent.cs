@@ -12,7 +12,7 @@ public enum SelectedChoice
 }
 
 // Is on a card prefab
-public class CardEvent : MonoBehaviour
+public class CardEvent : CardBase
 {
 	public Action<CardEvent> OnDialogueSelected;
 
@@ -52,11 +52,17 @@ public class CardEvent : MonoBehaviour
 	// public bool GuaranteedCard => _guaranteedCard;
 	public SelectedChoice PickedChoice => _pickedChoice;
 
+    public override CardEvent GetCard()
+    {
+		return this;
+    }
+
 	// TODO: Improve this. Likely separate initial associatedCharacter variable from instanced associatedCharacter variable.
 	public void AssignCharacter(CharacterData associatedCharacterInstance)
 	{
         associatedCharacter = associatedCharacterInstance;
 	}
+
 
     // Called by player input via GUI.
     public void ChooseDialogue(int optionInt)

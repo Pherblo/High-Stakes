@@ -7,9 +7,12 @@ public class Deck : MonoBehaviour
 {
     public UnityEvent<CardEvent> OnCardPicked;      // When a card has been picked from the deck.
 
-    [Header("References")]
+    //[Header("References")]
 
-    public GameObject _database;
+    //public GameObject _database;
+    [Header("Resource Paths")]
+    [SerializeField] private string _cardsPath;
+    [SerializeField] private string _charactersPath;
 
     private List<CharacterData> _characters = new();
     private List<CardEvent> _availableCards = new();
@@ -26,12 +29,44 @@ public class Deck : MonoBehaviour
 
     public void Awake()
     {
-        //
+        // Load and instantiate all cards and put them all into _lockedCards to sort further.
+        CardEvent[] cardPrefabs = Resources.LoadAll<CardEvent>(_cardsPath);
+        foreach (CardEvent cardPrefab in cardPrefabs)
+        {
+            CardEvent cardInstance = Instantiate(cardPrefab, transform);
+            _lockedCards.Add(cardInstance);
+        }
+
+        // Load and instantiate all characters, then assign their respective characters.
+        CharacterData[] loadedCharacters = Resources.LoadAll<CharacterData>(_charactersPath);
+        foreach (CharacterData character in loadedCharacters)
+        {
+            CharacterData characterInstance = Instantiate(character, transform);
+            _characters.Add(characterInstance);
+
+            // Assign character instance to cards with matching associated character.
+            List<CardEvent> matchingCards = _lockedCards.FindAll((x) => x.AssociatedCharacter == character);
+            foreach (CardEvent card in matchingCards)
+            {
+                card.AssignCharacter(characterInstance);
+            }
+        }
+
+        // Sort all cards and get the first available ones.
+        CardEvent[] cardsToSort = _lockedCards.ToArray();
+        foreach (CardEvent card in cardsToSort)
+        {
+            if (card.CheckRequirements())
+            {
+                _lockedCards.Remove(card);
+                _availableCards.Add(card);
+            }
+        }
     }
 
     public CardEvent PickCard()
     {
-        AssignData(); //assign data to card
+        //AssignData(); //assign data to card
         // Shuffle deck to iterate through it and get the first available card.
         // Pick a random character, then pick a random card associated with them.
         // We're shuffling instead of picking a character at random because characters may not return valid cards whose conditions are met.
@@ -72,7 +107,7 @@ public class Deck : MonoBehaviour
         {
             if (cardNum == 0) //if first card after tutorial
             {
-                AssignData(); //assign new data
+                //AssignData(); //assign new data
             }
 
             ShuffleDeck(); //shuffle deck
@@ -164,7 +199,7 @@ public class Deck : MonoBehaviour
         return newCard;
     }
 
-    private void AssignData()
+    /*private void AssignData()
     {
         //moved this from start so it can be called in different places
 
@@ -200,5 +235,5 @@ public class Deck : MonoBehaviour
                 _availableCards.Add(card);
             }
         }
-    }
+    }*/
 }
