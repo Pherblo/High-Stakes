@@ -1,5 +1,7 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -11,15 +13,16 @@ public class Deck : MonoBehaviour
 
     //public GameObject _database;
     [Header("Resource Paths")]
-    [SerializeField] private string _cardsPath;
     [SerializeField] private string _charactersPath;
+    [SerializeField] private string _cardsPath;
+    [SerializeField] private string _tutorialSeriesPath;
 
     [Header("Tutorial Settings")]
     [SerializeField] private CardSeries _tutorialCardSeries;
 
     private List<CharacterData> _characters = new();
-    private List<CardEvent> _availableCards = new();
-    private List<CardEvent> _lockedCards = new();
+    private List<CardBase> _availableCards = new();
+    private List<CardBase> _lockedCards = new();
 
     private List<CardDialogue> _selectedDialogues = new();
 
@@ -32,23 +35,35 @@ public class Deck : MonoBehaviour
 
     public void Awake()
     {
-        // Load and instantiate all cards and put them all into _lockedCards to sort further.
-        CardEvent[] cardPrefabs = Resources.LoadAll<CardEvent>(_cardsPath);
-        foreach (CardEvent cardPrefab in cardPrefabs)
-        {
-            CardEvent cardInstance = Instantiate(cardPrefab, transform);
-            _lockedCards.Add(cardInstance);
-        }
+        // Cache cards and card series for use later.
+        List<CardEvent> allCards = new();
+        List<CardSeries> allSeries = new();
 
-        // Load and instantiate all characters, then assign their respective characters.
+        // Load and instantiate all cards and put them all into _lockedCards to sort further.
+        CardBase[] cardPrefabs = Resources.LoadAll<CardBase>(_cardsPath);
+        foreach (CardBase cardPrefab in cardPrefabs)
+        {
+            CardBase cardInstance = Instantiate(cardPrefab, transform);
+            _lockedCards.Add(cardInstance);
+
+            if (cardInstance is CardEvent cardEvent) allCards.Add(cardEvent);
+            else if (cardInstance is CardSeries cardSeries) allSeries.Add(cardSeries);
+        }
+        // Load and instantiate tutorial series.
+        //CardSeries tutorialSeriesPrefab = Resources.Load<CardSeries>(_tutorialSeriesPath);
+        //_tutorialCardSeries = Instantiate(tutorialSeriesPrefab, transform);
+
+        foreach (CardSeries series in allSeries) allCards.AddRange(series.CardEvents);
+
+        // Load and instantiate all characters, then assign their respective characters
         CharacterData[] loadedCharacters = Resources.LoadAll<CharacterData>(_charactersPath);
         foreach (CharacterData character in loadedCharacters)
         {
             CharacterData characterInstance = Instantiate(character, transform);
             _characters.Add(characterInstance);
 
-            // Assign character instance to cards with matching associated character.
-            List<CardEvent> matchingCards = _lockedCards.FindAll((x) => x.AssociatedCharacter == character);
+            // Assign character instance to card events with matching associated character.
+            List<CardEvent> matchingCards = allCards.FindAll((x) => x.AssociatedCharacter == character);
             foreach (CardEvent card in matchingCards)
             {
                 card.AssignCharacter(characterInstance);
@@ -56,7 +71,7 @@ public class Deck : MonoBehaviour
         }
 
         // Sort all cards and get the first available ones.
-        CardEvent[] cardsToSort = _lockedCards.ToArray();
+        CardBase[] cardsToSort = _lockedCards.ToArray();
         foreach (CardEvent card in cardsToSort)
         {
             if (card.CheckRequirements())
@@ -70,6 +85,33 @@ public class Deck : MonoBehaviour
     }
 
     public CardEvent PickCard()
+    {
+        ShuffleDeck();
+        // Pick out cards based on characters.
+        foreach (CharacterData character in _characters)
+        {
+            if (!character.IsAlive) continue;
+
+            CardEvent newCard;
+            List<CardBase> associatedCards = _availableCards.FindAll((x) => x.GetCard().AssociatedCharacter == character);
+            
+            foreach (CardEvent card in associatedCards)
+            {
+                newCard = card;
+                if (card.CheckRequirements())
+                {
+                    card.OnDialogueSelected += ProcessCard;
+                    OnCardPicked?.Invoke(newCard);
+                    print(newCard);
+                    return card;
+                }
+            }
+        }
+        // Do something if no valid card is returned (ran out of cards).
+        return null;
+    }
+
+    /*public CardEvent PickCardOld()
     {
         //AssignData(); //assign data to card
         // Shuffle deck to iterate through it and get the first available card.
@@ -134,24 +176,7 @@ public class Deck : MonoBehaviour
             }
         }
         return null;
-        /*
-		CardEvent selectedCard;
-		foreach (CharacterData character in _aliveCharacters)
-		{
-			selectedCard = character.GetCard();
-			if (selectedCard)
-			{
-				// Change the current card displayed to the newly chosen card
-				currentCardDisplayed = selectedCard; 
-				
-				selectedCard.OnDialogueSelected += ProcessCard;
-				OnCardPicked?.Invoke(selectedCard);
-				break;
-			}
-		}
-		*/
-        // Do something if no valid card is returned (ran out of cards).
-    }
+    }*/
 
     private void ProcessCard(CardEvent card)
     {

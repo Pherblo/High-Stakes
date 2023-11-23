@@ -9,6 +9,8 @@ public class CardSeries : CardBase
 
     private int _seriesIndex = 0;
 
+    public List<CardEvent> CardEvents => _cardEvents;
+
     public override CardEvent GetCard()
     {
         // Guard.
