@@ -8,6 +8,7 @@ public class CardSeries : CardBase
     [SerializeField] private List<CardEvent> _cardEvents = new();
 
     private int _seriesIndex = 0;
+    private List<CardEvent> _instancedCardEvents = new();
 
     public List<CardEvent> CardEvents => _cardEvents;
 
@@ -26,16 +27,20 @@ public class CardSeries : CardBase
 
     public override bool CheckRequirements()
     {
-        // All cards completed.
-        if (_seriesIndex > _cardEvents.Count) return false;
-
-        foreach (CardEvent card in _cardEvents)
+        // Check if all cards completed.
+        if (_seriesIndex < _instancedCardEvents.Count)
         {
-            if (card.CheckRequirements()) return true;
-            else return false;
+            // If the current card meets requirements.
+            if (_cardEvents[_seriesIndex].CheckRequirements())
+            {
+                return true;
+            }
         }
-
-        // Card Series is empty.
         return false;
+    }
+
+    public void AddCardToSeries(CardEvent newCard)
+    {
+        _instancedCardEvents.Add(newCard);
     }
 }

@@ -23,8 +23,9 @@ public class Deck : MonoBehaviour
     private List<CharacterData> _characters = new();
     private List<CardBase> _availableCards = new();
     private List<CardBase> _lockedCards = new();
-
     private List<CardDialogue> _selectedDialogues = new();
+
+    private CardSeries _tutorialSeriesInstance;
 
     public List<CardDialogue> SelectedDialogues => _selectedDialogues;
 
@@ -43,16 +44,32 @@ public class Deck : MonoBehaviour
         CardBase[] cardPrefabs = Resources.LoadAll<CardBase>(_cardsPath);
         foreach (CardBase cardPrefab in cardPrefabs)
         {
-            CardBase cardInstance = Instantiate(cardPrefab, transform);
+            CardBase cardInstance = null;
+            cardInstance = Instantiate(cardPrefab, transform);
             _lockedCards.Add(cardInstance);
+
+            // If it's a card series, also instantiate all its cards.
+            if (cardPrefab is CardSeries cardSeriesInstance)
+            {
+                foreach (CardEvent seriesCard in cardSeriesInstance.CardEvents)
+                {
+                    CardEvent seriesCardInstance = Instantiate(seriesCard, transform);
+                    cardSeriesInstance.AddCardToSeries(seriesCardInstance);
+                }
+            }
 
             if (cardInstance is CardEvent cardEvent) allCards.Add(cardEvent);
             else if (cardInstance is CardSeries cardSeries) allSeries.Add(cardSeries);
         }
-        // Load and instantiate tutorial series.
-        //CardSeries tutorialSeriesPrefab = Resources.Load<CardSeries>(_tutorialSeriesPath);
-        //_tutorialCardSeries = Instantiate(tutorialSeriesPrefab, transform);
 
+        // Load and instantiate tutorial series and its cards.
+        _tutorialSeriesInstance = Instantiate(_tutorialCardSeries, transform);
+        foreach (CardEvent seriesCard in _tutorialSeriesInstance.CardEvents)
+        {
+            CardEvent seriesCardInstance = Instantiate(seriesCard, transform);
+            _tutorialSeriesInstance.AddCardToSeries(seriesCardInstance);
+        }
+        
         // Add all cards from all CardSeries present.
         foreach (CardSeries series in allSeries) allCards.AddRange(series.CardEvents);
 
@@ -73,7 +90,7 @@ public class Deck : MonoBehaviour
 
         // Sort all cards and get the first available ones.
         CardBase[] cardsToSort = _lockedCards.ToArray();
-        foreach (CardEvent card in cardsToSort)
+        foreach (CardBase card in cardsToSort)
         {
             if (card.CheckRequirements())
             {
@@ -81,12 +98,20 @@ public class Deck : MonoBehaviour
                 _availableCards.Add(card);
             }
         }
+    }
 
-        // Find the tutorial series.
+    private void Start()
+    {
+        print(_tutorialSeriesInstance.name);
     }
 
     public CardEvent PickCard()
     {
+        if (_tutorialSeriesInstance.CheckRequirements())
+        {
+            return _tutorialSeriesInstance.GetCard();
+        }
+
         ShuffleDeck();
         // Pick out cards based on characters.
         foreach (CharacterData character in _characters)
