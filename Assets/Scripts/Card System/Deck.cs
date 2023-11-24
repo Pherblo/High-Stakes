@@ -53,6 +53,7 @@ public class Deck : MonoBehaviour
         //CardSeries tutorialSeriesPrefab = Resources.Load<CardSeries>(_tutorialSeriesPath);
         //_tutorialCardSeries = Instantiate(tutorialSeriesPrefab, transform);
 
+        // Add all cards from all CardSeries present.
         foreach (CardSeries series in allSeries) allCards.AddRange(series.CardEvents);
 
         // Load and instantiate all characters, then assign their respective characters
