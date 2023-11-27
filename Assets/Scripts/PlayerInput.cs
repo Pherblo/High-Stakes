@@ -1,13 +1,16 @@
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.EventSystems;
 
-public class PlayerInput : MonoBehaviour//, IDragHandler
+public class PlayerInput : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler
 {
 	private CardPositions cardState = CardPositions.Middle;
 	public CardPositions CardState => cardState;
 	private float keyboardInput;
-
-    private UnityEvent changeCardPosition;
+    private bool isKeyboard;
+    public bool IsKeyboard => isKeyboard;
+    
+    [SerializeField] private UnityEvent changeCardPosition;
 
 	[Header("** Console Debug Logs **")]
 	[SerializeField] private bool debug_CardState;
@@ -22,8 +25,23 @@ public class PlayerInput : MonoBehaviour//, IDragHandler
 		RightSwiped
 	}
 
-	// Update is called once per frame
-	void Update()
+    public void OnBeginDrag(PointerEventData eventData)
+    {
+        isKeyboard = false;
+    }
+
+    public void OnDrag(PointerEventData eventData)
+    {
+
+    }
+
+    public void OnEndDrag(PointerEventData eventData)
+    {
+
+    }
+
+        // Update is called once per frame
+        void Update()
 	{
         // Getting keyboard input
         keyboardInput = Input.GetAxisRaw("Horizontal");
@@ -31,11 +49,14 @@ public class PlayerInput : MonoBehaviour//, IDragHandler
         // Only first frame of key press
         if (Input.anyKeyDown)
         {
+            isKeyboard = true;
+
             // Set cardState with keyboardInput
             CheckCardStates();
         }
 
-        if (cardState != CardPositions.Middle && changeCardPosition != null)
+        // Changes card position when cardState is not in the middle, keyboard is being used, and event is not null
+        if (cardState != CardPositions.Middle && changeCardPosition != null && isKeyboard)
         {
             changeCardPosition.Invoke();
         }

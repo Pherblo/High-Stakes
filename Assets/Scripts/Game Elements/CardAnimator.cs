@@ -22,6 +22,7 @@ public class CardAnimator : MonoBehaviour, IDragHandler, IBeginDragHandler, IEnd
     [SerializeField] private Image _cardArt;
     [SerializeField] private TextMeshProUGUI _characterName;
     [SerializeField] private TextMeshProUGUI _characterTitle;
+    [SerializeField] private PlayerInput _playerInput;
     [Header("Draw Animation Settings (Swipe animation must have a duration of 1)")]
     [SerializeField] private float _swipeAnimationDuration = 1f;        // Assumes that the swipe animation has a duration of 1.
     [Header("Swipe Animation Settings")]
@@ -49,6 +50,8 @@ public class CardAnimator : MonoBehaviour, IDragHandler, IBeginDragHandler, IEnd
 
     private float _lerpValue = 0f;      // -1 = card is on the left. 1 = card is on the right. 0 = card is on the center.
 
+    public bool IsInteractable => _isInteractable;
+
     private void Awake()
     {
         _originalPosition = transform.position;
@@ -75,6 +78,8 @@ public class CardAnimator : MonoBehaviour, IDragHandler, IBeginDragHandler, IEnd
             MoveCard(eventData.position);
             RotateCard(eventData.position);
         }
+
+        Debug.Log(eventData.position);
     }
 
     public void OnEndDrag(PointerEventData eventData)
@@ -89,6 +94,28 @@ public class CardAnimator : MonoBehaviour, IDragHandler, IBeginDragHandler, IEnd
                 StartCoroutine(StartExitAnimation());
             }
             else StartCoroutine(SnapbackCard());
+        }
+    }
+
+    public void checkKeyboardInput()
+    {
+        // If card is interactable change card positions depending on CardState
+        if (_isInteractable)
+        {
+            if (_playerInput.IsKeyboard)
+            {
+                if (_playerInput.CardState == PlayerInput.CardPositions.Left)
+                {
+                    MoveCard(new Vector3(-_maxXOffset, 0, 0));
+                    RotateCard(new Vector3(0, 0, -_maxRotationOffset));
+                }
+                else if (_playerInput.CardState == PlayerInput.CardPositions.Right)
+                {
+                    MoveCard(new Vector3(_maxXOffset, 0, 0));
+                    RotateCard(new Vector3(0, 0, _maxRotationOffset));
+                }
+            }
+
         }
     }
 
