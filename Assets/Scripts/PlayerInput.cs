@@ -7,13 +7,10 @@ public class PlayerInput : MonoBehaviour//, IDragHandler
 {
 	private CardPositions cardState;
 	public CardPositions CardState => cardState;
-	private float currentMousePosition;
 	private float keyboardInput;
-	private float cardSwipeThreshold = 200;
 
 	[Header("** Console Debug Logs **")]
 	[SerializeField] private bool Debug_CardState;
-	//[SerializeField] private bool Debug_CurrentMousePosition;
 
 	public enum CardPositions
 	{
@@ -38,46 +35,8 @@ public class PlayerInput : MonoBehaviour//, IDragHandler
 
         CheckCardStates();
 
-        // Updating card states from currentMousePositions
-        if (currentMousePosition == 0)
-		{
-			cardState = CardPositions.Middle;
-		}
-        else if (currentMousePosition < 0 && currentMousePosition < -cardSwipeThreshold)
-        {
-            cardState = CardPositions.LeftSwiped;
-        }
-        else if (currentMousePosition > 0 && currentMousePosition > cardSwipeThreshold)
-        {
-            cardState = CardPositions.RightSwiped;
-        }
-        else if (currentMousePosition < 0)
-		{
-			cardState = CardPositions.Left;
-		}
-        else if (currentMousePosition > 0)
-        {
-            cardState = CardPositions.Right;
-        }
-
-        // When mouse is reeleased reset the mouses positon
-        if (Input.GetMouseButtonUp(0))
-		{
-			ResetMousePosition();
-		}
-
 		if(Debug_CardState) { Debug.Log("Cards State: " + cardState); }
-        //if (Debug_CurrentMousePosition) { Debug.Log("Current Mouse Position: " + currentMousePosition); }
     }
-
-	// When the players mouse click is moving
-	//public void OnDrag(PointerEventData eventData)
-	//{
-	//	// Update current mouse position to reflect the amount dragged
-	//	currentMousePosition += eventData.delta.x;
-
-	//	if (Debug_CurrentMousePosition) { Debug.Log("Current Mouse Position: " + currentMousePosition); }
-	//}
 
 	// Check card states with keyboard inputs
 	private void CheckCardStates()
@@ -88,14 +47,10 @@ public class PlayerInput : MonoBehaviour//, IDragHandler
             if (keyboardInput == -1)
             {
                 cardState = CardPositions.Left;
-
-                currentMousePosition -= 1; // temp
             }
             else if (keyboardInput == 1)
             {
                 cardState = CardPositions.Right;
-
-                currentMousePosition += 1; // temp
             }
         }
 
@@ -105,14 +60,10 @@ public class PlayerInput : MonoBehaviour//, IDragHandler
             if (keyboardInput == -1)
             {
                 cardState = CardPositions.LeftSwiped;
-
-                currentMousePosition = -cardSwipeThreshold; // temp
             }
             else if (keyboardInput == 1)
             {
                 cardState = CardPositions.Middle;
-
-                currentMousePosition = 0; // temp
             }
         }
 
@@ -122,20 +73,11 @@ public class PlayerInput : MonoBehaviour//, IDragHandler
             if (keyboardInput == -1)
             {
                 cardState = CardPositions.Middle;
-
-                currentMousePosition = 0; // temp
             }
             else if (keyboardInput == 1)
             {
                 cardState = CardPositions.RightSwiped;
-
-                currentMousePosition = cardSwipeThreshold; // temp
             }
         }
     }
-
-	public void ResetMousePosition()
-	{
-		currentMousePosition = 0;
-	}
 }
