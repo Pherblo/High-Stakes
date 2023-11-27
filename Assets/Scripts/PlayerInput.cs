@@ -1,18 +1,19 @@
-using Unity.PlasticSCM.Editor.WebApi;
 using UnityEngine;
-using UnityEngine.EventSystems;
-using UnityEngine.UIElements;
+using UnityEngine.Events;
 
 public class PlayerInput : MonoBehaviour//, IDragHandler
 {
-	private CardPositions cardState;
+	private CardPositions cardState = CardPositions.Middle;
 	public CardPositions CardState => cardState;
 	private float keyboardInput;
 
-	[Header("** Console Debug Logs **")]
-	[SerializeField] private bool Debug_CardState;
+    private UnityEvent changeCardPosition;
 
-	public enum CardPositions
+	[Header("** Console Debug Logs **")]
+	[SerializeField] private bool debug_CardState;
+    [SerializeField] private bool debug_KeyboardInput;
+
+    public enum CardPositions
 	{
 		LeftSwiped,
 		Left,
@@ -21,25 +22,31 @@ public class PlayerInput : MonoBehaviour//, IDragHandler
 		RightSwiped
 	}
 
-	// Start is called before the first frame update
-	void Start()
-	{
-		
-	}
-
 	// Update is called once per frame
 	void Update()
 	{
-		// Getting keyboard input
-		keyboardInput = Input.GetAxisRaw("Horizontal");
+        // Getting keyboard input
+        keyboardInput = Input.GetAxisRaw("Horizontal");
 
-        CheckCardStates();
+        // Only first frame of key press
+        if (Input.anyKeyDown)
+        {
+            // Set cardState with keyboardInput
+            CheckCardStates();
+        }
 
-		if(Debug_CardState) { Debug.Log("Cards State: " + cardState); }
+        if (cardState != CardPositions.Middle && changeCardPosition != null)
+        {
+            changeCardPosition.Invoke();
+        }
+
+        // ** Debugs **
+		if(debug_CardState) { Debug.Log("Cards State: " + cardState); }
+        if (debug_KeyboardInput) { Debug.Log("Keyboard Input: " + keyboardInput); }
     }
 
-	// Check card states with keyboard inputs
-	private void CheckCardStates()
+    // Check card states with keyboard inputs
+    private void CheckCardStates()
 	{
         // When card is in middle check if buttons are pressed and change to next position
         if (cardState == CardPositions.Middle)
@@ -47,6 +54,7 @@ public class PlayerInput : MonoBehaviour//, IDragHandler
             if (keyboardInput == -1)
             {
                 cardState = CardPositions.Left;
+
             }
             else if (keyboardInput == 1)
             {
@@ -55,7 +63,7 @@ public class PlayerInput : MonoBehaviour//, IDragHandler
         }
 
         // When card is in left position check if buttons are pressed and change to next position
-        if (cardState == CardPositions.Left)
+        else if (cardState == CardPositions.Left)
         {
             if (keyboardInput == -1)
             {
@@ -68,7 +76,7 @@ public class PlayerInput : MonoBehaviour//, IDragHandler
         }
 
         // When card is in right position check if buttons are pressed and change to next position
-        if (cardState == CardPositions.Right)
+        else if (cardState == CardPositions.Right)
         {
             if (keyboardInput == -1)
             {
