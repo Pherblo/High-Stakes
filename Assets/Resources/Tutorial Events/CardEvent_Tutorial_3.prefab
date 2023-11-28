@@ -59,10 +59,10 @@ MonoBehaviour:
   popularityValueB: 0
   _dialogueA:
     _dialogueIsActive: 1
-    _dialogueText: What?
+    _dialogueText: Worry not, I'm quite a collector.
     _charactersToBeDead: []
   _dialogueB:
     _dialogueIsActive: 1
-    _dialogueText: What?
+    _dialogueText: Im sure i can find some.
     _charactersToBeDead: []
   _conditions: []

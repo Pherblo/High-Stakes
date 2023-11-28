@@ -44,8 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88f96f567526aa749af23d098f8b50a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _name: ???
-  _title: God
+  _name: God
+  _title: 
   _isAlive: 1
   _characterArt: {fileID: 21300000, guid: debc54d85c2479c40bc496aa37b99da5, type: 3}
   _cardEvents:
