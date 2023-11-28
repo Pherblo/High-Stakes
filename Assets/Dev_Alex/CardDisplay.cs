@@ -88,13 +88,10 @@ public class CardDisplay : MonoBehaviour
 		OnDescriptionDisplayStart?.Invoke();
 
         //_cardDescription.RunDialogue(cardToDisplay.Description);
-		//_dialogueTextA.RunDialogue(cardToDisplay.DialogueA.DialogueText);
+        //_dialogueTextA.RunDialogue(cardToDisplay.DialogueA.DialogueText);
         //_dialogueTextB.RunDialogue(cardToDisplay.DialogueB.DialogueText);
 
-		// Updating Stat bottles from last card
-		suspicion.changeValue(cardToDisplay.suspicionValue);
-		faith.changeValue(cardToDisplay.faithValue);
-		popularity.changeValue(cardToDisplay.popularityValue);
+        ChangeStatsDisplays(cardToDisplay);
 	}
 
     public void ExitDisplay()
@@ -128,5 +125,28 @@ public class CardDisplay : MonoBehaviour
 		OnDescriptionDisplayEnd?.Invoke();
         _dialogueTextA.RunDialogue(_currentCardEvent.DialogueA.DialogueText);
         _dialogueTextB.RunDialogue(_currentCardEvent.DialogueB.DialogueText);
+    }
+
+    private void ChangeStatsDisplays( CardEvent cardToDisplay)
+    {
+        List<String> statsBeingChanged = cardToDisplay.GetStatsChanged();
+        // Updating Stat bottles from last card
+        suspicion.changeValue(cardToDisplay.GetStatsValue(suspicion));
+        faith.changeValue(cardToDisplay.GetStatsValue(faith));
+        popularity.changeValue(cardToDisplay.GetStatsValue(popularity));
+
+        for(int i =0; i<statsBeingChanged.Count; i++)
+        {
+            if(statsBeingChanged[i].ToLower().Equals( "suspicion"))
+            {
+                suspicion.Glow();
+            } else if (statsBeingChanged[i].ToLower().Equals("faith"))
+            {
+                faith.Glow();
+            } else if (statsBeingChanged[i].ToLower().Equals("popularity"))
+                {
+                popularity.Glow();
+            }
+        }
     }
 }
