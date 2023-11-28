@@ -31,7 +31,7 @@ public class CardSeries : CardBase
         if (_seriesIndex < _instancedCardEvents.Count)
         {
             // If the current card meets requirements.
-            if (_cardEvents[_seriesIndex].CheckRequirements())
+            if (_instancedCardEvents[_seriesIndex].CheckRequirements())
             {
                 return true;
             }
