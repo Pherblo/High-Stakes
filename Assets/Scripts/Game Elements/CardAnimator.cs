@@ -6,7 +6,12 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
-
+public enum CardPos
+{
+    left,
+    right,
+    middle
+}
 public class CardAnimator : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler
 {
     // In order for drag events to work on this 3D game object, the camera its assigned to must have a Graphic Raycaster component.
@@ -35,6 +40,9 @@ public class CardAnimator : MonoBehaviour, IDragHandler, IBeginDragHandler, IEnd
     [SerializeField] private float _exitDuration = 2f;
     [SerializeField] private float _rotationResetDuration = 0.25f;
     [SerializeField] private float _exitRotationSpeed = 180f;
+    [Header("Variable for seeom which dialogue is hovered: ")]
+    [SerializeField] public CardPos currentPos = CardPos.middle;
+
 
     // References to be passed onto the CardDisplay, done by CardManager.
     public Image CardArt => _cardArt;
@@ -106,6 +114,16 @@ public class CardAnimator : MonoBehaviour, IDragHandler, IBeginDragHandler, IEnd
         float lerpValue = GetLerpValue();
         transform.position = Vector3.Lerp(_originalPosition, targetPosition, lerpValue);
         _cachedNewPosition = transform.position;
+
+        //see if card is leaning left or right
+        if(targetPosition.x > _originalPosition.x)
+        {
+            currentPos = CardPos.right;
+        } else if(targetPosition.x < _originalPosition.x)
+        {
+            currentPos = CardPos.left;
+        }
+        print(currentPos);
     }
 
     private void RotateCard(Vector3 eventDataPosition)
