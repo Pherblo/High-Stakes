@@ -26,11 +26,17 @@ public class CardDisplay : MonoBehaviour
 	public Stats faith;
 	public Stats popularity;
 
+    [Header("Reference to animator")]
+    public CardAnimator animator;
+
     private void Awake()
     {
         _cardDescription.OnTextGenerationFinished += SetChoices;
     }
-
+    private void Update()
+    {
+        ChangeStatsDisplays(_currentCardEvent);
+    }
     // Changes dialogue depending on the swipe
     // Can be changed later to have a fade effect
     public void ToggleDialogues(CardSwipeDrag thisCardSwipe)
@@ -72,7 +78,7 @@ public class CardDisplay : MonoBehaviour
 	{
         // Cache the card.
         _currentCardEvent = cardToDisplay;
-
+        print(cardToDisplay);
         // Updating UI texts and art on the card.
         _cardName.text = cardToDisplay.AssociatedCharacter.Name;
 		_cardTitle.text = cardToDisplay.AssociatedCharacter.Title;
@@ -90,8 +96,7 @@ public class CardDisplay : MonoBehaviour
         //_cardDescription.RunDialogue(cardToDisplay.Description);
         //_dialogueTextA.RunDialogue(cardToDisplay.DialogueA.DialogueText);
         //_dialogueTextB.RunDialogue(cardToDisplay.DialogueB.DialogueText);
-
-        ChangeStatsDisplays(cardToDisplay);
+       
 	}
 
     public void ExitDisplay()
@@ -129,7 +134,15 @@ public class CardDisplay : MonoBehaviour
 
     private void ChangeStatsDisplays( CardEvent cardToDisplay)
     {
-        List<String> statsBeingChanged = cardToDisplay.GetStatsChanged();
+
+        List<String> statsBeingChanged = new List<string>();
+
+        if(animator.currentPos == CardPos.left)
+        {
+            statsBeingChanged = cardToDisplay.GetStatsChanged('A');
+        } else if (animator.currentPos == CardPos.right) {
+            statsBeingChanged = cardToDisplay.GetStatsChanged('B');
+        }
         // Updating Stat bottles from last card
         suspicion.changeValue(cardToDisplay.GetStatsValue(suspicion));
         faith.changeValue(cardToDisplay.GetStatsValue(faith));
