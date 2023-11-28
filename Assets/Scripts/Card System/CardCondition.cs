@@ -30,22 +30,35 @@ public class CardCondition
     public bool CheckCondition(List<CardDialogue> selectedChoices)
     {
         // Get the required choice.
+        // TODO: I hate this implementation btw but I just need it to work. -Lorenzo
+        string dialogueId = "";
         CardDialogue choiceCondition = null;
         if (_choiceCondition != ChoiceCondition.None)
         {
             if (_choiceCondition == ChoiceCondition.ChoiceA)
             {
                 choiceCondition = _cardReference.DialogueA;
+                dialogueId += _cardReference.DialogueA.DialogueText;
             }
             else if (_choiceCondition == ChoiceCondition.ChoiceB)
             {
                 choiceCondition = _cardReference.DialogueB;
+                dialogueId += _cardReference.DialogueB.DialogueText;
             }
 
             // Check if the required choice was previously chosen. If not, return false.
             if (selectedChoices.Exists((x) => x == choiceCondition))
             {
-                return false;
+                return true;
+            }
+            else
+            {
+                Debug.Log($"Required choice was not chosen. condition text: {choiceCondition.DialogueText}, selected choices count: {selectedChoices.Count}");
+            }
+
+            if (selectedChoices.Exists((x) => x.DialogueText == dialogueId))
+            {
+                return true;
             }
         }
 

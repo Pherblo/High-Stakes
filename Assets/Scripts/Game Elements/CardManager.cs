@@ -83,10 +83,12 @@ public class CardManager : MonoBehaviour
         if (direction == -1)
         {
             _currentCardEvent.ChooseDialogue(1);
+            _deck.ProcessCard(_currentCardEvent);
         }
         else
         {
             _currentCardEvent.ChooseDialogue(2);
+            _deck.ProcessCard(_currentCardEvent);
         }
     }
 }

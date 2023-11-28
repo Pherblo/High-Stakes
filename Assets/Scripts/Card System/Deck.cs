@@ -23,6 +23,7 @@ public class Deck : MonoBehaviour
     private List<CharacterData> _characters = new();
     private List<CardBase> _availableCards = new();
     private List<CardBase> _lockedCards = new();
+    private List<CardBase> _finishedCards = new();      // Storing finished cards here just for organization purposes.
     private List<CardDialogue> _selectedDialogues = new();
 
     private CardSeries _tutorialSeriesInstance;
@@ -130,7 +131,7 @@ public class Deck : MonoBehaviour
                 if (card.CheckRequirements())
                 {
                     card.OnDialogueSelected += ProcessCard;
-                    OnCardPicked?.Invoke(newCard);
+                    //OnCardPicked?.Invoke(newCard);
                     print(newCard);
                     return card;
                 }
@@ -207,7 +208,7 @@ public class Deck : MonoBehaviour
         return null;
     }*/
 
-    private void ProcessCard(CardEvent card)
+    public void ProcessCard(CardEvent card)
     {
         // Modify characters' alive/dead states if needed.
         // Store chosen dialogue.
@@ -222,20 +223,19 @@ public class Deck : MonoBehaviour
             _selectedDialogues.Add(card.DialogueB);
         }
 
-        /*
-		// Add cards from _lockedCards into _availableCards if requirements are met.
-		foreach(CardEvent lockedCard in _lockedCards)
-		{
-			if (lockedCard.CheckRequirements())
-			{
-				_lockedCards.Remove(lockedCard);
-				_availableCards.Add(lockedCard);
-			}
-		}
+        _availableCards.Remove(card);
+        _finishedCards.Add(card);
 
-		_availableCards.Remove(card);
-		*/
-        //_completedCards.Add(card);
+        // Sort all locked cards.
+        CardBase[] cardsToSort = _lockedCards.ToArray();
+        foreach (CardBase lockedCard in cardsToSort)
+        {
+            if (lockedCard.CheckRequirements())
+            {
+                _lockedCards.Remove(lockedCard);
+                _availableCards.Add(lockedCard);
+            }
+        }
     }
 
     [ContextMenu("Shuffle Test")]
