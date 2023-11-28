@@ -54,6 +54,7 @@ public class Stats : MonoBehaviour
         print("Change");
         print(_currentValue);
         bubbleBurst.Play();
+        gameObject.GetComponent<SpriteRenderer>().color = Color.white;
     }
 
     //check if player has died, and play corresponding particle animations. if dead, call OnDeath() for other scripts to listen to
@@ -94,5 +95,10 @@ public class Stats : MonoBehaviour
         potionMask.transform.localPosition = pos;
 
         checkForDeath();
+    }
+
+    public void Glow()
+    {
+        gameObject.GetComponent<SpriteRenderer>().color = Color.red;    
     }
 }
