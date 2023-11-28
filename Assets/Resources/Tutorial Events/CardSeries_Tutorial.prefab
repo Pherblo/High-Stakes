@@ -46,8 +46,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _cardEvents:
   - {fileID: -7277214892685732821, guid: 411de15f4280fb948ab0e5f76d4e2a7c, type: 3}
-  - {fileID: -7277214892685732821, guid: 2be38eb374531164288600451a4773fe, type: 3}
-  - {fileID: -7277214892685732821, guid: f024f795ae2627a4b877f83a7284d41b, type: 3}
-  - {fileID: -7277214892685732821, guid: f274a004e890911438cf0c972ffb269f, type: 3}
-  - {fileID: -7277214892685732821, guid: f66866e326a54714ba59d9701c65937c, type: 3}
-  - {fileID: -7277214892685732821, guid: a02089b11e8359946a6e8da1c3c7499c, type: 3}

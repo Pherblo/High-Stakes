@@ -46,6 +46,7 @@ public class Deck : MonoBehaviour
         {
             CardBase cardInstance = null;
             cardInstance = Instantiate(cardPrefab, transform);
+            if (cardInstance is CardEvent cardEventInstance) cardEventInstance.AssignDeck(this);
             _lockedCards.Add(cardInstance);
 
             // If it's a card series, also instantiate all its cards.
@@ -54,6 +55,7 @@ public class Deck : MonoBehaviour
                 foreach (CardEvent seriesCard in cardSeriesInstance.CardEvents)
                 {
                     CardEvent seriesCardInstance = Instantiate(seriesCard, transform);
+                    seriesCardInstance.AssignDeck(this);
                     cardSeriesInstance.AddCardToSeries(seriesCardInstance);
                 }
             }
@@ -67,6 +69,7 @@ public class Deck : MonoBehaviour
         foreach (CardEvent seriesCard in _tutorialSeriesInstance.CardEvents)
         {
             CardEvent seriesCardInstance = Instantiate(seriesCard, transform);
+            seriesCardInstance.AssignDeck(this);
             _tutorialSeriesInstance.AddCardToSeries(seriesCardInstance);
         }
         
@@ -100,17 +103,17 @@ public class Deck : MonoBehaviour
         }
     }
 
-    private void Start()
-    {
-        print(_tutorialSeriesInstance.name);
-    }
-
     public CardEvent PickCard()
     {
         if (_tutorialSeriesInstance.CheckRequirements())
         {
-            return _tutorialSeriesInstance.GetCard();
+            print("tutorial reqs passed");
+            var card = _tutorialSeriesInstance.GetCard();
+            print(card.gameObject.name);
+            return card;
+            //return _tutorialSeriesInstance.GetCard();
         }
+        else print("tutorial reqs failed");
 
         ShuffleDeck();
         // Pick out cards based on characters.

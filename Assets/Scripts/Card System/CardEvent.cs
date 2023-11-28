@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -52,6 +53,8 @@ public class CardEvent : CardBase
 	// public bool GuaranteedCard => _guaranteedCard;
 	public SelectedChoice PickedChoice => _pickedChoice;
 
+	private Deck _deckInstance;
+
     public override CardEvent GetCard()
     {
 		return this;
@@ -62,6 +65,12 @@ public class CardEvent : CardBase
 	{
         associatedCharacter = associatedCharacterInstance;
 	}
+
+	public void AssignDeck(Deck deck)
+	{
+		_deckInstance = deck;
+
+    }
 
     // Called via events.
     public void ChooseDialogue(int optionInt)
@@ -97,6 +106,20 @@ public class CardEvent : CardBase
 		{
 			return false;
 		}
+
+		foreach (CardCondition condition in _conditions)
+		{
+			if (condition.CheckCondition(_deckInstance.SelectedDialogues))
+			{
+				print("condition true");
+				return true;
+			}
+			else return false;
+		}
+
+		// Returns true by default if there are no conditions.
+		return true;
+
 		// Following comments probably don't work and are disabled for now. Meaning conditions won't work.
 		// For each of this cards dialogues requirements check if it is in selected dialogues
 		/*
@@ -114,8 +137,6 @@ public class CardEvent : CardBase
 			}
         }
 		*/
-		// Only returns true if all requirements are in selected dialogues
-		return true;
 	}
 
 	// Just a debug to use in a button to see if this works

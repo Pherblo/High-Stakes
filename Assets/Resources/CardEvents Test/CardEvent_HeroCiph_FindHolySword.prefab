@@ -64,4 +64,8 @@ MonoBehaviour:
     _dialogueIsActive: 1
     _dialogueText: Lie about the sword's location.
     _charactersToBeDead: []
-  _conditions: []
+  _conditions:
+  - _cardReference: {fileID: 4317882935473067645, guid: 6803ecc4e6f4f7341ba07053ac81e943, type: 3}
+    _choiceCondition: 1
+    _characterReference: {fileID: 0}
+    _lifeCondition: 0
