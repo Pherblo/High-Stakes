@@ -26,6 +26,12 @@ public class CardManager : MonoBehaviour
     {
         _currentCardAnimatorIndex = 0;
         _currentCardAnimator = _cardAnimators[0];
+
+        // Subscribe to input events.
+        foreach (CardAnimator cardAnimator in _cardAnimators)
+        {
+            cardAnimator.OnCardSwiped += ChooseChoice;
+        }
     }
 
     private void Start()
@@ -70,5 +76,17 @@ public class CardManager : MonoBehaviour
     {
         _cardDisplay.ExitDisplay();
         StartPickCard();
+    }
+
+    private void ChooseChoice(int direction)
+    {
+        if (direction == -1)
+        {
+            _currentCardEvent.ChooseDialogue(1);
+        }
+        else
+        {
+            _currentCardEvent.ChooseDialogue(2);
+        }
     }
 }

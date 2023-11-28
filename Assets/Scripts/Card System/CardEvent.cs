@@ -7,8 +7,8 @@ using UnityEngine.Events;
 public enum SelectedChoice
 {
 	None = 0,
-    ChoiceA = 1,
-    ChoiceB = 2
+    ChoiceA = 1,	// Left.
+    ChoiceB = 2		// Right.
 }
 
 // Is on a card prefab
@@ -63,8 +63,7 @@ public class CardEvent : CardBase
         associatedCharacter = associatedCharacterInstance;
 	}
 
-
-    // Called by player input via GUI.
+    // Called via events.
     public void ChooseDialogue(int optionInt)
 	{
 		// Maps int to a SelectedDialogue
