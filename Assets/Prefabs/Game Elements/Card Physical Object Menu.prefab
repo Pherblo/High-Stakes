@@ -66,7 +66,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Setting Name
+  m_text: Settings
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a712a6bca99fdea4f8097f39945b89aa, type: 2}
   m_sharedMaterial: {fileID: 7101651308525090611, guid: a712a6bca99fdea4f8097f39945b89aa, type: 2}
@@ -161,13 +161,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Card Physical Object Menu
       objectReference: {fileID: 0}
-    - target: {fileID: 9104934522058301783, guid: 7799755b8c1ef5845b5eb1a0db745d85, type: 3}
-      propertyPath: m_LocalPosition.x
+    - target: {fileID: 3035904770362267747, guid: 7799755b8c1ef5845b5eb1a0db745d85, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3042446899973345374, guid: 7799755b8c1ef5845b5eb1a0db745d85, type: 3}
+      propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9104934522058301783, guid: 7799755b8c1ef5845b5eb1a0db745d85, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 9104934522058301783, guid: 7799755b8c1ef5845b5eb1a0db745d85, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -8
       objectReference: {fileID: 0}
     - target: {fileID: 9104934522058301783, guid: 7799755b8c1ef5845b5eb1a0db745d85, type: 3}
       propertyPath: m_LocalPosition.z
