@@ -1,18 +1,23 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class StartMenuAnimations : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    private Animator anim;
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        
+        anim = GetComponent<Animator>();
+    }
+    public void LeftSettings()
+    {
+        anim.SetTrigger("LeftSetting");
+    }
+    public void MiddleSettings()
+    {
+        anim.SetTrigger("MiddleSetting");
+    }
+    public void RightSettings()
+    {
+        anim.SetTrigger("RightSetting");
     }
 }
