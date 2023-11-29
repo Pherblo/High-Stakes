@@ -25,6 +25,7 @@ public class CardDisplay : MonoBehaviour
 	public Stats suspicion;
 	public Stats faith;
 	public Stats popularity;
+    List<String> statsBeingChanged = new List<string>();
 
     [Header("Reference to animator")]
     public CardAnimator animator;
@@ -77,6 +78,7 @@ public class CardDisplay : MonoBehaviour
     public void UpdateCardDisplay(CardEvent cardToDisplay)
 	{
         // Cache the card.
+        statsBeingChanged.Clear();
         _currentCardEvent = cardToDisplay;
         print(cardToDisplay);
         // Updating UI texts and art on the card.
@@ -134,14 +136,15 @@ public class CardDisplay : MonoBehaviour
 
     private void ChangeStatsDisplays( CardEvent cardToDisplay)
     {
-
-        List<String> statsBeingChanged = new List<string>();
-
+        List<String> emptyList = new List<String>();
         if(animator.currentPos == CardPos.left)
         {
             statsBeingChanged = cardToDisplay.GetStatsChanged('A');
         } else if (animator.currentPos == CardPos.right) {
             statsBeingChanged = cardToDisplay.GetStatsChanged('B');
+        } else
+        {
+            statsBeingChanged = emptyList;
         }
         // Updating Stat bottles from last card
         suspicion.changeValue(cardToDisplay.GetStatsValue(suspicion));

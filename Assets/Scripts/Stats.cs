@@ -52,7 +52,7 @@ public class Stats : MonoBehaviour
 
         updateDisplay(); //set the display to show current value
         bubbleBurst.Play();
-        gameObject.GetComponent<SpriteRenderer>().color = Color.white;
+        ClearGlow();
     }
 
     //check if player has died, and play corresponding particle animations. if dead, call OnDeath() for other scripts to listen to
@@ -98,5 +98,10 @@ public class Stats : MonoBehaviour
     public void Glow()
     {
         gameObject.GetComponent<SpriteRenderer>().color = Color.red;    
+    }
+
+    public void ClearGlow()
+    {
+        gameObject.GetComponent<SpriteRenderer>().color = Color.white;
     }
 }

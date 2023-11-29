@@ -169,6 +169,7 @@ public class CardAnimator : MonoBehaviour, IDragHandler, IBeginDragHandler, IEnd
 
     private IEnumerator StartExitAnimation()
     {
+        currentPos = CardPos.middle;
         OnCardDiscard?.Invoke();
         float signedDirection = Mathf.Sign(_cachedNewPosition.x - _originalPosition.x);
         //_isInteractable = false;
