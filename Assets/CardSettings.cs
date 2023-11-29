@@ -44,7 +44,7 @@ public class CardSettings : MonoBehaviour
         if (debug_WhereWhenCalled) { Debug.Log("StopClickingOtherCards() was called from" + chosenCard.gameObject.name); }
 	}
 
-	public void StartClickingOtherCards()
+    public void StartClickingOtherCards()
 	{
         // Null reference checking
         if (cards != null && chosenCard != null)
@@ -52,13 +52,10 @@ public class CardSettings : MonoBehaviour
             // Turning the bool of this cards animator to false, is not choosing it anymore
             chosenCardAnimator.SetBool("CardIsChosen", false);
 
-            // Turning on the clickablity of each other cards
+            // Turning on the clickablity of each card
             foreach (var card in cards)
             {
-                if (card != chosenCard)
-                {
-                    card.enabled = true;
-                }
+                card.enabled = true;
             }
         }
 
@@ -70,6 +67,11 @@ public class CardSettings : MonoBehaviour
 	private void DelayCardIsChosen()
 	{
 		chosenCardAnimator.SetBool("CardIsChosen", true);
-		chosenCard.enabled = true;
-	}
+
+        // Only turn clicking back on auto after 1 second if it is not the settings option
+        if (!chosenCard.GetComponent<StartMenuAnimations>().IsSettings)
+        {
+            chosenCard.enabled = true;
+        }
+    }
 }
