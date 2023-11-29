@@ -34,7 +34,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -410.36, y: -185.01001}
+  m_AnchoredPosition: {x: 17.84, y: -7.94}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3742261187697107103
@@ -72,7 +72,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 40
-    m_Alignment: 0
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -113,7 +113,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -413.61002, y: -183.54002}
+  m_AnchoredPosition: {x: 12.89, y: -6.18}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5377749292382983091
@@ -151,13 +151,13 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 40
-    m_Alignment: 0
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Faith
+  m_Text: Souls
 --- !u!1 &4015104854751179523
 GameObject:
   m_ObjectHideFlags: 0
@@ -189,15 +189,15 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 2763662977578629708}
   - {fileID: 2724357573896821999}
   - {fileID: 9122177970244871077}
-  - {fileID: 2763662977578629708}
   m_Father: {fileID: 4319698630399578021}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 429, y: 177.5}
-  m_SizeDelta: {x: 858, y: 355}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 1920, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &6329190130487318257
 Canvas:
@@ -296,7 +296,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -418.41, y: -182.56532}
+  m_AnchoredPosition: {x: 8.23, y: -5.22}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4024724001012866099
@@ -334,7 +334,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 40
-    m_Alignment: 0
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -365,7 +365,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9206528196724472652}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -446,7 +446,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6513435619378750660, guid: d6335d1227d26e34686df45d7501272a, type: 3}
       propertyPath: m_InstanceId
-      value: -237744
+      value: -4464
       objectReference: {fileID: 0}
     - target: {fileID: 6628998663561142527, guid: d6335d1227d26e34686df45d7501272a, type: 3}
       propertyPath: potionTopSizeMultiplier
@@ -632,7 +632,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6513435619378750660, guid: d6335d1227d26e34686df45d7501272a, type: 3}
       propertyPath: m_InstanceId
-      value: -237588
+      value: -4386
       objectReference: {fileID: 0}
     - target: {fileID: 7176979458371832947, guid: d6335d1227d26e34686df45d7501272a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -782,7 +782,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6513435619378750660, guid: d6335d1227d26e34686df45d7501272a, type: 3}
       propertyPath: m_InstanceId
-      value: -237666
+      value: -4542
       objectReference: {fileID: 0}
     - target: {fileID: 6628998663561142527, guid: d6335d1227d26e34686df45d7501272a, type: 3}
       propertyPath: potionTopSizeMultiplier

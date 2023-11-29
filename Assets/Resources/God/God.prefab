@@ -47,7 +47,7 @@ MonoBehaviour:
   _name: ???
   _title: God
   _isAlive: 1
-  _characterArt: {fileID: 0}
+  _characterArt: {fileID: 21300000, guid: debc54d85c2479c40bc496aa37b99da5, type: 3}
   _cardEvents:
   - {fileID: -7277214892685732821, guid: 411de15f4280fb948ab0e5f76d4e2a7c, type: 3}
   - {fileID: -7277214892685732821, guid: 2be38eb374531164288600451a4773fe, type: 3}
