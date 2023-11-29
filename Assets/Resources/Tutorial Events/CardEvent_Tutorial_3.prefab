@@ -46,11 +46,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   associatedCharacter: {fileID: 8486864281894654719, guid: f446f56bc8fe023468d762d0a46e2622, type: 3}
   _description: "Yes souls. Where you get them doesn\u2019t matter. Though I\u2019m
-    sure you\u2019ll figure that out. This bottle will help you keep track of how
-    many souls you\u2019ve collected."
-  suspicionValue: 0
-  faithValue: 0
-  popularityValue: 0
+    sure you\u2019ll figure that out. Make sure this bottle doesnt get too low, otherwise
+    you'll find consequences."
   suspicionValueA: 0
   faithValueA: 0
   popularityValueA: 0
