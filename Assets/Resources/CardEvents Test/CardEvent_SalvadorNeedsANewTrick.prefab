@@ -47,9 +47,7 @@ MonoBehaviour:
   associatedCharacter: {fileID: 1095002341841383241, guid: fd4a9a357ca293741bfde4ca586a1d4b, type: 3}
   _description: My job's getting a little boring. Anyway you can help me bring back
     the thrill?
-  suspicionValue: 0
-  faithValue: 10
-  popularityValue: 0
+  _guaranteedCard: 0
   suspicionValueA: 0
   faithValueA: 0
   popularityValueA: 0
@@ -64,8 +62,4 @@ MonoBehaviour:
     _dialogueIsActive: 1
     _dialogueText: Curse Salvador.
     _charactersToBeDead: []
-  _conditions:
-  - _cardReference: {fileID: 4317882935473067645, guid: 6803ecc4e6f4f7341ba07053ac81e943, type: 3}
-    _choiceCondition: 1
-    _characterReference: {fileID: 0}
-    _lifeCondition: 0
+  _conditions: []

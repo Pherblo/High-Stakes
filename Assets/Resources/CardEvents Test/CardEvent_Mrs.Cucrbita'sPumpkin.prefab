@@ -47,9 +47,7 @@ MonoBehaviour:
   associatedCharacter: {fileID: 1095002341841383241, guid: 227ccc505faaac9498af86fab4d6dc3f, type: 3}
   _description: My husband's pumpkin is never going to win the contest. He'll be
     crushed and we could really use the money. Any way you can help Hira?
-  suspicionValue: 15
-  faithValue: 0
-  popularityValue: 10
+  _guaranteedCard: 0
   suspicionValueA: 0
   faithValueA: 0
   popularityValueA: 0
@@ -64,8 +62,4 @@ MonoBehaviour:
     _dialogueIsActive: 1
     _dialogueText: Give her poisonous fertilizer.
     _charactersToBeDead: []
-  _conditions:
-  - _cardReference: {fileID: 4317882935473067645, guid: 6803ecc4e6f4f7341ba07053ac81e943, type: 3}
-    _choiceCondition: 1
-    _characterReference: {fileID: 0}
-    _lifeCondition: 0
+  _conditions: []

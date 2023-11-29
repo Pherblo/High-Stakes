@@ -18,6 +18,11 @@ public class Deck : MonoBehaviour
     [SerializeField] private string _tutorialSeriesPath;
     [SerializeField] private string _endCardsPath;
 
+    [Header("Scene References")]
+    [SerializeField] private Stats _suspicion;
+    [SerializeField] private Stats _souls;
+    [SerializeField] private Stats _popularity;
+
     [Header("Tutorial Settings")]
     [SerializeField] private CardSeries _tutorialCardSeries;
 
@@ -36,6 +41,9 @@ public class Deck : MonoBehaviour
     private CardEvent _defaultEndCardInstance;
 
     public List<CardDialogue> SelectedDialogues => _selectedDialogues;
+    public Stats Suspicion => _suspicion;
+    public Stats Souls => _souls;
+    public Stats Popularity => _popularity;
 
     [Header("Variables to keep track of game")]
     private bool runningTutorial;
@@ -264,10 +272,14 @@ public class Deck : MonoBehaviour
 
         if (card.PickedChoice == SelectedChoice.ChoiceA)
         {
+            Suspicion.changeValue(card.suspicionValueA);
+            Popularity.changeValue(card.popularityValueA);
             _selectedDialogues.Add(card.DialogueA);
         }
         else if (card.PickedChoice == SelectedChoice.ChoiceB)
         {
+            Suspicion.changeValue(card.suspicionValueB);
+            Popularity.changeValue(card.popularityValueB);
             _selectedDialogues.Add(card.DialogueB);
         }
 

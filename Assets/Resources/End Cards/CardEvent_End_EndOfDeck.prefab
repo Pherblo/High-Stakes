@@ -47,9 +47,6 @@ MonoBehaviour:
   associatedCharacter: {fileID: 8486864281894654719, guid: f446f56bc8fe023468d762d0a46e2622, type: 3}
   _description: You reached the end of the deck.
   _guaranteedCard: 0
-  suspicionValue: 0
-  faithValue: 10
-  popularityValue: 0
   suspicionValueA: 0
   faithValueA: 0
   popularityValueA: 0
@@ -67,9 +64,15 @@ MonoBehaviour:
   _conditions:
   - _cardReference: {fileID: 4317882935473067645, guid: 75280082bb2dfde4bacf61c48326efa2, type: 3}
     _choiceCondition: 1
+    _suspicionRequirement: 9999
+    _soulsRequirement: 0
+    _popularityRequirement: 0
     _characterReference: {fileID: 0}
     _lifeCondition: 0
   - _cardReference: {fileID: 4317882935473067645, guid: 75280082bb2dfde4bacf61c48326efa2, type: 3}
     _choiceCondition: 2
+    _suspicionRequirement: 9999
+    _soulsRequirement: 0
+    _popularityRequirement: 0
     _characterReference: {fileID: 0}
     _lifeCondition: 0

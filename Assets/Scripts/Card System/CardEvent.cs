@@ -120,7 +120,7 @@ public class CardEvent : CardBase
 
 		foreach (CardCondition condition in _conditions)
 		{
-			if (condition.CheckCondition(_deckInstance.SelectedDialogues))
+			if (condition.CheckCondition(_deckInstance.SelectedDialogues, _deckInstance))
 			{
 				print("condition true");
 				return true;

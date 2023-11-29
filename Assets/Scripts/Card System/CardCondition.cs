@@ -23,66 +23,60 @@ public class CardCondition
     [Header("Selected Dialogue Condition")]
     [SerializeField] private CardEvent _cardReference;
     [SerializeField] private ChoiceCondition _choiceCondition = ChoiceCondition.None;
+    [Header("Stat Conditions")]
+    [SerializeField] private float _suspicionRequirement = 0;
+    [SerializeField] private float _soulsRequirement = 0;
+    [SerializeField] private float _popularityRequirement = 0;
     [Header("Character Life Condition")]
     [SerializeField] private CharacterData _characterReference;
     [SerializeField] private LifeCondition _lifeCondition = LifeCondition.None;
 
-    public bool CheckCondition(List<CardDialogue> selectedChoices)
+    public bool CheckCondition(List<CardDialogue> selectedChoices, Deck deck)
     {
         // Get the required choice.
-        // TODO: I hate this implementation btw but I just need it to work. -Lorenzo
+
+        // TODO: I hate this id implementation btw but I just need it to work. -Lorenzo
         string dialogueId = "";
-        CardDialogue choiceCondition = null;
-        if (_choiceCondition != ChoiceCondition.None)
+
+        // Parts of this code is commented cuz i'll work on them later to replace dialogueId.
+        //CardDialogue choiceCondition = null;
+        if (_choiceCondition != ChoiceCondition.None && _cardReference != null)
         {
             if (_choiceCondition == ChoiceCondition.ChoiceA)
             {
-                choiceCondition = _cardReference.DialogueA;
+                //choiceCondition = _cardReference.DialogueA;
                 dialogueId += _cardReference.DialogueA.DialogueText;
             }
             else if (_choiceCondition == ChoiceCondition.ChoiceB)
             {
-                choiceCondition = _cardReference.DialogueB;
+                //choiceCondition = _cardReference.DialogueB;
                 dialogueId += _cardReference.DialogueB.DialogueText;
             }
 
             // Check if the required choice was previously chosen. If not, return false.
-            if (selectedChoices.Exists((x) => x == choiceCondition))
+            /*if (selectedChoices.Exists((x) => x == choiceCondition))
             {
                 return true;
             }
             else
             {
                 Debug.LogWarning($"Required choice was not chosen. condition text: {choiceCondition.DialogueText}, selected choices count: {selectedChoices.Count}");
-            }
+            }*/
 
-            if (selectedChoices.Exists((x) => x.DialogueText == dialogueId))
-            {
-                return true;
-            }
-        }
-
-        // Evaluate character life prerequisites. TODO: Reference a list that tracks characters' life states.
-        /*
-        if (_lifeCondition != LifeCondition.None)
-        {
-            if (_choiceCondition == ChoiceCondition.ChoiceA)
-            {
-                choiceCondition = _cardReference.DialogueA;
-            }
-            else if (_choiceCondition == ChoiceCondition.ChoiceB)
-            {
-                choiceCondition = _cardReference.DialogueB;
-            }
-
-            // Check if the required choice was previously chosen. If not, return false.
-            if (selectedChoices.Exists((x) => x == choiceCondition))
+            // Check if selected dialogue exists.
+            if (!selectedChoices.Exists((x) => x.DialogueText == dialogueId))
             {
                 return false;
             }
         }
-        */
 
-        return false;
+        if (deck.Suspicion.getValue() < _suspicionRequirement
+                || deck.Souls.getValue() < _soulsRequirement
+                || deck.Popularity.getValue() < _popularityRequirement)
+        {
+            return false;
+        }
+
+        return true;
     }
 }
