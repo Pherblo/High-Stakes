@@ -53,7 +53,7 @@ public class CardCondition
             }
             else
             {
-                Debug.Log($"Required choice was not chosen. condition text: {choiceCondition.DialogueText}, selected choices count: {selectedChoices.Count}");
+                Debug.LogWarning($"Required choice was not chosen. condition text: {choiceCondition.DialogueText}, selected choices count: {selectedChoices.Count}");
             }
 
             if (selectedChoices.Exists((x) => x.DialogueText == dialogueId))

@@ -127,15 +127,15 @@ public class Deck : MonoBehaviour
     public CardEvent PickCard()
     {
         // Pick end cards, if any.
-        Debug.LogWarning($"{_endCards[0].gameObject.name}, {_endCards[0].CheckRequirements()}, dialogue selected: {_selectedDialogues.Count}");
-        /*foreach (CardEvent endCard in _endCards)
+        //Debug.LogWarning($"{_endCards[0].gameObject.name}, {_endCards[0].CheckRequirements()}, dialogue selected: {_selectedDialogues.Count}");
+        foreach (CardEvent endCard in _endCards)
         {
             if (endCard.CheckRequirements())
             {
                 return endCard;
             }
-        }*/
-        for (int i = 0; i < _endCards.Count; i++)
+        }
+        /*for (int i = 0; i < _endCards.Count; i++)
         {
             if (_endCards[i].CheckRequirements())
             {
@@ -146,7 +146,7 @@ public class Deck : MonoBehaviour
                 Debug.LogWarning($"not valid condition: {_endCards[i]}");
                 Debug.LogWarning($"dialogue count: {SelectedDialogues.Count}");
             }
-        }
+        }*/
 
         // Return first guaranteed card, if any.
         if (_guaranteedCards.Count > 0)

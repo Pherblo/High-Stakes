@@ -65,7 +65,7 @@ MonoBehaviour:
     _dialogueText: End life.
     _charactersToBeDead: []
   _conditions:
-  - _cardReference: {fileID: 4317882935473067645}
+  - _cardReference: {fileID: 4317882935473067645, guid: 6803ecc4e6f4f7341ba07053ac81e943, type: 3}
     _choiceCondition: 2
     _characterReference: {fileID: 0}
     _lifeCondition: 0

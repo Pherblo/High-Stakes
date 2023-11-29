@@ -27,19 +27,15 @@ public class CardSeries : CardBase
 
     public override bool CheckRequirements()
     {
-        print($"checking series card reqs. index:{_seriesIndex}, count: {_instancedCardEvents.Count}");
         // Check if all cards completed.
         if (_seriesIndex < _instancedCardEvents.Count)
         {
-            print("start checking series");
             // If the current card meets requirements.
             if (_instancedCardEvents[_seriesIndex].CheckRequirements())
             {
-                print($"series card doesnt meet requirements. index: {_seriesIndex}, count: {_instancedCardEvents.Count}");
                 return true;
             }
         }
-        print("series has no card with reqs true");
         return false;
     }
 
