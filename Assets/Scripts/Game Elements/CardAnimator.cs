@@ -65,6 +65,11 @@ public class CardAnimator : MonoBehaviour, IDragHandler, IBeginDragHandler, IEnd
         _animator.speed = 1f / _swipeAnimationDuration;
     }
 
+    private void Update()
+    {
+        print(currentPos);
+    }
+
     public void OnBeginDrag(PointerEventData eventData)
     {
         if (_isInteractable)
@@ -91,7 +96,6 @@ public class CardAnimator : MonoBehaviour, IDragHandler, IBeginDragHandler, IEnd
         {
             //StartCoroutine(SnapbackCard());
             float dragLength = (GetMousePosition(eventData.position) - _cachedDragStartPosition).magnitude;
-            print(dragLength);
             if (dragLength >= _maxXOffset)
             {
                 StartCoroutine(StartExitAnimation());
@@ -116,14 +120,14 @@ public class CardAnimator : MonoBehaviour, IDragHandler, IBeginDragHandler, IEnd
         _cachedNewPosition = transform.position;
 
         //see if card is leaning left or right
-        if(targetPosition.x > _originalPosition.x)
+        if (targetPosition.x > _originalPosition.x)
         {
             currentPos = CardPos.right;
-        } else if(targetPosition.x < _originalPosition.x)
+        }
+        else if (targetPosition.x < _originalPosition.x)
         {
             currentPos = CardPos.left;
         }
-        print(currentPos);
     }
 
     private void RotateCard(Vector3 eventDataPosition)
@@ -147,7 +151,7 @@ public class CardAnimator : MonoBehaviour, IDragHandler, IBeginDragHandler, IEnd
         Vector3 currentPosition = transform.position;
         Quaternion currentRotation = transform.rotation;
         float timer = 0f;
-
+        currentPos = CardPos.middle;
         do
         {
             timer += Time.deltaTime;

@@ -23,8 +23,9 @@ public class CardEvent : MonoBehaviour
 
 	[Header("stat change values")]
 
-	private List<String> statsChanged = new List<string>();
-	private float suspicionValue =0;
+	private List<String> statsChangedA = new List<string>();
+    private List<String> statsChangedB = new List<string>();
+    private float suspicionValue =0;
     private float faithValue = 0;
     private float popularityValue = 0;  //this is a quick fix can be changed later
 
@@ -51,6 +52,8 @@ public class CardEvent : MonoBehaviour
 	public CardDialogue DialogueB => _dialogueB;
 	// public bool GuaranteedCard => _guaranteedCard;
 	public SelectedChoice PickedChoice => _pickedChoice;
+
+
 
     private void Update()
     {
@@ -127,25 +130,50 @@ public class CardEvent : MonoBehaviour
 
 	private void FindStatsChanged()
 	{
-        if (suspicionValue != suspicionValueA || suspicionValue != suspicionValueB)
+	
+            if (suspicionValue != suspicionValueA)
+            {
+                statsChangedA.Add("suspicion");
+            }
+
+            if (faithValue != faithValueA)
+            {
+                statsChangedA.Add("faith");
+            }
+
+            if (popularityValue != popularityValueA)
+            {
+                statsChangedA.Add("popularity");
+            }
+
+        if (suspicionValue != suspicionValueB)
         {
-            statsChanged.Add("suspicion");
+            statsChangedB.Add("suspicion");
         }
 
-        if (faithValue != faithValueA || faithValue != faithValueB)
+        if (faithValue != faithValueB)
         {
-            statsChanged.Add("faith");
+            statsChangedB.Add("faith");
         }
 
-        if (popularityValue != popularityValueA || popularityValue != popularityValueB)
+        if (popularityValue != popularityValueB)
         {
-            statsChanged.Add("popularity");
+            statsChangedB.Add("popularity");
         }
     }
 
-	public List<String> GetStatsChanged()
+    
+
+	public List<String> GetStatsChanged(Char list)
 	{
-		return statsChanged;
+		if(list == 'A')
+	{
+		return statsChangedA;
+	} else if( list == 'B')
+	{
+			return statsChangedB;
+	}
+		return null;
 	}
 
 	public float GetStatsValue(Stats stat)
