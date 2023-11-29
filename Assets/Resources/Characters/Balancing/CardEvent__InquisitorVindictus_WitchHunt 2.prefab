@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6968691294569748046}
   - component: {fileID: 4317882935473067645}
   m_Layer: 0
-  m_Name: CardEvent_ClydeNeedsHerbs
+  m_Name: CardEvent__InquisitorVindictus_WitchHunt 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,24 +44,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa8740551ebe6184eb914bebb0fafe14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  associatedCharacter: {fileID: 1095002341841383241, guid: cb024f176ca5b5344b077ee2d8b12c2e, type: 3}
-  _description: Madam, the doctor had ran out of medicinal herbs. Perchance you have
-    some to spare for us?
+  associatedCharacter: {fileID: 1095002341841383241, guid: 628168e8134464949a320e096d08c27c, type: 3}
+  _description: I am a poor person. But a charitable person whom all loves. i want
+    tea.
   suspicionValue: 0
   faithValue: 0
-  popularityValue: 10
-  suspicionValueA: 0
+  popularityValue: 0
+  suspicionValueA: -10
   faithValueA: 0
-  popularityValueA: 0
-  suspicionValueB: -10
-  faithValueB: 0
-  popularityValueB: 0
+  popularityValueA: 10
+  suspicionValueB: 0
+  faithValueB: 10
+  popularityValueB: -10
   _dialogueA:
     _dialogueIsActive: 1
-    _dialogueText: Donate medicinal herbs.
+    _dialogueText: Give tea.
     _charactersToBeDead: []
   _dialogueB:
     _dialogueIsActive: 1
-    _dialogueText: 'Give poisonous herbs '
+    _dialogueText: Kill the idiot
     _charactersToBeDead: []
   _conditions: []
