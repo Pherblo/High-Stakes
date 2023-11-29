@@ -218,6 +218,50 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -54.48}
+--- !u!1 &445873672
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 445873674}
+  - component: {fileID: 445873673}
+  m_Layer: 0
+  m_Name: Scene Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &445873673
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 445873672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 410f4cffdf8c7084684ae0e558e42b31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &445873674
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 445873672}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &687447229
 GameObject:
   m_ObjectHideFlags: 0
@@ -1094,6 +1138,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1314884451261301850, guid: 2f77fc79a79898147a1b92eeeb923f69, type: 3}
+      propertyPath: m_Name
+      value: Artists
+      objectReference: {fileID: 0}
     - target: {fileID: 1506479238998958149, guid: 2f77fc79a79898147a1b92eeeb923f69, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3
@@ -1134,6 +1182,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 16.05
       objectReference: {fileID: 0}
+    - target: {fileID: 2222429173935239179, guid: 2f77fc79a79898147a1b92eeeb923f69, type: 3}
+      propertyPath: m_text
+      value: 'Programmers:
+
+
+        Lorenzo Ortiz
+
+        Angel Gamis
+
+        Alex
+        Bacon'
+      objectReference: {fileID: 0}
     - target: {fileID: 3014474675007661292, guid: 2f77fc79a79898147a1b92eeeb923f69, type: 3}
       propertyPath: whenClicked.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
@@ -1142,9 +1202,57 @@ PrefabInstance:
       propertyPath: otherWhenClicked.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 207488691}
+    - target: {fileID: 4419565917684339648, guid: 2f77fc79a79898147a1b92eeeb923f69, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4419565917684339648, guid: 2f77fc79a79898147a1b92eeeb923f69, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 1.2000008
+      objectReference: {fileID: 0}
+    - target: {fileID: 4898865173267851719, guid: 2f77fc79a79898147a1b92eeeb923f69, type: 3}
+      propertyPath: m_text
+      value: 'Artists:
+
+
+        Zach Anderstedt
+
+        Rain Porayko
+
+        Ester
+        Adibrata'
+      objectReference: {fileID: 0}
+    - target: {fileID: 4898865173267851719, guid: 2f77fc79a79898147a1b92eeeb923f69, type: 3}
+      propertyPath: m_fontColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4898865173267851719, guid: 2f77fc79a79898147a1b92eeeb923f69, type: 3}
+      propertyPath: m_fontColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4898865173267851719, guid: 2f77fc79a79898147a1b92eeeb923f69, type: 3}
+      propertyPath: m_fontColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4898865173267851719, guid: 2f77fc79a79898147a1b92eeeb923f69, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 4898865173267851719, guid: 2f77fc79a79898147a1b92eeeb923f69, type: 3}
+      propertyPath: m_enableVertexGradient
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8359438296061966585, guid: 2f77fc79a79898147a1b92eeeb923f69, type: 3}
       propertyPath: m_Name
       value: Card Physical Object Menu Credits
+      objectReference: {fileID: 0}
+    - target: {fileID: 8783172106815600662, guid: 2f77fc79a79898147a1b92eeeb923f69, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8783172106815600662, guid: 2f77fc79a79898147a1b92eeeb923f69, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -1.05
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1465,3 +1573,4 @@ SceneRoots:
   - {fileID: 7440985630863158362}
   - {fileID: 6163159587915404543}
   - {fileID: 687447232}
+  - {fileID: 445873674}
