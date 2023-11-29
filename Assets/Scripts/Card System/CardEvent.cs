@@ -23,10 +23,10 @@ public class CardEvent : MonoBehaviour
 
 	[Header("stat change values")]
 
-
-	public float suspicionValue =0;
-    public float faithValue = 0;
-    public float popularityValue = 0;  //this is a quick fix can be changed later
+	private List<String> statsChanged = new List<string>();
+	private float suspicionValue =0;
+    private float faithValue = 0;
+    private float popularityValue = 0;  //this is a quick fix can be changed later
 
     public float suspicionValueA = 0;
     public float faithValueA = 0;
@@ -52,8 +52,12 @@ public class CardEvent : MonoBehaviour
 	// public bool GuaranteedCard => _guaranteedCard;
 	public SelectedChoice PickedChoice => _pickedChoice;
 
-	// TODO: Improve this. Likely separate initial associatedCharacter variable from instanced associatedCharacter variable.
-	public void AssignCharacter(CharacterData associatedCharacterInstance)
+    private void Update()
+    {
+		FindStatsChanged(); //find the list of stats changed
+    }
+    // TODO: Improve this. Likely separate initial associatedCharacter variable from instanced associatedCharacter variable.
+    public void AssignCharacter(CharacterData associatedCharacterInstance)
 	{
         associatedCharacter = associatedCharacterInstance;
 	}
@@ -79,9 +83,14 @@ public class CardEvent : MonoBehaviour
         if (_pickedChoice == SelectedChoice.ChoiceA)
 		{
 			suspicionValue = suspicionValueA;
+			faithValue = faithValueA;
+			popularityValue= popularityValueA;
+			
 		} else if (_pickedChoice == SelectedChoice.ChoiceB)
 		{
 			suspicionValue = suspicionValueB;
+			faithValue = faithValueB;
+			popularityValue= popularityValueB;	
 		}
     }
 
@@ -116,5 +125,43 @@ public class CardEvent : MonoBehaviour
 		Debug.Log("Requirements met for this card: " + CheckRequirements());
     }
 
+	private void FindStatsChanged()
+	{
+        if (suspicionValue != suspicionValueA || suspicionValue != suspicionValueB)
+        {
+            statsChanged.Add("suspicion");
+        }
+
+        if (faithValue != faithValueA || faithValue != faithValueB)
+        {
+            statsChanged.Add("faith");
+        }
+
+        if (popularityValue != popularityValueA || popularityValue != popularityValueB)
+        {
+            statsChanged.Add("popularity");
+        }
+    }
+
+	public List<String> GetStatsChanged()
+	{
+		return statsChanged;
+	}
+
+	public float GetStatsValue(Stats stat)
+	{
+		float statValue = 0;
+		if(stat.name == "popularity")
+		{
+			statValue = popularityValue;
+		} else if(stat.name == "faith")
+		{
+			statValue = faithValue;
+		} else if( stat.name == "suspicion")
+		{
+			statValue = suspicionValue;
+		}
+		return statValue;
+	}
 
 }
