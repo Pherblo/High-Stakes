@@ -10,36 +10,61 @@ public class CardSettings : MonoBehaviour
 	private OnClickSwitch chosenCard;
 	private Animator chosenCardAnimator;
 
-	public void StopClickingOtherCards(OnClickSwitch thisCard)
-	{
-		// Caching this cards components
-		chosenCard = thisCard;
-		chosenCardAnimator = chosenCard.GetComponent<Animator>();
+    [Header("** Console Debug Logs **")]
+    [SerializeField] private bool debug_WhereWhenCalled;
 
-		// Turning off the clickablity of each card
-		foreach (var card in cards)
+    private void Start()
+    {
+        if (cards == null)
 		{
-			card.enabled = false;
+			Debug.LogWarning(gameObject.name + "'s 'cards' are null. Please enter in setting cards into list.");
 		}
+    }
 
-		// Turn on CardIsChosen after the animation is played and turn clickability back on
-		Invoke("DelayCardIsChosen", 1f);
+    public void StopClickingOtherCards(OnClickSwitch thisCard)
+	{
+		// Null reference checking
+		if(cards != null)
+		{
+            // Caching this cards components
+            chosenCard = thisCard;
+            chosenCardAnimator = chosenCard.GetComponent<Animator>();
+
+            // Turning off the clickablity of each card
+            foreach (var card in cards)
+            {
+                card.enabled = false;
+            }
+
+            // Turn on CardIsChosen after the animation is played and turn clickability back on
+            Invoke("DelayCardIsChosen", 1f);
+        }
+
+        // ** Debugs **
+        if (debug_WhereWhenCalled) { Debug.Log("StopClickingOtherCards() was called from" + chosenCard.gameObject.name); }
 	}
 
 	public void StartClickingOtherCards()
 	{
-		// Turning the bool of this cards animator to false, is not choosing it anymore
-		chosenCardAnimator.SetBool("CardIsChosen", false);
-
-		// Turning on the clickablity of each other cards
-		foreach (var card in cards)
+        // Null reference checking
+        if (cards != null && chosenCard != null)
 		{
-			if(card != chosenCard)
-			{
-				card.enabled = true;
-			}
-		}
-	}
+            // Turning the bool of this cards animator to false, is not choosing it anymore
+            chosenCardAnimator.SetBool("CardIsChosen", false);
+
+            // Turning on the clickablity of each other cards
+            foreach (var card in cards)
+            {
+                if (card != chosenCard)
+                {
+                    card.enabled = true;
+                }
+            }
+        }
+
+        // ** Debugs **
+        if (debug_WhereWhenCalled) { Debug.Log("StartClickingOtherCards() was called from" + chosenCard.gameObject.name); }
+    }
 
 	// Turn CardIsChosen to true after a second so the animation can run before stopping
 	private void DelayCardIsChosen()
