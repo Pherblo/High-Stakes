@@ -3,8 +3,10 @@ using UnityEngine;
 // Ajusting and setting card statuses
 public class CardSettings : MonoBehaviour
 {
+	[Header("List of All Card Settings")]
 	[SerializeField] private OnClickSwitch[] cards;
 
+	[Header("Chosen card's cached references")]
 	private OnClickSwitch chosenCard;
 	private Animator chosenCardAnimator;
 
@@ -14,7 +16,7 @@ public class CardSettings : MonoBehaviour
 		chosenCard = thisCard;
 		chosenCardAnimator = chosenCard.GetComponent<Animator>();
 
-		// Turning off the clickablity of each cards
+		// Turning off the clickablity of each card
 		foreach (var card in cards)
 		{
 			card.enabled = false;

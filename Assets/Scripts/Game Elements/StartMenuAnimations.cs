@@ -6,8 +6,11 @@ public class StartMenuAnimations : MonoBehaviour
 
     private void Start()
     {
+        // Get this objects animator
         anim = GetComponent<Animator>();
     }
+
+    // Run one of the setting cards animations
     public void LeftSettings()
     {
         anim.SetTrigger("LeftSetting");
