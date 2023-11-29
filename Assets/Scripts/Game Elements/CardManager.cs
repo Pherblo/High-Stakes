@@ -74,12 +74,14 @@ public class CardManager : MonoBehaviour
 
     public void StartDiscardingCard()
     {
+        Debug.LogWarning($"pick new card. dialogue count: {_deck.SelectedDialogues.Count}");
         _cardDisplay.ExitDisplay();
         StartPickCard();
     }
 
     private void ChooseChoice(int direction)
     {
+        Debug.LogWarning($"processing card. dialogue count: {_deck.SelectedDialogues.Count}");
         if (direction == -1)
         {
             _currentCardEvent.ChooseDialogue(1);

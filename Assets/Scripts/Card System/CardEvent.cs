@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -20,6 +19,7 @@ public class CardEvent : CardBase
 	[Header("Card Settings")]
 	[SerializeField] private CharacterData associatedCharacter;
 	[SerializeField, TextArea] private string _description;
+	[SerializeField] private bool _guaranteedCard = false;
 	// [SerializeField] private bool _guaranteedCard = false; // If true, this card will be played next once requirements are met.
 
 	[Header("stat change values")]
@@ -48,6 +48,7 @@ public class CardEvent : CardBase
 
 	public CharacterData AssociatedCharacter => associatedCharacter;
 	public string Description => _description;
+	public bool GuaranteedCard => _guaranteedCard;
 	public CardDialogue DialogueA => _dialogueA;
 	public CardDialogue DialogueB => _dialogueB;
 	// public bool GuaranteedCard => _guaranteedCard;

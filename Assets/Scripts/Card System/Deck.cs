@@ -16,17 +16,24 @@ public class Deck : MonoBehaviour
     [SerializeField] private string _charactersPath;
     [SerializeField] private string _cardsPath;
     [SerializeField] private string _tutorialSeriesPath;
+    [SerializeField] private string _endCardsPath;
 
     [Header("Tutorial Settings")]
     [SerializeField] private CardSeries _tutorialCardSeries;
+
+    [Header("Default End Card")]
+    [SerializeField] private CardEvent _defaultEndCard;     // Gets picked when there are no available cards left.
 
     private List<CharacterData> _characters = new();
     private List<CardBase> _availableCards = new();
     private List<CardBase> _lockedCards = new();
     private List<CardBase> _finishedCards = new();      // Storing finished cards here just for organization purposes.
     private List<CardDialogue> _selectedDialogues = new();
+    private List<CardEvent> _guaranteedCards = new();
+    private List<CardEvent> _endCards = new();
 
     private CardSeries _tutorialSeriesInstance;
+    private CardEvent _defaultEndCardInstance;
 
     public List<CardDialogue> SelectedDialogues => _selectedDialogues;
 
@@ -102,19 +109,60 @@ public class Deck : MonoBehaviour
                 _availableCards.Add(card);
             }
         }
+
+        // Create end cards.
+        CardEvent[] loadedEndCard = Resources.LoadAll<CardEvent>(_endCardsPath);
+        foreach (CardEvent card in loadedEndCard)
+        {
+            CardEvent endCardInstance = Instantiate(card, transform);
+            endCardInstance.AssignDeck(this);
+            _endCards.Add(endCardInstance);
+        }
+
+        // Create default end card.
+        _defaultEndCardInstance = Instantiate(_defaultEndCard, transform);
+        _defaultEndCard.AssignDeck(this);
     }
 
     public CardEvent PickCard()
     {
+        // Pick end cards, if any.
+        Debug.LogWarning($"{_endCards[0].gameObject.name}, {_endCards[0].CheckRequirements()}, dialogue selected: {_selectedDialogues.Count}");
+        /*foreach (CardEvent endCard in _endCards)
+        {
+            if (endCard.CheckRequirements())
+            {
+                return endCard;
+            }
+        }*/
+        for (int i = 0; i < _endCards.Count; i++)
+        {
+            if (_endCards[i].CheckRequirements())
+            {
+                return _endCards[i];
+            }
+            else
+            {
+                Debug.LogWarning($"not valid condition: {_endCards[i]}");
+                Debug.LogWarning($"dialogue count: {SelectedDialogues.Count}");
+            }
+        }
+
+        // Return first guaranteed card, if any.
+        if (_guaranteedCards.Count > 0)
+        {
+            CardEvent guaranteedCard = _guaranteedCards[0];
+            _guaranteedCards.Remove(guaranteedCard);
+            return guaranteedCard;
+        }
+
+        // Return tutorial series, if not finished yet.
         if (_tutorialSeriesInstance.CheckRequirements())
         {
-            print("tutorial reqs passed");
-            var card = _tutorialSeriesInstance.GetCard();
-            print(card.gameObject.name);
-            return card;
+            CardEvent tutorialCard = _tutorialSeriesInstance.GetCard();
+            return tutorialCard;
             //return _tutorialSeriesInstance.GetCard();
         }
-        else print("tutorial reqs failed");
 
         ShuffleDeck();
         // Pick out cards based on characters.
@@ -130,7 +178,7 @@ public class Deck : MonoBehaviour
                 newCard = card;
                 if (card.CheckRequirements())
                 {
-                    card.OnDialogueSelected += ProcessCard;
+                    //card.OnDialogueSelected += ProcessCard;
                     //OnCardPicked?.Invoke(newCard);
                     print(newCard);
                     return card;
@@ -138,7 +186,7 @@ public class Deck : MonoBehaviour
             }
         }
         // Do something if no valid card is returned (ran out of cards).
-        return null;
+        return _defaultEndCardInstance;
     }
 
     /*public CardEvent PickCardOld()
@@ -224,6 +272,7 @@ public class Deck : MonoBehaviour
         }
 
         _availableCards.Remove(card);
+        _guaranteedCards.Remove(card);
         _finishedCards.Add(card);
 
         // Sort all locked cards.
@@ -233,7 +282,11 @@ public class Deck : MonoBehaviour
             if (lockedCard.CheckRequirements())
             {
                 _lockedCards.Remove(lockedCard);
-                _availableCards.Add(lockedCard);
+                if (lockedCard is CardEvent cardEvent && cardEvent.GuaranteedCard)
+                {
+                    _guaranteedCards.Add(cardEvent);
+                }
+                else _availableCards.Add(lockedCard);
             }
         }
     }

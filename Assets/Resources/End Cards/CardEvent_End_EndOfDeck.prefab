@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6968691294569748046}
   - component: {fileID: 4317882935473067645}
   m_Layer: 0
-  m_Name: CardEvent_End_Stake
+  m_Name: CardEvent_End_EndOfDeck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   associatedCharacter: {fileID: 8486864281894654719, guid: f446f56bc8fe023468d762d0a46e2622, type: 3}
-  _description: You are burned at the stake.
+  _description: You reached the end of the deck.
   _guaranteedCard: 0
   suspicionValue: 0
   faithValue: 10
@@ -65,7 +65,11 @@ MonoBehaviour:
     _dialogueText: End life.
     _charactersToBeDead: []
   _conditions:
-  - _cardReference: {fileID: 4317882935473067645}
+  - _cardReference: {fileID: 4317882935473067645, guid: 75280082bb2dfde4bacf61c48326efa2, type: 3}
+    _choiceCondition: 1
+    _characterReference: {fileID: 0}
+    _lifeCondition: 0
+  - _cardReference: {fileID: 4317882935473067645, guid: 75280082bb2dfde4bacf61c48326efa2, type: 3}
     _choiceCondition: 2
     _characterReference: {fileID: 0}
     _lifeCondition: 0
