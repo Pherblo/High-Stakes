@@ -48,9 +48,7 @@ MonoBehaviour:
   _description: "My fianc\xE9 had been avoiding me despite my best efforts, and oft
     spends time with another woman. I need a potion that lets me keep him by my side.
     Forever."
-  suspicionValue: 0
-  faithValue: 0
-  popularityValue: 0
+  _guaranteedCard: 0
   suspicionValueA: 0
   faithValueA: -10
   popularityValueA: 5

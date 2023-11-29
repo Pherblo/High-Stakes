@@ -7,18 +7,19 @@ using UnityEngine.Events;
 public enum SelectedChoice
 {
 	None = 0,
-    ChoiceA = 1,
-    ChoiceB = 2
+    ChoiceA = 1,	// Left.
+    ChoiceB = 2		// Right.
 }
 
 // Is on a card prefab
-public class CardEvent : MonoBehaviour
+public class CardEvent : CardBase
 {
 	public Action<CardEvent> OnDialogueSelected;
 
 	[Header("Card Settings")]
 	[SerializeField] private CharacterData associatedCharacter;
 	[SerializeField, TextArea] private string _description;
+	[SerializeField] private bool _guaranteedCard = false;
 	// [SerializeField] private bool _guaranteedCard = false; // If true, this card will be played next once requirements are met.
 
 	[Header("stat change values")]
@@ -47,22 +48,37 @@ public class CardEvent : MonoBehaviour
 
 	public CharacterData AssociatedCharacter => associatedCharacter;
 	public string Description => _description;
+	public bool GuaranteedCard => _guaranteedCard;
 	public CardDialogue DialogueA => _dialogueA;
 	public CardDialogue DialogueB => _dialogueB;
 	// public bool GuaranteedCard => _guaranteedCard;
 	public SelectedChoice PickedChoice => _pickedChoice;
 
+	private Deck _deckInstance;
+
+    public override CardEvent GetCard()
+    {
+		return this;
+    }
+
     private void Update()
     {
 		FindStatsChanged(); //find the list of stats changed
     }
+
     // TODO: Improve this. Likely separate initial associatedCharacter variable from instanced associatedCharacter variable.
     public void AssignCharacter(CharacterData associatedCharacterInstance)
 	{
         associatedCharacter = associatedCharacterInstance;
 	}
 
-    // Called by player input via GUI.
+	public void AssignDeck(Deck deck)
+	{
+		_deckInstance = deck;
+
+    }
+
+    // Called via events.
     public void ChooseDialogue(int optionInt)
 	{
 		// Maps int to a SelectedDialogue
@@ -94,10 +110,27 @@ public class CardEvent : MonoBehaviour
 		}
     }
 
-	public bool CheckRequirements()
+	public override bool CheckRequirements()
 	{
 		// If dialogue has already been picked, this card isn't available anymore.
-		if (_pickedChoice != SelectedChoice.None) return false;
+		if (_pickedChoice != SelectedChoice.None)
+		{
+			return false;
+		}
+
+		foreach (CardCondition condition in _conditions)
+		{
+			if (condition.CheckCondition(_deckInstance.SelectedDialogues, _deckInstance))
+			{
+				print("condition true");
+				return true;
+			}
+			else return false;
+		}
+
+		// Returns true by default if there are no conditions.
+		return true;
+
 		// Following comments probably don't work and are disabled for now. Meaning conditions won't work.
 		// For each of this cards dialogues requirements check if it is in selected dialogues
 		/*
@@ -115,8 +148,6 @@ public class CardEvent : MonoBehaviour
 			}
         }
 		*/
-		// Only returns true if all requirements are in selected dialogues
-		return true;
 	}
 
 	// Just a debug to use in a button to see if this works

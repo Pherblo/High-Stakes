@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6968691294569748046}
   - component: {fileID: 4317882935473067645}
   m_Layer: 0
-  m_Name: CardEvent_Jackneedsmilk
+  m_Name: CardEvent_End_Stake
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,22 +44,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa8740551ebe6184eb914bebb0fafe14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  associatedCharacter: {fileID: 1095002341841383241, guid: 72747a2b3d9afc34889732b557b22c89, type: 3}
-  _description: My 50 kids are starving, and our cow Bessie can't produce enough
-    milk. Maybe you could give me a cow with infinite milk?
+  associatedCharacter: {fileID: 8486864281894654719, guid: f446f56bc8fe023468d762d0a46e2622, type: 3}
+  _description: You are burned at the stake.
   _guaranteedCard: 0
   suspicionValueA: 0
   faithValueA: 0
   popularityValueA: 0
   suspicionValueB: 0
   faithValueB: 0
-  popularityValueB: -10
+  popularityValueB: 0
   _dialogueA:
     _dialogueIsActive: 1
-    _dialogueText: '"Of course dear, here take this."'
+    _dialogueText: End life.
     _charactersToBeDead: []
   _dialogueB:
     _dialogueIsActive: 1
-    _dialogueText: '"You greedy man! of course not!"'
+    _dialogueText: End life.
     _charactersToBeDead: []
-  _conditions: []
+  _conditions:
+  - _cardReference: {fileID: 4317882935473067645, guid: 6803ecc4e6f4f7341ba07053ac81e943, type: 3}
+    _choiceCondition: 2
+    _suspicionRequirement: 99
+    _soulsRequirement: 0
+    _popularityRequirement: 0
+    _characterReference: {fileID: 0}
+    _lifeCondition: 0

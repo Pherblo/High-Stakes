@@ -57,7 +57,7 @@ MonoBehaviour:
   faithValueB: 0
   popularityValueB: 0
   _dialogueA:
-    _dialogueIsActive: 1
+    _dialogueIsActive: 0
     _dialogueText: What?
     _charactersToBeDead: []
   _dialogueB:
