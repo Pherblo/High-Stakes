@@ -3,6 +3,16 @@ using UnityEngine.SceneManagement;
 
 public class ManageScenes : MonoBehaviour
 {
+    public void LoadDelay(string name)
+    {
+        Invoke("LoadGameScene", 4);
+    }
+
+    public void LoadGameScene()
+    {
+        SceneManager.LoadScene("Card Demo 4");
+    }
+
     // Loads a single scene and unloads the current
     public void LoadScene(string name)
     {

@@ -253,7 +253,7 @@ GameObject:
   - component: {fileID: 2443772683454884285}
   - component: {fileID: 4898865173267851719}
   m_Layer: 3
-  m_Name: Programmers (1)
+  m_Name: Artists
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -275,7 +275,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0.33}
+  m_AnchoredPosition: {x: 0, y: 1.2000008}
   m_SizeDelta: {x: 500, y: 500}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2443772683454884285
@@ -309,11 +309,11 @@ MonoBehaviour:
   m_text: 'Artists:
 
 
-    Zach
+    Zach Anderstedt
 
-    Rain
+    Rain Porayko
 
-    Ester'
+    Ester Adibrata'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a712a6bca99fdea4f8097f39945b89aa, type: 2}
   m_sharedMaterial: {fileID: 7101651308525090611, guid: a712a6bca99fdea4f8097f39945b89aa, type: 2}
@@ -416,7 +416,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -1.48}
+  m_AnchoredPosition: {x: 0, y: -1.05}
   m_SizeDelta: {x: 500, y: 500}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3420169185125822716
@@ -450,7 +450,7 @@ MonoBehaviour:
   m_text: 'Programmers:
 
 
-    Lorenzo
+    Lorenzo Ortiz
 
     Angel Gamis
 
@@ -1273,7 +1273,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 546bec53e2372574c8ae12d1855719dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isSettings: 0
+  isClickedClosedElsewhere: 0
   debug_WhichAnimationPlaying: 0
 --- !u!95 &7651923960629598151
 Animator:

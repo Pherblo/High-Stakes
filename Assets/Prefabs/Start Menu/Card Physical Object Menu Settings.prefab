@@ -2957,7 +2957,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 546bec53e2372574c8ae12d1855719dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isSettings: 1
+  isClickedClosedElsewhere: 1
   debug_WhichAnimationPlaying: 0
 --- !u!95 &43099265824469900
 Animator:

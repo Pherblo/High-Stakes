@@ -69,7 +69,7 @@ public class CardSettings : MonoBehaviour
 		chosenCardAnimator.SetBool("CardIsChosen", true);
 
         // Only turn clicking back on auto after 1 second if it is not the settings option
-        if (!chosenCard.GetComponent<StartMenuAnimations>().IsToggledElsewhere)
+        if (!chosenCard.GetComponent<StartMenuAnimations>().IsClickedClosedElsewhere)
         {
             chosenCard.enabled = true;
         }
