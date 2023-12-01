@@ -5,8 +5,8 @@ public class StartMenuAnimations : MonoBehaviour
     private Animator anim;
 
     // Is the settings card
-    [SerializeField] private bool isSettings;
-    public bool IsSettings => isSettings;
+    [SerializeField] private bool isToggledElsewhere;
+    public bool IsToggledElsewhere => isToggledElsewhere;
 
     [Header("** Console Debug Logs **")]
     [SerializeField] private bool debug_WhichAnimationPlaying;
