@@ -18,7 +18,7 @@ public class Typewriter : MonoBehaviour
 
     [Header("Component References")]
     [SerializeField] private TextMeshProUGUI _dialogueText;
-    [SerializeField] private UIAnimator _uiAnimator;
+    [SerializeField] private UIAnimator[] _uiAnimators;
     // TODO: Probably unnecessary now, due to updating Typewriter's way of presenting texts to the pop animation.
     [SerializeField] private TextMeshProUGUI _textboxFillerText;        // Used to set text box sizes beforehand. This text component is usually invisible/transparent.
     [Header("Text Animation Settings")]
@@ -165,9 +165,12 @@ public class Typewriter : MonoBehaviour
             UpdateTextMesh(meshInfo, charInfo, vertices);
         }
 
-        if (_uiAnimator)
+        if (_uiAnimators.Length > 0)
         {
-            _uiAnimator.StartEnterFade();
+            foreach (UIAnimator uiAnimator in _uiAnimators)
+            {
+                uiAnimator.StartEnterFade();
+            }
         }
 
         // Process delay before animating.
@@ -188,7 +191,14 @@ public class Typewriter : MonoBehaviour
 
     private IEnumerator AnimateCloseDialogue()
     {
-        if (_uiAnimator) _uiAnimator.StartExitFade();
+        if (_uiAnimators.Length > 0)
+        {
+            foreach (UIAnimator uiAnimator in _uiAnimators)
+            {
+                uiAnimator.StartExitFade();
+            }
+        }
+
         if (_textPopCoroutine != null) StopCoroutine(_textPopCoroutine);
         float timer = 0f;
         do

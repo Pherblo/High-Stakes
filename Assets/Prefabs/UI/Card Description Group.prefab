@@ -180,7 +180,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _dialogueText: {fileID: 7135433583958694871}
-  _uiAnimator: {fileID: 6507567975237339451}
+  _uiAnimators:
+  - {fileID: 4174329168055138447}
+  - {fileID: 6507567975237339451}
   _textboxFillerText: {fileID: 4317089523571901849}
   _delayBeforeAnimation: 0.7
   _timePerChar: 0.0125
@@ -1312,8 +1314,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 747.202, y: 0}
-  m_SizeDelta: {x: 1494.404, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &614685712954617757
 CanvasRenderer:
