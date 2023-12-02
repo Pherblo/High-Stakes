@@ -11,8 +11,11 @@ public class UIAnimator : MonoBehaviour
     // All methods in this script is called via events.
     [Header("Component References")]
     [SerializeField] private Image _imageComponent;
-    [Header("General Fade Settings")]
+    [Header("Material Settings and Property Names")]
     [SerializeField] private Material _materialInstance;
+    [SerializeField] private string _fadeAlphaName = "materialPropertyName";
+    [SerializeField] private string _fadeRotationName = "materialPropertyName";
+    [Header("General Fade Settings")]
     [SerializeField] private float _startingFadeValue = 0f;
     [SerializeField, Range(0f, 1f)] private float _lerpStartValue = 0f;
     [SerializeField, Range(0f, 1f)] private float _lerpEndValue = 1f;
@@ -55,20 +58,20 @@ public class UIAnimator : MonoBehaviour
 
     public void SetStartingFadeClip()
     {
-        _imageComponent.materialForRendering.SetFloat("_FadeAlphaClip", _startingFadeValue);
+        _imageComponent.materialForRendering.SetFloat(_fadeAlphaName, _startingFadeValue);
     }
 
     private IEnumerator StartFading(float startValue, float endValue, float newRotation, bool isFadeStart)
     {
         // Set fade direction.
-        _imageComponent.materialForRendering.SetFloat("_FadeDirectionRotation", newRotation);
+        _imageComponent.materialForRendering.SetFloat(_fadeRotationName, newRotation);
         // Start fading.
         float timer = 0;
         do
         {
             float lerpProgress = timer / _fadeDuration;
             float lerpValue = Mathf.Lerp(startValue, endValue, lerpProgress);
-            _imageComponent.materialForRendering.SetFloat("_FadeAlphaClip", lerpValue);
+            _imageComponent.materialForRendering.SetFloat(_fadeAlphaName, lerpValue);
             timer += Time.deltaTime;
             yield return null;
         } while (timer < _fadeDuration);
