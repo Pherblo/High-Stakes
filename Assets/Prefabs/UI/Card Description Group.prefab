@@ -27,7 +27,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 396252156755235916}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -11}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -37,8 +37,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 0, y: 15}
-  m_SizeDelta: {x: 0, y: 9}
+  m_AnchoredPosition: {x: 0, y: 7}
+  m_SizeDelta: {x: 0, y: 12}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2447383950977804410
 CanvasRenderer:
@@ -90,12 +90,84 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28dc605ab7967f44abd2b514ee46e661, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnFadeEnterStart:
+  OnFadeEnterFinished:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2300652443935823273}
+        m_TargetAssemblyTypeName: UIParticlesResizer, Assembly-CSharp
+        m_MethodName: UpdateScale
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2300652443935823273}
+        m_TargetAssemblyTypeName: UIParticlesResizer, Assembly-CSharp
+        m_MethodName: UpdateEmission
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1961637172095514223}
+        m_TargetAssemblyTypeName: UnityEngine.ParticleSystem, UnityEngine
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnFadeExitStart:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2300652443935823273}
+        m_TargetAssemblyTypeName: UIParticlesResizer, Assembly-CSharp
+        m_MethodName: UpdateScale
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2300652443935823273}
+        m_TargetAssemblyTypeName: UIParticlesResizer, Assembly-CSharp
+        m_MethodName: UpdateEmission
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1961637172095514223}
+        m_TargetAssemblyTypeName: UnityEngine.ParticleSystem, UnityEngine
+        m_MethodName: Stop
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _imageComponent: {fileID: 6796225400211672984}
   _materialInstance: {fileID: 2100000, guid: e41ba791172be4246b2c66e85a8e4021, type: 2}
   _fadeAlphaName: _FadeClip
@@ -215,7 +287,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28dc605ab7967f44abd2b514ee46e661, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnFadeEnterStart:
+  OnFadeEnterFinished:
     m_PersistentCalls:
       m_Calls: []
   OnFadeExitStart:
@@ -542,7 +614,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28dc605ab7967f44abd2b514ee46e661, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnFadeEnterStart:
+  OnFadeEnterFinished:
     m_PersistentCalls:
       m_Calls: []
   OnFadeExitStart:
@@ -646,7 +718,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28dc605ab7967f44abd2b514ee46e661, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnFadeEnterStart:
+  OnFadeEnterFinished:
     m_PersistentCalls:
       m_Calls: []
   OnFadeExitStart:
@@ -751,7 +823,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28dc605ab7967f44abd2b514ee46e661, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnFadeEnterStart:
+  OnFadeEnterFinished:
     m_PersistentCalls:
       m_Calls: []
   OnFadeExitStart:
@@ -813,7 +885,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3220426001227539824}
   serializedVersion: 8
-  lengthInSec: 5
+  lengthInSec: 3
   simulationSpeed: 1
   stopAction: 0
   cullingMode: 0
@@ -888,8 +960,8 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 2
-      minScalar: 1
+      scalar: 1.2
+      minScalar: 0.4
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -941,8 +1013,8 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 0.1
-      minScalar: 0.05
+      scalar: 0.05
+      minScalar: 0.02
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -1059,8 +1131,8 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 0.07
-      minScalar: 0.025
+      scalar: 0.02
+      minScalar: 0.005
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -1442,9 +1514,9 @@ ParticleSystem:
     boxThickness: {x: 0, y: 0, z: 0}
     radiusThickness: 1
     donutRadius: 0.2
-    m_Position: {x: 0, y: 0, z: 0}
+    m_Position: {x: 0, y: 0.04, z: 0}
     m_Rotation: {x: -90, y: 0, z: 0}
-    m_Scale: {x: 1, y: 1, z: 1}
+    m_Scale: {x: 1, y: 0.01, z: 1}
     placementMode: 0
     m_MeshMaterialIndex: 0
     m_MeshNormalOffset: 0
@@ -1642,8 +1714,8 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 100
-      minScalar: 10
+      scalar: 120
+      minScalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -2097,7 +2169,7 @@ ParticleSystem:
         ctime6: 0
         ctime7: 0
         atime0: 0
-        atime1: 6554
+        atime1: 9830
         atime2: 45875
         atime3: 65535
         atime4: 0
@@ -2263,12 +2335,12 @@ ParticleSystem:
     flipU: 0
     flipV: 0
   VelocityModule:
-    enabled: 0
+    enabled: 1
     x:
       serializedVersion: 2
-      minMaxState: 0
-      scalar: 1
-      minScalar: 0
+      minMaxState: 3
+      scalar: 0.01
+      minScalar: 0.3
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -2319,9 +2391,9 @@ ParticleSystem:
         m_RotationOrder: 4
     y:
       serializedVersion: 2
-      minMaxState: 0
-      scalar: 1
-      minScalar: 0
+      minMaxState: 3
+      scalar: 0.01
+      minScalar: 0.3
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -2372,7 +2444,7 @@ ParticleSystem:
         m_RotationOrder: 4
     z:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 3
       scalar: 0
       minScalar: 0
       maxCurve:
@@ -2965,8 +3037,8 @@ ParticleSystem:
     x:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 0.5
-      minScalar: 1
+      scalar: -0.2
+      minScalar: 0.2
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -3018,8 +3090,8 @@ ParticleSystem:
     y:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 0.5
-      minScalar: 1
+      scalar: 0.1
+      minScalar: 0.2
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -3461,7 +3533,7 @@ ParticleSystem:
     strength:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 0.1
       minScalar: 0.5
       maxCurve:
         serializedVersion: 2
@@ -3618,7 +3690,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     separateAxes: 1
-    frequency: 3
+    frequency: 5
     damping: 1
     octaves: 1
     octaveMultiplier: 0.5
@@ -3836,7 +3908,7 @@ ParticleSystem:
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
-    remapEnabled: 1
+    remapEnabled: 0
     positionAmount:
       serializedVersion: 2
       minMaxState: 0
@@ -3946,7 +4018,7 @@ ParticleSystem:
     sizeAmount:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0
+      scalar: 1
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -5614,7 +5686,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _selfTransform: {fileID: 2728038046337189658}
   _uiParticleSystem: {fileID: 1961637172095514223}
-  _xSizeMultiplier: 0.7
+  _xSizeMultiplier: 0.8
+  _emissionPerScale: 12
 --- !u!1 &4186598226166736499
 GameObject:
   m_ObjectHideFlags: 0
@@ -5650,7 +5723,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.04, y: 0.35}
   m_AnchorMax: {x: 0.96, y: 0.65}
-  m_AnchoredPosition: {x: -0.00024414062, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6630006075500472296
@@ -5674,7 +5747,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 2100000, guid: e41ba791172be4246b2c66e85a8e4021, type: 2}
-  m_Color: {r: 1, g: 0.97589236, b: 0.504717, a: 1}
+  m_Color: {r: 1, g: 0.8235294, b: 0.37254903, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -5703,7 +5776,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28dc605ab7967f44abd2b514ee46e661, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnFadeEnterStart:
+  OnFadeEnterFinished:
     m_PersistentCalls:
       m_Calls: []
   OnFadeExitStart:
@@ -5747,7 +5820,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4502273811994023187}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5832,7 +5905,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28dc605ab7967f44abd2b514ee46e661, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnFadeEnterStart:
+  OnFadeEnterFinished:
     m_PersistentCalls:
       m_Calls: []
   OnFadeExitStart:
@@ -5957,7 +6030,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28dc605ab7967f44abd2b514ee46e661, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnFadeEnterStart:
+  OnFadeEnterFinished:
     m_PersistentCalls:
       m_Calls: []
   OnFadeExitStart:
@@ -6082,7 +6155,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28dc605ab7967f44abd2b514ee46e661, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnFadeEnterStart:
+  OnFadeEnterFinished:
     m_PersistentCalls:
       m_Calls: []
   OnFadeExitStart:
@@ -6207,7 +6280,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28dc605ab7967f44abd2b514ee46e661, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnFadeEnterStart:
+  OnFadeEnterFinished:
     m_PersistentCalls:
       m_Calls: []
   OnFadeExitStart:
@@ -6332,7 +6405,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28dc605ab7967f44abd2b514ee46e661, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnFadeEnterStart:
+  OnFadeEnterFinished:
     m_PersistentCalls:
       m_Calls: []
   OnFadeExitStart:

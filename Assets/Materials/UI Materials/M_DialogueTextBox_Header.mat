@@ -69,7 +69,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _AlphaMultiplier: 0.7
+    - _AlphaMultiplier: 0.6
     - _BlendOp: 0
     - _BumpScale: 1
     - _CameraFadingEnabled: 0
@@ -82,11 +82,11 @@ Material:
     - _DistortionBlend: 0.5
     - _DistortionEnabled: 0
     - _DistortionNoiseScale: 30
-    - _DistortionStrength: 0.4
+    - _DistortionStrength: 0.5
     - _DistortionStrengthScaled: 0
     - _DstBlend: 0
     - _EmissionEnabled: 0
-    - _EmissionStrength: 3.5
+    - _EmissionStrength: 6
     - _EnableExternalAlpha: 0
     - _EnableHorizontalFadedEdges: 1
     - _EnableVerticalFadedEdges: 1
@@ -127,7 +127,7 @@ Material:
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
     - _SoftParticleFadeParams: {r: 0, g: 0, b: 0, a: 0}
     - _TextureOffset: {r: 0, g: 0.25, b: 0, a: 0}
-    - _TextureScrollSpeed: {r: -0.12, g: 0, b: 0, a: 0}
+    - _TextureScrollSpeed: {r: -0.2, g: 0, b: 0, a: 0}
     - _TextureTiling: {r: 1, g: 0.4, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &2016979097223492106

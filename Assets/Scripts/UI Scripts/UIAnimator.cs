@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class UIAnimator : MonoBehaviour
 {
     // Used to start/stop particle effects.
-    public UnityEvent OnFadeEnterStart;
+    public UnityEvent OnFadeEnterFinished;
     public UnityEvent OnFadeExitStart;
 
     // This script is attached to UI components, with Image components, whose materials use the custom UI Fade shader.
@@ -41,7 +41,6 @@ public class UIAnimator : MonoBehaviour
     public void StartEnterFade()
     {
         StopAllCoroutines();
-        OnFadeEnterStart?.Invoke();
         StartCoroutine(StartFading(_lerpStartValue, _lerpEndValue, _fadeInRotation, true));
     }
 
@@ -81,6 +80,8 @@ public class UIAnimator : MonoBehaviour
             timer += Time.deltaTime;
             yield return null;
         } while (timer < _fadeDuration);
+
+        if (isFadeStart) OnFadeEnterFinished?.Invoke();
 
         yield return null;
     }

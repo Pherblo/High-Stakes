@@ -127,7 +127,7 @@ Material:
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
     - _SoftParticleFadeParams: {r: 0, g: 0, b: 0, a: 0}
     - _TextureOffset: {r: 0, g: 0.25, b: 0, a: 0}
-    - _TextureScrollSpeed: {r: -0.12, g: 0, b: 0, a: 0}
+    - _TextureScrollSpeed: {r: -0.15, g: 0, b: 0, a: 0}
     - _TextureTiling: {r: 1, g: 0.4, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &2016979097223492106

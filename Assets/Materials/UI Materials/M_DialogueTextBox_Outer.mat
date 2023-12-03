@@ -120,14 +120,14 @@ Material:
     - _ColorAddSubDiff: {r: 0, g: 0, b: 0, a: 0}
     - _DistortionAxes: {r: 1, g: 0, b: 0, a: 0}
     - _DistortionNoiseTiling: {r: 2.5, g: 1, b: 0, a: 0}
-    - _DistortionScrollSpeed: {r: -0.05, g: 0, b: 0, a: 0}
+    - _DistortionScrollSpeed: {r: -0.075, g: 0, b: 0, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _FadeEdgeColor: {r: 0, g: 0, b: 0, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
     - _SoftParticleFadeParams: {r: 0, g: 0, b: 0, a: 0}
     - _TextureOffset: {r: 0, g: 0.335, b: 0, a: 0}
-    - _TextureScrollSpeed: {r: 0.05, g: 0, b: 0, a: 0}
+    - _TextureScrollSpeed: {r: 0.075, g: 0, b: 0, a: 0}
     - _TextureTiling: {r: 2, g: 0.25, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &2016979097223492106

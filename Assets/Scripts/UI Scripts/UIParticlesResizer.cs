@@ -7,10 +7,39 @@ public class UIParticlesResizer : MonoBehaviour
     [SerializeField] private RectTransform _selfTransform;
     [SerializeField] private ParticleSystem _uiParticleSystem;
     [SerializeField] private float _xSizeMultiplier = 1f;
+    [Header("Particle System Adjustments")]
+    [SerializeField] private float _emissionPerScale = 15f;
 
-    private void Update()
+    private ParticleSystem.ShapeModule _shapeModule;
+    private ParticleSystem.EmissionModule _emissionModule;
+
+    private void Awake()
     {
-        ParticleSystem.ShapeModule shape = _uiParticleSystem.shape;
-        shape.scale = new Vector3((_selfTransform.rect.size.x / 100f) * _xSizeMultiplier, shape.scale.y, shape.scale.z);
+        _shapeModule = _uiParticleSystem.shape;
+        _emissionModule = _uiParticleSystem.emission;
+    }
+
+    // Called using UnityEvents from UIAnimator.
+    public void StartParticles()
+    {
+        _uiParticleSystem.Play();
+    }
+
+    // Called using UnityEvents from UIAnimator.
+    public void StopParticles()
+    {
+        _uiParticleSystem.Stop();
+    }
+
+    // Called using UnityEvents from UIAnimator.
+    public void UpdateScale()
+    {
+        _shapeModule.scale = new Vector3((_selfTransform.rect.size.x / 100f) * _xSizeMultiplier, _shapeModule.scale.y, _shapeModule.scale.z);
+    }
+
+    // Called using UnityEvents from UIAnimator.
+    public void UpdateEmission()
+    {
+        _emissionModule.rateOverTime = _emissionPerScale * _shapeModule.scale.x;
     }
 }
