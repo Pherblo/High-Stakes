@@ -954,6 +954,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _imageComponent: {fileID: 7568755934957664150}
   _materialInstance: {fileID: 2100000, guid: ac5801131d9086e4690feac37c05d025, type: 2}
+  _fadeAlphaName: _FadeAlphaClip
+  _fadeRotationName: _FadeDirectionRotation
   _startingFadeValue: 0
   _lerpStartValue: 0
   _lerpEndValue: 1
