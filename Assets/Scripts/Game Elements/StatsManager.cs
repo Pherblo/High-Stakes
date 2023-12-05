@@ -25,24 +25,42 @@ public class StatsManager : MonoBehaviour
 
     public void ModifyStats(CardEvent card)
     {
-        //
+        if (card.PickedChoice == SelectedChoice.ChoiceA)
+        {
+            _suspicion.changeValue(card.suspicionValueA);
+            _souls.changeValue(card.faithValueA);
+            _popularity.changeValue(card.popularityValueA);
+        }
+        else if (card.PickedChoice == SelectedChoice.ChoiceB)
+        {
+            _suspicion.changeValue(card.suspicionValueB);
+            _souls.changeValue(card.faithValueB);
+            _popularity.changeValue(card.popularityValueB);
+        }
     }
 
+    // Called via events.
     public void HighlightStats(CardEvent card, float input)
     {
         if (input < 0)
         {
-            //
+            if (card.suspicionValueA != 0) _suspicion.Glow();
+            if (card.faithValueA != 0) _souls.Glow();
+            if (card.popularityValueA != 0) _popularity.Glow();
         }
         else if (input > 0)
         {
-            //
+            if (card.suspicionValueB != 0) _suspicion.Glow();
+            if (card.faithValueB != 0) _souls.Glow();
+            if (card.popularityValueB != 0) _popularity.Glow();
         }
     }
 
     // Called via drag events in current card animator.
     public void RemoveStatsHighlights()
     {
-        //
+        _suspicion.ClearGlow();
+        _souls.ClearGlow();
+        _popularity.ClearGlow();
     }
 }
