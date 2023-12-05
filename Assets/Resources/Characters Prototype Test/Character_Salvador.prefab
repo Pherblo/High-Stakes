@@ -47,6 +47,6 @@ MonoBehaviour:
   _name: Salvador
   _title: Common Theif
   _isAlive: 1
-  _characterArt: {fileID: 21300000, guid: 1e6b79271c895e3409fdc090697cf9e7, type: 3}
+  _characterArt: {fileID: 21300000, guid: 4bec714752cd7b44bab373069327c6f6, type: 3}
   _cardEvents:
   - {fileID: 4317882935473067645, guid: 2ac477593618b5d41a5639b7b58db1e2, type: 3}
