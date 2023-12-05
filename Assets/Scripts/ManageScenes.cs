@@ -10,7 +10,7 @@ public class ManageScenes : MonoBehaviour
 
     public void LoadGameScene()
     {
-        SceneManager.LoadScene("Card Demo 4");
+        SceneManager.LoadScene("Card Demo 5");
     }
 
     // Loads a single scene and unloads the current
