@@ -45,8 +45,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _name: Clyde
-  _title: Peasant
+  _title: Alchemist
   _isAlive: 1
-  _characterArt: {fileID: 21300000, guid: cddd2e7c92049404fb625e5f90067120, type: 3}
+  _characterArt: {fileID: 21300000, guid: b1eb6beaea136ea4d93f9bf29acc9046, type: 3}
   _cardEvents:
   - {fileID: 4317882935473067645, guid: ee46ee9ccc2ace7468dc8313a0e097b5, type: 3}

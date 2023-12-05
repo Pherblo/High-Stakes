@@ -165,6 +165,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3035904770362267747, guid: 7799755b8c1ef5845b5eb1a0db745d85, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 7cab26f91549b69429acde033e7626e6, type: 2}
     - target: {fileID: 3042446899973345374, guid: 7799755b8c1ef5845b5eb1a0db745d85, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
@@ -272,6 +276,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 546bec53e2372574c8ae12d1855719dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isClickedClosedElsewhere: 0
+  debug_WhichAnimationPlaying: 0
 --- !u!114 &3260374102156530711
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -327,3 +333,5 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   runOtherEvent: 0
+  debug_Clicking: 0
+  debug_EventInvoked: 0

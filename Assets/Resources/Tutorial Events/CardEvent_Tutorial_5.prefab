@@ -45,11 +45,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   associatedCharacter: {fileID: 8486864281894654719, guid: f446f56bc8fe023468d762d0a46e2622, type: 3}
-  _description: 'And who doesn''t love being popular? ... You won''t if it gets too
-    high... trust me... but you can keep track of that here! '
-  suspicionValue: 0
-  faithValue: 0
-  popularityValue: 0
+  _description: And who doesn't love being popular amongst the towns folk? ... If
+    I were you, I would'nt want to know what happens when this bottle empties.
   suspicionValueA: 0
   faithValueA: 0
   popularityValueA: 0
@@ -58,10 +55,10 @@ MonoBehaviour:
   popularityValueB: 0
   _dialogueA:
     _dialogueIsActive: 1
-    _dialogueText: What?
+    _dialogueText: People love a good witch.
     _charactersToBeDead: []
   _dialogueB:
     _dialogueIsActive: 1
-    _dialogueText: What?
+    _dialogueText: Not everyone likes what I do.
     _charactersToBeDead: []
   _conditions: []

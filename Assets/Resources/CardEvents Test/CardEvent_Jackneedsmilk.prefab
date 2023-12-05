@@ -45,13 +45,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   associatedCharacter: {fileID: 1095002341841383241, guid: 72747a2b3d9afc34889732b557b22c89, type: 3}
-  _description: My 50 kids are starving, and our cow Bessie can't produce enough
+  _description: My 12 kids are starving, and our cow Bessie can't produce enough
     milk. Maybe you could give me a cow with infinite milk?
-  _guaranteedCard: 0
-  suspicionValueA: 0
+  suspicionValue: 15
+  faithValue: 0
+  popularityValue: 10
+  suspicionValueA: 20
   faithValueA: 0
-  popularityValueA: 0
-  suspicionValueB: 0
+  popularityValueA: 10
+  suspicionValueB: -10
   faithValueB: 0
   popularityValueB: -10
   _dialogueA:

@@ -46,8 +46,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   associatedCharacter: {fileID: 8486864281894654719, guid: f446f56bc8fe023468d762d0a46e2622, type: 3}
   _description: Greetings. It seems an introduction is in order. I am your patron,
-    little Witch. Your magic powers come thanks to me. With a simple swipe, my magic
-    is at your fingertips.
+    little Witch. Your magic powers come thanks to me. With a simple swipe of your
+    cards, my magic is at your fingertips.
   suspicionValue: 0
   faithValue: 0
   popularityValue: 0
@@ -59,10 +59,10 @@ MonoBehaviour:
   popularityValueB: 0
   _dialogueA:
     _dialogueIsActive: 1
-    _dialogueText: Cast a spell to make him go away
+    _dialogueText: '*Cast a spell to make him go away*'
     _charactersToBeDead: []
   _dialogueB:
     _dialogueIsActive: 1
-    _dialogueText: Scream and run
+    _dialogueText: Leave! I dont want anything to do with you!
     _charactersToBeDead: []
   _conditions: []
