@@ -2,8 +2,10 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.Events;
+using static UnityEngine.GraphicsBuffer;
 using Random = UnityEngine.Random;
 
 public enum MoonCycle {
@@ -45,6 +47,11 @@ public class Timeline : MonoBehaviour
 
     int timePassed = 0;
 
+    public GameObject moonPhasesArt;
+    public GameObject arrowArt;
+
+    public float change;
+
 
     // Start is called before the first frame update
     void Start()
@@ -52,6 +59,7 @@ public class Timeline : MonoBehaviour
         //set initial values
         currentMoonCycle = MoonCycle.WaxingGibbous; //start on mooncycle after full moon
         currentTime = TimeOfDay.Morning; //start in morning
+        change = 45;
     }
 
     // Update is called once per frame
@@ -64,7 +72,13 @@ public class Timeline : MonoBehaviour
         if (cardsPassedToday >= cardsTillNextDay)
         {
             changeDay();
+            change += 45;
         }
+
+        updateDisplay();
+        print(totalCardsPassed);
+        print("time: " + currentTime.ToString());
+        print("moon cycle: " + currentMoonCycle.ToString());
     }
 
     private void changeDay()
@@ -103,12 +117,20 @@ public class Timeline : MonoBehaviour
 
     public void updateDisplay()
     {
+
         //stub to hook up to animation
          Debug.Log("time: " + currentTime.ToString());
         // Debug.Log(cardsPassedToday.ToString());
          Debug.Log("moon cycle: " + currentMoonCycle.ToString());
 
         //will change the display
+        // moonPhasesArt.transform.Rotate(0, 0, 45, Space.World);
+
+        float speed = 2f;
+        Quaternion targetRotation = Quaternion.Euler(0, 0 , moonPhasesArt.transform.rotation.z + change);
+        Quaternion startRotation = moonPhasesArt.transform.rotation;
+        moonPhasesArt.transform.rotation = Quaternion.Lerp(startRotation, targetRotation, speed * Time.deltaTime);
+        
     }
 
  
@@ -117,6 +139,16 @@ public class Timeline : MonoBehaviour
     {
         cardsPassedToday++;
         cardsPassedTime++;
+        totalCardsPassed++;
+        print("cardPicked");
+    }
+
+    public void TriggerGodEvent()
+    {
+        if(currentMoonCycle == MoonCycle.FullMoon)
+        {
+
+        }
     }
    
 }
