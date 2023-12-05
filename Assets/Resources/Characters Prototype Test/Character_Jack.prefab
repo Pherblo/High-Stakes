@@ -47,7 +47,7 @@ MonoBehaviour:
   _name: Farmer
   _title: Commoner
   _isAlive: 1
-  _characterArt: {fileID: 21300000, guid: 6599e8fd02097374eac4db96b8bf7b5b, type: 3}
+  _characterArt: {fileID: 21300000, guid: b1eb6beaea136ea4d93f9bf29acc9046, type: 3}
   _cardEvents:
   - {fileID: 4317882935473067645, guid: 366256bb853a2ad40a26633800d5223d, type: 3}
   - {fileID: 4317882935473067645, guid: 3fd729ede68243d4ea51ba2380256633, type: 3}

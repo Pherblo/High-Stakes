@@ -47,6 +47,6 @@ MonoBehaviour:
   _name: Marjorie
   _title: Noble
   _isAlive: 1
-  _characterArt: {fileID: 21300000, guid: 3ad7ffa9619b53d4095dd4f7919e4d01, type: 3}
+  _characterArt: {fileID: 21300000, guid: 945f422edf4ab114baa0b6cad6e4cfdc, type: 3}
   _cardEvents:
   - {fileID: 4317882935473067645, guid: 6d7f290c63b681c45b2b1662375429be, type: 3}
