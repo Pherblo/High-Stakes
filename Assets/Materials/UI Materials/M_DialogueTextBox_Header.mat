@@ -86,7 +86,7 @@ Material:
     - _DistortionStrengthScaled: 0
     - _DstBlend: 0
     - _EmissionEnabled: 0
-    - _EmissionStrength: 6
+    - _EmissionStrength: 5.2
     - _EnableExternalAlpha: 0
     - _EnableHorizontalFadedEdges: 1
     - _EnableVerticalFadedEdges: 1
