@@ -28,7 +28,8 @@ public class CardDisplay : MonoBehaviour
     List<String> statsBeingChanged = new List<string>();
 
     [Header("Reference to animator")]
-    public CardAnimator animator;
+    public CardAnimator animator1;
+    public CardAnimator animator2;
 
     private void Awake()
     {
@@ -137,10 +138,10 @@ public class CardDisplay : MonoBehaviour
     {
         cardToDisplay.FindStatsChanged();
         List<String> emptyList = new List<String>();
-        if(animator.GetLerpValue() == -1) //check which way the card is leaning to highlight those stats
+        if(animator1.GetLerpValue() == -1 || animator2.GetLerpValue() == -1) //check which way the card is leaning to highlight those stats
         {
             statsBeingChanged = cardToDisplay.GetStatsChanged('A');
-        } else if (animator.GetLerpValue() == 1) {
+        } else if (animator2.GetLerpValue() == 1 || animator1.GetLerpValue() == 1) {
             statsBeingChanged = cardToDisplay.GetStatsChanged('B');
         } else
         {
