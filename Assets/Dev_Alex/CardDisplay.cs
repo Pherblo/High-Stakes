@@ -37,7 +37,7 @@ public class CardDisplay : MonoBehaviour
     }
     private void Update()
     {
-        ChangeStatsDisplays(_currentCardEvent);
+        //ChangeStatsDisplays(_currentCardEvent);
     }
     // Changes dialogue depending on the swipe
     // Can be changed later to have a fade effect

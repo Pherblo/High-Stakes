@@ -11,6 +11,8 @@ public class CardAnimator : MonoBehaviour, IDragHandler, IBeginDragHandler, IEnd
     // In order for drag events to work on this 3D game object, the camera its assigned to must have a Graphic Raycaster component.
 
     public Action<int> OnCardSwiped;    // Returns -1 or 1, for left and right respectively.
+    public Action<float> OnCardDrag;   // Returns a float range from -1 to 1. Called every time the drag happens.
+    public Action OnCardSnapback;      // Called on snapback.
     public Action OnCardDrawFinished;
     public Action OnCardDiscardStart;
 
@@ -77,6 +79,16 @@ public class CardAnimator : MonoBehaviour, IDragHandler, IBeginDragHandler, IEnd
         {
             MoveCard(eventData.position);
             RotateCard(eventData.position);
+
+            // Calculate drag value.
+            //int dragMultiplier = 1;
+            //float dragLength = (GetMousePosition(eventData.position) - _cachedDragStartPosition).magnitude;
+            Vector3 dragDirection = GetMousePosition(eventData.position) - _cachedDragStartPosition;
+            if (dragDirection.x < _cachedDragStartPosition.x) 
+                OnCardDrag?.Invoke(-1f);
+            else if (dragDirection.x > _cachedDragStartPosition.x)
+                OnCardDrag?.Invoke(1f);
+            else OnCardDrag?.Invoke(0f);
         }
     }
 
@@ -138,6 +150,7 @@ public class CardAnimator : MonoBehaviour, IDragHandler, IBeginDragHandler, IEnd
 
     private IEnumerator SnapbackCard()
     {
+        OnCardSnapback?.Invoke();
         Vector3 currentPosition = transform.position;
         Quaternion currentRotation = transform.rotation;
         float timer = 0f;

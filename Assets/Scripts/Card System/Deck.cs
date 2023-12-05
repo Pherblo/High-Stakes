@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Unity.Mathematics;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -19,15 +20,19 @@ public class Deck : MonoBehaviour
     [SerializeField] private string _endCardsPath;
 
     [Header("Scene References")]
-    [SerializeField] private Stats _suspicion;
+    [SerializeField] private StatsManager _stats;
+    /*[SerializeField] private Stats _suspicion;
     [SerializeField] private Stats _souls;
-    [SerializeField] private Stats _popularity;
+    [SerializeField] private Stats _popularity;*/
 
     [Header("Tutorial Settings")]
     [SerializeField] private CardSeries _tutorialCardSeries;
 
     [Header("Default End Card")]
     [SerializeField] private CardEvent _defaultEndCard;     // Gets picked when there are no available cards left.
+
+    [Header("Debug settings")]
+    [SerializeField] private bool _skipTutorial = false;
 
     private List<CharacterData> _characters = new();
     private List<CardBase> _availableCards = new();
@@ -37,13 +42,14 @@ public class Deck : MonoBehaviour
     private List<CardEvent> _guaranteedCards = new();
     private List<CardEvent> _endCards = new();
 
+    public StatsManager Stats => _stats;
     private CardSeries _tutorialSeriesInstance;
     private CardEvent _defaultEndCardInstance;
 
     public List<CardDialogue> SelectedDialogues => _selectedDialogues;
-    public Stats Suspicion => _suspicion;
+    /*public Stats Suspicion => _suspicion;
     public Stats Souls => _souls;
-    public Stats Popularity => _popularity;
+    public Stats Popularity => _popularity;*/
 
     [Header("Variables to keep track of game")]
     private bool runningTutorial;
@@ -165,7 +171,7 @@ public class Deck : MonoBehaviour
         }
 
         // Return tutorial series, if not finished yet.
-        if (_tutorialSeriesInstance.CheckRequirements())
+        if (!_skipTutorial &&_tutorialSeriesInstance.CheckRequirements())
         {
             CardEvent tutorialCard = _tutorialSeriesInstance.GetCard();
             return tutorialCard;
@@ -270,7 +276,7 @@ public class Deck : MonoBehaviour
         // Store chosen dialogue.
         card.OnDialogueSelected = null;
 
-        if (card.PickedChoice == SelectedChoice.ChoiceA)
+        /*if (card.PickedChoice == SelectedChoice.ChoiceA)
         {
             Suspicion.changeValue(card.suspicionValueA);
             Popularity.changeValue(card.popularityValueA);
@@ -281,7 +287,7 @@ public class Deck : MonoBehaviour
             Suspicion.changeValue(card.suspicionValueB);
             Popularity.changeValue(card.popularityValueB);
             _selectedDialogues.Add(card.DialogueB);
-        }
+        }*/
 
         _availableCards.Remove(card);
         _guaranteedCards.Remove(card);

@@ -70,9 +70,9 @@ public class CardCondition
             }
         }
 
-        if (deck.Suspicion.getValue() < _suspicionRequirement
-                || deck.Souls.getValue() < _soulsRequirement
-                || deck.Popularity.getValue() < _popularityRequirement)
+        if (deck.Stats.Suspicion.getValue() < _suspicionRequirement
+                || deck.Stats.Souls.getValue() < _soulsRequirement
+                || deck.Stats.Popularity.getValue() < _popularityRequirement)
         {
             return false;
         }

@@ -48,10 +48,10 @@ MonoBehaviour:
   _description: I'm hunting down my nemesis, but I've lost track of his location.
     Where are they now?
   _guaranteedCard: 0
-  suspicionValueA: 0
+  suspicionValueA: -10
   faithValueA: 0
   popularityValueA: 0
-  suspicionValueB: 0
+  suspicionValueB: 20
   faithValueB: 0
   popularityValueB: 0
   _dialogueA:

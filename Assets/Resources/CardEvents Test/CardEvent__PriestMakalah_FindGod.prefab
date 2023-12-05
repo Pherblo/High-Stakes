@@ -49,7 +49,7 @@ MonoBehaviour:
     I desperately seek your clairvoyance to show me the path I must take.
   _guaranteedCard: 0
   suspicionValueA: 0
-  faithValueA: 0
+  faithValueA: -20
   popularityValueA: 0
   suspicionValueB: 0
   faithValueB: 20

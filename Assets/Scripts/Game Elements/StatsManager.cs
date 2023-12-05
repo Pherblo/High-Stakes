@@ -8,6 +8,10 @@ public class StatsManager : MonoBehaviour
     [SerializeField] private Stats _souls;
     [SerializeField] private Stats _popularity;
 
+    public Stats Suspicion => _suspicion;
+    public Stats Souls => _souls;
+    public Stats Popularity => _popularity;
+
     public void ModifySuspicion(float value)
     {
         _suspicion.changeValue(value);
@@ -39,9 +43,11 @@ public class StatsManager : MonoBehaviour
         }
     }
 
-    // Called via events.
     public void HighlightStats(CardEvent card, float input)
     {
+        // TODO: optimize this pls -Lorenzo.
+        RemoveStatsHighlights();
+
         if (input < 0)
         {
             if (card.suspicionValueA != 0) _suspicion.Glow();

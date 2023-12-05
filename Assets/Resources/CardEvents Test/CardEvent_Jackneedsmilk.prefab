@@ -50,7 +50,7 @@ MonoBehaviour:
   _guaranteedCard: 0
   suspicionValueA: 0
   faithValueA: 0
-  popularityValueA: 0
+  popularityValueA: 10
   suspicionValueB: 0
   faithValueB: 0
   popularityValueB: -10
