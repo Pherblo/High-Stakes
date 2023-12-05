@@ -78,14 +78,12 @@ public class CardManager : MonoBehaviour
 
     public void StartDiscardingCard()
     {
-        Debug.LogWarning($"pick new card. dialogue count: {_deck.SelectedDialogues.Count}");
         _cardDisplay.ExitDisplay();
         StartPickCard();
     }
 
     private void ChooseChoice(int direction)
     {
-        Debug.LogWarning($"processing card. dialogue count: {_deck.SelectedDialogues.Count}");
         if (direction == -1)
         {
             _currentCardEvent.ChooseDialogue(1);
@@ -103,6 +101,5 @@ public class CardManager : MonoBehaviour
     private void HighlightStats(float dragInput)
     {
         _statsManager.HighlightStats(_currentCardEvent, dragInput);
-        Debug.LogWarning($"drag input for highlight: {dragInput}");
     }
 }
