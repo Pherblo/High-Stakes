@@ -47,6 +47,6 @@ MonoBehaviour:
   _name: Clyde
   _title: Peasant
   _isAlive: 1
-  _characterArt: {fileID: 21300000, guid: cddd2e7c92049404fb625e5f90067120, type: 3}
+  _characterArt: {fileID: 21300000, guid: 6599e8fd02097374eac4db96b8bf7b5b, type: 3}
   _cardEvents:
   - {fileID: 4317882935473067645, guid: ee46ee9ccc2ace7468dc8313a0e097b5, type: 3}
