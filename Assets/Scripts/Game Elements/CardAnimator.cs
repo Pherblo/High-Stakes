@@ -6,7 +6,12 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
-
+public enum CardPos
+{
+    left,
+    right,
+    middle
+}
 public class CardAnimator : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler
 {
     // In order for drag events to work on this 3D game object, the camera its assigned to must have a Graphic Raycaster component.
@@ -37,6 +42,7 @@ public class CardAnimator : MonoBehaviour, IDragHandler, IBeginDragHandler, IEnd
     [SerializeField] private float _rotationResetDuration = 0.25f;
     [SerializeField] private float _exitRotationSpeed = 180f;
 
+    public CardPos currentPos = CardPos.middle;
     // References to be passed onto the CardDisplay, done by CardManager.
     public Image CardArt => _cardArt;
     public TextMeshProUGUI CharacterName => _characterName;
@@ -116,6 +122,16 @@ public class CardAnimator : MonoBehaviour, IDragHandler, IBeginDragHandler, IEnd
         float lerpValue = GetLerpValue();
         transform.position = Vector3.Lerp(_originalPosition, targetPosition, lerpValue);
         _cachedNewPosition = transform.position;
+
+        //see if card is leaning left or right
+        if (targetPosition.x > _originalPosition.x)
+        {
+            currentPos = CardPos.right;
+        }
+        else if (targetPosition.x < _originalPosition.x)
+        {
+            currentPos = CardPos.left;
+        }
     }
 
     private void RotateCard(Vector3 eventDataPosition)
@@ -136,6 +152,7 @@ public class CardAnimator : MonoBehaviour, IDragHandler, IBeginDragHandler, IEnd
 
     private IEnumerator SnapbackCard()
     {
+        currentPos = CardPos.middle; //set to middle on snap
         Vector3 currentPosition = transform.position;
         Quaternion currentRotation = transform.rotation;
         float timer = 0f;

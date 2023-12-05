@@ -26,11 +26,19 @@ public class CardDisplay : MonoBehaviour
 	public Stats faith;
 	public Stats popularity;
 
+    [Header("Reference to animator")]
+    public CardAnimator animator1;
+    public CardAnimator animator2;
+
     private void Awake()
     {
         _cardDescription.OnTextGenerationFinished += SetChoices;
     }
 
+    private void Update()
+    {
+        ChangeStatsDisplays(_currentCardEvent);
+    }
     // Changes dialogue depending on the swipe
     // Can be changed later to have a fade effect
     public void ToggleDialogues(CardSwipeDrag thisCardSwipe)
@@ -129,22 +137,33 @@ public class CardDisplay : MonoBehaviour
 
     private void ChangeStatsDisplays( CardEvent cardToDisplay)
     {
-        List<String> statsBeingChanged = cardToDisplay.GetStatsChanged();
+        List<String> statsBeingChanged = new List<string>();
+
+        if (animator1.currentPos == CardPos.left)
+        {
+            statsBeingChanged = cardToDisplay.GetStatsChanged('A');
+        }
+        else if (animator1.currentPos == CardPos.right)
+        {
+            statsBeingChanged = cardToDisplay.GetStatsChanged('B');
+        }
         // Updating Stat bottles from last card
         suspicion.changeValue(cardToDisplay.GetStatsValue(suspicion));
         faith.changeValue(cardToDisplay.GetStatsValue(faith));
         popularity.changeValue(cardToDisplay.GetStatsValue(popularity));
 
-        for(int i =0; i<statsBeingChanged.Count; i++)
+        for (int i = 0; i < statsBeingChanged.Count; i++)
         {
-            if(statsBeingChanged[i].ToLower().Equals( "suspicion"))
+            if (statsBeingChanged[i].ToLower().Equals("suspicion"))
             {
                 suspicion.Glow();
-            } else if (statsBeingChanged[i].ToLower().Equals("faith"))
+            }
+            else if (statsBeingChanged[i].ToLower().Equals("faith"))
             {
                 faith.Glow();
-            } else if (statsBeingChanged[i].ToLower().Equals("popularity"))
-                {
+            }
+            else if (statsBeingChanged[i].ToLower().Equals("popularity"))
+            {
                 popularity.Glow();
             }
         }

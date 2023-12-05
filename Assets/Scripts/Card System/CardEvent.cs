@@ -24,8 +24,9 @@ public class CardEvent : CardBase
 
 	[Header("stat change values")]
 
-	private List<String> statsChanged = new List<string>();
-	private float suspicionValue =0;
+    private List<String> statsChangedA = new List<string>();
+    private List<String> statsChangedB = new List<string>();
+    private float suspicionValue =0;
     private float faithValue = 0;
     private float popularityValue = 0;  //this is a quick fix can be changed later
 
@@ -158,26 +159,49 @@ public class CardEvent : CardBase
 
 	private void FindStatsChanged()
 	{
-        if (suspicionValue != suspicionValueA || suspicionValue != suspicionValueB)
+        if (suspicionValue != suspicionValueA)
         {
-            statsChanged.Add("suspicion");
+            statsChangedA.Add("suspicion");
         }
 
-        if (faithValue != faithValueA || faithValue != faithValueB)
+        if (faithValue != faithValueA)
         {
-            statsChanged.Add("faith");
+            statsChangedA.Add("faith");
         }
 
-        if (popularityValue != popularityValueA || popularityValue != popularityValueB)
+        if (popularityValue != popularityValueA)
         {
-            statsChanged.Add("popularity");
+            statsChangedA.Add("popularity");
+        }
+
+        if (suspicionValue != suspicionValueB)
+        {
+            statsChangedB.Add("suspicion");
+        }
+
+        if (faithValue != faithValueB)
+        {
+            statsChangedB.Add("faith");
+        }
+
+        if (popularityValue != popularityValueB)
+        {
+            statsChangedB.Add("popularity");
         }
     }
 
-	public List<String> GetStatsChanged()
+	public List<String> GetStatsChanged(Char list)
 	{
-		return statsChanged;
-	}
+        if (list == 'A')
+        {
+            return statsChangedA;
+        }
+        else if (list == 'B')
+        {
+            return statsChangedB;
+        }
+        return null;
+    }
 
 	public float GetStatsValue(Stats stat)
 	{
