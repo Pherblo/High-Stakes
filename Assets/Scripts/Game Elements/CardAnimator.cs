@@ -37,6 +37,8 @@ public class CardAnimator : MonoBehaviour, IDragHandler, IBeginDragHandler, IEnd
     [SerializeField] private float _rotationResetDuration = 0.25f;
     [SerializeField] private float _exitRotationSpeed = 180f;
 
+
+
     // References to be passed onto the CardDisplay, done by CardManager.
     public Image CardArt => _cardArt;
     public TextMeshProUGUI CharacterName => _characterName;
@@ -57,6 +59,7 @@ public class CardAnimator : MonoBehaviour, IDragHandler, IBeginDragHandler, IEnd
         _isInteractable = false;
         _animator.speed = 1f / _swipeAnimationDuration;
     }
+
 
     public void OnBeginDrag(PointerEventData eventData)
     {
@@ -84,7 +87,6 @@ public class CardAnimator : MonoBehaviour, IDragHandler, IBeginDragHandler, IEnd
         {
             //StartCoroutine(SnapbackCard());
             float dragLength = (GetMousePosition(eventData.position) - _cachedDragStartPosition).magnitude;
-            print(dragLength);
             if (dragLength >= _maxXOffset)
             {
                 if (GetMousePosition(eventData.position).x < _cachedDragStartPosition.x)
@@ -116,6 +118,7 @@ public class CardAnimator : MonoBehaviour, IDragHandler, IBeginDragHandler, IEnd
         float lerpValue = GetLerpValue();
         transform.position = Vector3.Lerp(_originalPosition, targetPosition, lerpValue);
         _cachedNewPosition = transform.position;
+
     }
 
     private void RotateCard(Vector3 eventDataPosition)
@@ -139,7 +142,6 @@ public class CardAnimator : MonoBehaviour, IDragHandler, IBeginDragHandler, IEnd
         Vector3 currentPosition = transform.position;
         Quaternion currentRotation = transform.rotation;
         float timer = 0f;
-
         do
         {
             timer += Time.deltaTime;
@@ -202,7 +204,7 @@ public class CardAnimator : MonoBehaviour, IDragHandler, IBeginDragHandler, IEnd
         yield return null;
     }
 
-    private float GetLerpValue()
+    public float GetLerpValue()
     {
         float currentMagnitude = (_cachedNewPosition - _originalPosition).magnitude;
         float lerpValue = currentMagnitude / _maxXOffset;

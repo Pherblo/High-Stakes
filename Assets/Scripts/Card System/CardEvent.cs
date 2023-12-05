@@ -24,8 +24,9 @@ public class CardEvent : CardBase
 
 	[Header("stat change values")]
 
-	private List<String> statsChanged = new List<string>();
-	private float suspicionValue =0;
+	private List<String> statsChangedA = new List<string>();
+    private List<String> statsChangedB = new List<string>();
+    private float suspicionValue =0;
     private float faithValue = 0;
     private float popularityValue = 0;  //this is a quick fix can be changed later
 
@@ -63,7 +64,6 @@ public class CardEvent : CardBase
 
     private void Update()
     {
-		FindStatsChanged(); //find the list of stats changed
     }
 
     // TODO: Improve this. Likely separate initial associatedCharacter variable from instanced associatedCharacter variable.
@@ -156,27 +156,56 @@ public class CardEvent : CardBase
 		Debug.Log("Requirements met for this card: " + CheckRequirements());
     }
 
-	private void FindStatsChanged()
+	public void FindStatsChanged()
 	{
-        if (suspicionValue != suspicionValueA || suspicionValue != suspicionValueB)
-        {
-            statsChanged.Add("suspicion");
+		print("faith:" + faithValue);
+		print("faithA" + faithValueA);
+            if (suspicionValue != suspicionValueA)
+            {
+                statsChangedA.Add("suspicion");
+			print("add sus to a");
+            }
+
+            if (faithValue != faithValueA)
+            {
+                statsChangedA.Add("faith");
+            print("add faith to a");
         }
 
-        if (faithValue != faithValueA || faithValue != faithValueB)
-        {
-            statsChanged.Add("faith");
+            if (popularityValue != popularityValueA)
+            {
+                statsChangedA.Add("popularity");
+            print("add pop to a");
         }
 
-        if (popularityValue != popularityValueA || popularityValue != popularityValueB)
+        if (suspicionValue != suspicionValueB)
         {
-            statsChanged.Add("popularity");
+            statsChangedB.Add("suspicion");
+        }
+
+        if (faithValue != faithValueB)
+        {
+            statsChangedB.Add("faith");
+        }
+
+        if (popularityValue != popularityValueB)
+        {
+            statsChangedB.Add("popularity");
         }
     }
 
-	public List<String> GetStatsChanged()
+    
+
+	public List<String> GetStatsChanged(Char list)
 	{
-		return statsChanged;
+		if(list == 'A')
+	{
+		return statsChangedA;
+	} else if( list == 'B')
+	{
+			return statsChangedB;
+	}
+		return null;
 	}
 
 	public float GetStatsValue(Stats stat)

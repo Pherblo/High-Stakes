@@ -59,7 +59,7 @@ Material:
     m_Floats:
     - _EnableExternalAlpha: 0
     - _FadOIffset: 0.6
-    - _FadeAlphaClip: 1
+    - _FadeAlphaClip: 0
     - _FadeClip: 0
     - _FadeColorSizeMax: 0.005
     - _FadeColorSizeMin: 0.005
