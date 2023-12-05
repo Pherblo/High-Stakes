@@ -41,7 +41,7 @@ public class CardManager : MonoBehaviour
             card.transform.position = _startingTransformValues.position;
             card.transform.rotation = _startingTransformValues.rotation;
             card.OnCardDrawFinished += StartDisplayingCard;
-            card.OnCardDiscard += StartDiscardingCard;
+            card.OnCardDiscardStart += StartDiscardingCard;
         }
         StartPickCard();
         _cardDisplay.ClearDisplay();

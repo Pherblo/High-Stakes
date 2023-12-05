@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -13,7 +12,7 @@ public class CardAnimator : MonoBehaviour, IDragHandler, IBeginDragHandler, IEnd
 
     public Action<int> OnCardSwiped;    // Returns -1 or 1, for left and right respectively.
     public Action OnCardDrawFinished;
-    public Action OnCardDiscard;
+    public Action OnCardDiscardStart;
 
     [Header("Scene References")]
     [SerializeField] private Camera _cardCamera;
@@ -159,7 +158,7 @@ public class CardAnimator : MonoBehaviour, IDragHandler, IBeginDragHandler, IEnd
 
     private IEnumerator StartExitAnimation()
     {
-        OnCardDiscard?.Invoke();
+        OnCardDiscardStart?.Invoke();
         float signedDirection = Mathf.Sign(_cachedNewPosition.x - _originalPosition.x);
         //_isInteractable = false;
         StartCoroutine(StartExitRotationZ());
