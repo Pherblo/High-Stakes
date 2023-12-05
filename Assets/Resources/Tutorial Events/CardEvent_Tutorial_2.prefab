@@ -58,10 +58,10 @@ MonoBehaviour:
   popularityValueB: 0
   _dialogueA:
     _dialogueIsActive: 1
-    _dialogueText: Souls?
+    _dialogueText: I dont know what you mean...
     _charactersToBeDead: []
   _dialogueB:
     _dialogueIsActive: 1
-    _dialogueText: Souls?
+    _dialogueText: Souls from where?
     _charactersToBeDead: []
   _conditions: []

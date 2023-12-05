@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _name: Salvador
-  _title: Commoner
+  _title: Common Theif
   _isAlive: 1
   _characterArt: {fileID: 21300000, guid: 1e6b79271c895e3409fdc090697cf9e7, type: 3}
   _cardEvents:
