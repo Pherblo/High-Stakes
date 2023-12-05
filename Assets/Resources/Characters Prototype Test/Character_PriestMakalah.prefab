@@ -47,6 +47,6 @@ MonoBehaviour:
   _name: Priest Makalah
   _title: Follower of Light
   _isAlive: 1
-  _characterArt: {fileID: 21300000, guid: 1e6b79271c895e3409fdc090697cf9e7, type: 3}
+  _characterArt: {fileID: 21300000, guid: 26046ea9ff788484a9f81aab2cb04245, type: 3}
   _cardEvents:
   - {fileID: 4317882935473067645, guid: 52079ddb2510df346bbe899affbefc54, type: 3}

@@ -60,6 +60,6 @@ MonoBehaviour:
     _charactersToBeDead: []
   _dialogueB:
     _dialogueIsActive: 1
-    _dialogueText: Give poisonous herbs that erases memories.
+    _dialogueText: 'Give poisonous herbs '
     _charactersToBeDead: []
   _conditions: []
