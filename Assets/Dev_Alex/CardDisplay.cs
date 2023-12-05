@@ -137,20 +137,25 @@ public class CardDisplay : MonoBehaviour
     private void ChangeStatsDisplays( CardEvent cardToDisplay)
     {
         List<String> emptyList = new List<String>();
-        if(animator.currentPos == CardPos.left)
+        if(animator.GetLerpValue() == -1) //check which way the card is leaning to highlight those stats
         {
             statsBeingChanged = cardToDisplay.GetStatsChanged('A');
-        } else if (animator.currentPos == CardPos.right) {
+        } else if (animator.GetLerpValue() == 1) {
             statsBeingChanged = cardToDisplay.GetStatsChanged('B');
         } else
         {
-            statsBeingChanged = emptyList;
+            statsBeingChanged = emptyList; //if its not leaning left or right highlight nothing
         }
         // Updating Stat bottles from last card
         suspicion.changeValue(cardToDisplay.GetStatsValue(suspicion));
         faith.changeValue(cardToDisplay.GetStatsValue(faith));
         popularity.changeValue(cardToDisplay.GetStatsValue(popularity));
-
+        string result = "";
+        for(int i=0; i<statsBeingChanged.Count; i++)
+        {
+            result = result + statsBeingChanged[i] + ", ";
+        }
+        print (result);
         for(int i =0; i<statsBeingChanged.Count; i++)
         {
             if(statsBeingChanged[i].ToLower().Equals( "suspicion"))
