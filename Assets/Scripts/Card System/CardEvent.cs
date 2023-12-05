@@ -57,7 +57,6 @@ public class CardEvent : MonoBehaviour
 
     private void Update()
     {
-		FindStatsChanged(); //find the list of stats changed
     }
     // TODO: Improve this. Likely separate initial associatedCharacter variable from instanced associatedCharacter variable.
     public void AssignCharacter(CharacterData associatedCharacterInstance)
@@ -128,23 +127,27 @@ public class CardEvent : MonoBehaviour
 		Debug.Log("Requirements met for this card: " + CheckRequirements());
     }
 
-	private void FindStatsChanged()
+	public void FindStatsChanged()
 	{
-	
+		print("faith:" + faithValue);
+		print("faithA" + faithValueA);
             if (suspicionValue != suspicionValueA)
             {
                 statsChangedA.Add("suspicion");
+			print("add sus to a");
             }
 
             if (faithValue != faithValueA)
             {
                 statsChangedA.Add("faith");
-            }
+            print("add faith to a");
+        }
 
             if (popularityValue != popularityValueA)
             {
                 statsChangedA.Add("popularity");
-            }
+            print("add pop to a");
+        }
 
         if (suspicionValue != suspicionValueB)
         {

@@ -78,7 +78,6 @@ public class CardDisplay : MonoBehaviour
     public void UpdateCardDisplay(CardEvent cardToDisplay)
 	{
         // Cache the card.
-        statsBeingChanged.Clear();
         _currentCardEvent = cardToDisplay;
         print(cardToDisplay);
         // Updating UI texts and art on the card.
@@ -136,6 +135,7 @@ public class CardDisplay : MonoBehaviour
 
     private void ChangeStatsDisplays( CardEvent cardToDisplay)
     {
+        cardToDisplay.FindStatsChanged();
         List<String> emptyList = new List<String>();
         if(animator.GetLerpValue() == -1) //check which way the card is leaning to highlight those stats
         {
@@ -150,21 +150,30 @@ public class CardDisplay : MonoBehaviour
         suspicion.changeValue(cardToDisplay.GetStatsValue(suspicion));
         faith.changeValue(cardToDisplay.GetStatsValue(faith));
         popularity.changeValue(cardToDisplay.GetStatsValue(popularity));
-        string result = "";
-        for(int i=0; i<statsBeingChanged.Count; i++)
+        string resultA = "";
+        string resultB = "";
+        for (int i=0; i< cardToDisplay.GetStatsChanged('A').Count; i++)
         {
-            result = result + statsBeingChanged[i] + ", ";
+            resultA = resultA + cardToDisplay.GetStatsChanged('A')[i] + ", ";
         }
-        print (result);
-        for(int i =0; i<statsBeingChanged.Count; i++)
+
+        for (int i = 0; i < cardToDisplay.GetStatsChanged('B').Count; i++)
+        {
+            resultB= resultA + cardToDisplay.GetStatsChanged('B')[i] + ", ";
+        }
+       // print ("statsChanged B: " + resultB);
+       // print("statsChanged A: " + resultA);
+        for (int i =0; i<statsBeingChanged.Count; i++)
         {
             if(statsBeingChanged[i].ToLower().Equals( "suspicion"))
             {
                 suspicion.Glow();
-            } else if (statsBeingChanged[i].ToLower().Equals("faith"))
+            }
+            if (statsBeingChanged[i].ToLower().Equals("faith"))
             {
                 faith.Glow();
-            } else if (statsBeingChanged[i].ToLower().Equals("popularity"))
+            }
+            if (statsBeingChanged[i].ToLower().Equals("popularity"))
                 {
                 popularity.Glow();
             }
