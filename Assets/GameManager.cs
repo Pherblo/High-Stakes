@@ -15,20 +15,20 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
-        if (runningTutorial)
+        /*if (runningTutorial)
         {
             Deck.GetComponent<Deck>()._database = TutorialDatabase;
         }
         else
         {
             Deck.GetComponent<Deck>()._database = CharacterDatabase;
-        }
+        }*/
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (runningTutorial)
+        /*if (runningTutorial)
         {
             Deck.GetComponent<Deck>()._database = TutorialDatabase;
 
@@ -41,7 +41,7 @@ public class GameManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             QuitGame();
-        }
+        }*/
     }
 
 

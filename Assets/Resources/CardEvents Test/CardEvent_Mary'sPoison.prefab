@@ -46,9 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   associatedCharacter: {fileID: 1095002341841383241, guid: 574ff0f97796e594b85101ac11bc15e2, type: 3}
   _description: Mary comes asking for a poison.
-  suspicionValue: 10
-  faithValue: 15
-  popularityValue: 0
+  _guaranteedCard: 0
   suspicionValueA: 0
   faithValueA: 0
   popularityValueA: 0

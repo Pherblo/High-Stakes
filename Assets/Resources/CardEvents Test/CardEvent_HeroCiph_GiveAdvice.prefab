@@ -48,9 +48,7 @@ MonoBehaviour:
   _description: I'm at a loss. I don't know where to go from here. I know I'm not
     powerful enough right now, but don't know what to do next. Please let me know
     what I should do.
-  suspicionValue: 0
-  faithValue: 0
-  popularityValue: 10
+  _guaranteedCard: 0
   suspicionValueA: 0
   faithValueA: 0
   popularityValueA: 0

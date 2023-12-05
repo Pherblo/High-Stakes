@@ -47,9 +47,7 @@ MonoBehaviour:
   associatedCharacter: {fileID: 1095002341841383241, guid: cb024f176ca5b5344b077ee2d8b12c2e, type: 3}
   _description: Madam, the doctor had ran out of medicinal herbs. Perchance you have
     some to spare for us?
-  suspicionValue: 0
-  faithValue: 0
-  popularityValue: 10
+  _guaranteedCard: 0
   suspicionValueA: 0
   faithValueA: 0
   popularityValueA: 0
