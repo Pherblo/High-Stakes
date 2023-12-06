@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1910526153145392603
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4977459945738838285}
+  - component: {fileID: 1095002341841383241}
+  m_Layer: 0
+  m_Name: Character_Salvador
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4977459945738838285
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1910526153145392603}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1095002341841383241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1910526153145392603}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88f96f567526aa749af23d098f8b50a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _name: Salvador
+  _title: Common Theif
+  _isAlive: 1
+  _characterArt: {fileID: 21300000, guid: bc3fdd7a3472ed24d9f0dc9d4f8c2ab8, type: 3}
+  _cardEvents:
+  - {fileID: 4317882935473067645, guid: 2ac477593618b5d41a5639b7b58db1e2, type: 3}
+  - {fileID: 4317882935473067645, guid: 04cb83c3a2ebbfa4d8b634e574d8de89, type: 3}
+  - {fileID: 4317882935473067645, guid: 8cac542a338216845890d2bb0c746deb, type: 3}

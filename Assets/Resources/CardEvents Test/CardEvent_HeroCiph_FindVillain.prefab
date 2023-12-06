@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6351194851818241939
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6968691294569748046}
+  - component: {fileID: 4317882935473067645}
+  m_Layer: 0
+  m_Name: CardEvent_HeroCiph_FindVillain
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6968691294569748046
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6351194851818241939}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4317882935473067645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6351194851818241939}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa8740551ebe6184eb914bebb0fafe14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  associatedCharacter: {fileID: 8879443658972519502, guid: 72c42912b0571644abda7b5c2decbbd5, type: 3}
+  _description: I'm hunting down my nemesis, but I've lost track of his location.
+    Where are they now?
+  _guaranteedCard: 0
+  suspicionValueA: -10
+  faithValueA: 0
+  popularityValueA: 0
+  suspicionValueB: 20
+  faithValueB: 0
+  popularityValueB: 0
+  _dialogueA:
+    _dialogueIsActive: 1
+    _dialogueText: Reveal his nemesis's location.
+    _charactersToBeDead: []
+  _dialogueB:
+    _dialogueIsActive: 1
+    _dialogueText: Lie about his nemesis's location.
+    _charactersToBeDead: []
+  _conditions: []
