@@ -7,8 +7,8 @@ using UnityEngine.UI;
 public class Stats : MonoBehaviour
 {
     [Header("Stat values: ")]
-    private float _currentValue = 50;
-    private float _maxValue = 100;
+    [SerializeField] private float _currentValue = 50;
+    [SerializeField] private float _maxValue = 100;
 
     [Header("Display settings: ")]
     public float minY = 0.8f;

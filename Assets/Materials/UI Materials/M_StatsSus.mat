@@ -98,8 +98,9 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _EdgeEmissionStrength: 0
-    - _EdgeOffset: 0.02
+    - _EdgeAlpha: 0.472
+    - _EdgeEmissionStrength: 5
+    - _EdgeOffset: 0.01
     - _EmissionStrength: 5
     - _EnableExternalAlpha: 0
     - _QueueControl: 0
