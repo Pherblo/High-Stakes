@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -12,8 +11,10 @@ public class CardAnimator : MonoBehaviour, IDragHandler, IBeginDragHandler, IEnd
     // In order for drag events to work on this 3D game object, the camera its assigned to must have a Graphic Raycaster component.
 
     public Action<int> OnCardSwiped;    // Returns -1 or 1, for left and right respectively.
+    public Action<float> OnCardDrag;   // Returns a float range from -1 to 1. Called every time the drag happens.
+    public Action OnCardSnapback;      // Called on snapback.
     public Action OnCardDrawFinished;
-    public Action OnCardDiscard;
+    public Action OnCardDiscardStart;
 
     [Header("Scene References")]
     [SerializeField] private Camera _cardCamera;
@@ -37,6 +38,8 @@ public class CardAnimator : MonoBehaviour, IDragHandler, IBeginDragHandler, IEnd
     [SerializeField] private float _rotationResetDuration = 0.25f;
     [SerializeField] private float _exitRotationSpeed = 180f;
 
+
+
     // References to be passed onto the CardDisplay, done by CardManager.
     public Image CardArt => _cardArt;
     public TextMeshProUGUI CharacterName => _characterName;
@@ -58,6 +61,7 @@ public class CardAnimator : MonoBehaviour, IDragHandler, IBeginDragHandler, IEnd
         _animator.speed = 1f / _swipeAnimationDuration;
     }
 
+
     public void OnBeginDrag(PointerEventData eventData)
     {
         if (_isInteractable)
@@ -75,6 +79,16 @@ public class CardAnimator : MonoBehaviour, IDragHandler, IBeginDragHandler, IEnd
         {
             MoveCard(eventData.position);
             RotateCard(eventData.position);
+
+            // Calculate drag value.
+            //int dragMultiplier = 1;
+            //float dragLength = (GetMousePosition(eventData.position) - _cachedDragStartPosition).magnitude;
+            Vector3 dragDirection = GetMousePosition(eventData.position) - _cachedDragStartPosition;
+            if (dragDirection.x < _cachedDragStartPosition.x) 
+                OnCardDrag?.Invoke(-1f);
+            else if (dragDirection.x > _cachedDragStartPosition.x)
+                OnCardDrag?.Invoke(1f);
+            else OnCardDrag?.Invoke(0f);
         }
     }
 
@@ -84,7 +98,6 @@ public class CardAnimator : MonoBehaviour, IDragHandler, IBeginDragHandler, IEnd
         {
             //StartCoroutine(SnapbackCard());
             float dragLength = (GetMousePosition(eventData.position) - _cachedDragStartPosition).magnitude;
-            print(dragLength);
             if (dragLength >= _maxXOffset)
             {
                 if (GetMousePosition(eventData.position).x < _cachedDragStartPosition.x)
@@ -116,6 +129,7 @@ public class CardAnimator : MonoBehaviour, IDragHandler, IBeginDragHandler, IEnd
         float lerpValue = GetLerpValue();
         transform.position = Vector3.Lerp(_originalPosition, targetPosition, lerpValue);
         _cachedNewPosition = transform.position;
+
     }
 
     private void RotateCard(Vector3 eventDataPosition)
@@ -136,10 +150,10 @@ public class CardAnimator : MonoBehaviour, IDragHandler, IBeginDragHandler, IEnd
 
     private IEnumerator SnapbackCard()
     {
+        OnCardSnapback?.Invoke();
         Vector3 currentPosition = transform.position;
         Quaternion currentRotation = transform.rotation;
         float timer = 0f;
-
         do
         {
             timer += Time.deltaTime;
@@ -157,7 +171,7 @@ public class CardAnimator : MonoBehaviour, IDragHandler, IBeginDragHandler, IEnd
 
     private IEnumerator StartExitAnimation()
     {
-        OnCardDiscard?.Invoke();
+        OnCardDiscardStart?.Invoke();
         float signedDirection = Mathf.Sign(_cachedNewPosition.x - _originalPosition.x);
         //_isInteractable = false;
         StartCoroutine(StartExitRotationZ());
@@ -202,7 +216,7 @@ public class CardAnimator : MonoBehaviour, IDragHandler, IBeginDragHandler, IEnd
         yield return null;
     }
 
-    private float GetLerpValue()
+    public float GetLerpValue()
     {
         float currentMagnitude = (_cachedNewPosition - _originalPosition).magnitude;
         float lerpValue = currentMagnitude / _maxXOffset;

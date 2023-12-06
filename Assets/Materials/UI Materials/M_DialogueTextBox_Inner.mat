@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: M_AnimatedTextBack
+  m_Name: M_DialogueTextBox_Inner
   m_Shader: {fileID: -6465566751694194690, guid: 05dd8c0d65b5e86449a4842c4af66ed9, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -40,7 +40,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTexture:
-        m_Texture: {fileID: 2800000, guid: 16982e63f1b8d7d41b52889cb9b65371, type: 3}
+        m_Texture: {fileID: 2800000, guid: 8e34c53a66fcdf347a750fe8c14b8b0c, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MaskTex:
@@ -69,6 +69,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _AlphaMultiplier: 0.85
     - _BlendOp: 0
     - _BumpScale: 1
     - _CameraFadingEnabled: 0
@@ -80,15 +81,18 @@ Material:
     - _Cutoff: 0.5
     - _DistortionBlend: 0.5
     - _DistortionEnabled: 0
-    - _DistortionNoiseScale: 25
+    - _DistortionNoiseScale: 30
     - _DistortionStrength: 0.4
     - _DistortionStrengthScaled: 0
     - _DstBlend: 0
     - _EmissionEnabled: 0
     - _EmissionStrength: 1
     - _EnableExternalAlpha: 0
+    - _EnableHorizontalFadedEdges: 1
+    - _EnableVerticalFadedEdges: 1
     - _FadeClip: 0
-    - _FadeEdgeSize: 0.05
+    - _FadeEdgeMultiplier: 1
+    - _FadeEdgeSize: 0.3
     - _FadeEdgeStrength: 5
     - _FadeRotation: 0
     - _FlipbookMode: 0
@@ -97,6 +101,7 @@ Material:
     - _Mode: 0
     - _QueueControl: 0
     - _QueueOffset: 0
+    - _SideFadeEdgesStrength: 50
     - _SoftParticlesEnabled: 0
     - _SoftParticlesFarFadeDistance: 1
     - _SoftParticlesNearFadeDistance: 0
@@ -114,14 +119,16 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _ColorAddSubDiff: {r: 0, g: 0, b: 0, a: 0}
     - _DistortionAxes: {r: 1, g: 0, b: 0, a: 0}
-    - _DistortionScrollSpeed: {r: 0.8, g: 0, b: 0, a: 0}
+    - _DistortionNoiseTiling: {r: 2, g: 1, b: 0, a: 0}
+    - _DistortionScrollSpeed: {r: 0, g: 0, b: 0, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _FadeEdgeColor: {r: 1, g: 1, b: 1, a: 1}
+    - _FadeEdgeColor: {r: 0, g: 0, b: 0, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
     - _SoftParticleFadeParams: {r: 0, g: 0, b: 0, a: 0}
-    - _TextureScrollSpeed: {r: 0.5, g: 0, b: 0, a: 0}
-    - _TextureTiling: {r: 1, g: 1, b: 0, a: 0}
+    - _TextureOffset: {r: 0, g: 0.25, b: 0, a: 0}
+    - _TextureScrollSpeed: {r: -0.15, g: 0, b: 0, a: 0}
+    - _TextureTiling: {r: 1, g: 0.4, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &2016979097223492106
 MonoBehaviour:

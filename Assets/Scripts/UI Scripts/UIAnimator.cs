@@ -1,18 +1,25 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class UIAnimator : MonoBehaviour
 {
+    // Used to start/stop particle effects.
+    public UnityEvent OnFadeEnterFinished;
+    public UnityEvent OnFadeExitStart;
+
     // This script is attached to UI components, with Image components, whose materials use the custom UI Fade shader.
     // All methods in this script is called via events.
     [Header("Component References")]
     [SerializeField] private Image _imageComponent;
-    [Header("General Fade Settings")]
+    [Header("Material Settings and Property Names")]
     [SerializeField] private Material _materialInstance;
+    [SerializeField] private string _fadeAlphaName = "materialPropertyName";
+    [SerializeField] private string _fadeRotationName = "materialPropertyName";
+    [Header("General Fade Settings")]
     [SerializeField] private float _startingFadeValue = 0f;
     [SerializeField, Range(0f, 1f)] private float _lerpStartValue = 0f;
     [SerializeField, Range(0f, 1f)] private float _lerpEndValue = 1f;
@@ -40,6 +47,7 @@ public class UIAnimator : MonoBehaviour
     public void StartExitFade()
     {
         StopAllCoroutines();
+        OnFadeExitStart?.Invoke();
         StartCoroutine(StartFading(0f, 1f, _fadeOutRotation, false));
         /*
         if (_firstFadeOut)
@@ -55,23 +63,25 @@ public class UIAnimator : MonoBehaviour
 
     public void SetStartingFadeClip()
     {
-        _imageComponent.materialForRendering.SetFloat("_FadeAlphaClip", _startingFadeValue);
+        _imageComponent.materialForRendering.SetFloat(_fadeAlphaName, _startingFadeValue);
     }
 
     private IEnumerator StartFading(float startValue, float endValue, float newRotation, bool isFadeStart)
     {
         // Set fade direction.
-        _imageComponent.materialForRendering.SetFloat("_FadeDirectionRotation", newRotation);
+        _imageComponent.materialForRendering.SetFloat(_fadeRotationName, newRotation);
         // Start fading.
         float timer = 0;
         do
         {
             float lerpProgress = timer / _fadeDuration;
             float lerpValue = Mathf.Lerp(startValue, endValue, lerpProgress);
-            _imageComponent.materialForRendering.SetFloat("_FadeAlphaClip", lerpValue);
+            _imageComponent.materialForRendering.SetFloat(_fadeAlphaName, lerpValue);
             timer += Time.deltaTime;
             yield return null;
         } while (timer < _fadeDuration);
+
+        if (isFadeStart) OnFadeEnterFinished?.Invoke();
 
         yield return null;
     }

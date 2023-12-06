@@ -48,9 +48,9 @@ MonoBehaviour:
   _description: I need to locate the holy sword to slay evil, but I'm not sure where
     to start. Help me find it.
   _guaranteedCard: 0
-  suspicionValueA: 0
-  faithValueA: 0
-  popularityValueA: 0
+  suspicionValueA: -10
+  faithValueA: -10
+  popularityValueA: 10
   suspicionValueB: 0
   faithValueB: 10
   popularityValueB: -10

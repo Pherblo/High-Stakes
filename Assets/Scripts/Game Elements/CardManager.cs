@@ -7,6 +7,7 @@ using UnityEngine.Events;
 public class CardManager : MonoBehaviour
 {
     // This script handles game logic. This was previously done via events but it caused some headaches. Therefore, everything will be aggregated to this script for convenience's sake.
+    // This is practically a game manager.
 
     public UnityEvent OnCardPickStart;
     public UnityEvent OnCardDisplayStart;
@@ -14,6 +15,7 @@ public class CardManager : MonoBehaviour
     [Header("Scene References")]
     [SerializeField] private Deck _deck;
     [SerializeField] private CardDisplay _cardDisplay;
+    [SerializeField] private StatsManager _statsManager;
     [SerializeField] CardAnimator[] _cardAnimators;
     [Header("Physical Card Settings")]
     [SerializeField] private Transform _startingTransformValues;
@@ -28,9 +30,11 @@ public class CardManager : MonoBehaviour
         _currentCardAnimator = _cardAnimators[0];
 
         // Subscribe to input events.
-        foreach (CardAnimator cardAnimator in _cardAnimators)
+        foreach (CardAnimator cardAnim in _cardAnimators)
         {
-            cardAnimator.OnCardSwiped += ChooseChoice;
+            cardAnim.OnCardSwiped += ChooseChoice;
+            cardAnim.OnCardDrag += HighlightStats;
+            cardAnim.OnCardSnapback += _statsManager.RemoveStatsHighlights;
         }
     }
 
@@ -41,7 +45,7 @@ public class CardManager : MonoBehaviour
             card.transform.position = _startingTransformValues.position;
             card.transform.rotation = _startingTransformValues.rotation;
             card.OnCardDrawFinished += StartDisplayingCard;
-            card.OnCardDiscard += StartDiscardingCard;
+            card.OnCardDiscardStart += StartDiscardingCard;
         }
         StartPickCard();
         _cardDisplay.ClearDisplay();
@@ -74,14 +78,12 @@ public class CardManager : MonoBehaviour
 
     public void StartDiscardingCard()
     {
-        Debug.LogWarning($"pick new card. dialogue count: {_deck.SelectedDialogues.Count}");
         _cardDisplay.ExitDisplay();
         StartPickCard();
     }
 
     private void ChooseChoice(int direction)
     {
-        Debug.LogWarning($"processing card. dialogue count: {_deck.SelectedDialogues.Count}");
         if (direction == -1)
         {
             _currentCardEvent.ChooseDialogue(1);
@@ -92,5 +94,12 @@ public class CardManager : MonoBehaviour
             _currentCardEvent.ChooseDialogue(2);
             _deck.ProcessCard(_currentCardEvent);
         }
+
+        _statsManager.ModifyStats(_currentCardEvent);
+    }
+
+    private void HighlightStats(float dragInput)
+    {
+        _statsManager.HighlightStats(_currentCardEvent, dragInput);
     }
 }

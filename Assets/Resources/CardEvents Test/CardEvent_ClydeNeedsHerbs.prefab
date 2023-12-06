@@ -50,8 +50,8 @@ MonoBehaviour:
   _guaranteedCard: 0
   suspicionValueA: 0
   faithValueA: 0
-  popularityValueA: 0
-  suspicionValueB: -10
+  popularityValueA: 10
+  suspicionValueB: 10
   faithValueB: 0
   popularityValueB: 0
   _dialogueA:
