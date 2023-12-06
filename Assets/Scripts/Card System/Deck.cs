@@ -18,6 +18,8 @@ public class Deck : MonoBehaviour
     [SerializeField] private string _cardsPath;
     [SerializeField] private string _tutorialSeriesPath;
     [SerializeField] private string _endCardsPath;
+    [SerializeField] private string _fullMoonWinPath;
+    [SerializeField] private string _fullMoonLosePath;
 
     [Header("Scene References")]
     [SerializeField] private StatsManager _stats;
@@ -27,6 +29,10 @@ public class Deck : MonoBehaviour
 
     [Header("Tutorial Settings")]
     [SerializeField] private CardSeries _tutorialCardSeries;
+
+    [Header("Full Moon Settings")]
+    [SerializeField] private CardSeries _fullMoonWinSeries;
+    [SerializeField] private CardSeries _fullMoonLoseSeries;
 
     [Header("Default End Card")]
     [SerializeField] private CardEvent _defaultEndCard;     // Gets picked when there are no available cards left.
@@ -43,8 +49,12 @@ public class Deck : MonoBehaviour
     private List<CardEvent> _endCards = new();
 
     public StatsManager Stats => _stats;
+    public Timeline _timeline;
     private CardSeries _tutorialSeriesInstance;
+    private CardSeries _fullMoonWinSeriesInstance;
+    private CardSeries _fullMoonLoseSeriesInstance;
     private CardEvent _defaultEndCardInstance;
+    public Stats _souls;
 
     public List<CardDialogue> SelectedDialogues => _selectedDialogues;
     /*public Stats Suspicion => _suspicion;
@@ -94,7 +104,25 @@ public class Deck : MonoBehaviour
             seriesCardInstance.AssignDeck(this);
             _tutorialSeriesInstance.AddCardToSeries(seriesCardInstance);
         }
+
+        // Load and instantiate full moon event cards and series
         
+        _fullMoonWinSeriesInstance = Instantiate(_fullMoonWinSeries, transform);
+        foreach (CardEvent seriesCard in _fullMoonWinSeriesInstance.CardEvents)
+        {
+            CardEvent seriesCardInstance = Instantiate(seriesCard, transform);
+            seriesCardInstance.AssignDeck(this);
+            _fullMoonWinSeriesInstance.AddCardToSeries(seriesCardInstance);
+        }
+        
+        _fullMoonLoseSeriesInstance = Instantiate(_fullMoonLoseSeries, transform);
+        foreach (CardEvent seriesCard in _fullMoonLoseSeriesInstance.CardEvents)
+        {
+            CardEvent seriesCardInstance = Instantiate(seriesCard, transform);
+            seriesCardInstance.AssignDeck(this);
+            _fullMoonLoseSeriesInstance.AddCardToSeries(seriesCardInstance);
+        }
+
         // Add all cards from all CardSeries present.
         foreach (CardSeries series in allSeries) allCards.AddRange(series.CardEvents);
 
@@ -140,6 +168,7 @@ public class Deck : MonoBehaviour
 
     public CardEvent PickCard()
     {
+        runningTutorial = false; 
         // Pick end cards, if any.
         //Debug.LogWarning($"{_endCards[0].gameObject.name}, {_endCards[0].CheckRequirements()}, dialogue selected: {_selectedDialogues.Count}");
         foreach (CardEvent endCard in _endCards)
@@ -148,6 +177,21 @@ public class Deck : MonoBehaviour
             {
                 return endCard;
             }
+        }
+        //full moon events
+        
+        if (_timeline.TriggerGodEvent() && _fullMoonWinSeriesInstance.CheckRequirements() && _souls.getValue() >= _timeline.requiredSouls)
+        {
+            print("full moon WIN event");
+            CardEvent fullMoonWinCard = _fullMoonWinSeriesInstance.GetCard();
+            return fullMoonWinCard;
+        }
+        
+        if (_timeline.TriggerGodEvent() && _fullMoonLoseSeriesInstance.CheckRequirements() && _souls.getValue() < _timeline.requiredSouls)
+        {
+            print("full moon LOSE event");
+            CardEvent fullMoonLoseCard = _fullMoonLoseSeriesInstance.GetCard();
+            return fullMoonLoseCard;
         }
         /*for (int i = 0; i < _endCards.Count; i++)
         {
@@ -173,10 +217,12 @@ public class Deck : MonoBehaviour
         // Return tutorial series, if not finished yet.
         if (!_skipTutorial &&_tutorialSeriesInstance.CheckRequirements())
         {
+            runningTutorial = true;
             CardEvent tutorialCard = _tutorialSeriesInstance.GetCard();
             return tutorialCard;
             //return _tutorialSeriesInstance.GetCard();
         }
+
 
         ShuffleDeck();
         // Pick out cards based on characters.
@@ -203,6 +249,10 @@ public class Deck : MonoBehaviour
         return _defaultEndCardInstance;
     }
 
+    public bool GetTutorialStatus()
+    {
+        return runningTutorial;
+    }
     /*public CardEvent PickCardOld()
     {
         //AssignData(); //assign data to card

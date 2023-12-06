@@ -2,8 +2,10 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.Events;
+using static UnityEngine.GraphicsBuffer;
 using Random = UnityEngine.Random;
 
 public enum MoonCycle {
@@ -19,8 +21,8 @@ public enum MoonCycle {
 
 public enum TimeOfDay
 {
-    Morning,
-    Afternoon,
+    Day,
+    Dusk,
     Night
 }
 
@@ -41,9 +43,18 @@ public class Timeline : MonoBehaviour
     private MoonCycle currentMoonCycle;
  
     const int numOfCycles = 8;
-    const int numOfTimes = 2;
+    const int numOfTimes = 3;
 
     int timePassed = 0;
+
+    public GameObject moonPhasesArt;
+    public GameObject arrowArt;
+    public Deck deck;
+
+    public float change;
+
+    public Animator animator;
+    public int requiredSouls = 75;
 
 
     // Start is called before the first frame update
@@ -51,23 +62,31 @@ public class Timeline : MonoBehaviour
     {
         //set initial values
         currentMoonCycle = MoonCycle.WaxingGibbous; //start on mooncycle after full moon
-        currentTime = TimeOfDay.Morning; //start in morning
+        currentTime = TimeOfDay.Night; //start in morning
+        change = 45;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (cardsPassedTime >= cardsTillNextTime)
+        print("cards passed time" + cardsPassedTime);
+        if (cardsPassedTime >= cardsTillNextTime && !deck.GetTutorialStatus())
         {
-            changeTime();
+            ChangeTime();
         }
-        if (cardsPassedToday >= cardsTillNextDay)
+        if (cardsPassedToday >= cardsTillNextDay && !deck.GetTutorialStatus())
         {
-            changeDay();
+            ChangeDay();
+            change += 45;
         }
+        UpdateTimeDisplay();
+        UpdateMoonDisplay();
+        print(totalCardsPassed);
+        print("time: " + currentTime.ToString());
+        print("moon cycle: " + currentMoonCycle.ToString());
     }
 
-    private void changeDay()
+    private void ChangeDay()
     {
             daysPassed++;
             int moonCycle = (int)currentMoonCycle; //cast current mooncyle to int
@@ -79,17 +98,16 @@ public class Timeline : MonoBehaviour
         {
             currentMoonCycle = (MoonCycle) 0;
         }
-        Debug.Log("change day");
         cardsPassedToday = 0;
     }
 
-    private void changeTime()
+    private void ChangeTime()
     {
         Debug.Log("change time");
    
 
-        int time = (int)currentTime; //cast current mooncyle to int
-        if (time < numOfTimes )
+        int time = (int)currentTime; //cast current time to int
+        if (time < numOfTimes-1 )
         {
             currentTime = (TimeOfDay)currentTime + 1; //make new mooncycle current + 1
         }
@@ -101,22 +119,61 @@ public class Timeline : MonoBehaviour
     }
 
 
-    public void updateDisplay()
+    public void UpdateMoonDisplay()
     {
+
         //stub to hook up to animation
-         Debug.Log("time: " + currentTime.ToString());
         // Debug.Log(cardsPassedToday.ToString());
          Debug.Log("moon cycle: " + currentMoonCycle.ToString());
 
         //will change the display
+        // moonPhasesArt.transform.Rotate(0, 0, 45, Space.World);
+
+        float speed = 2f;
+        Quaternion targetRotation = Quaternion.Euler(0, 0 , moonPhasesArt.transform.rotation.z + change);
+        Quaternion startRotation = moonPhasesArt.transform.rotation;
+        moonPhasesArt.transform.rotation = Quaternion.Lerp(startRotation, targetRotation, speed * Time.deltaTime);
+        
+    }
+
+    public void UpdateTimeDisplay()
+    {
+       if(currentTime == TimeOfDay.Day)
+        {
+            animator.ResetTrigger("Night");
+            animator.SetTrigger("Day");
+        } else if(currentTime == TimeOfDay.Dusk)
+        {
+            animator.ResetTrigger("Day");
+            animator.SetTrigger("Dusk");
+        } else if(currentTime == TimeOfDay.Night)
+        {
+            animator.ResetTrigger("Dusk");
+            animator.SetTrigger("Night");
+        }
     }
 
  
     //to be called by onCardPicked event in deck
-    public void updateCardsPassed()
+    public void UpdateCardsPassed()
     {
-        cardsPassedToday++;
-        cardsPassedTime++;
+        if (!deck.GetTutorialStatus())
+        {
+            cardsPassedToday++;
+            cardsPassedTime++;
+            totalCardsPassed++;
+        }
+    }
+
+    public bool TriggerGodEvent()
+    {
+        if(currentMoonCycle == MoonCycle.FullMoon)
+        {
+            print("FULL MOON");
+            return true;
+        }
+
+        return false;
     }
    
 }
