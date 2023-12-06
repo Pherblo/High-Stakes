@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6968691294569748046}
   - component: {fileID: 4317882935473067645}
   m_Layer: 0
-  m_Name: CardEvent_SalvadorNeedsANewTrick
+  m_Name: CardEvent_Toad2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45,22 +45,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   associatedCharacter: {fileID: 1095002341841383241, guid: fd4a9a357ca293741bfde4ca586a1d4b, type: 3}
-  _description: Money has become an issue. Hmm, I need some help ending a life, I
-    wonder if you can help me out?
+  _description: "*Ribbit?* The strange toad looks at you with questioning eyes. Something
+    glows inside of it\u2019s mouth. "
   _guaranteedCard: 0
-  suspicionValueA: 10
-  faithValueA: 10
+  suspicionValueA: -10
+  faithValueA: 0
   popularityValueA: 0
-  suspicionValueB: 0
-  faithValueB: -10
+  suspicionValueB: -10
+  faithValueB: 0
   popularityValueB: 0
   _dialogueA:
     _dialogueIsActive: 1
-    _dialogueText: Ill give you some nightshade, but in return you must return the
-      soul to me...
+    _dialogueText: "What\u2019s in your mouth\u2026? Is that a soul for me?"
     _charactersToBeDead: []
   _dialogueB:
     _dialogueIsActive: 1
-    _dialogueText: I cant help you unfortunately.
+    _dialogueText: Gross! Sweep it away with a broom.
     _charactersToBeDead: []
-  _conditions: []
+  _conditions:
+  - _cardReference: {fileID: 4317882935473067645, guid: 1bbd28b817ba52b48bbdf572cdb9247e, type: 3}
+    _choiceCondition: 1
+    _suspicionRequirement: 0
+    _soulsRequirement: 0
+    _popularityRequirement: 0
+    _characterReference: {fileID: 0}
+    _lifeCondition: 0

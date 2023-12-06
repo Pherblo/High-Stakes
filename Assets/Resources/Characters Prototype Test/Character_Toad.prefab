@@ -48,4 +48,6 @@ MonoBehaviour:
   _title: Strange Wildlife
   _isAlive: 1
   _characterArt: {fileID: 21300000, guid: 57a5e989767e826428a30b6cb6c1ef86, type: 3}
-  _cardEvents: []
+  _cardEvents:
+  - {fileID: 4317882935473067645, guid: 1bbd28b817ba52b48bbdf572cdb9247e, type: 3}
+  - {fileID: 4317882935473067645, guid: f7b42b76f7b29cf439d3a3808f34950d, type: 3}
