@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6968691294569748046}
   - component: {fileID: 4317882935473067645}
   m_Layer: 0
-  m_Name: CardEvent_Jackneedsmilk
+  m_Name: CardEvent_Jackneedsmilk 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45,21 +45,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   associatedCharacter: {fileID: 1095002341841383241, guid: 72747a2b3d9afc34889732b557b22c89, type: 3}
-  _description: My 12 kids are starving, and our cow Bessie can't produce enough
-    milk. Maybe you could give me a cow with infinite milk?
+  _description: "My 10th kid, little Timmy, is sick with a strange fever! I fear
+    the doctor will only made it worse with his so-called \u2018modern medicine.\u2019
+    Do you have any elixirs to help cure Timmy\u2019s fever?"
   _guaranteedCard: 0
   suspicionValueA: 10
   faithValueA: 0
   popularityValueA: 10
   suspicionValueB: -10
-  faithValueB: 0
+  faithValueB: -10
   popularityValueB: -10
   _dialogueA:
     _dialogueIsActive: 1
-    _dialogueText: '"Of course dear, here take this."'
+    _dialogueText: Yes, here you go.
     _charactersToBeDead: []
   _dialogueB:
     _dialogueIsActive: 1
-    _dialogueText: '"You greedy man! of course not!"'
+    _dialogueText: 'No, go see the doctor. '
     _charactersToBeDead: []
   _conditions: []

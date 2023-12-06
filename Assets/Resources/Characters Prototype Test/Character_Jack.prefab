@@ -51,3 +51,5 @@ MonoBehaviour:
   _cardEvents:
   - {fileID: 4317882935473067645, guid: 366256bb853a2ad40a26633800d5223d, type: 3}
   - {fileID: 4317882935473067645, guid: 3fd729ede68243d4ea51ba2380256633, type: 3}
+  - {fileID: 4317882935473067645, guid: 93015c3980e0f2e4592fe8ad8f6f11ec, type: 3}
+  - {fileID: 4317882935473067645, guid: a3bac79252e590147bead218f0b4d871, type: 3}
