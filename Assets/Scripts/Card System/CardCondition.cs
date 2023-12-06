@@ -47,6 +47,10 @@ public class CardCondition
     [SerializeField] private CharacterData _characterReference;
     [SerializeField] private LifeCondition _lifeCondition = LifeCondition.None;
 
+    private CharacterData _characterReferenceInstance;
+
+    public CharacterData CharacterReference => _characterReference;
+
     public bool CheckCondition(List<CardDialogue> selectedChoices, Deck deck)
     {
         // Get the required choice.
@@ -93,14 +97,29 @@ public class CardCondition
             return false;
         }*/
 
+        // Check if character reference is alive.
+        if (_characterReference != null && _lifeCondition != LifeCondition.None)
+        {
+            if (!_characterReference.IsAlive && _lifeCondition == LifeCondition.Alive)
+                return false;
+            else if (_characterReference.IsAlive && _lifeCondition == LifeCondition.Dead)
+                return false;
+        }
+
         if (!CheckStat(_suspicionCondition, deck.Stats.Suspicion.getValue(), _suspicionRequirement))
             return false;
         else if (!CheckStat(_soulsCondition, deck.Stats.Souls.getValue(), _soulsRequirement))
             return false;
         else if (!CheckStat(_popularCondition, deck.Stats.Popularity.getValue(), _popularityRequirement))
             return false;
+
         // If all conditions pass, return true.
         return true;
+    }
+
+    public void AssignCharacterReference(CharacterData instancedCharacter)
+    {
+        _characterReferenceInstance = instancedCharacter;
     }
 
     private bool CheckStat(StatCondition condition, float statValue, float comparisonValue)

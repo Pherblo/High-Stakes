@@ -54,6 +54,7 @@ public class CardEvent : CardBase
 	public CardDialogue DialogueB => _dialogueB;
 	// public bool GuaranteedCard => _guaranteedCard;
 	public SelectedChoice PickedChoice => _pickedChoice;
+	public List<CardCondition> Conditions => _conditions;
 
 	private Deck _deckInstance;
 

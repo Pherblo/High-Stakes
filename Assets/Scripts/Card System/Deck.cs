@@ -126,19 +126,32 @@ public class Deck : MonoBehaviour
         // Add all cards from all CardSeries present.
         foreach (CardSeries series in allSeries) allCards.AddRange(series.CardEvents);
 
+        // I UNIRONICALLY THINK THAT THIS IS A GOOD USE CASE FOR SCRIPTABLE OBJECTS!!!
         // Load and instantiate all characters, then assign their respective characters
         CharacterData[] loadedCharacters = Resources.LoadAll<CharacterData>(_charactersPath);
         foreach (CharacterData character in loadedCharacters)
         {
+            // Instantiate character here, then assign all needed references.
             CharacterData characterInstance = Instantiate(character, transform);
             _characters.Add(characterInstance);
 
             // Assign character instance to card events with matching associated character.
-            List<CardEvent> matchingCards = allCards.FindAll((x) => x.AssociatedCharacter == character);
+            foreach (CardEvent card in allCards)
+            {
+                if (card.AssociatedCharacter == character) card.AssignCharacter(characterInstance);
+                foreach (CardCondition condition in card.Conditions)
+                {
+                    if (condition.CharacterReference == character)
+                    {
+                        condition.AssignCharacterReference(characterInstance);
+                    }
+                }
+            }
+            /*List<CardEvent> matchingCards = allCards.FindAll((x) => x.AssociatedCharacter == character);
             foreach (CardEvent card in matchingCards)
             {
                 card.AssignCharacter(characterInstance);
-            }
+            }*/
         }
 
         // Sort all cards and get the first available ones.
@@ -164,6 +177,13 @@ public class Deck : MonoBehaviour
         // Create default end card.
         _defaultEndCardInstance = Instantiate(_defaultEndCard, transform);
         _defaultEndCard.AssignDeck(this);
+
+        // Add all guaranteed cards that are available at the start into the list.
+        List<CardEvent> guaranteedCards = allCards.FindAll((x) => x.GuaranteedCard);
+        foreach (CardEvent card in guaranteedCards)
+        {
+            _guaranteedCards.Add(card);
+        }
     }
 
     public CardEvent PickCard()

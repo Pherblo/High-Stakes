@@ -65,7 +65,7 @@ MonoBehaviour:
   - _cardReference: {fileID: 0}
     _choiceCondition: 0
     _suspicionCondition: 1
-    _suspicionRequirement: 0
+    _suspicionRequirement: 100
     _soulsCondition: 0
     _soulsRequirement: 0
     _popularCondition: 0
