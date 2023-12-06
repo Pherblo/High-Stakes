@@ -1013,7 +1013,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 0.05
+      scalar: 0.048
       minScalar: 0.02
       maxCurve:
         serializedVersion: 2
@@ -1132,7 +1132,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 3
       scalar: 0.014
-      minScalar: 0.004
+      minScalar: 0.005
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -5687,7 +5687,7 @@ MonoBehaviour:
   _selfTransform: {fileID: 2728038046337189658}
   _uiParticleSystem: {fileID: 1961637172095514223}
   _xSizeMultiplier: 0.8
-  _emissionPerScale: 11
+  _emissionPerScale: 10
 --- !u!1 &4186598226166736499
 GameObject:
   m_ObjectHideFlags: 0
