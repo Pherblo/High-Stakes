@@ -6,11 +6,11 @@ using UnityEngine.UI;
 
 public class Stats : MonoBehaviour
 {
-    [Header("Stat values: ")]
+    [Header("Stat values")]
     [SerializeField] private float _currentValue = 50;
     [SerializeField] private float _maxValue = 100;
 
-    [Header("Display settings: ")]
+    [Header("Display settings")]
     public float minY = 0.8f;
     public float maxY = 2.8f;
     public float dangerThreshold = 75;
@@ -18,7 +18,14 @@ public class Stats : MonoBehaviour
     public AnimationCurve potionTopSize;
     public float potionTopSizeMultiplier;
 
-    [Header("References")]
+    [Header("Stat Highlight Settings")]
+    [SerializeField] private float _glowDuration = 0.2f;
+    [SerializeField] private Color32 _positiveColor;    // Color when value increases.
+    [SerializeField] private Color32 _negativeColor;    // Color when value decreases.
+
+    [Header("Prefab References")]
+    [SerializeField] private Material _statsHighlightMaterial;      // Creates an instance to use, so that modifications to this material don't permanently change the main one.
+    [SerializeField] private SpriteRenderer _spriteRenderer;
     public GameObject potionMask;
     public Transform potionTop;
     public ParticleSystem bubblePassive;
@@ -31,6 +38,11 @@ public class Stats : MonoBehaviour
     public UnityEvent OnDeath;
     public UnityEvent OnShatter;
     public UnityEvent OnOverflow;
+
+    private void Awake()
+    {
+        _spriteRenderer.material = new Material(_statsHighlightMaterial);
+    }
 
     private void Start()
     {
@@ -97,11 +109,76 @@ public class Stats : MonoBehaviour
 
     public void Glow()
     {
-        gameObject.GetComponent<SpriteRenderer>().color = Color.red;    
+        StopAllCoroutines();
+        //gameObject.GetComponent<SpriteRenderer>().color = Color.red;
+        StartCoroutine(StartHighlightColor(_positiveColor));
+        StartCoroutine(ShowHighlightAlpha());
     }
 
     public void ClearGlow()
     {
-        gameObject.GetComponent<SpriteRenderer>().color = Color.white;
+        StopAllCoroutines();
+        //gameObject.GetComponent<SpriteRenderer>().color = Color.white;
+        StopHighlight();
+    }
+
+    private IEnumerator StartHighlightColor(Color32 targetColor)
+    {
+        Material currentMaterial = _spriteRenderer.material;
+        Color32 startColor = currentMaterial.GetColor("_EdgeColor");
+
+        // If alpha is 0, set color instantly. If it isn't 0, that means it was already highlighting previously.
+        if (currentMaterial.GetFloat("_EdgeAlpha") == 0f)
+        {
+            currentMaterial.SetColor("_EdgeColor", targetColor);
+        }
+        else
+        {
+            //
+            float timer = 0f;
+            do
+            {
+                Color32 newColor = Color32.Lerp(startColor, targetColor, timer / _glowDuration);
+                currentMaterial.SetColor("_EdgeColor", newColor);
+                timer += Time.deltaTime;
+                yield return null;
+            } while (timer <= _glowDuration);
+        }
+
+        yield return null;
+    }
+
+    private IEnumerator ShowHighlightAlpha()
+    {
+        Material currentMaterial = _spriteRenderer.material;
+
+        float currentAlpha = currentMaterial.GetFloat("_EdgeAlpha");
+        float timer = 0f;
+        do
+        {
+            float newAlpha = Mathf.Lerp(currentAlpha, 1f, timer / _glowDuration);
+            currentMaterial.SetFloat("_EdgeAlpha", newAlpha);
+            timer += Time.deltaTime;
+            yield return null;
+        } while (timer <= _glowDuration);
+
+        yield return null;
+    }
+
+    private IEnumerator StopHighlight()
+    {
+        Material currentMaterial = _spriteRenderer.material;
+
+        float currentAlpha = currentMaterial.GetFloat("_EdgeAlpha");
+        float timer = 0f;
+        do
+        {
+            float newAlpha = Mathf.Lerp(currentAlpha, 0f, timer / _glowDuration);
+            currentMaterial.SetFloat("_EdgeAlpha", newAlpha);
+            timer += Time.deltaTime;
+            yield return null;
+        } while (timer <= _glowDuration);
+
+        yield return null;
     }
 }
