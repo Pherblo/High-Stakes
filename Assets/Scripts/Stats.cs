@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class Stats : MonoBehaviour
 {
     [Header("Stat values: ")]
-    private float _currentValue = 50;
+    public float _currentValue = 50;
     private float _maxValue = 100;
 
     [Header("Display settings: ")]

@@ -33,7 +33,7 @@ public class Timeline : MonoBehaviour
     private int cardsPassedTime = 0;
     private int totalCardsPassed;
     private int maxCards;
-    private int cardsTillNextDay = 3;
+    private int cardsTillNextDay = 2;
     private int cardsTillNextTime = 1;
 
     [Header("Day variables: ")]
@@ -53,6 +53,7 @@ public class Timeline : MonoBehaviour
     public float change;
 
     public Animator animator;
+    public int requiredSouls = 75;
 
 
     // Start is called before the first frame update
@@ -160,12 +161,15 @@ public class Timeline : MonoBehaviour
         totalCardsPassed++;
     }
 
-    public void TriggerGodEvent()
+    public bool TriggerGodEvent()
     {
         if(currentMoonCycle == MoonCycle.FullMoon)
         {
-
+            print("FULL MOON");
+            return true;
         }
+
+        return false;
     }
    
 }
