@@ -134,7 +134,7 @@ public class CardDisplay : MonoBehaviour
         _dialogueTextB.RunDialogue(_currentCardEvent.DialogueB.DialogueText);
     }
 
-    private void ChangeStatsDisplays( CardEvent cardToDisplay)
+    /*private void ChangeStatsDisplays( CardEvent cardToDisplay)
     {
         cardToDisplay.FindStatsChanged();
         List<String> emptyList = new List<String>();
@@ -179,5 +179,5 @@ public class CardDisplay : MonoBehaviour
                 popularity.Glow();
             }
         }
-    }
+    }*/
 }

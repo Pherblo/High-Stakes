@@ -194,7 +194,7 @@ public class Deck : MonoBehaviour
                 {
                     //card.OnDialogueSelected += ProcessCard;
                     //OnCardPicked?.Invoke(newCard);
-                    print(newCard);
+                    //print(newCard);
                     return card;
                 }
             }

@@ -43,26 +43,43 @@ public class StatsManager : MonoBehaviour
         }
     }
 
-    public void HighlightStats(CardEvent card, float input)
+    public void HighlightStats(CardEvent card, int input)
     {
         // TODO: optimize this pls -Lorenzo.
-        RemoveStatsHighlights();
+        //RemoveStatsHighlights();
 
         if (input < 0)
         {
-            if (card.suspicionValueA != 0) _suspicion.Glow();
-            if (card.faithValueA != 0) _souls.Glow();
-            if (card.popularityValueA != 0) _popularity.Glow();
+            if (card.suspicionValueA > 0) _suspicion.Glow(true);
+            else if (card.suspicionValueA < 0) _suspicion.Glow(false);
+            else _suspicion.ClearGlow();
+
+            if (card.faithValueA > 0) _souls.Glow(true);
+            else if (card.faithValueA < 0) _souls.Glow(false);
+            else _souls.ClearGlow();
+
+            if (card.popularityValueA > 0) _popularity.Glow(true);
+            else if (card.popularityValueA < 0) _popularity.Glow(false);
+            else _popularity.ClearGlow();
         }
         else if (input > 0)
         {
-            if (card.suspicionValueB != 0) _suspicion.Glow();
-            if (card.faithValueB != 0) _souls.Glow();
-            if (card.popularityValueB != 0) _popularity.Glow();
+            if (card.suspicionValueB > 0) _suspicion.Glow(true);
+            else if (card.suspicionValueB < 0) _suspicion.Glow(false);
+            else _suspicion.ClearGlow();
+
+            if (card.faithValueB > 0) _souls.Glow(true);
+            else if (card.faithValueB < 0) _souls.Glow(false);
+            else _souls.ClearGlow();
+
+            if (card.popularityValueB > 0) _popularity.Glow(true);
+            else if (card.popularityValueB < 0) _popularity.Glow(false);
+            else _popularity.ClearGlow();
         }
     }
 
     // Called via drag events in current card animator.
+    // NOTE: PARAM IS SERVES NO PURPOSE EXCEPT TO MAKE THE FUNCTINO ABLE TO SUB TO AN EVENT.
     public void RemoveStatsHighlights()
     {
         _suspicion.ClearGlow();

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
@@ -10,8 +11,10 @@ public class CardAnimator : MonoBehaviour, IDragHandler, IBeginDragHandler, IEnd
 {
     // In order for drag events to work on this 3D game object, the camera its assigned to must have a Graphic Raycaster component.
 
-    public Action<int> OnCardSwiped;    // Returns -1 or 1, for left and right respectively.
-    public Action<float> OnCardDrag;   // Returns a float range from -1 to 1. Called every time the drag happens.
+    public UnityEvent OnCardSwiped;     // Called after a decision is made, similar to the event below but without a parameter.
+
+    public Action<int> OnChoiceChosen;    // Returns -1 or 1, for left and right respectively.
+    public Action<int> OnDragDirectionChanged;   // Returns -1 or 1. Called at the start of drags, and when the direction's sign changes.
     public Action OnCardSnapback;      // Called on snapback.
     public Action OnCardDrawFinished;
     public Action OnCardDiscardStart;
@@ -49,7 +52,8 @@ public class CardAnimator : MonoBehaviour, IDragHandler, IBeginDragHandler, IEnd
     private Vector3 _originalPosition;
     private Quaternion _originalRotation;
     private Vector3 _cachedDragStartPosition;
-    private Vector3 _cachedNewPosition;
+    private Vector3 _cachedNewPosition;     // New position of the card object while its being moved/dragged.
+    private int _cachedSignedDragDirection = 0;
 
     private float _lerpValue = 0f;      // -1 = card is on the left. 1 = card is on the right. 0 = card is on the center.
 
@@ -59,6 +63,10 @@ public class CardAnimator : MonoBehaviour, IDragHandler, IBeginDragHandler, IEnd
         _originalRotation = transform.rotation;
         _isInteractable = false;
         _animator.speed = 1f / _swipeAnimationDuration;
+
+        // Reset this cache every card finishes or snapbacks.
+        OnChoiceChosen += (x) => _cachedSignedDragDirection = 0;
+        OnCardSnapback += () => _cachedSignedDragDirection = 0;
     }
 
 
@@ -83,12 +91,25 @@ public class CardAnimator : MonoBehaviour, IDragHandler, IBeginDragHandler, IEnd
             // Calculate drag value.
             //int dragMultiplier = 1;
             //float dragLength = (GetMousePosition(eventData.position) - _cachedDragStartPosition).magnitude;
-            Vector3 dragDirection = GetMousePosition(eventData.position) - _cachedDragStartPosition;
-            if (dragDirection.x < _cachedDragStartPosition.x) 
-                OnCardDrag?.Invoke(-1f);
-            else if (dragDirection.x > _cachedDragStartPosition.x)
-                OnCardDrag?.Invoke(1f);
-            else OnCardDrag?.Invoke(0f);
+            //Vector3 dragDirection = GetMousePosition(eventData.position) - _cachedDragStartPosition;
+            //if (dragDirection.x < _cachedDragStartPosition.x)
+            if (_cachedNewPosition.x < _originalPosition.x)
+            {
+                if (_cachedSignedDragDirection > -1)
+                {
+                    _cachedSignedDragDirection = -1;
+                    OnDragDirectionChanged?.Invoke(-1);
+                }
+            }
+            else if (_cachedNewPosition.x > _originalPosition.x)
+            {
+                if (_cachedSignedDragDirection < 1)
+                {
+                    _cachedSignedDragDirection = 1;
+                    OnDragDirectionChanged?.Invoke(1);
+                }
+            }
+            //else OnDragDirectionChanged?.Invoke(0f);
         }
     }
 
@@ -102,13 +123,13 @@ public class CardAnimator : MonoBehaviour, IDragHandler, IBeginDragHandler, IEnd
             {
                 if (GetMousePosition(eventData.position).x < _cachedDragStartPosition.x)
                 {
-                    OnCardSwiped?.Invoke(-1);
+                    OnChoiceChosen?.Invoke(-1);
                 }
                 else
                 {
-                    OnCardSwiped?.Invoke(1);
+                    OnChoiceChosen?.Invoke(1);
                 }
-
+                OnCardSwiped?.Invoke();
                 StartCoroutine(StartExitAnimation());
             }
             else StartCoroutine(SnapbackCard());

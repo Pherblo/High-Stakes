@@ -32,9 +32,10 @@ public class CardManager : MonoBehaviour
         // Subscribe to input events.
         foreach (CardAnimator cardAnim in _cardAnimators)
         {
-            cardAnim.OnCardSwiped += ChooseChoice;
-            cardAnim.OnCardDrag += HighlightStats;
+            cardAnim.OnChoiceChosen += ChooseChoice;
+            cardAnim.OnDragDirectionChanged += HighlightStats;
             cardAnim.OnCardSnapback += _statsManager.RemoveStatsHighlights;
+            cardAnim.OnCardSwiped.AddListener(_statsManager.RemoveStatsHighlights);
         }
     }
 
@@ -98,7 +99,7 @@ public class CardManager : MonoBehaviour
         _statsManager.ModifyStats(_currentCardEvent);
     }
 
-    private void HighlightStats(float dragInput)
+    private void HighlightStats(int dragInput)
     {
         _statsManager.HighlightStats(_currentCardEvent, dragInput);
     }

@@ -7027,6 +7027,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98f4dda9cc2e75e4e9ee5ef3b3800371, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!212 &1076919219 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 8174358461991522611, guid: f7ea33189e4ff6a488dc55d5d844a167, type: 3}
+  m_PrefabInstance: {fileID: 1922497579}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1114321204
 GameObject:
   m_ObjectHideFlags: 0
@@ -15892,6 +15897,22 @@ PrefabInstance:
       propertyPath: m_InstanceId
       value: -4096230
       objectReference: {fileID: 0}
+    - target: {fileID: 107556852138260598, guid: f7ea33189e4ff6a488dc55d5d844a167, type: 3}
+      propertyPath: _spriteRenderer
+      value: 
+      objectReference: {fileID: 1922497591}
+    - target: {fileID: 107556852138260598, guid: f7ea33189e4ff6a488dc55d5d844a167, type: 3}
+      propertyPath: _negativeColor.rgba
+      value: 4294901951
+      objectReference: {fileID: 0}
+    - target: {fileID: 107556852138260598, guid: f7ea33189e4ff6a488dc55d5d844a167, type: 3}
+      propertyPath: _positiveColor.rgba
+      value: 4289920768
+      objectReference: {fileID: 0}
+    - target: {fileID: 107556852138260598, guid: f7ea33189e4ff6a488dc55d5d844a167, type: 3}
+      propertyPath: _statsHighlightMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: a37857dbfa6b4de4ca6838160037a125, type: 2}
     - target: {fileID: 1618762904412325382, guid: f7ea33189e4ff6a488dc55d5d844a167, type: 3}
       propertyPath: m_SortingOrder
       value: 2
@@ -15980,6 +16001,38 @@ PrefabInstance:
       propertyPath: m_InstanceId
       value: -4096288
       objectReference: {fileID: 0}
+    - target: {fileID: 7383714938775744323, guid: f7ea33189e4ff6a488dc55d5d844a167, type: 3}
+      propertyPath: _spriteRenderer
+      value: 
+      objectReference: {fileID: 1076919219}
+    - target: {fileID: 7383714938775744323, guid: f7ea33189e4ff6a488dc55d5d844a167, type: 3}
+      propertyPath: _negativeColor.rgba
+      value: 4294901951
+      objectReference: {fileID: 0}
+    - target: {fileID: 7383714938775744323, guid: f7ea33189e4ff6a488dc55d5d844a167, type: 3}
+      propertyPath: _positiveColor.rgba
+      value: 4289920768
+      objectReference: {fileID: 0}
+    - target: {fileID: 7383714938775744323, guid: f7ea33189e4ff6a488dc55d5d844a167, type: 3}
+      propertyPath: _statsHighlightMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: fc24eaba8642e4546a811a0b82845041, type: 2}
+    - target: {fileID: 7482603167987883600, guid: f7ea33189e4ff6a488dc55d5d844a167, type: 3}
+      propertyPath: _spriteRenderer
+      value: 
+      objectReference: {fileID: 1922497588}
+    - target: {fileID: 7482603167987883600, guid: f7ea33189e4ff6a488dc55d5d844a167, type: 3}
+      propertyPath: _negativeColor.rgba
+      value: 4294901951
+      objectReference: {fileID: 0}
+    - target: {fileID: 7482603167987883600, guid: f7ea33189e4ff6a488dc55d5d844a167, type: 3}
+      propertyPath: _positiveColor.rgba
+      value: 4289920768
+      objectReference: {fileID: 0}
+    - target: {fileID: 7482603167987883600, guid: f7ea33189e4ff6a488dc55d5d844a167, type: 3}
+      propertyPath: _statsHighlightMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: bc4b4494fd0163f489e0961c65d963c4, type: 2}
     - target: {fileID: 7485696833584540536, guid: f7ea33189e4ff6a488dc55d5d844a167, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -16040,6 +16093,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7779e0fdaa8b4f14882cbc92689f1d9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!212 &1922497588 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 8133102646777012256, guid: f7ea33189e4ff6a488dc55d5d844a167, type: 3}
+  m_PrefabInstance: {fileID: 1922497579}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &1922497591 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 1618762904412325382, guid: f7ea33189e4ff6a488dc55d5d844a167, type: 3}
+  m_PrefabInstance: {fileID: 1922497579}
+  m_PrefabAsset: {fileID: 0}
 --- !u!43 &1966042600
 Mesh:
   m_ObjectHideFlags: 0

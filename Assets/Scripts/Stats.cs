@@ -42,6 +42,9 @@ public class Stats : MonoBehaviour
     private void Awake()
     {
         _spriteRenderer.material = new Material(_statsHighlightMaterial);
+
+        // Initialize material values.
+        _spriteRenderer.material.SetFloat("_EdgeAlpha", 0f);
     }
 
     private void Start()
@@ -107,11 +110,13 @@ public class Stats : MonoBehaviour
         checkForDeath();
     }
 
-    public void Glow()
+    public void Glow(bool isPositive)
     {
         StopAllCoroutines();
         //gameObject.GetComponent<SpriteRenderer>().color = Color.red;
-        StartCoroutine(StartHighlightColor(_positiveColor));
+        if (isPositive) StartCoroutine(StartHighlightColor(_positiveColor));
+        else StartCoroutine(StartHighlightColor(_negativeColor));
+
         StartCoroutine(ShowHighlightAlpha());
     }
 
@@ -119,7 +124,7 @@ public class Stats : MonoBehaviour
     {
         StopAllCoroutines();
         //gameObject.GetComponent<SpriteRenderer>().color = Color.white;
-        StopHighlight();
+        StartCoroutine(StopHighlight());
     }
 
     private IEnumerator StartHighlightColor(Color32 targetColor)
