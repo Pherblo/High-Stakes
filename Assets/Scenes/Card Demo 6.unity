@@ -1623,7 +1623,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1781589326322525343, guid: 6d76815c738f3f941b51d2c2ac6529ed, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 67.01
       objectReference: {fileID: 0}
     - target: {fileID: 1781589326322525343, guid: 6d76815c738f3f941b51d2c2ac6529ed, type: 3}
       propertyPath: m_SizeDelta.y
@@ -1631,7 +1631,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1781589326322525343, guid: 6d76815c738f3f941b51d2c2ac6529ed, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 221.3
       objectReference: {fileID: 0}
     - target: {fileID: 2478439332442915246, guid: 6d76815c738f3f941b51d2c2ac6529ed, type: 3}
       propertyPath: m_text
@@ -2764,12 +2764,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06926708292d0c4498f381a880161707, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &393827570 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9206528196724472652, guid: f7ea33189e4ff6a488dc55d5d844a167, type: 3}
+  m_PrefabInstance: {fileID: 949497799818050253}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &393827572 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5522602627870990765, guid: f7ea33189e4ff6a488dc55d5d844a167, type: 3}
   m_PrefabInstance: {fileID: 949497799818050253}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 393827570}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7779e0fdaa8b4f14882cbc92689f1d9c, type: 3}
@@ -8204,6 +8209,18 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 873341372}
+        m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
+        m_MethodName: PlayEffect
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 503617551}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -16458,7 +16475,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6474613267825770214, guid: abb234ffb17ff714aa18ab8ae66b310c, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 977.43005
       objectReference: {fileID: 0}
     - target: {fileID: 6474613267825770214, guid: abb234ffb17ff714aa18ab8ae66b310c, type: 3}
       propertyPath: m_SizeDelta.y
@@ -16466,7 +16483,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6474613267825770214, guid: abb234ffb17ff714aa18ab8ae66b310c, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 488.71503
       objectReference: {fileID: 0}
     - target: {fileID: 7135433583958694871, guid: abb234ffb17ff714aa18ab8ae66b310c, type: 3}
       propertyPath: m_fontSize
@@ -16709,6 +16726,18 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1664965610}
+    - target: {fileID: 7383714938775744323, guid: f7ea33189e4ff6a488dc55d5d844a167, type: 3}
+      propertyPath: OnShatter.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7383714938775744323, guid: f7ea33189e4ff6a488dc55d5d844a167, type: 3}
+      propertyPath: OnShatter.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 393827570}
+    - target: {fileID: 7383714938775744323, guid: f7ea33189e4ff6a488dc55d5d844a167, type: 3}
+      propertyPath: OnShatter.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7485696833584540536, guid: f7ea33189e4ff6a488dc55d5d844a167, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -16760,7 +16789,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1781589326322525343, guid: 6d76815c738f3f941b51d2c2ac6529ed, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 442.6
       objectReference: {fileID: 0}
     - target: {fileID: 1781589326322525343, guid: 6d76815c738f3f941b51d2c2ac6529ed, type: 3}
       propertyPath: m_SizeDelta.y
@@ -16768,7 +16797,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1781589326322525343, guid: 6d76815c738f3f941b51d2c2ac6529ed, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 221.3
       objectReference: {fileID: 0}
     - target: {fileID: 2478439332442915246, guid: 6d76815c738f3f941b51d2c2ac6529ed, type: 3}
       propertyPath: m_text
