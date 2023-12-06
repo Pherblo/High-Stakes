@@ -47,6 +47,6 @@ MonoBehaviour:
   _name: Inquisitor Vindictus
   _title: Templar
   _isAlive: 1
-  _characterArt: {fileID: 21300000, guid: 174d6504e4ead434983ea5f1f4ce0661, type: 3}
+  _characterArt: {fileID: 21300000, guid: ad30bd77b7180e0438afb3dd84b29ed9, type: 3}
   _cardEvents:
   - {fileID: 4317882935473067645, guid: 6803ecc4e6f4f7341ba07053ac81e943, type: 3}

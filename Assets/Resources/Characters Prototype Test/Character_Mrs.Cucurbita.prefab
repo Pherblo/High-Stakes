@@ -47,6 +47,6 @@ MonoBehaviour:
   _name: Mrs. Cucurbita
   _title: Commoner
   _isAlive: 1
-  _characterArt: {fileID: 21300000, guid: 945f422edf4ab114baa0b6cad6e4cfdc, type: 3}
+  _characterArt: {fileID: 21300000, guid: 5fadd49d3b6fdeb4caea805a6417a7de, type: 3}
   _cardEvents:
   - {fileID: 4317882935473067645, guid: 4b1bd1bae15fc1146a202cbd85821f24, type: 3}
