@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5647542685003559958
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8566239146189938112}
+  - component: {fileID: 8465833490733754339}
+  m_Layer: 0
+  m_Name: CardEvent_JonaBackPain
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8566239146189938112
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5647542685003559958}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8465833490733754339
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5647542685003559958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa8740551ebe6184eb914bebb0fafe14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  associatedCharacter: {fileID: 6878033926277675754, guid: 65dfd7815160107458b2a1b64b4c330f, type: 3}
+  _description: Hi I am having really bad back pains, I was wondering if you had
+    any medicine that would help it?
+  _guaranteedCard: 0
+  suspicionValueA: 10
+  faithValueA: 0
+  popularityValueA: 10
+  suspicionValueB: 0
+  faithValueB: 0
+  popularityValueB: -10
+  _dialogueA:
+    _dialogueIsActive: 1
+    _dialogueText: Give her a potion to help with the pain
+    _charactersToBeDead: []
+  _dialogueB:
+    _dialogueIsActive: 1
+    _dialogueText: Let her suffer
+    _charactersToBeDead: []
+  _conditions: []
