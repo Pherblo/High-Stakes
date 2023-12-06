@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7697692523834236132
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8560820484537950677}
+  - component: {fileID: -131500270773427077}
+  m_Layer: 0
+  m_Name: CardEvent_DravenWantsLove
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8560820484537950677
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7697692523834236132}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-131500270773427077
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7697692523834236132}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa8740551ebe6184eb914bebb0fafe14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  associatedCharacter: {fileID: 3100862819315515735, guid: 36e4c451f88c06c4db0998bce27f7edd, type: 3}
+  _description: "I am here to make the love of my life\u2019s husband go away, can
+    you help me?"
+  _guaranteedCard: 0
+  suspicionValueA: 20
+  faithValueA: 10
+  popularityValueA: 5
+  suspicionValueB: -10
+  faithValueB: -5
+  popularityValueB: 15
+  _dialogueA:
+    _dialogueIsActive: 1
+    _dialogueText: Give him a nightshade potion
+    _charactersToBeDead: []
+  _dialogueB:
+    _dialogueIsActive: 1
+    _dialogueText: Give him a hate potion
+    _charactersToBeDead: []
+  _conditions: []

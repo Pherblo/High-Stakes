@@ -1,0 +1,72 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7866685667309678875
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1406193407342438289}
+  - component: {fileID: 3401911094111516945}
+  m_Layer: 0
+  m_Name: CardEvent_LindaHasAAdmirerDead
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1406193407342438289
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7866685667309678875}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3401911094111516945
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7866685667309678875}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa8740551ebe6184eb914bebb0fafe14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  associatedCharacter: {fileID: -5903894865239792089, guid: 99b81855f56af784eb38dc9e1522fb53, type: 3}
+  _description: "This scary man won\u2019t stop flirting with me, my husband just
+    died. Can you please help me stop him from coming after me?"
+  _guaranteedCard: 0
+  suspicionValueA: 10
+  faithValueA: 0
+  popularityValueA: 10
+  suspicionValueB: -10
+  faithValueB: 0
+  popularityValueB: 20
+  _dialogueA:
+    _dialogueIsActive: 1
+    _dialogueText: Give her a potion to fall in love with him
+    _charactersToBeDead: []
+  _dialogueB:
+    _dialogueIsActive: 1
+    _dialogueText: Give her a potion to make him not think she is beautiful
+    _charactersToBeDead: []
+  _conditions:
+  - _cardReference: {fileID: -131500270773427077, guid: 3402953d41bf3c049921ae88baa7f304, type: 3}
+    _choiceCondition: 1
+    _suspicionRequirement: 0
+    _soulsRequirement: 0
+    _popularityRequirement: 0
+    _characterReference: {fileID: -5903894865239792089, guid: 99b81855f56af784eb38dc9e1522fb53, type: 3}
+    _lifeCondition: 1
