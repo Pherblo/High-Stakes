@@ -852,7 +852,7 @@ GameObject:
   - component: {fileID: 2221646906882417088}
   - component: {fileID: 2300652443935823273}
   m_Layer: 5
-  m_Name: Header Effects
+  m_Name: Header Particle Effects
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -960,7 +960,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 1.2
+      scalar: 1
       minScalar: 0.4
       maxCurve:
         serializedVersion: 2
@@ -1131,8 +1131,8 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 0.02
-      minScalar: 0.005
+      scalar: 0.014
+      minScalar: 0.004
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -3533,7 +3533,7 @@ ParticleSystem:
     strength:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.1
+      scalar: 0.08
       minScalar: 0.5
       maxCurve:
         serializedVersion: 2
@@ -5687,7 +5687,7 @@ MonoBehaviour:
   _selfTransform: {fileID: 2728038046337189658}
   _uiParticleSystem: {fileID: 1961637172095514223}
   _xSizeMultiplier: 0.8
-  _emissionPerScale: 12
+  _emissionPerScale: 11
 --- !u!1 &4186598226166736499
 GameObject:
   m_ObjectHideFlags: 0

@@ -92,7 +92,7 @@ Material:
     - _EnableVerticalFadedEdges: 1
     - _FadeClip: 0
     - _FadeEdgeMultiplier: 1
-    - _FadeEdgeSize: 0.3
+    - _FadeEdgeSize: 0.4
     - _FadeEdgeStrength: 5
     - _FadeRotation: 0
     - _FlipbookMode: 0
@@ -127,7 +127,7 @@ Material:
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
     - _SoftParticleFadeParams: {r: 0, g: 0, b: 0, a: 0}
     - _TextureOffset: {r: 0, g: 0.25, b: 0, a: 0}
-    - _TextureScrollSpeed: {r: -0.15, g: 0, b: 0, a: 0}
+    - _TextureScrollSpeed: {r: -0.2, g: 0, b: 0, a: 0}
     - _TextureTiling: {r: 1, g: 0.4, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &2016979097223492106
