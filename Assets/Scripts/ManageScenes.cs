@@ -3,6 +3,8 @@ using UnityEngine.SceneManagement;
 
 public class ManageScenes : MonoBehaviour
 {
+    [SerializeField] public string _gameSceneName;
+
     public void LoadDelay(string name)
     {
         Invoke("LoadGameScene", 4);
@@ -10,7 +12,7 @@ public class ManageScenes : MonoBehaviour
 
     public void LoadGameScene()
     {
-        SceneManager.LoadScene("Card Demo 5");
+        SceneManager.LoadScene(_gameSceneName);
     }
 
     // Loads a single scene and unloads the current

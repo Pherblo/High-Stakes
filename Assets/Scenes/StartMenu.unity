@@ -258,6 +258,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 410f4cffdf8c7084684ae0e558e42b31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _gameSceneName: Card Demo 7
 --- !u!4 &445873674
 Transform:
   m_ObjectHideFlags: 0
@@ -1431,7 +1432,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4624473775071485571, guid: 873c9daa573f39448b7f5cb8037deaaa, type: 3}
       propertyPath: whenClicked.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_StringArgument
-      value: Card Demo 4
+      value: Card Demo 7
       objectReference: {fileID: 0}
     - target: {fileID: 4624473775071485571, guid: 873c9daa573f39448b7f5cb8037deaaa, type: 3}
       propertyPath: whenClicked.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
