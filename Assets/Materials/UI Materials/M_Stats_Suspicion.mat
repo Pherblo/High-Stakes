@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: M_StatsSus
+  m_Name: M_Stats_Suspicion
   m_Shader: {fileID: -6465566751694194690, guid: 5bf3c7649b772d445925f97a04e831ee, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -45,7 +45,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: d03ed0347f4338047a4d81b4a5e7a429, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTexture:
@@ -98,7 +98,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _EdgeAlpha: 0.472
+    - _EdgeAlpha: 0.5
     - _EdgeEmissionStrength: 5
     - _EdgeOffset: 0.01
     - _EmissionStrength: 5
