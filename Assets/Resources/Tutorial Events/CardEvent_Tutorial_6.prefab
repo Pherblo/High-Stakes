@@ -45,11 +45,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   associatedCharacter: {fileID: 8486864281894654719, guid: f446f56bc8fe023468d762d0a46e2622, type: 3}
-  _description: "I\u2019ll be back to collect what I am owed every full moon. Do
-    not disappoint me."
-  suspicionValue: 0
-  faithValue: 0
-  popularityValue: 0
+  _description: "I\u2019ll be back to collect the souls I am owed every full moon.
+    Do not disappoint me."
+  _guaranteedCard: 0
   suspicionValueA: 0
   faithValueA: 0
   popularityValueA: 0
