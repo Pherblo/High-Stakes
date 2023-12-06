@@ -33,7 +33,7 @@ public class Timeline : MonoBehaviour
     private int cardsPassedTime = 0;
     private int totalCardsPassed;
     private int maxCards;
-    private int cardsTillNextDay = 2;
+    private int cardsTillNextDay = 3;
     private int cardsTillNextTime = 1;
 
     [Header("Day variables: ")]
@@ -49,6 +49,7 @@ public class Timeline : MonoBehaviour
 
     public GameObject moonPhasesArt;
     public GameObject arrowArt;
+    public Deck deck;
 
     public float change;
 
@@ -69,11 +70,11 @@ public class Timeline : MonoBehaviour
     void Update()
     {
         print("cards passed time" + cardsPassedTime);
-        if (cardsPassedTime >= cardsTillNextTime)
+        if (cardsPassedTime >= cardsTillNextTime && !deck.GetTutorialStatus())
         {
             ChangeTime();
         }
-        if (cardsPassedToday >= cardsTillNextDay)
+        if (cardsPassedToday >= cardsTillNextDay && !deck.GetTutorialStatus())
         {
             ChangeDay();
             change += 45;
@@ -156,9 +157,12 @@ public class Timeline : MonoBehaviour
     //to be called by onCardPicked event in deck
     public void UpdateCardsPassed()
     {
-        cardsPassedToday++;
-        cardsPassedTime++;
-        totalCardsPassed++;
+        if (!deck.GetTutorialStatus())
+        {
+            cardsPassedToday++;
+            cardsPassedTime++;
+            totalCardsPassed++;
+        }
     }
 
     public bool TriggerGodEvent()

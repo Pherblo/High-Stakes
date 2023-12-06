@@ -168,6 +168,7 @@ public class Deck : MonoBehaviour
 
     public CardEvent PickCard()
     {
+        runningTutorial = false; 
         // Pick end cards, if any.
         //Debug.LogWarning($"{_endCards[0].gameObject.name}, {_endCards[0].CheckRequirements()}, dialogue selected: {_selectedDialogues.Count}");
         foreach (CardEvent endCard in _endCards)
@@ -216,6 +217,7 @@ public class Deck : MonoBehaviour
         // Return tutorial series, if not finished yet.
         if (!_skipTutorial &&_tutorialSeriesInstance.CheckRequirements())
         {
+            runningTutorial = true;
             CardEvent tutorialCard = _tutorialSeriesInstance.GetCard();
             return tutorialCard;
             //return _tutorialSeriesInstance.GetCard();
@@ -247,6 +249,10 @@ public class Deck : MonoBehaviour
         return _defaultEndCardInstance;
     }
 
+    public bool GetTutorialStatus()
+    {
+        return runningTutorial;
+    }
     /*public CardEvent PickCardOld()
     {
         //AssignData(); //assign data to card
