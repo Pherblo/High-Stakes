@@ -63,14 +63,4 @@ MonoBehaviour:
     _dialogueIsActive: 1
     _dialogueText: Deceive the inquisitor with a false lead.
     _charactersToBeDead: []
-  _conditions:
-  - _cardReference: {fileID: 0}
-    _choiceCondition: 0
-    _suspicionCondition: 0
-    _suspicionRequirement: 0
-    _soulsCondition: 0
-    _soulsRequirement: 0
-    _popularCondition: 0
-    _popularityRequirement: 0
-    _characterReference: {fileID: 8879443658972519502, guid: c622ae0b998b43d49966b41152aa1c11, type: 3}
-    _lifeCondition: 1
+  _conditions: []
