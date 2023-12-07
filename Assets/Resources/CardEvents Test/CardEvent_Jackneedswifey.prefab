@@ -47,9 +47,7 @@ MonoBehaviour:
   associatedCharacter: {fileID: 1095002341841383241, guid: 72747a2b3d9afc34889732b557b22c89, type: 3}
   _description: I must thank you for the cow, but I really need a housewife to help
     me with all these children. Can you make a love potion for me?
-  suspicionValue: 15
-  faithValue: 0
-  popularityValue: 10
+  _guaranteedCard: 0
   suspicionValueA: 10
   faithValueA: 0
   popularityValueA: 10
@@ -67,5 +65,11 @@ MonoBehaviour:
   _conditions:
   - _cardReference: {fileID: 4317882935473067645, guid: 366256bb853a2ad40a26633800d5223d, type: 3}
     _choiceCondition: 1
+    _suspicionCondition: 0
+    _suspicionRequirement: 0
+    _soulsCondition: 0
+    _soulsRequirement: 0
+    _popularCondition: 0
+    _popularityRequirement: 0
     _characterReference: {fileID: 0}
     _lifeCondition: 0

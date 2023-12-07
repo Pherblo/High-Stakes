@@ -47,7 +47,7 @@ MonoBehaviour:
   associatedCharacter: {fileID: 6878033926277675754, guid: 65dfd7815160107458b2a1b64b4c330f, type: 3}
   _description: Hi sorry to bother you again, I am back. The pain has just gotten
     worse. Please could you help me?
-  _guaranteedCard: 1
+  _guaranteedCard: 0
   suspicionValueA: 0
   faithValueA: 0
   popularityValueA: 15
@@ -66,8 +66,11 @@ MonoBehaviour:
   _conditions:
   - _cardReference: {fileID: 8465833490733754339, guid: 8be4c2e4b0c594042b82d9c3735081df, type: 3}
     _choiceCondition: 2
+    _suspicionCondition: 0
     _suspicionRequirement: 0
+    _soulsCondition: 0
     _soulsRequirement: 0
+    _popularCondition: 0
     _popularityRequirement: 0
     _characterReference: {fileID: 6878033926277675754, guid: 65dfd7815160107458b2a1b64b4c330f, type: 3}
     _lifeCondition: 1

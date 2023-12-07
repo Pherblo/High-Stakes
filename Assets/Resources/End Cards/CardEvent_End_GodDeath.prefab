@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6968691294569748046}
   - component: {fileID: 4317882935473067645}
   m_Layer: 0
-  m_Name: CardEvent_Toad2
+  m_Name: CardEvent_End_GodDeath
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,30 +44,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa8740551ebe6184eb914bebb0fafe14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  associatedCharacter: {fileID: 1095002341841383241, guid: fd4a9a357ca293741bfde4ca586a1d4b, type: 3}
-  _description: "*Ribbit?* The strange toad looks at you with questioning eyes. Something
-    glows inside of it\u2019s mouth. "
+  associatedCharacter: {fileID: 8486864281894654719, guid: d5f560b241e05ff49947a9a8a0ab5d1e, type: 3}
+  _description: You are burned at the stake.
   _guaranteedCard: 0
-  suspicionValueA: -10
+  suspicionValueA: 0
   faithValueA: 0
   popularityValueA: 0
-  suspicionValueB: -10
+  suspicionValueB: 0
   faithValueB: 0
   popularityValueB: 0
   _dialogueA:
     _dialogueIsActive: 1
-    _dialogueText: "What\u2019s in your mouth\u2026? Is that a soul for me?"
+    _dialogueText: End life.
     _charactersToBeDead: []
   _dialogueB:
     _dialogueIsActive: 1
-    _dialogueText: Gross! Sweep it away with a broom.
+    _dialogueText: End life.
     _charactersToBeDead: []
   _conditions:
-  - _cardReference: {fileID: 4317882935473067645, guid: 1bbd28b817ba52b48bbdf572cdb9247e, type: 3}
-    _choiceCondition: 1
+  - _cardReference: {fileID: 0}
+    _choiceCondition: 0
     _suspicionCondition: 0
     _suspicionRequirement: 0
-    _soulsCondition: 0
+    _soulsCondition: 1
     _soulsRequirement: 0
     _popularCondition: 0
     _popularityRequirement: 0

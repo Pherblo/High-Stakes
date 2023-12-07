@@ -65,8 +65,11 @@ MonoBehaviour:
   _conditions:
   - _cardReference: {fileID: -131500270773427077, guid: 3402953d41bf3c049921ae88baa7f304, type: 3}
     _choiceCondition: 1
+    _suspicionCondition: 0
     _suspicionRequirement: 0
+    _soulsCondition: 0
     _soulsRequirement: 0
+    _popularCondition: 0
     _popularityRequirement: 0
     _characterReference: {fileID: -5903894865239792089, guid: 99b81855f56af784eb38dc9e1522fb53, type: 3}
     _lifeCondition: 1
