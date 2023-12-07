@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
 
 public enum LifeCondition
@@ -98,12 +99,16 @@ public class CardCondition
         }*/
 
         // Check if character reference is alive.
-        if (_characterReference != null && _lifeCondition != LifeCondition.None)
+        if (_characterReferenceInstance != null && _lifeCondition != LifeCondition.None)
         {
-            if (!_characterReference.IsAlive && _lifeCondition == LifeCondition.Alive)
+            if (!_characterReferenceInstance.IsAlive && _lifeCondition == LifeCondition.Alive)
+            {
                 return false;
-            else if (_characterReference.IsAlive && _lifeCondition == LifeCondition.Dead)
+            }
+            else if (_characterReferenceInstance.IsAlive && _lifeCondition == LifeCondition.Dead)
+            {
                 return false;
+            }
         }
 
         if (!CheckStat(_suspicionCondition, deck.Stats.Suspicion.getValue(), _suspicionRequirement))
@@ -119,6 +124,7 @@ public class CardCondition
 
     public void AssignCharacterReference(CharacterData instancedCharacter)
     {
+        //Debug.LogWarning($"ASSIGNING HAR TO CONDITION! CHAR NAME: {instancedCharacter.Name}");
         _characterReferenceInstance = instancedCharacter;
     }
 

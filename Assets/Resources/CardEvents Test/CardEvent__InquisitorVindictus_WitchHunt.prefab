@@ -57,7 +57,8 @@ MonoBehaviour:
   _dialogueA:
     _dialogueIsActive: 1
     _dialogueText: Tell the inquisitor you know nothing.
-    _charactersToBeDead: []
+    _charactersToBeDead:
+    - {fileID: 8879443658972519502, guid: c622ae0b998b43d49966b41152aa1c11, type: 3}
   _dialogueB:
     _dialogueIsActive: 1
     _dialogueText: Deceive the inquisitor with a false lead.

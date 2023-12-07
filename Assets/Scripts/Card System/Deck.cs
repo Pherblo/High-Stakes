@@ -126,6 +126,15 @@ public class Deck : MonoBehaviour
         // Add all cards from all CardSeries present.
         foreach (CardSeries series in allSeries) allCards.AddRange(series.CardEvents);
 
+        // Create end cards.
+        CardEvent[] loadedEndCard = Resources.LoadAll<CardEvent>(_endCardsPath);
+        foreach (CardEvent card in loadedEndCard)
+        {
+            CardEvent endCardInstance = Instantiate(card, transform);
+            endCardInstance.AssignDeck(this);
+            _endCards.Add(endCardInstance);
+        }
+
         // I UNIRONICALLY THINK THAT THIS IS A GOOD USE CASE FOR SCRIPTABLE OBJECTS!!!
         // Load and instantiate all characters, then assign their respective characters
         CharacterData[] loadedCharacters = Resources.LoadAll<CharacterData>(_charactersPath);
@@ -135,7 +144,7 @@ public class Deck : MonoBehaviour
             CharacterData characterInstance = Instantiate(character, transform);
             _characters.Add(characterInstance);
 
-            // Assign character instance to card events with matching associated character.
+            // Assign character instances to matching associated character, conditions, and dialogues.
             foreach (CardEvent card in allCards)
             {
                 if (card.AssociatedCharacter == character) card.AssignCharacter(characterInstance);
@@ -146,6 +155,29 @@ public class Deck : MonoBehaviour
                         condition.AssignCharacterReference(characterInstance);
                     }
                 }
+                if (card.DialogueA.CharactersToBeDead.Contains(character))
+                {
+                    card.DialogueA.AssignCharacterInstance(characterInstance);
+                }
+                if (card.DialogueB.CharactersToBeDead.Contains(character))
+                    card.DialogueB.AssignCharacterInstance(characterInstance);
+            }
+            foreach (CardEvent card in _endCards)
+            {
+                if (card.AssociatedCharacter == character) card.AssignCharacter(characterInstance);
+                foreach (CardCondition condition in card.Conditions)
+                {
+                    if (condition.CharacterReference == character)
+                    {
+                        condition.AssignCharacterReference(characterInstance);
+                    }
+                }
+                if (card.DialogueA.CharactersToBeDead.Contains(character))
+                {
+                    card.DialogueA.AssignCharacterInstance(characterInstance);
+                }
+                if (card.DialogueB.CharactersToBeDead.Contains(character))
+                    card.DialogueB.AssignCharacterInstance(characterInstance);
             }
             /*List<CardEvent> matchingCards = allCards.FindAll((x) => x.AssociatedCharacter == character);
             foreach (CardEvent card in matchingCards)
@@ -163,15 +195,6 @@ public class Deck : MonoBehaviour
                 _lockedCards.Remove(card);
                 _availableCards.Add(card);
             }
-        }
-
-        // Create end cards.
-        CardEvent[] loadedEndCard = Resources.LoadAll<CardEvent>(_endCardsPath);
-        foreach (CardEvent card in loadedEndCard)
-        {
-            CardEvent endCardInstance = Instantiate(card, transform);
-            endCardInstance.AssignDeck(this);
-            _endCards.Add(endCardInstance);
         }
 
         // Create default end card.
@@ -375,6 +398,22 @@ public class Deck : MonoBehaviour
                     _guaranteedCards.Add(cardEvent);
                 }
                 else _availableCards.Add(lockedCard);
+            }
+        }
+
+        // Kill characters, if any.
+        if (card.PickedChoice == SelectedChoice.ChoiceA && card.DialogueA.InstancedCharacterTargets.Any())
+        {
+            foreach (CharacterData character in card.DialogueA.InstancedCharacterTargets)
+            {
+                character.SetAliveState(false);
+            }
+        }
+        else if (card.PickedChoice == SelectedChoice.ChoiceB && card.DialogueB.InstancedCharacterTargets.Any())
+        {
+            foreach (CharacterData character in card.DialogueB.InstancedCharacterTargets)
+            {
+                character.SetAliveState(false);
             }
         }
     }
