@@ -64,12 +64,7 @@ public class Deck : MonoBehaviour
     [Header("Variables to keep track of game")]
     private bool runningTutorial;
     private int cardNum = 0; //for keeping track of cards when drawing in order
-    private List<CardEvent> allCards2 = new();
-
-    private void Update()
-    {
-        print(allCards2[0].transform.name);
-    }
+    //private List<CardEvent> allCards2 = new();
 
     public void Awake()
     {
@@ -222,7 +217,7 @@ public class Deck : MonoBehaviour
         {
             _guaranteedCards.Add(card);
         }
-        allCards2 = allCards;
+        //allCards2 = allCards;
     }
 
     public CardEvent PickCard()
