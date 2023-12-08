@@ -305,7 +305,7 @@ public class Deck : MonoBehaviour
                 }
                 else if (availableCard.GetCard().AssociatedCharacterInstance == character)
                 {
-                    associatedCards.Add(cardToCheck);
+                    associatedCards.Add(availableCard.GetCard());
                 }
                 else Debug.LogWarning("requirement not fulfilled");
                 /*if (availableCard is CardSeries availableSeries)
@@ -316,7 +316,8 @@ public class Deck : MonoBehaviour
             }
             foreach (CardEvent card in associatedCards)
             {
-                Debug.LogWarning($"{card.gameObject.transform.name}");
+                print($"{card}, card count: {associatedCards.Count}");
+                //Debug.LogWarning($"{card.gameObject.transform.name}");
                 newCard = card;
                 if (card.CheckRequirements())
                 {
