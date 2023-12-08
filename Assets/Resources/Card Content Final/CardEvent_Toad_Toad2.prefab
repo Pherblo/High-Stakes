@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6968691294569748046}
   - component: {fileID: 4317882935473067645}
   m_Layer: 0
-  m_Name: CardEvent_Toad2
+  m_Name: CardEvent_Toad_Toad2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -48,28 +48,21 @@ MonoBehaviour:
   _description: "*Ribbit?* The strange toad looks at you with questioning eyes. Something
     glows inside of it\u2019s mouth. "
   _guaranteedCard: 0
-  suspicionValueA: -10
+  suspicionValueA: 0
   faithValueA: 0
-  popularityValueA: 0
-  suspicionValueB: -10
-  faithValueB: 0
+  popularityValueA: -10
+  suspicionValueB: 0
+  faithValueB: 10
   popularityValueB: 0
   _dialogueA:
     _dialogueIsActive: 1
-    _dialogueText: "What\u2019s in your mouth\u2026? Is that a soul for me?"
+    _dialogueText: Sweep it away with a broom.
     _charactersToBeDead: []
   _dialogueB:
     _dialogueIsActive: 1
-    _dialogueText: Gross! Sweep it away with a broom.
+    _dialogueText: Take the glowing object.
     _charactersToBeDead: []
-  _conditions:
-  - _cardReference: {fileID: 4317882935473067645, guid: 1bbd28b817ba52b48bbdf572cdb9247e, type: 3}
-    _choiceCondition: 1
-    _suspicionCondition: 0
-    _suspicionRequirement: 0
-    _soulsCondition: 0
-    _soulsRequirement: 0
-    _popularCondition: 0
-    _popularityRequirement: 0
-    _characterReference: {fileID: 0}
-    _lifeCondition: 0
+  _isEndCard: 0
+  _endCardChoiceAScene: 
+  _endCardChoiceBScene: 
+  _conditions: []
