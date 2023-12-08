@@ -63,7 +63,7 @@ public class Stats : MonoBehaviour
     {
         _currentValue += change;
 
-        Mathf.Clamp(_currentValue, 0, _maxValue);
+        _currentValue = Mathf.Clamp(_currentValue, 0, _maxValue);
 
         updateDisplay(); //set the display to show current value
         bubbleBurst.Play();
