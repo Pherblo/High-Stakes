@@ -48,7 +48,8 @@ public class CardSeries : CardBase
 
     public CardEvent GetCurrentSeriesCard()
     {
-        return _instancedCardEvents[_seriesIndex];
+        if (_seriesIndex < _instancedCardEvents.Count) return _instancedCardEvents[_seriesIndex];
+        else return null;
     }
 
     public void AddCardToSeries(CardEvent newCard)

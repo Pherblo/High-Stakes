@@ -283,6 +283,16 @@ public class Deck : MonoBehaviour
             //return _tutorialSeriesInstance.GetCard();
         }
 
+        // Sort all cards and get the first available ones.
+        CardBase[] cardsToSort = _lockedCards.ToArray();
+        foreach (CardBase card in cardsToSort)
+        {
+            if (card.CheckRequirements())
+            {
+                _lockedCards.Remove(card);
+                _availableCards.Add(card);
+            }
+        }
 
         ShuffleDeck();
         // Pick out cards based on characters.
@@ -298,7 +308,8 @@ public class Deck : MonoBehaviour
                 //CardEvent cardToCheck = null;// availableCard.GetCard();
                 if (availableCard is CardSeries availableSeries)
                 {
-                    if (availableSeries.GetCurrentSeriesCard().CheckRequirements())
+                    CardEvent currentSeriesCard = availableSeries.GetCurrentSeriesCard();
+                    if (currentSeriesCard != null && currentSeriesCard.CheckRequirements())
                     {
                         //associatedCards.Add(availableCard.GetCard());
                         return availableCard.GetCard();
