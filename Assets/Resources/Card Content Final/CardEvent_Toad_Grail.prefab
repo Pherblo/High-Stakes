@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   associatedCharacter: {fileID: 8879443658972519502, guid: c622ae0b998b43d49966b41152aa1c11, type: 3}
-  _description: A musky, odorous, and abnormally rice-sack-sized frog barges into
+  _description: A musky, odorous, and abnormally rice-sack-sized toad barges into
     your home as it tries its best to hop towards you, but ultimately rolls on the
     floor instead. It sticks out its long spiny tongue, revealing a holy cup that
     it wants to give to you.
@@ -58,7 +58,7 @@ MonoBehaviour:
   popularityValueB: 0
   _dialogueA:
     _dialogueIsActive: 1
-    _dialogueText: Send the frog away. You've never seen any frog, nor any holy grail
+    _dialogueText: Send the toad away. You've never seen any frog, nor any holy grail
       from the church.
     _charactersToBeDead: []
   _dialogueB:

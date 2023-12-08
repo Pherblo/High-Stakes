@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   associatedCharacter: {fileID: 8879443658972519502, guid: c622ae0b998b43d49966b41152aa1c11, type: 3}
-  _description: You see a weirdly large and plump frog arrive at your doorstep. You
+  _description: You see a weirdly large and plump toad arrive at your doorstep. You
     do not know how, but you intuitively knew that the frog seems to be sick. It
     looks at you with pleading puppy eyes, whilst dripping with slimy mucus.
   _guaranteedCard: 0
@@ -61,7 +61,7 @@ MonoBehaviour:
     _charactersToBeDead: []
   _dialogueB:
     _dialogueIsActive: 1
-    _dialogueText: Cure the frog's illness.
+    _dialogueText: Cure the toad's illness.
     _charactersToBeDead: []
   _isEndCard: 0
   _endCardChoiceAScene: 

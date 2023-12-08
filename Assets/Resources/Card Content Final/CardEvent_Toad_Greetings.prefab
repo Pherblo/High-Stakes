@@ -45,9 +45,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   associatedCharacter: {fileID: 8879443658972519502, guid: c622ae0b998b43d49966b41152aa1c11, type: 3}
-  _description: A strangely-spherical, ball-shaped, and somehow 'spicy' frog comes
-    into your home. You stare at it, and it stares back. You've been staring for
-    minutes now, but the frog is doing nothing. It's simply there.
+  _description: A strangely-spherical, ball-shaped, elastic, and somehow 'spicy'
+    toad comes into your home. You stare at it, and it stares back. You've been staring
+    for minutes now, but the frog is doing nothing. It's simply there.
   _guaranteedCard: 0
   suspicionValueA: 0
   faithValueA: 0
@@ -57,11 +57,11 @@ MonoBehaviour:
   popularityValueB: 0
   _dialogueA:
     _dialogueIsActive: 1
-    _dialogueText: Kick the frog out.
+    _dialogueText: Kick the toad out.
     _charactersToBeDead: []
   _dialogueB:
     _dialogueIsActive: 1
-    _dialogueText: Greet the frog.
+    _dialogueText: Greet the toad respectfully.
     _charactersToBeDead: []
   _isEndCard: 0
   _endCardChoiceAScene: 

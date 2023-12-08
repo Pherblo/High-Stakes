@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   associatedCharacter: {fileID: 8879443658972519502, guid: c622ae0b998b43d49966b41152aa1c11, type: 3}
-  _description: A strange, largely bulbous, and perhaps smelly frog comes inside
+  _description: A strange, largely bulbous, and questionably smelly toad comes inside
     your abode, its sticky feet grappling the doormat as it hops with it, unable
     to let go. It extends its head without a neck towards you, presenting a glowing
     purple gem in its mouth.
@@ -62,7 +62,7 @@ MonoBehaviour:
     _charactersToBeDead: []
   _dialogueB:
     _dialogueIsActive: 1
-    _dialogueText: Take the glowing gem.
+    _dialogueText: Take the glowing yet slimy gem.
     _charactersToBeDead: []
   _isEndCard: 0
   _endCardChoiceAScene: 
