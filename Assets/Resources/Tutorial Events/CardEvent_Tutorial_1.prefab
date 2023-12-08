@@ -62,4 +62,7 @@ MonoBehaviour:
     _dialogueIsActive: 1
     _dialogueText: Leave! I dont want anything to do with you!
     _charactersToBeDead: []
+  _isEndCard: 0
+  _endCardChoiceAScene: 
+  _endCardChoiceBScene: 
   _conditions: []

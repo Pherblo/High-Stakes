@@ -64,6 +64,9 @@ MonoBehaviour:
     _dialogueIsActive: 1
     _dialogueText: I look forward to next time.
     _charactersToBeDead: []
+  _isEndCard: 1
+  _endCardChoiceAScene: Card Demo 7
+  _endCardChoiceBScene: Card Demo 7
   _conditions:
   - _cardReference: {fileID: 0}
     _choiceCondition: 1

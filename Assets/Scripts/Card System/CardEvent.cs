@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 // Enum list of options for selected dialogues
 public enum SelectedChoice
@@ -41,7 +42,11 @@ public class CardEvent : CardBase
     [Header("Dialogues")]
 	[SerializeField] private CardDialogue _dialogueA;
 	[SerializeField] private CardDialogue _dialogueB;
-	[Header("Conditions")]
+	[Header("End Card Settings")]
+	[SerializeField] private bool _isEndCard = false;
+	[SerializeField] private string _endCardChoiceAScene;
+    [SerializeField] private string _endCardChoiceBScene;
+    [Header("Conditions")]
 	// [SerializeField] private List<CardDialogue> _dialogueRequirements = new();
 	[SerializeField] private List<CardCondition> _conditions = new();
 
@@ -110,6 +115,18 @@ public class CardEvent : CardBase
 			suspicionValue = suspicionValueB;
 			faithValue = faithValueB;
 			popularityValue= popularityValueB;	
+		}
+
+		if (_isEndCard)
+		{
+			if (_pickedChoice == SelectedChoice.ChoiceA)
+			{
+				SceneManager.LoadScene(_endCardChoiceAScene);
+			}
+			else if (_pickedChoice == SelectedChoice.ChoiceB)
+			{
+                SceneManager.LoadScene(_endCardChoiceBScene);
+            }
 		}
     }
 

@@ -61,8 +61,11 @@ MonoBehaviour:
     _charactersToBeDead: []
   _dialogueB:
     _dialogueIsActive: 1
-    _dialogueText: Accept your death.
+    _dialogueText: Change your fate.
     _charactersToBeDead: []
+  _isEndCard: 1
+  _endCardChoiceAScene: StartMenu
+  _endCardChoiceBScene: Card Demo 7
   _conditions:
   - _cardReference: {fileID: 0}
     _choiceCondition: 0
