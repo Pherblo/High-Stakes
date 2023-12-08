@@ -295,12 +295,13 @@ public class Deck : MonoBehaviour
             foreach (CardBase availableCard in _availableCards)
             {
                 print($"RUNNING CHECK: current card: {availableCard}, available cards count: {_availableCards.Count}");
-                CardEvent cardToCheck = null;// availableCard.GetCard();
+                //CardEvent cardToCheck = null;// availableCard.GetCard();
                 if (availableCard is CardSeries availableSeries)
                 {
                     if (availableSeries.GetCurrentSeriesCard().CheckRequirements())
                     {
-                        associatedCards.Add(availableCard.GetCard());
+                        //associatedCards.Add(availableCard.GetCard());
+                        return availableCard.GetCard();
                     }
                 }
                 else if (availableCard.GetCard().AssociatedCharacterInstance == character)
@@ -324,7 +325,7 @@ public class Deck : MonoBehaviour
                     //card.OnDialogueSelected += ProcessCard;
                     //OnCardPicked?.Invoke(newCard);
                     //print(newCard);
-                    return card;
+                    return card.GetCard();
                 }
             }
         }
