@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6968691294569748046}
   - component: {fileID: 4317882935473067645}
   m_Layer: 0
-  m_Name: CardEvent_SalvadorNeedsANewTrick
+  m_Name: CardEvent_Salvador_NewTrick_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45,22 +45,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   associatedCharacter: {fileID: 1095002341841383241, guid: fd4a9a357ca293741bfde4ca586a1d4b, type: 3}
-  _description: Money has become an issue. Hmm, I need some help ending a life, I
-    wonder if you can help me out?
+  _description: Dear lady, it seems I've attracted the attention of some aristocratic
+    scum. It can't be helped, as my popularity has become a burden, yet I must work
+    for the sake of art! I want to commission you to make a mask that changes my
+    physical appearance.
   _guaranteedCard: 0
-  suspicionValueA: 10
-  faithValueA: 10
-  popularityValueA: 0
-  suspicionValueB: 0
-  faithValueB: -10
-  popularityValueB: 0
+  suspicionValueA: 0
+  faithValueA: 0
+  popularityValueA: -20
+  suspicionValueB: 10
+  faithValueB: 0
+  popularityValueB: 10
   _dialogueA:
     _dialogueIsActive: 1
-    _dialogueText: Ill give you some nightshade, but in return you must return the
-      soul to me...
+    _dialogueText: Produce a cursed mask that can never be taken off.
     _charactersToBeDead: []
   _dialogueB:
     _dialogueIsActive: 1
-    _dialogueText: I cant help you unfortunately.
+    _dialogueText: Produce a magical mask artifact for disguises.
     _charactersToBeDead: []
+  _isEndCard: 0
+  _endCardChoiceAScene: 
+  _endCardChoiceBScene: 
   _conditions: []

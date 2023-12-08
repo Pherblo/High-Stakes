@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6968691294569748046}
   - component: {fileID: 4317882935473067645}
   m_Layer: 0
-  m_Name: CardEvent_SalvadorNeedsANewTrick 2
+  m_Name: CardEvent_Salvador_NewTrick_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45,21 +45,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   associatedCharacter: {fileID: 1095002341841383241, guid: fd4a9a357ca293741bfde4ca586a1d4b, type: 3}
-  _description: "Oh no\u2026 Ive got the crown on my tail! I need a way to kill them
-    all, is this possible?"
+  _description: Ahh, simply killing has become too mundane. I hope to transform this
+    passionate work of mine into something more... beautiful, artistic, inspiring.
+    When they see the entrails I've laid out thoughtfully, they'll surely recognize
+    my masterpieces in the future!
   _guaranteedCard: 0
-  suspicionValueA: 30
-  faithValueA: 30
-  popularityValueA: 10
-  suspicionValueB: 0
+  suspicionValueA: 0
+  faithValueA: 0
+  popularityValueA: -20
+  suspicionValueB: 10
   faithValueB: 10
   popularityValueB: 0
   _dialogueA:
     _dialogueIsActive: 1
-    _dialogueText: Give them a potion of invincibility.
+    _dialogueText: Decline his commission.
     _charactersToBeDead: []
   _dialogueB:
     _dialogueIsActive: 1
-    _dialogueText: "Give them a potion of death with the label \u201Cinvincibility\u201D."
+    _dialogueText: Hand him an elegant cursed blade.
     _charactersToBeDead: []
+  _isEndCard: 0
+  _endCardChoiceAScene: 
+  _endCardChoiceBScene: 
   _conditions: []

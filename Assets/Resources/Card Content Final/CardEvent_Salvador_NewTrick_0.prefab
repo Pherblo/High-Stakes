@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6968691294569748046}
   - component: {fileID: 4317882935473067645}
   m_Layer: 0
-  m_Name: CardEvent_SalvadorNeedsANewTrick 1
+  m_Name: CardEvent_Salvador_NewTrick_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45,22 +45,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   associatedCharacter: {fileID: 1095002341841383241, guid: fd4a9a357ca293741bfde4ca586a1d4b, type: 3}
-  _description: Im afraid killing has become boring, could you help me spice it up
-    a little?
+  _description: Dear lady, I'm looking for some tools that can help... convince some
+    people, and help them sleep much better at night. I want to commission you with
+    making some more fun toys for me to play with.
   _guaranteedCard: 0
-  suspicionValueA: 10
-  faithValueA: 10
-  popularityValueA: 0
-  suspicionValueB: 0
-  faithValueB: -10
+  suspicionValueA: 0
+  faithValueA: 0
+  popularityValueA: -10
+  suspicionValueB: 10
+  faithValueB: 0
   popularityValueB: 0
   _dialogueA:
     _dialogueIsActive: 1
-    _dialogueText: Ill give you this ceremonial dagger, but in return you must give
-      me the soul you gain.
+    _dialogueText: Decline his commission.
     _charactersToBeDead: []
   _dialogueB:
     _dialogueIsActive: 1
-    _dialogueText: I cant think of anything for you.
+    _dialogueText: Give him hallucinogenic nightshade herbs.
     _charactersToBeDead: []
+  _isEndCard: 0
+  _endCardChoiceAScene: 
+  _endCardChoiceBScene: 
   _conditions: []
