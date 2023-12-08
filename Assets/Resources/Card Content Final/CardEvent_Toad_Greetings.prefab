@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6968691294569748046}
   - component: {fileID: 4317882935473067645}
   m_Layer: 0
-  m_Name: CardEvent_Toad_Toad1
+  m_Name: CardEvent_Toad_Greetings
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45,22 +45,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   associatedCharacter: {fileID: 8879443658972519502, guid: c622ae0b998b43d49966b41152aa1c11, type: 3}
-  _description: '*Croak.* Something is terribly wrong with this toad. It looks at
-    you with pleading eyes. '
+  _description: A strangely-spherical, ball-shaped, and somehow 'spicy' frog comes
+    into your home. You stare at it, and it stares back. You've been staring for
+    minutes now, but the frog is doing nothing. It's simply there.
   _guaranteedCard: 0
   suspicionValueA: 0
   faithValueA: 0
-  popularityValueA: -10
+  popularityValueA: 0
   suspicionValueB: 0
-  faithValueB: 10
+  faithValueB: 0
   popularityValueB: 0
   _dialogueA:
     _dialogueIsActive: 1
-    _dialogueText: Sweep it away with a broom.
+    _dialogueText: Kick the frog out.
     _charactersToBeDead: []
   _dialogueB:
     _dialogueIsActive: 1
-    _dialogueText: Offer it some medicinal herbs.
+    _dialogueText: Greet the frog.
     _charactersToBeDead: []
   _isEndCard: 0
   _endCardChoiceAScene: 
