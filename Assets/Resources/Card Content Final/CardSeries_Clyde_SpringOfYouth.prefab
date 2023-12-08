@@ -1,0 +1,51 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &761228513430525558
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5558949316002565483}
+  - component: {fileID: -9038223681642902021}
+  m_Layer: 0
+  m_Name: CardSeries_Clyde_SpringOfYouth
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5558949316002565483
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 761228513430525558}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-9038223681642902021
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 761228513430525558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b899a23ea08fef4b843fe9be5eac115, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _cardEvents:
+  - {fileID: 4317882935473067645, guid: ea6623c3f4daa7544a1c032a617929e7, type: 3}
+  - {fileID: 4317882935473067645, guid: f23aff945a5a03a40bc965aa2adac20e, type: 3}
+  - {fileID: 4317882935473067645, guid: dcfe051d5f0c8bd4aabc2f485416c453, type: 3}
+  - {fileID: 4317882935473067645, guid: 2223f720d00d9f84b80ce92aa0213f50, type: 3}

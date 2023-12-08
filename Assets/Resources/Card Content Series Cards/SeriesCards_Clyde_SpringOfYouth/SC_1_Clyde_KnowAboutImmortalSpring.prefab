@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6968691294569748046}
   - component: {fileID: 4317882935473067645}
   m_Layer: 0
-  m_Name: CardEvent_Jackneedswifey
+  m_Name: SC_1_Clyde_KnowAboutImmortalSpring
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,9 +44,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa8740551ebe6184eb914bebb0fafe14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  associatedCharacter: {fileID: 1095002341841383241, guid: 72747a2b3d9afc34889732b557b22c89, type: 3}
-  _description: I am in need of another housewife to help me with all my children.
-    Can you make a love potion for me?
+  associatedCharacter: {fileID: 1095002341841383241, guid: cb024f176ca5b5344b077ee2d8b12c2e, type: 3}
+  _description: "Hello madam, I asked you about immortality in my last visit.. Have
+    you heard about the fountain of youth? Do you think it\u2019s real? And that
+    if we drank from it, we could live forever?"
   _guaranteedCard: 0
   suspicionValueA: 0
   faithValueA: 0
@@ -56,11 +57,11 @@ MonoBehaviour:
   popularityValueB: 10
   _dialogueA:
     _dialogueIsActive: 1
-    _dialogueText: Give him a potion of disgust.
+    _dialogueText: Chase him out again.
     _charactersToBeDead: []
   _dialogueB:
     _dialogueIsActive: 1
-    _dialogueText: Give him a potion of love.
+    _dialogueText: Tell him it's a real place.
     _charactersToBeDead: []
   _isEndCard: 0
   _endCardChoiceAScene: 
