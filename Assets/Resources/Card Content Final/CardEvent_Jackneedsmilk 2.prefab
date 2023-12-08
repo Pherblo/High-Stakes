@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6968691294569748046}
   - component: {fileID: 4317882935473067645}
   m_Layer: 0
-  m_Name: CardEvent_Jackneedsmilk
+  m_Name: CardEvent_Jackneedsmilk 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45,21 +45,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   associatedCharacter: {fileID: 1095002341841383241, guid: 72747a2b3d9afc34889732b557b22c89, type: 3}
-  _description: My 12 kids are starving, and our cow Bessie can't produce enough
-    milk. Maybe you could give me a cow with infinite milk?
+  _description: Please help. My 7th wife is pregnant with my 13th daughter but has
+    become very sick. Is there anything you can do?
   _guaranteedCard: 0
   suspicionValueA: 10
-  faithValueA: 0
-  popularityValueA: 10
-  suspicionValueB: -10
-  faithValueB: 0
-  popularityValueB: -10
+  faithValueA: 10
+  popularityValueA: -10
+  suspicionValueB: 0
+  faithValueB: -10
+  popularityValueB: 10
   _dialogueA:
     _dialogueIsActive: 1
-    _dialogueText: '"Of course dear, here take this."'
+    _dialogueText: Offer to save his wife at the cost of their child's soul.
     _charactersToBeDead: []
   _dialogueB:
     _dialogueIsActive: 1
-    _dialogueText: '"You greedy man! of course not!"'
+    _dialogueText: Conjure a potion that cures his partner.
     _charactersToBeDead: []
+  _isEndCard: 0
+  _endCardChoiceAScene: 
+  _endCardChoiceBScene: 
   _conditions: []
