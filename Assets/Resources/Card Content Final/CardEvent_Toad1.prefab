@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa8740551ebe6184eb914bebb0fafe14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  associatedCharacter: {fileID: 1095002341841383241, guid: fd4a9a357ca293741bfde4ca586a1d4b, type: 3}
+  associatedCharacter: {fileID: 8879443658972519502, guid: c622ae0b998b43d49966b41152aa1c11, type: 3}
   _description: '*Croak.* Something is terribly wrong with this toad. It looks at
     you with pleading eyes. '
   _guaranteedCard: 0
