@@ -1120,29 +1120,13 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1101196512727390069, guid: 1c66e4199fe2a8c40adc7eb5fc5d3ba8, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 960
-      objectReference: {fileID: 0}
-    - target: {fileID: 1101196512727390069, guid: 1c66e4199fe2a8c40adc7eb5fc5d3ba8, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -525
-      objectReference: {fileID: 0}
     - target: {fileID: 3252934610937241991, guid: 1c66e4199fe2a8c40adc7eb5fc5d3ba8, type: 3}
       propertyPath: m_Name
       value: Version Canvas
       objectReference: {fileID: 0}
     - target: {fileID: 3507853442960959233, guid: 1c66e4199fe2a8c40adc7eb5fc5d3ba8, type: 3}
       propertyPath: m_text
-      value: Version 0.04.0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3507853442960959233, guid: 1c66e4199fe2a8c40adc7eb5fc5d3ba8, type: 3}
-      propertyPath: m_fontSize
-      value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: 3507853442960959233, guid: 1c66e4199fe2a8c40adc7eb5fc5d3ba8, type: 3}
-      propertyPath: m_fontSizeBase
-      value: 25
+      value: Version 0.04.01
       objectReference: {fileID: 0}
     - target: {fileID: 5807108242923033260, guid: 1c66e4199fe2a8c40adc7eb5fc5d3ba8, type: 3}
       propertyPath: m_Pivot.x
@@ -1223,10 +1207,6 @@ PrefabInstance:
     - target: {fileID: 5807108242923033260, guid: 1c66e4199fe2a8c40adc7eb5fc5d3ba8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9219352723283779284, guid: 1c66e4199fe2a8c40adc7eb5fc5d3ba8, type: 3}
-      propertyPath: m_SortingOrder
-      value: -1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
