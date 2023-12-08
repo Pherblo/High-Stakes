@@ -64,7 +64,12 @@ public class Deck : MonoBehaviour
     [Header("Variables to keep track of game")]
     private bool runningTutorial;
     private int cardNum = 0; //for keeping track of cards when drawing in order
+    private List<CardEvent> allCards2 = new();
 
+    private void Update()
+    {
+        print(allCards2[0].transform.name);
+    }
 
     public void Awake()
     {
@@ -76,24 +81,25 @@ public class Deck : MonoBehaviour
         CardBase[] cardPrefabs = Resources.LoadAll<CardBase>(_cardsPath);
         foreach (CardBase cardPrefab in cardPrefabs)
         {
-            CardBase cardInstance = null;
-            cardInstance = Instantiate(cardPrefab, transform);
+            CardBase cardInstance = Instantiate(cardPrefab, transform);
             if (cardInstance is CardEvent cardEventInstance) cardEventInstance.AssignDeck(this);
             _lockedCards.Add(cardInstance);
-
+            if (cardInstance is CardEvent cardEvent) allCards.Add(cardEvent);
+           // else if (cardInstance is CardSeries cardSeries) allSeries.Add(cardSeries);
             // If it's a card series, also instantiate all its cards.
-            if (cardPrefab is CardSeries cardSeriesInstance)
+            else if (cardInstance is CardSeries cardSeriesInstance)
             {
+                allSeries.Add(cardSeriesInstance);
+                Debug.LogWarning("adding card to series");
                 foreach (CardEvent seriesCard in cardSeriesInstance.CardEvents)
                 {
+                    Debug.LogWarning("adding card INSTANCE to series");
                     CardEvent seriesCardInstance = Instantiate(seriesCard, transform);
                     seriesCardInstance.AssignDeck(this);
                     cardSeriesInstance.AddCardToSeries(seriesCardInstance);
+                    allCards.Add(seriesCardInstance);
                 }
             }
-
-            if (cardInstance is CardEvent cardEvent) allCards.Add(cardEvent);
-            else if (cardInstance is CardSeries cardSeries) allSeries.Add(cardSeries);
         }
 
         // Load and instantiate tutorial series and its cards.
@@ -124,7 +130,7 @@ public class Deck : MonoBehaviour
         }
 
         // Add all cards from all CardSeries present.
-        foreach (CardSeries series in allSeries) allCards.AddRange(series.CardEvents);
+        //foreach (CardSeries series in allSeries) allCards.AddRange(series.CardEvents);
 
         // Create end cards.
         CardEvent[] loadedEndCard = Resources.LoadAll<CardEvent>(_endCardsPath);
@@ -147,8 +153,12 @@ public class Deck : MonoBehaviour
             // Assign character instances to matching associated character, conditions, and dialogues.
             foreach (CardEvent card in allCards)
             {
-                if (card.AssociatedCharacter == character) card.AssignCharacter(characterInstance);
-                foreach (CardCondition condition in card.Conditions)
+                if (card.AssociatedCharacter == character)
+                {
+                    Debug.LogWarning($"assigned char prefab to card: {card.transform.name}");
+                    card.AssignCharacter(characterInstance);
+                }
+                    foreach (CardCondition condition in card.Conditions)
                 {
                     if (condition.CharacterReference == character)
                     {
@@ -164,7 +174,12 @@ public class Deck : MonoBehaviour
             }
             foreach (CardEvent card in _endCards)
             {
-                if (card.AssociatedCharacter == character) card.AssignCharacter(characterInstance);
+                if (card.AssociatedCharacter == character)
+                {
+                    Debug.LogWarning($"assigned char prefab to card: {card.transform.name}");
+                    card.AssignCharacter(characterInstance);
+                }
+
                 foreach (CardCondition condition in card.Conditions)
                 {
                     if (condition.CharacterReference == character)
@@ -207,10 +222,12 @@ public class Deck : MonoBehaviour
         {
             _guaranteedCards.Add(card);
         }
+        allCards2 = allCards;
     }
 
     public CardEvent PickCard()
     {
+        print("PICKING CARD");
         runningTutorial = false; 
         // Pick end cards, if any.
         //Debug.LogWarning($"{_endCards[0].gameObject.name}, {_endCards[0].CheckRequirements()}, dialogue selected: {_selectedDialogues.Count}");
@@ -274,10 +291,32 @@ public class Deck : MonoBehaviour
             if (!character.IsAlive) continue;
 
             CardEvent newCard;
-            List<CardBase> associatedCards = _availableCards.FindAll((x) => x.GetCard().AssociatedCharacter == character);
-            
+            List<CardEvent> associatedCards = new();// _availableCards.FindAll((x) => x.GetCard().AssociatedCharacter == character);
+            foreach (CardBase availableCard in _availableCards)
+            {
+                print($"RUNNING CHECK: current card: {availableCard}, available cards count: {_availableCards.Count}");
+                CardEvent cardToCheck = null;// availableCard.GetCard();
+                if (availableCard is CardSeries availableSeries)
+                {
+                    if (availableSeries.GetCurrentSeriesCard().CheckRequirements())
+                    {
+                        associatedCards.Add(availableCard.GetCard());
+                    }
+                }
+                else if (availableCard.GetCard().AssociatedCharacterInstance == character)
+                {
+                    associatedCards.Add(cardToCheck);
+                }
+                else Debug.LogWarning("requirement not fulfilled");
+                /*if (availableCard is CardSeries availableSeries)
+                {
+                    availableSeries.DecrementSeriesIndex();    // temporary fix
+                    print("DECREMENTING: " + availableSeries.SeriesIndex);
+                }*/
+            }
             foreach (CardEvent card in associatedCards)
             {
+                Debug.LogWarning($"{card.gameObject.transform.name}");
                 newCard = card;
                 if (card.CheckRequirements())
                 {
@@ -288,7 +327,9 @@ public class Deck : MonoBehaviour
                 }
             }
         }
+
         // Do something if no valid card is returned (ran out of cards).
+        print("Returning default card");
         return _defaultEndCardInstance;
     }
 
@@ -475,4 +516,5 @@ public class Deck : MonoBehaviour
             }
         }
     }*/
+
 }

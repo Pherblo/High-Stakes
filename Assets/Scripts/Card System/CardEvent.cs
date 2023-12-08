@@ -55,8 +55,10 @@ public class CardEvent : CardBase
 	// public bool GuaranteedCard => _guaranteedCard;
 	public SelectedChoice PickedChoice => _pickedChoice;
 	public List<CardCondition> Conditions => _conditions;
+	public CharacterData AssociatedCharacterInstance => _associatedCharacterInstance;
 
 	private Deck _deckInstance;
+	private CharacterData _associatedCharacterInstance;
 
     public override CardEvent GetCard()
     {
@@ -70,7 +72,7 @@ public class CardEvent : CardBase
     // TODO: Improve this. Likely separate initial associatedCharacter variable from instanced associatedCharacter variable.
     public void AssignCharacter(CharacterData associatedCharacterInstance)
 	{
-        associatedCharacter = associatedCharacterInstance;
+        _associatedCharacterInstance = associatedCharacterInstance;
 	}
 
 	public void AssignDeck(Deck deck)

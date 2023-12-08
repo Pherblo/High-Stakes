@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
 
 public enum LifeCondition
@@ -49,8 +48,10 @@ public class CardCondition
     [SerializeField] private LifeCondition _lifeCondition = LifeCondition.None;
 
     private CharacterData _characterReferenceInstance;
+    private CardEvent _cardReferenceInstance;
 
     public CharacterData CharacterReference => _characterReference;
+    public CardEvent CardReferenceInstance => _cardReferenceInstance;
 
     public bool CheckCondition(List<CardDialogue> selectedChoices, Deck deck)
     {
@@ -127,6 +128,8 @@ public class CardCondition
         //Debug.LogWarning($"ASSIGNING HAR TO CONDITION! CHAR NAME: {instancedCharacter.Name}");
         _characterReferenceInstance = instancedCharacter;
     }
+
+    public void AssignCardReference(CardEvent instancedCardEvent) => _cardReferenceInstance = instancedCardEvent;
 
     private bool CheckStat(StatCondition condition, float statValue, float comparisonValue)
     {
