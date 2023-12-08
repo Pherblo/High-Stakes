@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   associatedCharacter: {fileID: 1095002341841383241, guid: 72747a2b3d9afc34889732b557b22c89, type: 3}
-  _description: Please help, my wife is pregnant with our 13st child and is very
+  _description: Please help, my wife is pregnant with our 13th child and is very
     sick. Is there anything you can do?
   _guaranteedCard: 0
   suspicionValueA: 0
