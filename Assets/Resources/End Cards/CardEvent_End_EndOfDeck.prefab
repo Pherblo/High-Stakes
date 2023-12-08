@@ -45,7 +45,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   associatedCharacter: {fileID: 8486864281894654719, guid: f446f56bc8fe023468d762d0a46e2622, type: 3}
-  _description: You reached the end of the deck.
+  _description: "How... irritating. How could you possibly have survived the suspicion
+    of those daft village folk? This did not go according to plan. But a deal is
+    a deal. You\u2019re now free from my service, as per our wager. Congratulations,
+    witch. Enjoy your freedom. For now."
   _guaranteedCard: 0
   suspicionValueA: 0
   faithValueA: 0
@@ -55,24 +58,30 @@ MonoBehaviour:
   popularityValueB: 0
   _dialogueA:
     _dialogueIsActive: 1
-    _dialogueText: End life.
+    _dialogueText: Good riddance.
     _charactersToBeDead: []
   _dialogueB:
     _dialogueIsActive: 1
-    _dialogueText: End life.
+    _dialogueText: I look forward to next time.
     _charactersToBeDead: []
   _conditions:
-  - _cardReference: {fileID: 4317882935473067645, guid: 75280082bb2dfde4bacf61c48326efa2, type: 3}
+  - _cardReference: {fileID: 0}
     _choiceCondition: 1
+    _suspicionCondition: 1
     _suspicionRequirement: 9999
+    _soulsCondition: 1
     _soulsRequirement: 0
+    _popularCondition: 1
     _popularityRequirement: 0
     _characterReference: {fileID: 0}
     _lifeCondition: 0
-  - _cardReference: {fileID: 4317882935473067645, guid: 75280082bb2dfde4bacf61c48326efa2, type: 3}
+  - _cardReference: {fileID: 0}
     _choiceCondition: 2
+    _suspicionCondition: 1
     _suspicionRequirement: 9999
+    _soulsCondition: 1
     _soulsRequirement: 0
+    _popularCondition: 1
     _popularityRequirement: 0
     _characterReference: {fileID: 0}
     _lifeCondition: 0

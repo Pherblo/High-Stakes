@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6968691294569748046}
   - component: {fileID: 4317882935473067645}
   m_Layer: 0
-  m_Name: CardEvent_End_BurnOnStake
+  m_Name: CardEvent_End_BurnOnStakeSus
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45,7 +45,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   associatedCharacter: {fileID: 8486864281894654719, guid: 4e1c94ba648a8844b917d341f9bdee6c, type: 3}
-  _description: You are burned at the stake.
+  _description: "That night, you find an angry mob at your doorstep. You barely have
+    time to plead for your life before you\u2019ve been tied to a burning stake\u2026"
   _guaranteedCard: 0
   suspicionValueA: 0
   faithValueA: 0
@@ -55,11 +56,11 @@ MonoBehaviour:
   popularityValueB: 0
   _dialogueA:
     _dialogueIsActive: 1
-    _dialogueText: End life.
+    _dialogueText: Accept your death.
     _charactersToBeDead: []
   _dialogueB:
     _dialogueIsActive: 1
-    _dialogueText: End life.
+    _dialogueText: Accept your death.
     _charactersToBeDead: []
   _conditions:
   - _cardReference: {fileID: 0}

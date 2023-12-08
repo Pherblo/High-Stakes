@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6968691294569748046}
   - component: {fileID: 4317882935473067645}
   m_Layer: 0
-  m_Name: CardEvent_End_GodDeath
+  m_Name: CardEvent_End_BurnOnStakePop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,9 +44,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa8740551ebe6184eb914bebb0fafe14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  associatedCharacter: {fileID: 8486864281894654719, guid: d5f560b241e05ff49947a9a8a0ab5d1e, type: 3}
-  _description: "You\u2019ve disappointed me, witch. Since you\u2019ve failed to
-    harvest enough souls for me, I\u2019ll be taking yours."
+  associatedCharacter: {fileID: 8486864281894654719, guid: 4e1c94ba648a8844b917d341f9bdee6c, type: 3}
+  _description: Everyone loves you. There is a constant stream of visitors to your
+    door. The church hears word of this, and organizes a coup to have you burnt at
+    the stake.
   _guaranteedCard: 0
   suspicionValueA: 0
   faithValueA: 0
@@ -56,20 +57,20 @@ MonoBehaviour:
   popularityValueB: 0
   _dialogueA:
     _dialogueIsActive: 1
-    _dialogueText: Submit your soul.
+    _dialogueText: Accept your death.
     _charactersToBeDead: []
   _dialogueB:
     _dialogueIsActive: 1
-    _dialogueText: Submit your soul.
+    _dialogueText: Accept your death.
     _charactersToBeDead: []
   _conditions:
   - _cardReference: {fileID: 0}
     _choiceCondition: 0
     _suspicionCondition: 0
     _suspicionRequirement: 0
-    _soulsCondition: 1
+    _soulsCondition: 0
     _soulsRequirement: 0
-    _popularCondition: 0
-    _popularityRequirement: 0
+    _popularCondition: 1
+    _popularityRequirement: 100
     _characterReference: {fileID: 0}
     _lifeCondition: 0
