@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _name: Diseased Toad
-  _title: Strange Wildlife
+  _title: Omniscient One
   _isAlive: 1
   _characterArt: {fileID: 21300000, guid: 57a5e989767e826428a30b6cb6c1ef86, type: 3}
   _cardEvents:

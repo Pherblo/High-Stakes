@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _name: Salvador
-  _title: Common Theif
+  _title: Dark Guild
   _isAlive: 1
   _characterArt: {fileID: 21300000, guid: bc3fdd7a3472ed24d9f0dc9d4f8c2ab8, type: 3}
   _cardEvents:

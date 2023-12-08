@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _name: Draven
-  _title: Thief
+  _title: Aristocrat
   _isAlive: 1
   _characterArt: {fileID: 21300000, guid: 563d605a52fb0834f9433555bb5199a0, type: 3}
   _cardEvents:
