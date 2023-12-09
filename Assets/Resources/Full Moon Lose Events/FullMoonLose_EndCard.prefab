@@ -59,6 +59,9 @@ MonoBehaviour:
     _charactersToBeDead: []
   _dialogueB:
     _dialogueIsActive: 1
-    _dialogueText: accept defeat
+    _dialogueText: Try Again
     _charactersToBeDead: []
+  _isEndCard: 1
+  _endCardChoiceAScene: StartMenu
+  _endCardChoiceBScene: Card Demo 7
   _conditions: []

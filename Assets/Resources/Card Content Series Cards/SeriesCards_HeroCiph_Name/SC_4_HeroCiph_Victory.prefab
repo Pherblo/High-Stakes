@@ -52,7 +52,7 @@ MonoBehaviour:
   suspicionValueA: -20
   faithValueA: 0
   popularityValueA: 20
-  suspicionValueB: 0
+  suspicionValueB: 10
   faithValueB: 50
   popularityValueB: 0
   _dialogueA:
@@ -64,6 +64,9 @@ MonoBehaviour:
     _dialogueIsActive: 1
     _dialogueText: Have him spread your faith.
     _charactersToBeDead: []
+  _isEndCard: 0
+  _endCardChoiceAScene: 
+  _endCardChoiceBScene: 
   _conditions:
   - _cardReference: {fileID: 4317882935473067645, guid: e744a47d6be77274bb4c34097b884c46, type: 3}
     _choiceCondition: 2

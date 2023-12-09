@@ -51,7 +51,7 @@ MonoBehaviour:
   suspicionValueA: 10
   faithValueA: 0
   popularityValueA: 10
-  suspicionValueB: -10
+  suspicionValueB: 10
   faithValueB: 0
   popularityValueB: 20
   _dialogueA:
@@ -62,6 +62,9 @@ MonoBehaviour:
     _dialogueIsActive: 1
     _dialogueText: Give her a potion to make him not think she is beautiful
     _charactersToBeDead: []
+  _isEndCard: 0
+  _endCardChoiceAScene: 
+  _endCardChoiceBScene: 
   _conditions:
   - _cardReference: {fileID: -131500270773427077, guid: 3402953d41bf3c049921ae88baa7f304, type: 3}
     _choiceCondition: 1

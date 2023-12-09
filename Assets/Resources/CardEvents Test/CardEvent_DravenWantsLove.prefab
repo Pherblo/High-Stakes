@@ -51,7 +51,7 @@ MonoBehaviour:
   suspicionValueA: 20
   faithValueA: 10
   popularityValueA: 5
-  suspicionValueB: -10
+  suspicionValueB: 10
   faithValueB: -5
   popularityValueB: 15
   _dialogueA:
@@ -62,4 +62,7 @@ MonoBehaviour:
     _dialogueIsActive: 1
     _dialogueText: Give him a hate potion
     _charactersToBeDead: []
+  _isEndCard: 0
+  _endCardChoiceAScene: 
+  _endCardChoiceBScene: 
   _conditions: []

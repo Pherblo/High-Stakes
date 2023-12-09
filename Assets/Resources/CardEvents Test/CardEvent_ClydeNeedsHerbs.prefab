@@ -48,7 +48,7 @@ MonoBehaviour:
   _description: Madam, the doctor had ran out of medicinal herbs. Perchance you have
     some to spare for us?
   _guaranteedCard: 0
-  suspicionValueA: 0
+  suspicionValueA: -20
   faithValueA: 0
   popularityValueA: 10
   suspicionValueB: 10
@@ -62,4 +62,7 @@ MonoBehaviour:
     _dialogueIsActive: 1
     _dialogueText: 'Give poisonous herbs '
     _charactersToBeDead: []
+  _isEndCard: 0
+  _endCardChoiceAScene: 
+  _endCardChoiceBScene: 
   _conditions: []

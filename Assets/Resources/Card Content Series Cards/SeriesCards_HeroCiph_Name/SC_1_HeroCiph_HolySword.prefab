@@ -48,10 +48,10 @@ MonoBehaviour:
   _description: I've obtained a revelation. There's a holy sword somewhere out there,
     and I need to obtain it to gain more power. Help me find its whereabouts.
   _guaranteedCard: 0
-  suspicionValueA: 0
+  suspicionValueA: -5
   faithValueA: 10
   popularityValueA: 0
-  suspicionValueB: 0
+  suspicionValueB: 5
   faithValueB: -10
   popularityValueB: 0
   _dialogueA:
@@ -62,4 +62,7 @@ MonoBehaviour:
     _dialogueIsActive: 1
     _dialogueText: Reveal the holy sword's location.
     _charactersToBeDead: []
+  _isEndCard: 0
+  _endCardChoiceAScene: 
+  _endCardChoiceBScene: 
   _conditions: []

@@ -56,10 +56,13 @@ MonoBehaviour:
   popularityValueB: 0
   _dialogueA:
     _dialogueIsActive: 1
-    _dialogueText: Thank you my lord!
+    _dialogueText: I want to continue serving you my lord!
     _charactersToBeDead: []
   _dialogueB:
     _dialogueIsActive: 1
-    _dialogueText: Freedom at last
+    _dialogueText: Freedom at last!
     _charactersToBeDead: []
+  _isEndCard: 1
+  _endCardChoiceAScene: Card Demo 7
+  _endCardChoiceBScene: StartMenu
   _conditions: []
