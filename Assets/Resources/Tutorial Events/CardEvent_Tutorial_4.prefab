@@ -46,12 +46,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   associatedCharacter: {fileID: 8486864281894654719, guid: f446f56bc8fe023468d762d0a46e2622, type: 3}
   _description: "Remember\u2026 it might make you look a little bad when people start
-    going missing. If the church starts getting suspicious it will show here, keep
-    this bottle low."
-  suspicionValueA: 0
+    going missing. If the church starts getting suspicious it will show in this bottle
+    labeled suspicion. If they're onto you they will make sure you can't cause anymore
+    problems."
+  _guaranteedCard: 0
+  suspicionValueA: -10
   faithValueA: 0
   popularityValueA: 0
-  suspicionValueB: 0
+  suspicionValueB: -10
   faithValueB: 0
   popularityValueB: 0
   _dialogueA:
@@ -62,4 +64,7 @@ MonoBehaviour:
     _dialogueIsActive: 1
     _dialogueText: No need to worry.
     _charactersToBeDead: []
+  _isEndCard: 0
+  _endCardChoiceAScene: 
+  _endCardChoiceBScene: 
   _conditions: []

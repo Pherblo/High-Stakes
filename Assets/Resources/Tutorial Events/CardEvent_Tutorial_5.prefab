@@ -46,15 +46,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   associatedCharacter: {fileID: 8486864281894654719, guid: f446f56bc8fe023468d762d0a46e2622, type: 3}
   _description: And who doesn't love being popular amongst the towns folk? ... If
-    I were you, I would'nt want to know what horrible things happen when your popularity
-    bottle empties.
+    I were you, I wouldn't want to know what horrible things happen when the bottle
+    labeled popularity bottle empties...
   _guaranteedCard: 0
   suspicionValueA: 0
   faithValueA: 0
-  popularityValueA: 0
+  popularityValueA: -10
   suspicionValueB: 0
   faithValueB: 0
-  popularityValueB: 0
+  popularityValueB: -10
   _dialogueA:
     _dialogueIsActive: 1
     _dialogueText: People love a good witch.
@@ -63,4 +63,7 @@ MonoBehaviour:
     _dialogueIsActive: 1
     _dialogueText: Not everyone likes what I do.
     _charactersToBeDead: []
+  _isEndCard: 0
+  _endCardChoiceAScene: 
+  _endCardChoiceBScene: 
   _conditions: []
